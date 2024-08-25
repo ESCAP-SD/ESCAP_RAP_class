@@ -1,0 +1,15 @@
+name: escap_rap_scraper
+
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+  - python=3.10
+  - ipykernel
+  - pandas
+  - scipy
+  - jupyterlab
+  - requests
+  - beautifulsoup4
+  - docutils

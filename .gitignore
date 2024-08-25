@@ -1,0 +1,22 @@
+# notebook content not relevant in the git
+.ipynb_checkpoints
+*.log
+__temp__*
+
+#draw.io interim file
+*.bkp
+
+# Whole folders
+env/*
+data/raw/*
+build/*
+
+# Data files
+*.csv
+*.feather
+*.pkl
+*.zip
+*.gzip
+*.h5
+*.xlsx
+*.parquet
