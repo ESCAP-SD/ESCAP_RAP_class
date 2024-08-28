@@ -20,3 +20,4 @@ build/*
 *.h5
 *.xlsx
 *.parquet
+/.quarto/
