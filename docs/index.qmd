@@ -1,7 +1,9 @@
----
-title: "temp"
----
+# ESCAP training on Reproducible Analytical Pipelines (RAP) for price statistics
 
-This is a Quarto website.
+:::{.callout-note}
+This page is still under construction 
+:::
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Training overview
+
+The RAP training will consist of two classes and this repository, which can be explored later
