@@ -23,7 +23,7 @@ website:
     left:
       - href: docs/index.qmd
         text: Overview
-      - href: docs/teaching-material/index.qmd
+      - href: docs/teaching_materials/teaching.qmd
         text: Teaching materials
       - href: docs/process-mapping.qmd
         text: Mapping the process
