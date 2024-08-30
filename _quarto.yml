@@ -1,6 +1,9 @@
 project:
   type: website
 
+execute:
+  freeze: auto
+
 website:
   title: "ESCAP training on RAP for consumer price statistics"
   favicon: src/rap_hex.png
