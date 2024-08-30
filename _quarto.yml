@@ -10,11 +10,16 @@ website:
   repo-url: https://github.com/sergegoussev/ESCAP_RAP_class
   issue-url: https://github.com/sergegoussev/ESCAP_RAP_class
   repo-actions: [issue, source]
-  page-navigation: true
-  navbar:
-    left:
+  sidebar:
+    search: true
+    collapse-level: 1
+    contents:
       - href: docs/index.qmd
-        text: Overview of RAP training
+        text: Overview
+      - href: docs/teaching-material/material.qmd
+        text: Teaching materials
+      - href: docs/context.qmd
+        text: Web scraping for CPI production - context
 
 format:
   html:
