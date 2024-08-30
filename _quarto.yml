@@ -1,0 +1,23 @@
+project:
+  type: website
+
+website:
+  title: "ESCAP training on RAP for consumer price statistics"
+  favicon: src/rap_hex.png
+  repo-url: https://github.com/sergegoussev/ESCAP_RAP_class
+  issue-url: https://github.com/sergegoussev/ESCAP_RAP_class
+  repo-actions: [issue, source]
+  page-navigation: true
+  navbar:
+    left:
+      - href: docs/index.qmd
+        text: Overview of RAP training
+
+format:
+  html:
+    theme: cosmo
+    css: docs/styles.css
+    toc: true
+
+
+
