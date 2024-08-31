@@ -1,4 +1,4 @@
-# Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP) 
+# Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)
 
 ![](../src/ESCAP_LOGO_OFFICIAL.png)
 
@@ -10,7 +10,7 @@ This page is still under construction
 
 As part of the Big Data Project, over the summer of 2024, ESCAP has been providing capacity support to project countries that have indicated web scraping for price statistics as a priority – by providing training on web scraping. Check out the [rich training website](https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5) for more details about the training in general, watch videos of past sessions, and review the materials.
 
-A key topic of this training is Reproducible Analytical Pipelines or RAP. RAP was originally developed in the United Kingdom government to improve the processes that government teams use to make their outputs more reproducible, as well as speed up their production processes. RAP is really a framework – that brings together a range of open source tools, techniques from fields like reproducible research, software engineering, and DevOps to make statistical releases easily reproducible, testable, and auditable (check out the [original article from 2017 ](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/)explaining the concept and the purpose). Given that its a framework for mature processes, it can also be applied to the critical aspect of web scraping – as data collection and preparation for the CPI should be robust and highly reproducible!
+A key topic of this training is Reproducible Analytical Pipelines or RAP. RAP was originally developed in the United Kingdom government to improve the processes that government teams use to make their outputs more reproducible, as well as speed up their production processes. RAP is really a framework – that brings together a range of open source tools, techniques from fields like reproducible research, software engineering, and DevOps to make statistical releases easily reproducible, testable, and auditable (check out the [original article from 2017](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/)explaining the concept and the purpose). Given that its a framework for mature processes, it can also be applied to the critical aspect of web scraping – as data collection and preparation for the CPI should be robust and highly reproducible!
 
 The purpose of this course is thus to teach RAP to project countries and help them apply the concept to web scraping, but also help them practice the techniques and tools so that RAP can be applied to other pipelines to produce the CPI or other official statistics.
 
@@ -19,12 +19,12 @@ The purpose of this course is thus to teach RAP to project countries and help th
 This site is used to structure and store the RAP training materials. Specifically, it aims to:
 
 -   Summarize how the training is structured and provide copies of the training slides
-    -   Check out the \[training scope\](/teaching_materials/teaching.qmd);
-    -   As well as the slides for the September 11, 2024 session, as well as the September 18, 2024 session
+    -   Check out the [training scope](teaching_materials/teaching.qmd);
+    -   As well as the slides for the [September 11, 2024 session](teaching_materials/sept_11/README.qmd), as well as the [September 18, 2024 session](teaching_materials/sept_18/README.qmd)
 -   It contains an example pipeline to scrape a website and create an output data file. This example acts as a demonstration of a production piece of software to demonstrate how jupyter notebooks that were heavily demonstrated in the virtual training are transformed into a more mature process that can be run regularly to support the CPI:
-    -   The site thus demonstrates \[various RAP principles in action\](scraper_docs/scraper-docs.qmd) in a simple way. This documentation is thus meant to show the key concept, but not necessarily be comprehensive.
+    -   The site thus demonstrates [various RAP principles in action](scraper_docs/scraper-docs.qmd) in a simple way. This documentation is thus meant to show the key concept, but not necessarily be comprehensive.
     -   The site also stores the code to operate the scraping RAP and documents its operational aspects
--   The site also provides an visual overview (via a process map) how a web scraper pipeline such as the one demonstrated can be integrated into other aspects of the CPI production process, commenting on how RAP can be applied to other aspects.
+-   The site also provides a [visual overview (via a process map)](process-mapping.qmd) how a web scraper pipeline such as the one demonstrated can be integrated into other aspects of the CPI production process, commenting on how RAP can be applied to other aspects.
 
 ## Useful reading
 
