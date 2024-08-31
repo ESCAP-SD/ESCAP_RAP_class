@@ -17,7 +17,7 @@ website:
     type: overlay
   navbar:
     background: light
-    logo-alt: "Quarto logo."
+    logo-alt: "src/ESCAP_LOGO_OFFICIAL.png"
     title: false
     collapse-below: lg
     left:
