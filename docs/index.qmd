@@ -20,7 +20,7 @@ This site is used to structure and store the RAP training materials. Specificall
 
 -   Summarize how the training is structured and provide copies of the training slides
     -   Check out the [training scope](teaching_materials/teaching.qmd);
-    -   As well as the slides for the [September 11, 2024 session](teaching_materials/teaching.qmd##rap-session-1), as well as the [September 18, 2024 session](teaching_materials/teaching.qmd##rap-session-2)
+    -   As well as the slides for the [September 11, 2024 session](teaching_materials/teaching.qmd#rap-session-1), as well as the [September 18, 2024 session](teaching_materials/teaching.qmd#rap-session-2)
 -   It contains an example pipeline to scrape a website and create an output data file. This example acts as a demonstration of a production piece of software to demonstrate how jupyter notebooks that were heavily demonstrated in the virtual training are transformed into a more mature process that can be run regularly to support the CPI:
     -   The site thus demonstrates [various RAP principles in action](scraper_docs/scraper-docs.qmd) in a simple way. This documentation is thus meant to show the key concept, but not necessarily be comprehensive.
     -   The site also stores the code to operate the scraping RAP and documents its operational aspects
@@ -32,6 +32,6 @@ This site (and the training) does not aim to be comprehensive but simply demonst
 
 -   The [NHS RAP Communitity of Practice](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/) – that contains lots more useful content
 -   The [RAP Companion](https://ukgovdatascience.github.io/rap_companion/) - which provides a good guide for each component (although focuses on R);
--   The [Udemy class on **Reproducible Analytical Pipelines (RAP) using R**](https://www.udemy.com/course/reproducible-analytical-pipelines/)- provides a good overview
+-   The [Udemy class on *Reproducible Analytical Pipelines (RAP) using R*](https://www.udemy.com/course/reproducible-analytical-pipelines/)- provides a good overview
 -   A [presentation](https://unece.org/sites/default/files/2023-05/7.4%20United%20Kingdom_0.pdf) and a [paper](https://unece.org/sites/default/files/2023-05/7.4%20UK_un_systems_railfares_paper.pdf) providing a good guide of the application of RAP to price statistics, specifically for rail fares
 -   and many more!
