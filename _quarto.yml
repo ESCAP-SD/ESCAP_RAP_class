@@ -27,8 +27,8 @@ website:
         text: Teaching materials
       - href: docs/process-mapping.qmd
         text: Mapping the process
-      - href: docs/scraper-docs.qmd
-        text: Scraper demo
+      - href: docs/scraper_docs/scraper-docs.qmd
+        text: Scraper docs
 format:
   html:
     theme: cosmo
