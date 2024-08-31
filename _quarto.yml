@@ -6,7 +6,7 @@ execute:
 
 website:
   title: "ESCAP training on RAP"
-  image: src/ESCAP_LOGO_OFFICIAL.png
+  logo: src/ESCAP_LOGO_OFFICIAL.png
   favicon: src/rap_hex.png
   repo-url: https://github.com/sergegoussev/ESCAP_RAP_class
   issue-url: https://github.com/sergegoussev/ESCAP_RAP_class/issues/new
@@ -17,7 +17,7 @@ website:
     type: overlay
   navbar:
     background: light
-    logo-alt: "src/ESCAP_LOGO_OFFICIAL.png"
+    logo-alt: src/ESCAP_LOGO_OFFICIAL.png
     title: false
     collapse-below: lg
     left:
