@@ -6,7 +6,6 @@ execute:
 
 website:
   title: "ESCAP training on RAP"
-  image: src/ESCAP_LOGO_OFFICIAL.png
   favicon: src/rap_hex.png
   repo-url: https://github.com/sergegoussev/ESCAP_RAP_class
   issue-url: https://github.com/sergegoussev/ESCAP_RAP_class/issues/new
@@ -17,7 +16,8 @@ website:
     type: overlay
   navbar:
     background: light
-    logo-alt: "Quarto logo."
+    logo: src/ESCAP_LOGO_OFFICIAL.png
+    logo-alt: logo
     title: false
     collapse-below: lg
     left:
@@ -27,8 +27,8 @@ website:
         text: Teaching materials
       - href: docs/process-mapping.qmd
         text: Mapping the process
-      - href: docs/scraper-docs.qmd
-        text: Scraper demo
+      - href: docs/scraper_docs/scraper-docs.qmd
+        text: Scraper docs
 format:
   html:
     theme: cosmo

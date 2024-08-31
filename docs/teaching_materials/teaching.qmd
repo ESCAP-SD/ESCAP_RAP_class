@@ -1,3 +1,4 @@
+1_finalize_scope
 # Documentation for the Reproducible Analytic Pipelines class held by ESCAP
 
 ::: callout-note
