@@ -16,7 +16,7 @@ website:
     type: overlay
   navbar:
     background: light
-    logo: src/ESCAP_LOGO_OFFICIAL.png
+    logo: src/rap_hex.png
     logo-alt: logo
     title: false
     collapse-below: lg
