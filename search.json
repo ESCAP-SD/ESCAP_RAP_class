@@ -44,9 +44,23 @@
   {
     "objectID": "docs/teaching_materials/teaching.html",
     "href": "docs/teaching_materials/teaching.html",
-    "title": "Detailed overview of sessions given by ESCAP on RAP",
+    "title": "ESCAP training on RAP",
     "section": "",
-    "text": "Detailed overview of sessions given by ESCAP on RAP"
+    "text": "1_finalize_scope # Documentation for the Reproducible Analytic Pipelines class held by ESCAP\nReproducible Analytic Pipelines (or RAP) is taught by UN ESCAP in two sessions. This training includes several components"
+  },
+  {
+    "objectID": "docs/teaching_materials/teaching.html#scope-for-the-training",
+    "href": "docs/teaching_materials/teaching.html#scope-for-the-training",
+    "title": "ESCAP training on RAP",
+    "section": "Scope for the training",
+    "text": "Scope for the training\nRAP is a large topic and it has its own Udemy course, supporting sites (such as the RAP companion), as well as communities of practice. ESCAP can’t thus hope to cover it in full, but instead aims to provide a detailed enough overview so that member countries being trained on web scraping for the CPI can benefit from maturity principles that RAP represents.\n\nOverall objective\nThe overall objective of the RAP training is to provide an overview of key RAP principles, cover the value it brings to official statistics, as well as train class participants up to figure out just enough so that they can proceed on their own and help bring in RAP it into their own work. Class participants (who ESCAP trains) can thus become trainers in their own National Statistical Organizations (NSOs) - helping their teams and groups continue to learn more about RAP, explore each of the best practices, and learn how to implement it into their research or official statistics (i.e. production). In a more formal sense, this RAP class is thus aims to increase the capacity of participating NSOs to learn RAP and apply it for their continued modernization, and especially the implementation of alternative (web scrape most notably) data for consumer price statistics. Two sessions provide fist an overview and second a deeper dive on RAP\n\n\nOverview of RAP: September 11th session\nObjective: Introduce ideas inherent in RAP and have participants walk away with an understanding why technical maturity skills are important and how RAP can help them mature their organization Topics to cover: * Why RAP is important to learn * What is RAP in more detail and what problem is it aiming to solve * Outline of key RAP principles and how they would help * Discussion on maturity levels - to show that its not all or nothing * Very brief demo of a use case to demonstrate something and walk away from the more theoretical ideas * Some caveats to keep in mind and wrap up for what you will see in person!"
+  },
+  {
+    "objectID": "docs/teaching_materials/teaching.html#rap-session-2",
+    "href": "docs/teaching_materials/teaching.html#rap-session-2",
+    "title": "ESCAP training on RAP",
+    "section": "Deeper dive into RAP components: September 18th session",
+    "text": "Deeper dive into RAP components: September 18th session\nObjective: Building on the initial training on RAP, go deeper into the components to really get the principles across. To help anchor the components, a use case can be used to understand how a little bit more about each aspect, and some hands-on exercises will help learners get a better appreciation of the tasks. Topics to cover: * Quick overview to recap the previous session * Deeper coverage of principles - weaving the use case into each component: * Automation * Modularity, re-usability, etc * Transparency * Open source tools * Version control * Good coding practices * Testing * Peer review * Exercise\nExercise in detail: To help anchor several of the technical skills in RAP, participants should spend about an hour in person (helped by the mentors who are there in person) try one (or two?) of a set of possible topics. Specifically, depending on their programming skills, access to a computer with Python, or knowledge of the overall process, participants can pick from several topics to spend an hour trying to implement. Possible topics: * Detailed mapping of the web scraping process - sketch out how your country’s specific web scraping needs to to be automated. Plan out the components and sub-components of the process to practice design and planning ahead of coding. * Develop unit tests - write a few scenarios for a specific task that would be a clearly encapsulated single function in the code. Then develop test data and create a unit test for this task * Partner up and try peer review - first develop a notebook (or script) to do some scraping. Then commit it to a github repository and then ask someone to peer review it using a separate branch (and a pull request) or simply an issue - to create transparency.\nFor all examples, some experience in python and setup of git with a github account is needed"
   },
   {
     "objectID": "docs/scraper_docs/scraper-docs.html",
