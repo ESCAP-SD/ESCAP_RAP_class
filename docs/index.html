@@ -97,8 +97,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Mapping the process</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../docs/scraper-docs.html"> 
-<span class="menu-text">Scraper demo</span></a>
+    <a class="nav-link" href="../docs/scraper_docs/scraper-docs.html"> 
+<span class="menu-text">Scraper docs</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -116,9 +116,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#escap-training-on-reproducible-analytical-pipelines-rap-for-price-statistics" id="toc-escap-training-on-reproducible-analytical-pipelines-rap-for-price-statistics" class="nav-link active" data-scroll-target="#escap-training-on-reproducible-analytical-pipelines-rap-for-price-statistics">ESCAP training on Reproducible Analytical Pipelines (RAP) for price statistics</a>
+  <li><a href="#web-scraping-for-the-cpi-training-on-reproducible-analytical-pipelines-rap" id="toc-web-scraping-for-the-cpi-training-on-reproducible-analytical-pipelines-rap" class="nav-link active" data-scroll-target="#web-scraping-for-the-cpi-training-on-reproducible-analytical-pipelines-rap">Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)</a>
   <ul class="collapse">
-  <li><a href="#training-overview" id="toc-training-overview" class="nav-link" data-scroll-target="#training-overview">Training overview</a></li>
+  <li><a href="#context" id="toc-context" class="nav-link" data-scroll-target="#context">Context</a></li>
+  <li><a href="#how-the-site-can-help-you-and-guide-to-navigating-it" id="toc-how-the-site-can-help-you-and-guide-to-navigating-it" class="nav-link" data-scroll-target="#how-the-site-can-help-you-and-guide-to-navigating-it">How the site can help you and guide to navigating it</a></li>
+  <li><a href="#useful-reading" id="toc-useful-reading" class="nav-link" data-scroll-target="#useful-reading">Useful reading</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -129,8 +131,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="escap-training-on-reproducible-analytical-pipelines-rap-for-price-statistics" class="level1">
-<h1>ESCAP training on Reproducible Analytical Pipelines (RAP) for price statistics</h1>
+<section id="web-scraping-for-the-cpi-training-on-reproducible-analytical-pipelines-rap" class="level1">
+<h1>Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)</h1>
+<p><img src="../src/ESCAP_LOGO_OFFICIAL.png" class="img-fluid"></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -144,9 +147,39 @@ Note
 <p>This page is still under construction</p>
 </div>
 </div>
-<section id="training-overview" class="level2">
-<h2 class="anchored" data-anchor-id="training-overview">Training overview</h2>
-<p>The RAP training will consist of two classes and this repository, which can be explored later</p>
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>As part of the Big Data Project, over the summer of 2024, ESCAP has been providing capacity support to project countries that have indicated web scraping for price statistics as a priority – by providing training on web scraping. Check out the <a href="https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5">rich training website</a> for more details about the training in general, watch videos of past sessions, and review the materials.</p>
+<p>A key topic of this training is Reproducible Analytical Pipelines or RAP. RAP was originally developed in the United Kingdom government to improve the processes that government teams use to make their outputs more reproducible, as well as speed up their production processes. RAP is really a framework – that brings together a range of open source tools, techniques from fields like reproducible research, software engineering, and DevOps to make statistical releases easily reproducible, testable, and auditable (check out the <a href="https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/">original article from 2017</a>explaining the concept and the purpose). Given that its a framework for mature processes, it can also be applied to the critical aspect of web scraping – as data collection and preparation for the CPI should be robust and highly reproducible!</p>
+<p>The purpose of this course is thus to teach RAP to project countries and help them apply the concept to web scraping, but also help them practice the techniques and tools so that RAP can be applied to other pipelines to produce the CPI or other official statistics.</p>
+</section>
+<section id="how-the-site-can-help-you-and-guide-to-navigating-it" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-site-can-help-you-and-guide-to-navigating-it">How the site can help you and guide to navigating it</h2>
+<p>This site is used to structure and store the RAP training materials. Specifically, it aims to:</p>
+<ul>
+<li>Summarize how the training is structured and provide copies of the training slides
+<ul>
+<li>Check out the [training scope](/teaching_materials/teaching.qmd);</li>
+<li>As well as the slides for the September 11, 2024 session, as well as the September 18, 2024 session</li>
+</ul></li>
+<li>It contains an example pipeline to scrape a website and create an output data file. This example acts as a demonstration of a production piece of software to demonstrate how jupyter notebooks that were heavily demonstrated in the virtual training are transformed into a more mature process that can be run regularly to support the CPI:
+<ul>
+<li>The site thus demonstrates [various RAP principles in action](scraper_docs/scraper-docs.qmd) in a simple way. This documentation is thus meant to show the key concept, but not necessarily be comprehensive.</li>
+<li>The site also stores the code to operate the scraping RAP and documents its operational aspects</li>
+</ul></li>
+<li>The site also provides an visual overview (via a process map) how a web scraper pipeline such as the one demonstrated can be integrated into other aspects of the CPI production process, commenting on how RAP can be applied to other aspects.</li>
+</ul>
+</section>
+<section id="useful-reading" class="level2">
+<h2 class="anchored" data-anchor-id="useful-reading">Useful reading</h2>
+<p>This site (and the training) does not aim to be comprehensive but simply demonstrate and document the key concepts. For more on RAP, we encourage you to check out:</p>
+<ul>
+<li>The <a href="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/">NHS RAP Communitity of Practice</a> – that contains lots more useful content</li>
+<li>The <a href="https://ukgovdatascience.github.io/rap_companion/">RAP Companion</a> - which provides a good guide for each component (although focuses on R);</li>
+<li>The <a href="https://www.udemy.com/course/reproducible-analytical-pipelines/">Udemy class on <strong>Reproducible Analytical Pipelines (RAP) using R</strong></a>- provides a good overview</li>
+<li>A <a href="https://unece.org/sites/default/files/2023-05/7.4%20United%20Kingdom_0.pdf">presentation</a> and a <a href="https://unece.org/sites/default/files/2023-05/7.4%20UK_un_systems_railfares_paper.pdf">paper</a> providing a good guide of the application of RAP to price statistics, specifically for rail fares</li>
+<li>and many more!</li>
+</ul>
 
 
 </section>
