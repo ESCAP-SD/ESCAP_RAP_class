@@ -1,5 +1,9 @@
 # Documentation for the Reproducible Analytic Pipelines class held by ESCAP
 
+::: callout-note
+This pages provides an overview of the course, but the actual material is still being finalized
+:::
+
 Reproducible Analytic Pipelines (or RAP) is taught by UN ESCAP in two sessions. This training includes several components
 
 ## Scope for the training
@@ -10,7 +14,7 @@ RAP is a large topic and it has its own [Udemy course](https://www.udemy.com/cou
 
 The overall objective of the RAP training is to provide an overview of key RAP principles, cover the value it brings to official statistics, as well as train class participants up to figure out just enough so that they can proceed on their own and help bring in RAP it into their own work. Class participants (who ESCAP trains) can thus become trainers in their own National Statistical Organizations (NSOs) - helping their teams and groups continue to learn more about RAP, explore each of the best practices, and learn how to implement it into their research or official statistics (i.e. production). In a more formal sense, this RAP class is thus aims to increase the capacity of participating NSOs to learn RAP and apply it for their continued modernization, and especially the implementation of alternative (web scrape most notably) data for consumer price statistics. Two sessions provide fist an overview and second a deeper dive on RAP
 
-### Overview of RAP: September 11th session
+### Overview of RAP: September 11th session {#rap-session-1}
 
 **Objective:** Introduce ideas inherent in RAP and have participants walk away with an understanding why technical maturity skills are important and how RAP can help them mature their organization
 **Topics to cover:**
@@ -21,7 +25,7 @@ The overall objective of the RAP training is to provide an overview of key RAP p
 * Very brief demo of a use case to demonstrate something and walk away from the more theoretical ideas
 * Some caveats to keep in mind and wrap up for what you will see in person!
 
-## Deeper dive into RAP components: September 18th session
+## Deeper dive into RAP components: September 18th session {#rap-session-2}
 
 **Objective:** Building on the initial training on RAP, go deeper into the components to really get the principles across. To help anchor the components, a use case can be used to understand how a little bit more about each aspect, and some hands-on exercises will help learners get a better appreciation of the tasks.
 **Topics to cover:**
