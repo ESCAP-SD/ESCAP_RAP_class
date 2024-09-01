@@ -8,7 +8,7 @@ This page is still under construction
 
 Web scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index. The below diagram provides an overview of 4 main steps that include the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.
 
-![High level overview of the steps to process web scrape data for the CPI](images/ads-process-overview-high-level-overview.drawio.svg){#fig-1 fig-alt="Read diagram from left to right. Starting with the scraping process, four main steps are needed to create input for the CPI"}
+![High level overview of the steps to process web scrape data for the CPI](images/ads-scraping-scraping-process-overview.png){#fig-1 fig-alt="Read diagram from left to right. Starting with the scraping process, four main steps are needed to create input for the CPI"}
 
 Each step is made up of one or more sub-components:
 
