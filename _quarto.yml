@@ -14,12 +14,14 @@ website:
   search:
     show-item-context: true
     type: overlay
-  navbar:
-    background: light
+  sidebar:
+    style: "docked"
+    search: true
+    type: "dark"
     logo: src/rap_hex.png
     logo-alt: logo
-    title: false
-    collapse-below: lg
+    logo-href: docs/index.qmd
+    border: true
     left:
       - href: docs/index.qmd
         text: Overview
@@ -29,6 +31,14 @@ website:
         text: Mapping the process
       - href: docs/scraper_docs/scraper-docs.qmd
         text: Scraper docs
+  page-footer: 
+    left: "2024, ESCAP"
+    right: 
+      - icon: github
+        href: https://github.com/sergegoussev/ESCAP_RAP_class
+      - icon: globe 
+        href: https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5
+
 format:
   html:
     theme: cosmo
