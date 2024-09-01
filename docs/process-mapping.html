@@ -141,7 +141,17 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#context-of-how-web-scraping-integrates-into-a-production-cpi-pipeline" id="toc-context-of-how-web-scraping-integrates-into-a-production-cpi-pipeline" class="nav-link active" data-scroll-target="#context-of-how-web-scraping-integrates-into-a-production-cpi-pipeline">Context of how web scraping integrates into a production CPI pipeline</a>
   <ul class="collapse">
-  <li><a href="#putting-web-scraping-in-context" id="toc-putting-web-scraping-in-context" class="nav-link" data-scroll-target="#putting-web-scraping-in-context">Putting web scraping in context</a></li>
+  <li><a href="#overview-of-the-ads-processing-view" id="toc-overview-of-the-ads-processing-view" class="nav-link" data-scroll-target="#overview-of-the-ads-processing-view">Overview of the ADS processing view</a>
+  <ul class="collapse">
+  <li><a href="#how-does-rap-come-into-this" id="toc-how-does-rap-come-into-this" class="nav-link" data-scroll-target="#how-does-rap-come-into-this">How does RAP come into this?</a></li>
+  </ul></li>
+  <li><a href="#deep-dive-into-each-component" id="toc-deep-dive-into-each-component" class="nav-link" data-scroll-target="#deep-dive-into-each-component">Deep dive into each component</a>
+  <ul class="collapse">
+  <li><a href="#web-scraping-close-up" id="toc-web-scraping-close-up" class="nav-link" data-scroll-target="#web-scraping-close-up">Web scraping close up</a></li>
+  <li><a href="#data-processing-close-up" id="toc-data-processing-close-up" class="nav-link" data-scroll-target="#data-processing-close-up">Data processing close up</a></li>
+  <li><a href="#classification-close-up" id="toc-classification-close-up" class="nav-link" data-scroll-target="#classification-close-up">Classification close up</a></li>
+  <li><a href="#price-index-step-close-up" id="toc-price-index-step-close-up" class="nav-link" data-scroll-target="#price-index-step-close-up">Price Index step close up</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/process-mapping.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -167,14 +177,69 @@ Note
 <p>This page is still under construction</p>
 </div>
 </div>
-<section id="putting-web-scraping-in-context" class="level2">
-<h2 class="anchored" data-anchor-id="putting-web-scraping-in-context">Putting web scraping in context</h2>
+<section id="overview-of-the-ads-processing-view" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-the-ads-processing-view">Overview of the ADS processing view</h2>
+<p>Web scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index. The below diagram provides an overview of 4 main steps that include the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.</p>
+<div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Read diagram from left to right. Starting with the scraping process, four main steps are needed to create input for the CPI">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/ads-process-overview-high-level-overview.drawio.svg" class="img-fluid figure-img" alt="Read diagram from left to right. Starting with the scraping process, four main steps are needed to create input for the CPI">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: High level overview of the steps to process web scrape data for the CPI
+</figcaption>
+</figure>
+</div>
+<p>Each step is made up of one or more sub-components:</p>
+<ul>
+<li>The web scraping step contains the scraping aspect itself,<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> but also includes dataset validation that will help make sure that the scraper is operating as it is expected, as well as reports for review;<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+<li>The data processing step contains the process to standardizing and preparation step.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+<li>The classification step contains several sub-steps, such as identifying unique products to classify, the classification method itself, and the manual validation of classification (in cases there are errors).<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
+<li>For the price index step, many sub-steps are involved.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
+</ul>
+<section id="how-does-rap-come-into-this" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-rap-come-into-this">How does RAP come into this?</h3>
+<p>Given this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistial (in our case) process into one corpus (i.e.&nbsp;repository with all contexts) – we can:</p>
+<ol type="a">
+<li>Encapsulate the whole process in one repository. As RAP is meant to help minimize coupling (dependencies) between separate processes – treating the whole process end-to-end as one RAP is useful if no steps in this pipeline have to be shared with other pipelines.</li>
+<li>Encapsulate each step into a separate RAP. This may be appropriate if several processing phases are done on the data and other steps (such as manual ones) are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></li>
+<li>Encapsulate as appropriate. Several steps could be combined to simplify the process and if separation is not required, such as the web scraping and data processing steps.</li>
+</ol>
+<p>For this guide and for the demo RAP scraper, we will follow approach (b) by developing a RAP for just the scraping step.</p>
+</section>
+</section>
+<section id="deep-dive-into-each-component" class="level2">
+<h2 class="anchored" data-anchor-id="deep-dive-into-each-component">Deep dive into each component</h2>
+<p>It is useful to know a bit more about each process to better understand how RAP can be applied for each step.</p>
+<section id="web-scraping-close-up" class="level3">
+<h3 class="anchored" data-anchor-id="web-scraping-close-up">Web scraping close up</h3>
+</section>
+<section id="data-processing-close-up" class="level3">
+<h3 class="anchored" data-anchor-id="data-processing-close-up">Data processing close up</h3>
+</section>
+<section id="classification-close-up" class="level3">
+<h3 class="anchored" data-anchor-id="classification-close-up">Classification close up</h3>
+</section>
+<section id="price-index-step-close-up" class="level3">
+<h3 class="anchored" data-anchor-id="price-index-step-close-up">Price Index step close up</h3>
 
 
 </section>
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>See <a href="https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/">Practical guidelines on web scraping for the HICP (2020)</a>, specifically Annex I and VII for mor<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>See <a href="https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data">Monitoring, validation and plausibility checks for web scraped data</a> (UN e-Handbook) for more details<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>See <a href="https://unstats.un.org/wiki/display/GWGSD/Preparation+of+data">Preparation of data</a> (UN e-Handbook) for more handbook.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>For an overview of Classification process in production and other operational aspects, see “<a href="https://stats.unece.org/ottawagroup/download/Workshop-un-tt-og-2024-classification-presentation.pdf">Classification of Alternative Data Sources</a>”, 2024-05-14. For an overview of the 5 main classification methods, see “<a href="https://unece.org/sites/default/files/2023-06/Workshop%20II%20Denmark.pdf">Classifying Alterantive Data Sources for Consumer Prices Statistics: Methods and best practices</a>”, 2023-06-08.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>See “<a href="https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/">Practical guidelines on web scraping for the HICP (2020)</a>” for more details<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>See <a href="https://unece.org/sites/default/files/2023-05/7.4%20UK_un_systems_railfares_paper.pdf">Price (2023) Developing reproducible analytical pipelines for the transformation of consumer price statistics: rail fares</a> for more details, for instance 5.2 outlines Pipeline tables and how different pipelines interact over a specific data architecture.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

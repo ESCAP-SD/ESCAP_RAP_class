@@ -58,7 +58,37 @@
     "href": "docs/process-mapping.html",
     "title": "Context of how web scraping integrates into a production CPI pipeline",
     "section": "",
-    "text": "Note\n\n\n\nThis page is still under construction",
+    "text": "Note\n\n\n\nThis page is still under construction\n\n\n\n\nWeb scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index. The below diagram provides an overview of 4 main steps that include the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.\n\n\n\n\n\n\nFigure 1: High level overview of the steps to process web scrape data for the CPI\n\n\n\nEach step is made up of one or more sub-components:\n\nThe web scraping step contains the scraping aspect itself,1 but also includes dataset validation that will help make sure that the scraper is operating as it is expected, as well as reports for review;2\nThe data processing step contains the process to standardizing and preparation step.3\nThe classification step contains several sub-steps, such as identifying unique products to classify, the classification method itself, and the manual validation of classification (in cases there are errors).4\nFor the price index step, many sub-steps are involved.5\n\n\n\nGiven this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistial (in our case) process into one corpus (i.e. repository with all contexts) – we can:\n\nEncapsulate the whole process in one repository. As RAP is meant to help minimize coupling (dependencies) between separate processes – treating the whole process end-to-end as one RAP is useful if no steps in this pipeline have to be shared with other pipelines.\nEncapsulate each step into a separate RAP. This may be appropriate if several processing phases are done on the data and other steps (such as manual ones) are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture.6\nEncapsulate as appropriate. Several steps could be combined to simplify the process and if separation is not required, such as the web scraping and data processing steps.\n\nFor this guide and for the demo RAP scraper, we will follow approach (b) by developing a RAP for just the scraping step.\n\n\n\n\nIt is useful to know a bit more about each process to better understand how RAP can be applied for each step.",
+    "crumbs": [
+      "Mapping the process"
+    ]
+  },
+  {
+    "objectID": "docs/process-mapping.html#overview-of-the-ads-processing-view",
+    "href": "docs/process-mapping.html#overview-of-the-ads-processing-view",
+    "title": "Context of how web scraping integrates into a production CPI pipeline",
+    "section": "",
+    "text": "Web scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index. The below diagram provides an overview of 4 main steps that include the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.\n\n\n\n\n\n\nFigure 1: High level overview of the steps to process web scrape data for the CPI\n\n\n\nEach step is made up of one or more sub-components:\n\nThe web scraping step contains the scraping aspect itself,1 but also includes dataset validation that will help make sure that the scraper is operating as it is expected, as well as reports for review;2\nThe data processing step contains the process to standardizing and preparation step.3\nThe classification step contains several sub-steps, such as identifying unique products to classify, the classification method itself, and the manual validation of classification (in cases there are errors).4\nFor the price index step, many sub-steps are involved.5\n\n\n\nGiven this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistial (in our case) process into one corpus (i.e. repository with all contexts) – we can:\n\nEncapsulate the whole process in one repository. As RAP is meant to help minimize coupling (dependencies) between separate processes – treating the whole process end-to-end as one RAP is useful if no steps in this pipeline have to be shared with other pipelines.\nEncapsulate each step into a separate RAP. This may be appropriate if several processing phases are done on the data and other steps (such as manual ones) are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture.6\nEncapsulate as appropriate. Several steps could be combined to simplify the process and if separation is not required, such as the web scraping and data processing steps.\n\nFor this guide and for the demo RAP scraper, we will follow approach (b) by developing a RAP for just the scraping step.",
+    "crumbs": [
+      "Mapping the process"
+    ]
+  },
+  {
+    "objectID": "docs/process-mapping.html#deep-dive-into-each-component",
+    "href": "docs/process-mapping.html#deep-dive-into-each-component",
+    "title": "Context of how web scraping integrates into a production CPI pipeline",
+    "section": "",
+    "text": "It is useful to know a bit more about each process to better understand how RAP can be applied for each step.",
+    "crumbs": [
+      "Mapping the process"
+    ]
+  },
+  {
+    "objectID": "docs/process-mapping.html#footnotes",
+    "href": "docs/process-mapping.html#footnotes",
+    "title": "Context of how web scraping integrates into a production CPI pipeline",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nSee Practical guidelines on web scraping for the HICP (2020), specifically Annex I and VII for mor↩︎\nSee Monitoring, validation and plausibility checks for web scraped data (UN e-Handbook) for more details↩︎\nSee Preparation of data (UN e-Handbook) for more handbook.↩︎\nFor an overview of Classification process in production and other operational aspects, see “Classification of Alternative Data Sources”, 2024-05-14. For an overview of the 5 main classification methods, see “Classifying Alterantive Data Sources for Consumer Prices Statistics: Methods and best practices”, 2023-06-08.↩︎\nSee “Practical guidelines on web scraping for the HICP (2020)” for more details↩︎\nSee Price (2023) Developing reproducible analytical pipelines for the transformation of consumer price statistics: rail fares for more details, for instance 5.2 outlines Pipeline tables and how different pipelines interact over a specific data architecture.↩︎",
     "crumbs": [
       "Mapping the process"
     ]
