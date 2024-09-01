@@ -16,13 +16,13 @@ website:
     type: overlay
   sidebar:
     style: "docked"
-    search: true
     type: "dark"
+    search: true
     logo: src/rap_hex.png
     logo-alt: logo
-    logo-href: docs/index.qmd
+    logo-href: index.qmd
     border: true
-    left:
+    contents:
       - href: docs/index.qmd
         text: Overview
       - href: docs/teaching_materials/teaching.qmd
@@ -45,7 +45,7 @@ format:
     css: docs/styles.css
     toc: true
     grid:
-      sidebar-width: 250px
+      sidebar-width: 350px
       body-width: 900px
       margin-width: 300px
 
