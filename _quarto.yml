@@ -12,7 +12,7 @@ website:
   repo-actions: [issue, source]
   bread-crumbs: true
   search:
-    show-item-context: true
+    location: sidebar
     type: overlay
   sidebar:
     style: "docked"
