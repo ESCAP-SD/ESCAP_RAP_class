@@ -369,7 +369,7 @@ For \textbf{outputs}
         \only<2>{ \small  \texttt{Stat\_Desc\_Table.pdf} \\
                     \texttt{Price\_Stat\_Table.pdf}\\
                     \texttt{Dress\_Prices\_Graphic.jpg}\\
-                    \texttt{Trouser\_prices\_Results.csv} \\ }
+                    \texttt{All\_prices\_Results.csv} \\ }
     \end{itemize}
   \end{column}
 \end{columns}
@@ -398,37 +398,38 @@ For \textbf{outputs}
 \end{frame}
 
 
-\end{document}
 
 \begin{frame}
 \frametitle{Organize your work }
 \textcolor{siap}{\textbf{Use a version control system  (Git/GitHub)}} \\
 \vspace{0.5cm}
 \begin{center}
- \includegraphics[width=0.7\textwidth]{GitHistory.png}
+ \includegraphics[width=0.7\textwidth]{FileHistory.PNG} \\
+ 
+\large{\textbf{ More on Version Control later }}
+
 \end{center}
 \end{frame}
 
-\section{Code for others}
+\subsection{Code for others}
 
 \begin{frame}[<+->]
 \frametitle{Code for others (including your "\emph{future self}")}
 \textcolor{siap}{\textbf{Program with style:}} \\
           \begin{itemize}
-             \item Use \emph{literate programming}
-             \item[] \begin{center}
+             \item[]  \only<1>{Use \emph{literate programming} }
+             \only<1>{ \begin{center}
                     ``\textit{Let us concentrate rather on explaining to humans \\ what we want the computer to do}'' \\
-                    \hfill \textcolor{gris}{ D. Knuth (1984)}
-             \end{center}
-             \item Use conventions on layout (Comments, indentation,...)  \\
-             \href{https://style.tidyverse.org/index.html}{\includegraphics[width=0.5\textwidth]{TidyverseStyle.png}}
+                    \hfill \textcolor{gris}{ D. Knuth (1984)} 
+             \end{center}}
+             \only<2>{ Use conventions on layout (Comments, indentation,...)  \\
+             \href{https://peps.python.org/pep-0008/}{\includegraphics[width=0.8\textwidth]{PEP8-Style.png}}}
          \end{itemize}
 \end{frame}
 
 
-
 \begin{frame}
-\frametitle{Code for others}
+\frametitle{Code for others \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<-- XXXX To revise this}} }
 \textcolor{siap}{\textbf{Program with style}} \\
 \begin{columns}[t]
  \begin{column}{0.3\textwidth}
@@ -462,9 +463,9 @@ For \textbf{outputs}
 
 
 %%%%%%
-\section{DRY}
+\subsection{DRY}
 \begin{frame}
-\frametitle{\textbf{D}o not \textbf{R}epeat \textbf{Y}ourself}
+\frametitle{\textbf{D}o not \textbf{R}epeat \textbf{Y}ourself   \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
 
 \textcolor{siap}{\textbf{Create reusable objects}} \\
 \begin{columns}[t]
@@ -524,14 +525,16 @@ For \textbf{outputs}
 \end{frame}
 
 
-
-
-
-\subsection{Examples}
-
 \section{Version Control}
 
 
+
+
+
+
+
+
+\section{Resources}
 \begin{frame}{Useful resources}
   \begin{itemize}
     \item The UK government RAP \href{https://ukgovdatascience.github.io/rap-website/index.html}{website}.
