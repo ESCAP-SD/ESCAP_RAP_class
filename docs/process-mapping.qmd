@@ -6,9 +6,13 @@ This page is still under construction
 
 ## Overview of the ADS processing view
 
-Web scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index. The below diagram provides an overview of 4 main steps that include the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.
+Web scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index. The below sections first provide an overview of the key step and options of how RAP cap apply to the overall process, then go through each step in order to gather detailed requirements for the web scraping step.
 
-![High level overview of the steps to process web scrape data for the CPI](images/ads-scraping-scraping-process-overview.png){#fig-1 fig-alt="Read diagram from left to right. Starting with the scraping process, four main steps are needed to create input for the CPI"}
+### Overview of all the steps
+
+The below diagram provides an overview of 4 main steps that include the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.
+
+![High level overview of the steps to process web scrape data for the CPI](images/ads-process-overview-high-level-overview.drawio.svg){#fig-1 fig-alt="Read diagram from left to right. Starting with the scraping process, four main steps are needed to create input for the CPI"}
 
 Each step is made up of one or more sub-components:
 
@@ -41,12 +45,20 @@ For this guide and for the demo RAP scraper, we will follow approach (b) by deve
 
 ## Deep dive into each component
 
-It is useful to know a bit more about each process to better understand how RAP can be applied for each step.
+To develop a robust RAP implementation of the webscraping component, we should first go through the downstream steps in order to fully understand them and formulate all applicable requirements.
 
-### Web scraping close up
+### Price Index step close up
 
-### Data processing close up
+Aggregate across time
+
+Aggregate across products
+
+Aggregation methods
+
+Integration / Aggregation structures
 
 ### Classification close up
 
-### Price Index step close up
+### Data processing close up
+
+### Requirements for the web scraping step
