@@ -527,10 +527,197 @@ For \textbf{outputs}
 
 \section{Version Control}
 
+\begin{frame} % Cover slide
+\frametitle{Version Control keeps tracks of your work}
+Tracking three \textbf{W} questions:
+\begin{columns}[t]
+ \begin{column}{0.5\textwidth}
+ \begin{itemize}[<+->]
+ \item[] \textcolor{siap}{\textbf{W}}hat changes?
+ \item[] \textcolor{siap}{\textbf{W}}ho made the changes?
+ \item[] \textcolor{siap}{\textbf{W}}hen were the changes made?
+ \end{itemize}
+ \end{column}
+  \begin{column}{0.5\textwidth}
+    \begin{center}
+    \begin{itemize}
+        \only<1-4>{ \includegraphics[width=0.95\textwidth]{FileHistory.PNG} \\  }
+       \only<1-4>{\hfill  \textcolor{gris}{\tiny{Source: \href{https://the-turing-way.netlify.app/reproducible-research/vcs.html}{The Turing Way project}}}}
+    \end{itemize}
+    \end{center}
+  \end{column}
+\end{columns}
+\end{frame}
 
 
 
+\begin{frame}{Transparency, Accountability \& Reproducibility}
+    \begin{itemize}[<+->]
+        \item Version control provides a detailed history of changes
+        \item Each modification is attributed to a specific user
+        \item Promotes accountability, transparency \&  reproducibility
+    \end{itemize}
+\end{frame}
 
+\subsection{File evolution}
+
+\begin{frame}{The evolution of a file \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
+\begin{center}
+\begin{itemize}
+   \only<1> {\includegraphics[width = 1.0\textwidth]{FileChange1a.png} \\ }
+   \only<2> {\includegraphics[width = 1.0\textwidth]{FileChange2a.png} \\ }
+   \only<3> {\includegraphics[width = 1.0\textwidth]{FileChange3a.png} \\ }
+   \only<4> {\includegraphics[width = 1.0\textwidth]{FileChange4a.png} \\ }
+   \only<5> {\includegraphics[width = 1.0\textwidth]{FileChange5a.png} \\ }
+   \only<6> {\includegraphics[width = 1.0\textwidth]{FileChange6a.png} \\ }
+   \only<7> {\includegraphics[width = 1.0\textwidth]{FileChange7a.png} \\ }
+\end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}{The evolution of a file  \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
+Usual ways to keep track of changes:
+\pause
+\begin{columns}[t]
+\begin{column}{0.6\textwidth}
+\begin{itemize}[<+->]
+        \item New file after each change
+        \item[$\hookrightarrow$] Need to open each file to see the change
+        \item[$\hookrightarrow$] Names have to be explicit
+        \item Only the last file with lots of comments
+        \item Not fulfilling the 3 \textcolor{siap}{\textbf{W}}...
+
+    \end{itemize}
+ \end{column}
+  \begin{column}{0.4\textwidth}
+    \begin{center}
+    \begin{itemize}
+        \only<1-4>{ \includegraphics[width=1.0\textwidth]{FileLifeAll.png} \\  }
+        \only<5-6>{ \includegraphics[width=0.95\textwidth]{FileLifeFinalFinal.png} \\  }
+       % \only<7>{ \includegraphics[width=1.0\textwidth]{FileLifeAll.png} \\  }
+       % \only<7>{\hfill \includegraphics[width=0.5\textwidth]{FileLifeFinalFinal.png} \\  }
+
+    \end{itemize}
+    \end{center}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Main Commands}
+
+\begin{frame}{The evolution \textcolor{brique}{with Version Control}}
+Record a message (\emph{commit})  for each change!
+\begin{center}
+\begin{itemize}
+   \only<1> {\includegraphics[width = 1.0\textwidth]{FileLife1.png} \\ }
+   \only<2> {\includegraphics[width = 1.0\textwidth]{FileLife2.png} \\ }
+   \only<3> {\includegraphics[width = 1.0\textwidth]{FileLife3.png} \\ }
+   \only<4> {\includegraphics[width = 1.0\textwidth]{FileLife4.png} \\ }
+   \only<5> {\includegraphics[width = 1.0\textwidth]{FileLife5.png} \\ }
+   \only<6> {\includegraphics[width = 1.0\textwidth]{FileLife6.png} \\ }
+   \only<7> {\includegraphics[width = 1.0\textwidth]{FileLife7.png} \\ }
+\end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}{The history of the file is recorded!}
+\begin{center}
+\begin{itemize}
+   \only<1-2> {Each version is documented (with \emph{commits}) \\ }
+   \only<1-2> {\includegraphics[width = 1.0\textwidth]{FileLifeHistoryEnd.png} \\ }
+   \only<3-4> {Each version embeds the full history!  }
+   \only<3-4> {\includegraphics[width = 1.0\textwidth]{FileLifeHistoryFull.png} \\ }
+\end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}{Going back and "undo" is possible}
+\begin{center}
+\begin{itemize}
+   \only<1-2> {It is possible to review previous version... \\ }
+   \only<1-2> {\includegraphics[width = 1.0\textwidth]{FileLifeBack.png} \\ }
+   \only<3-4> {...to compare the changes...  }
+   \only<3-4> {\includegraphics[width = 1.0\textwidth]{FileLifeDiff.png} \\ }
+   \only<5-6> {... and to revert  to a  previous version... }
+   \only<5-6> {\includegraphics[width = 1.0\textwidth]{FileLifeRevert.png} \\ }
+   \only<7-8> {... or \emph{undo} as if nothing happened }
+   \only<7-8> {\includegraphics[width = 1.0\textwidth]{FileLifeRevert2.png} \\ }
+
+\end{itemize}
+\end{center}
+\end{frame}
+
+\subsection{Complexity}
+
+\begin{frame}{Good and Bad News  \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
+Real life is more complex:
+\pause
+\begin{columns}[t]
+\begin{column}{0.6\textwidth}
+\begin{itemize}[<+->]
+        \item[\textbf{+}] Version Control is integrated in Visual Studio (\& RStudio)
+        \item[$\hookrightarrow$] Simple operations are easy
+        \item[\textbf{+}] Collaborate on a project
+        \item[$\hookrightarrow$] Track changes of others
+        \item[\textbf{-}] Git is a bit  ``\emph{unfriendly}'' % \href{https://git-scm.com/}{\includegraphics[width=0.1\textwidth]{GitLogo.png}}
+        \item[$\hookrightarrow$] Complex situations appear easily
+        \item[\textbf{-}] Git works \emph{mostly } in command mode
+    \end{itemize}
+ \end{column}
+  \begin{column}{0.4\textwidth}
+    \begin{center}
+    \begin{itemize}
+        \only<1-3>{ \includegraphics[width=0.95\textwidth]{Rstudio-git-screenshot.png} \\  }
+        \only<1-3>{\textcolor{gris}{\tiny{\href{https://happygitwithr.com/rstudio-see-git}{"\emph{Happy Git and GitHub for the useR}" (Jennifer Bryan)}}}}
+        \only<4-5>{ \includegraphics[width=0.95\textwidth]{GitCloneSmall.png} \\  }
+        \only<6-7>{ \includegraphics[width=0.6\textwidth]{GitError1.png} \\
+                    \hfill \includegraphics[width=0.6\textwidth]{GitError2.png} \\
+                     \includegraphics[width=0.6\textwidth]{GitError3.png} \\ }
+         \only<8>{ \includegraphics[width=0.9\textwidth]{GitPrompt.png} \\  }
+         \only<8>{ \textcolor{gris}{\tiny{ \href{https://www.c-sharpcorner.com/article/git-for-absolute-beginners-with-command-line-interface/}{Ashish Vishwakarma}}}}
+
+    \end{itemize}
+    \end{center}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Version Control in a Nutshell \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
+Version control system:
+\begin{columns}[t]
+\begin{column}{0.6\textwidth}
+\begin{itemize}[<+->]
+    \item Allows to travel back in time
+    \item Keeps track of all changes
+    \item Allows to "undo" at any point
+    \item Allows reviewing stages of development
+    \item Allow collaborating on projects
+    \item Backups your work
+  \end{itemize}
+ \end{column}
+  \begin{column}{0.4\textwidth}
+    \begin{center}
+    \begin{itemize}
+        \only<1-6>{\includegraphics[width=0.8\textwidth]{github-mark.png} }
+        \only<1-6>{ \textcolor{gris}{\tiny{ \href{https://www.c-sharpcorner.com/article/git-for-absolute-beginners-with-command-line-interface/}{GitHub logo}}}}
+    \end{itemize}
+    \end{center}
+  \end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Takeaways \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
+\pause
+
+\begin{itemize}[<+->]
+    \item Version control is very useful \includegraphics[width=0.05\textwidth]{github-mark.png}
+    \item Version control requires patience, training and experience
+    \item Version control is essential for transparency, and reproducibility of any project
+    \item Installing Git within RStudio can be tedious but worth it!
+    \item There is guidance, tutorials and helping blogs...
+\end{itemize}
+\end{frame}
 
 
 
