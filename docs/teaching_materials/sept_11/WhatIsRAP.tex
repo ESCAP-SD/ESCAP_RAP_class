@@ -79,21 +79,6 @@
 % Path for the graphs
 \graphicspath{
 {Graphics/}
-%{c:/Chris/UN-ESCAP/SIAP-E-learning/Resources/OpenScience/}
-%{c:/Chris/Visualisation/Presentations/Graphics/}
-%{c:/Chris/Visualisation/Presentations/Graphics/SIAP/}
-%{c:/Chris/Visualisation/Presentations/Graphics/Lies/}
-%{c:/Chris/Visualisation/Presentations/Graphics/Maps/}
-%{c:/Chris/Visualisation/Presentations/Graphics/RGenerated/}
-%{c:/Chris/Visualisation/Presentations/Graphics/Logos/}
-%{c:/Gitmain/MLCourse/UNML/Module0/M0_files/figure-html/}
-%{c:/Chris/UN-ESCAP/MyCourses2022/MLOS2022/Slides/Graphics/}
-%{c:/Chris/UN-ESCAP/MyCourses2023/RAP/Slides/Graphics/}
-%{c:/GitMain/RAP/RAP-Course/images/}
-%{c:/Chris/UN-ESCAP/MyCourses2022/MLOS2022/Slides/Graphics/}
-%% Path for specific graphs created
-% {../R-Codes/JobSatisfaction_files/figure-latex/}
-% {../R-Codes/Unused_files/figure-latex/}
  }
 
 
@@ -211,12 +196,12 @@
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}
       \begin{itemize}[<+->]
-        \item It is a process % or a way to think a process 
-        \item It is automated 
-        \item It is easily reproducible                 
-        \item It minimises mistakes      
-        \item It is fast                 
-        \item It builds trust            
+        \item It is a process % or a way to think a process
+        \item It is automated
+        \item It is easily reproducible
+        \item It minimises mistakes
+        \item It is fast
+        \item It builds trust
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -273,7 +258,7 @@
  \begin{column}{0.4\textwidth}
 
     \begin{itemize}[<+->]
-   \item Separate files into data, code, docs, etc. 
+   \item Separate files into data, code, docs, etc.
    \item Make directories portable\\ (relative path)
     \end{itemize}
 \end{column}
@@ -298,7 +283,7 @@
 \begin{frame}
 \frametitle{Organize your work }
 \textcolor{siap}{\textbf{Use naming conventions: } \\ }
-For \textbf{files}\\
+For \textbf{files/code}\\
 \begin{columns}[t]
  \begin{column}{0.3\textwidth}
     \begin{itemize}[<+->]
@@ -329,7 +314,7 @@ For \textbf{files}\\
                             \texttt{Price\_CPI.ipynb} }
         \only<3>{\small Even better \\ }
         \only<3>{ \small
-                    \texttt{01\_Scraping\_data.ipynb}\\   
+                    \texttt{01\_Scraping\_data.ipynb}\\
                     \texttt{02\_Cleaning\_data.ipynb}\\
                     \texttt{03\_Classification.ipynb}\\
                     \texttt{04\_Stats\_Tables.ipynb}\\
@@ -405,7 +390,7 @@ For \textbf{outputs}
 \vspace{0.5cm}
 \begin{center}
  \includegraphics[width=0.7\textwidth]{FileHistory.PNG} \\
- 
+
 \large{\textbf{ More on Version Control later }}
 
 \end{center}
@@ -420,9 +405,16 @@ For \textbf{outputs}
              \item[]  \only<1>{Use \emph{literate programming} }
              \only<1>{ \begin{center}
                     ``\textit{Let us concentrate rather on explaining to humans \\ what we want the computer to do}'' \\
-                    \hfill \textcolor{gris}{ D. Knuth (1984)} 
+                    \hfill \textcolor{gris}{ D. Knuth (1984)}
              \end{center}}
-             \only<2>{ Use conventions on layout (Comments, indentation,...)  \\
+             
+             \only<2>{ \begin{center}
+                    ``\textit{code is read much more often than it is written}''  \\
+                    \hfill \textcolor{gris}{  \href{https://peps.python.org/pep-0008/}{Guido van Rossum (2013 -PEP8)}    \\
+                     \vfill \small{\href{https://peps.python.org/pep-0000/}{PEP stands for Python Enhancement Proposals}}}
+             \end{center}}
+             
+             \only<3>{ Use conventions on layout (Comments, indentation,...)  \\
              \href{https://peps.python.org/pep-0008/}{\includegraphics[width=0.8\textwidth]{PEP8-Style.png}}}
          \end{itemize}
 \end{frame}
@@ -655,7 +647,7 @@ Real life is more complex:
 \begin{columns}[t]
 \begin{column}{0.6\textwidth}
 \begin{itemize}[<+->]
-        \item[\textbf{+}] Version Control is integrated in Visual Studio (\& RStudio)
+        \item[\textbf{+}] Version Control is integrated in Visual Studio (\emph{\& RStudio})
         \item[$\hookrightarrow$] Simple operations are easy
         \item[\textbf{+}] Collaborate on a project
         \item[$\hookrightarrow$] Track changes of others
@@ -667,8 +659,8 @@ Real life is more complex:
   \begin{column}{0.4\textwidth}
     \begin{center}
     \begin{itemize}
-        \only<1-3>{ \includegraphics[width=0.95\textwidth]{Rstudio-git-screenshot.png} \\  }
-        \only<1-3>{\textcolor{gris}{\tiny{\href{https://happygitwithr.com/rstudio-see-git}{"\emph{Happy Git and GitHub for the useR}" (Jennifer Bryan)}}}}
+        \only<1-3>{ \href{https://code.visualstudio.com/docs/sourcecontrol/intro-to-git}{\includegraphics[width=0.95\textwidth]{VStudio-git-screenshot.png}} \\  }
+        \only<1-3>{\textcolor{gris}{\tiny{\href{https://code.visualstudio.com/docs/sourcecontrol/intro-to-git}{"\emph{Visual Studio Documentation}" }}}}
         \only<4-5>{ \includegraphics[width=0.95\textwidth]{GitCloneSmall.png} \\  }
         \only<6-7>{ \includegraphics[width=0.6\textwidth]{GitError1.png} \\
                     \hfill \includegraphics[width=0.6\textwidth]{GitError2.png} \\
