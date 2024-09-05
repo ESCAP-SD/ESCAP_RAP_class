@@ -407,13 +407,13 @@ For \textbf{outputs}
                     ``\textit{Let us concentrate rather on explaining to humans \\ what we want the computer to do}'' \\
                     \hfill \textcolor{gris}{ D. Knuth (1984)}
              \end{center}}
-             
+
              \only<2>{ \begin{center}
-                    ``\textit{code is read much more often than it is written}''  \\
+                    ``\textit{($\cdots$) code is read much more often than it is written}''  \\
                     \hfill \textcolor{gris}{  \href{https://peps.python.org/pep-0008/}{Guido van Rossum (2013 -PEP8)}    \\
-                     \vfill \small{\href{https://peps.python.org/pep-0000/}{PEP stands for Python Enhancement Proposals}}}
+                     \vfill \hfill \footnotesize{\href{https://peps.python.org/pep-0000/}{PEP stands for \emph{Python Enhancement Proposals}}}}
              \end{center}}
-             
+
              \only<3>{ Use conventions on layout (Comments, indentation,...)  \\
              \href{https://peps.python.org/pep-0008/}{\includegraphics[width=0.8\textwidth]{PEP8-Style.png}}}
          \end{itemize}
@@ -421,7 +421,7 @@ For \textbf{outputs}
 
 
 \begin{frame}
-\frametitle{Code for others \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<-- XXXX To revise this}} }
+\frametitle{Code for others }
 \textcolor{siap}{\textbf{Program with style}} \\
 \begin{columns}[t]
  \begin{column}{0.3\textwidth}
@@ -434,38 +434,37 @@ For \textbf{outputs}
     \begin{itemize}
     \item[]
         \only<1>{\scriptsize Usual \\ }
-        \only<1>{\scriptsize \texttt{sex <- ifelse(gender == "1001", 1, 2)} \\}
+        \only<1>{\scriptsize \texttt{df['sex'] = np.where(df['gender'] == '1001', 1, 2)} \\}
         \only<1>{\small Better \\ }
-        \only<1>{\scriptsize \texttt{female <- ifelse(gender == "1001",1,0)} \\
-                                 \texttt{     male <- ifelse(gender != "1001",1,0)} \\ }
+        \only<1>{\scriptsize \texttt{df['female'] = np.where(df['gender'] == '1001', 1, 0)} \\
+                                 \texttt{df['male'] = np.where(df['gender'] != '1001', 1, 0)} \\ }
          \only<2-4>{\scriptsize Usual \\ }
-        \only<2-4>{\scriptsize \texttt{gdp <- gdp/118.722 } \\
+        \only<2-4>{\scriptsize \texttt{df['gdp'] = df['gdp'] / 118.722 } \\
                                 \texttt{ } \\ }
         \only<3>{\scriptsize Better \\ }
-        \only<3>{\scriptsize \texttt{gdp\_US <- gdp / 118.722}  }
+        \only<3>{\scriptsize \texttt{df['gdp\_US'] = df['gdp'] / 118.722} }
         \only<4>{\scriptsize Even better \\ }
-        \only<4>{\scriptsize \texttt{US\_Vanu\_exch\_rate <- 118.722} \\
-                                 \texttt{gdp\_US <- gdp / US\_Vanu\_exch\_rate}  }
+        \only<4>{\scriptsize \texttt{US\_Vanu\_exch\_rate = 118.722} \\
+                                 \texttt{df['gdp\_US'] = df['gdp']/ US\_Vanu\_exch\_rate}  }
 
     \end{itemize}
   \end{column}
 \end{columns}
 \end{frame}
 
-
+%\end{document}
 
 %%%%%%
 \subsection{DRY}
 \begin{frame}
-\frametitle{\textbf{D}o not \textbf{R}epeat \textbf{Y}ourself   \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
+\frametitle{\textbf{D}o not \textbf{R}epeat \textbf{Y}ourself  }
 
 \textcolor{siap}{\textbf{Create reusable objects}} \\
 \begin{columns}[t]
  \begin{column}{0.2\textwidth}
     \begin{itemize}[<+->]
        \item { \scriptsize Store values}
-       \item[]
-        \item { \scriptsize Avoid repetitions}
+       \item[]{ \scriptsize Avoid repetitions}
         \item[]
        \item { \scriptsize Use functions}
     \end{itemize}
@@ -474,46 +473,57 @@ For \textbf{outputs}
     \begin{itemize}
     \item[]
         \only<1-2>{\scriptsize Usual \\ }
-        \only<1-2>{\scriptsize \texttt{Current\_Data <- subset(Mydata, year  ==2023)} \\}
+        \only<1-2>{\scriptsize \texttt{Current\_Data = Mydata[Mydata['year'] == 2023]} \\
+                               \texttt{ } \\ }
         \only<2>{\scriptsize Better \\ }
-        \only<2>{\scriptsize \texttt{Current\_year <- 2023 \\
-                        \texttt{Current\_Data <- subset(Mydata,} \\
-                       \hfill \texttt{year == Current\_year)}} \\ }
+        \only<2>{\scriptsize \texttt{Current\_year = 2023 } \\
+                        \texttt{Current\_Data= Mydata[Mydata['year'] } \\
+                       \hfill  \texttt{== Current\_year] } }
         \only<3>{\scriptsize Usual \\ }
-        \only<3>{\scriptsize \texttt{data <- Mydata[Mydata\$export == "Beef", ]} \\
-                 \scriptsize \texttt{plot(data\$Year, data\$Value, } \\
-                 \hfill \scriptsize \texttt{ main =  "Export for Beef") \\ }
-                 \scriptsize \texttt{  } \\ }
-        \only<3>{\scriptsize \texttt{data <- Mydata[Mydata\$export == "Kava", ]} \\
-                \scriptsize \texttt{plot(data\$Year, data\$Value, } \\
-                 \hfill \scriptsize \texttt{ main =  "Export for Kava") \\ }
+        \only<3>{\scriptsize \texttt{data = Mydata[Mydata['export'] == 'Beef']} \\
+                 \scriptsize \texttt{plt.plot(data['Year'], data['Value'])} \\
+                 \scriptsize \texttt{plt.title('Export for Beef')\\ } \\
+                  \texttt{ } \\  }
+         \only<3>{\scriptsize \texttt{data = Mydata[Mydata['export'] == 'Kava']} \\
+                 \scriptsize \texttt{plt.plot(data['Year'], data['Value'])} \\
+                 \scriptsize \texttt{plt.title('Export for Kava')} \\
                  \texttt{ ... } \\ }
         \only<4>{\scriptsize Better \\ }
-        \only<4>{\scriptsize \texttt{ type <- "Beef"} \\
+        \only<4>{\scriptsize \texttt{def plot\_export(export\_type): } \\
+                                \texttt{     data = Mydata[Mydata['export'] }  \\
+                                \hfill \texttt{== export\_type]} \\
+                                \texttt{     plt.plot(data['Year'], data['Value'])}\\
+                                \texttt{     plt.title(f'Export for {export\_type}')} \\
+                                \texttt{     plt.show()}\\
                                 \texttt{ } \\
-                                \texttt{  Mydata \%>\% } \\
-                                \texttt{    filter(exports == type) \%>\%}\\
-                                \texttt{    ggplot() + }\\
-                                \texttt{    aes(x = Year, y = Value) +}\\
-                                \texttt{    geom\_point() + }\\
-                                \texttt{    ggtitle(paste("Export for ", type)) }\\
-                                \texttt{ } \\ }
-         \only<5>{\scriptsize Even better \\ }
-         \only<5>{\scriptsize \texttt{Exports\_graphic <- function(type) \{ } \\
-                                \texttt{  Mydata \%>\% } \\
-                                \texttt{    filter(exports == type) \%>\%}\\
-                                \texttt{    ggplot() + }\\
-                                \texttt{    aes(x = Year, y = Value) +}\\
-                                \texttt{    geom\_point() + }\\
-                                \texttt{    ggtitle(paste("Export for ", type)) }\\
-                                \texttt{\} }\\
-                                \texttt{ } \\
-                                \texttt{Exports\_graphic("Beef")} \\
-                                \texttt{Exports\_graphic("Kava")   }}
+                                \texttt{plot\_export("Beef")} \\
+                                \texttt{plot\_export("Kava")   }}
 
     \end{itemize}
   \end{column}
 \end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Other principles}
+    \begin{itemize}[<+->]
+        \item Discuss with colleagues that may use your work
+        \item Automatize as much as you can
+        \item[$\hookrightarrow$] Reduces your brain's memory burden
+        \item There are easy steps everybody can do
+        \item[$\hookrightarrow$] Write small programs, one for each task
+        \item Use open source program
+        \item[$\hookrightarrow$] Easier to share, easier to automatize
+        \item[$\hookrightarrow$] Also cost-effective
+        \item Test your work regularly:
+        \only<11>{\begin{center}
+            \emph{``Do what has been said, say what has been done, and \\ check that what has been said has really been done !''}
+         \end{center}}
+        \only<12>{\begin{center}
+            \emph{``\textbf{Code} what has been said, say what has been \textbf{coded}, and \\ check that what has been said has really been \textbf{coded}  !''}
+         \end{center}}
+    \end{itemize}
 \end{frame}
 
 
@@ -659,6 +669,7 @@ Real life is more complex:
   \begin{column}{0.4\textwidth}
     \begin{center}
     \begin{itemize}
+        \only<1-3>{ \includegraphics[width=0.95\textwidth]{VisualStudio-Git.png} \\ \vspace{0.5cm} }
         \only<1-3>{ \href{https://code.visualstudio.com/docs/sourcecontrol/intro-to-git}{\includegraphics[width=0.95\textwidth]{VStudio-git-screenshot.png}} \\  }
         \only<1-3>{\textcolor{gris}{\tiny{\href{https://code.visualstudio.com/docs/sourcecontrol/intro-to-git}{"\emph{Visual Studio Documentation}" }}}}
         \only<4-5>{ \includegraphics[width=0.95\textwidth]{GitCloneSmall.png} \\  }
@@ -673,6 +684,9 @@ Real life is more complex:
   \end{column}
 \end{columns}
 \end{frame}
+
+
+
 
 \begin{frame}{Version Control in a Nutshell \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
 Version control system:
