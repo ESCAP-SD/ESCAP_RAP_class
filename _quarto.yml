@@ -12,15 +12,17 @@ website:
   repo-actions: [issue, source]
   bread-crumbs: true
   search:
-    show-item-context: true
+    location: sidebar
     type: overlay
-  navbar:
-    background: light
-    logo: src/ESCAP_LOGO_OFFICIAL.png
+  sidebar:
+    style: "docked"
+    type: "dark"
+    search: true
+    logo: src/rap_hex.png
     logo-alt: logo
-    title: false
-    collapse-below: lg
-    left:
+    logo-href: index.qmd
+    border: true
+    contents:
       - href: docs/index.qmd
         text: Overview
       - href: docs/teaching_materials/teaching.qmd
@@ -29,13 +31,21 @@ website:
         text: Mapping the process
       - href: docs/scraper_docs/scraper-docs.qmd
         text: Scraper docs
+  page-footer: 
+    left: "2024, ESCAP"
+    right: 
+      - icon: github
+        href: https://github.com/sergegoussev/ESCAP_RAP_class
+      - icon: globe 
+        href: https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5
+
 format:
   html:
     theme: cosmo
     css: docs/styles.css
     toc: true
     grid:
-      sidebar-width: 250px
+      sidebar-width: 350px
       body-width: 900px
       margin-width: 300px
 
