@@ -27,8 +27,10 @@ website:
         text: Overview
       - href: docs/teaching_materials/teaching.qmd
         text: Teaching materials
-      - href: docs/process-mapping.qmd
-        text: Mapping the process
+      - section: "Mapping the process"
+        href: docs/process-mapping.qmd
+        contents:
+          - prices_scraper/notebooks/session11_code.ipynb
       - href: docs/scraper_docs/scraper-docs.qmd
         text: Scraper docs
   page-footer: 
