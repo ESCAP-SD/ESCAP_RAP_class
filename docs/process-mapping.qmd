@@ -33,15 +33,15 @@ Each step is made up of one or more sub-components:
 
 ### How does RAP come into this?
 
-Given this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistial (in our case) process into one corpus (i.e. repository with all contexts) – we can:
+Given this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistical (in our case) process into one corpus (i.e. repository with all contexts) – we can:
 
 a.  Encapsulate the whole process in one repository. As RAP is meant to help minimize coupling (dependencies) between separate processes – treating the whole process end-to-end as one RAP is useful if no steps in this pipeline have to be shared with other pipelines.
-b.  Encapsulate each step into a separate RAP. This may be appropriate if several processing phases are done on the data and other steps (such as manual ones) are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture.[^6]
+b.  Encapsulate each step into a separate RAP. This may be appropriate if several processing phases are done in sequence with specific targeted stopping points – such as handoff between teams or if some steps are shared or where manual steps are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture in sequence.[^6]
 c.  Encapsulate as appropriate. Several steps could be combined to simplify the process and if separation is not required, such as the web scraping and data processing steps.
 
 [^6]: See [Price (2023) Developing reproducible analytical pipelines for the transformation of consumer price statistics: rail fares](https://unece.org/sites/default/files/2023-05/7.4%20UK_un_systems_railfares_paper.pdf) for more details, for instance 5.2 outlines Pipeline tables and how different pipelines interact over a specific data architecture.
 
-For this guide and for the demo RAP scraper, we will follow approach (b) by developing a RAP for just the scraping step.
+For this guide and for the demo RAP scraper, we will follow approach (b) as this will allow us to develop RAP for just the scraping component.
 
 ## Deep dive into each component
 
@@ -49,16 +49,31 @@ To develop a robust RAP implementation of the webscraping component, we should f
 
 ### Price Index step close up
 
-Aggregate across time
+The Eurostat publication "[Practical guidelines on web scraping for the HICP (2020)](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/)" outlines several key steps necessary to calculate elementary aggregates. 
 
-Aggregate across products
+::: callout-note
+This section is still under construction
+:::
 
-Aggregation methods
-
-Integration / Aggregation structures
+Bulk vs targeted scraping - this will impact all upstream steps as the scraper works differently, data processing step may be less onerous, and the classification step may not be needed (as classification is inherently taken care of with targeted scraping).
 
 ### Classification close up
 
+::: callout-note
+This section is still under construction
+:::
+
 ### Data processing close up
 
+::: callout-note
+This section is still under construction
+:::
+
 ### Requirements for the web scraping step
+
+Apart from all the details above, we know that general recommendations for web scraping are:
+
+-   identify the user-agent as being from an NSI
+-   sufficient pause (for example 1 second) between requests so that servers are not overloaded
+-   scrapers are run at nigh time or off peak hours (unless there are day time price dynamics that are different from night time ones that we want to capture).
+-   respect the robots exclusion protocol on the website
