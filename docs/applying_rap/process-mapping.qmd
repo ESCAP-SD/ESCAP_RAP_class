@@ -50,3 +50,5 @@ c.  Encapsulate as appropriate. Several steps could be combined to simplify the 
 For this guide and for the demo RAP scraper, we will follow approach (b) as this will allow us to develop RAP for just the scraping component.
 
 ## Deep dive into each component
+
+Check out the next sections to see how to to put this into practice. 
