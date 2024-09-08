@@ -1,0 +1,31 @@
+---
+title: "Demo RAP scraper documentation"
+order: 0
+format:
+  html:
+    toc: true
+    toc-expand: 2
+---
+
+::: callout-note
+This page is still under construction
+:::
+
+# Requirements for the RAP
+
+Based on common guides such as [Practical guidelines on web scraping for the HICP (2020)](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/), we know that the RAP must satisfy a few requirements:
+
+-   identify the user-agent as being from an NSI
+-   sufficient pause (for example 1 second) between requests so that servers are not overloaded
+-   scrapers are run at nigh time or off peak hours (unless there are day time price dynamics that are different from night time ones that we want to capture).
+-   respect the robots exclusion protocol on the website
+
+This page thus documents the RAP that is demoed to learners.
+
+## Key components
+
+-   Mapping of the process to outline how components work togetehr
+-   Documentation on the specific functions and how they operate
+-   Summary of the error handling
+-   Outline of the logging capability for production uses
+-   Summary of the output data provided by the RAP
