@@ -1,5 +1,5 @@
 ---
-title: "Mapping the overall process with web scraped data"
+title: "Mapping the overall process"
 format:
   html:
     toc: true
