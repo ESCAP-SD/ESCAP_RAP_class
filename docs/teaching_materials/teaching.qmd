@@ -1,4 +1,16 @@
-# Documentation for the Reproducible Analytic Pipelines class held by ESCAP
+---
+title: ESCAP sesions on RAP
+author: Chistophe Bontemps, Serge Goussev
+date: September 11, 2024
+format:
+  html:
+    toc: true
+    toc-expand: 2
+    code-fold: false
+    other-links:
+        - text: "NHS guide on notebooks versus using an IDE"
+          href: https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/notebooks_versus_ide_development/
+---
 
 ::: callout-note
 This pages provides an overview of the course, but the actual material is still being finalized
@@ -6,15 +18,17 @@ This pages provides an overview of the course, but the actual material is still 
 
 Reproducible Analytic Pipelines (or RAP) is taught by UN ESCAP in two sessions. This training includes several components
 
-## Scope for the training
+# Overall scope of the training
 
 RAP is a large topic and it has its own [Udemy course](https://www.udemy.com/course/reproducible-analytical-pipelines/), supporting sites (such as the [RAP companion](https://ukgovdatascience.github.io/rap_companion/)), as well as [communities of practice](https://nhsdigital.github.io/rap-community-of-practice/). ESCAP can't thus hope to cover it in full, but instead aims to provide a detailed enough overview so that member countries being trained on [web scraping for the CPI](https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5) can benefit from maturity principles that RAP represents.
 
-### Overall objective
+**Overall objective**
 
 The overall objective of the RAP training is to provide an overview of key RAP principles, cover the value it brings to official statistics, as well as train class participants up to figure out just enough so that they can proceed on their own and help bring in RAP it into their own work. Class participants (who ESCAP trains) can thus become trainers in their own National Statistical Organizations (NSOs) - helping their teams and groups continue to learn more about RAP, explore each of the best practices, and learn how to implement it into their research or official statistics (i.e. production). In a more formal sense, this RAP class is thus aims to increase the capacity of participating NSOs to learn RAP and apply it for their continued modernization, and especially the implementation of alternative (web scrape most notably) data for consumer price statistics. Two sessions provide fist an overview and second a deeper dive on RAP
 
-## Overview of RAP: September 11th session {#rap-session-1}
+# Session 1, virtual: Overview of RAP {#rap-session-1}
+
+**Date**: September 11, 2024
 
 **Objective:** Introduce ideas inherent in RAP and have participants walk away with an understanding why technical maturity skills are important and how RAP can help them mature their organization
 
@@ -27,7 +41,11 @@ The overall objective of the RAP training is to provide an overview of key RAP p
 -   Very brief demo of a use case to demonstrate something and walk away from the more theoretical ideas
 -   Some caveats to keep in mind and wrap up for what you will see in person!
 
-## Deeper dive into RAP components: September 18th session {#rap-session-2}
+**Content**: See [the session page for more details](sept_11/sept_11_session.qmd).
+
+# Session 2, in person: Deeper dive into RAP components {#rap-session-2}
+
+**Date**: September 18, 2024
 
 **Objective:** Building on the initial training on RAP, go deeper into the components to really get the principles across. To help anchor the components, a use case can be used to understand how a little bit more about each aspect, and some hands-on exercises will help learners get a better appreciation of the tasks.
 
@@ -52,3 +70,5 @@ The overall objective of the RAP training is to provide an overview of key RAP p
 -   Partner up and try peer review - first develop a notebook (or script) to do some scraping. Then commit it to a github repository and then ask someone to peer review it using a separate branch (and a pull request) or simply an issue - to create transparency.
 
 For all examples, some experience in python and setup of git with a github account is needed
+
+**Content**: See [the session page for more details](sept_18/sept_18_session.qmd).

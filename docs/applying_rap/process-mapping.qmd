@@ -1,4 +1,10 @@
-# Context of how web scraping integrates into a production CPI pipeline
+---
+title: "Mapping the overall process with web scraped data"
+format:
+  html:
+    toc: true
+    toc-expand: 2
+---
 
 ::: callout-note
 This page is still under construction
@@ -12,7 +18,7 @@ Web scraping is the first of several phases necessary to create elementary aggre
 
 The below diagram provides an overview of 4 main steps that include the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.
 
-![High level overview of the steps to process web scrape data for the CPI](images/ads-process-overview-high-level-overview.drawio.svg){#fig-1 fig-alt="Read diagram from left to right. Starting with the scraping process, four main steps are needed to create input for the CPI"}
+![High level overview of the steps to process web scrape data for the CPI](../images/ads-process-overview-high-level-overview.drawio.svg){#fig-1 fig-alt="Read diagram from left to right. Starting with the scraping process, four main steps are needed to create input for the CPI"}
 
 Each step is made up of one or more sub-components:
 
@@ -44,36 +50,3 @@ c.  Encapsulate as appropriate. Several steps could be combined to simplify the 
 For this guide and for the demo RAP scraper, we will follow approach (b) as this will allow us to develop RAP for just the scraping component.
 
 ## Deep dive into each component
-
-To develop a robust RAP implementation of the webscraping component, we should first go through the downstream steps in order to fully understand them and formulate all applicable requirements.
-
-### Price Index step close up
-
-The Eurostat publication "[Practical guidelines on web scraping for the HICP (2020)](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/)" outlines several key steps necessary to calculate elementary aggregates. 
-
-::: callout-note
-This section is still under construction
-:::
-
-Bulk vs targeted scraping - this will impact all upstream steps as the scraper works differently, data processing step may be less onerous, and the classification step may not be needed (as classification is inherently taken care of with targeted scraping).
-
-### Classification close up
-
-::: callout-note
-This section is still under construction
-:::
-
-### Data processing close up
-
-::: callout-note
-This section is still under construction
-:::
-
-### Requirements for the web scraping step
-
-Apart from all the details above, we know that general recommendations for web scraping are:
-
--   identify the user-agent as being from an NSI
--   sufficient pause (for example 1 second) between requests so that servers are not overloaded
--   scrapers are run at nigh time or off peak hours (unless there are day time price dynamics that are different from night time ones that we want to capture).
--   respect the robots exclusion protocol on the website
