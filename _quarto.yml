@@ -36,7 +36,7 @@ website:
       - href: docs/applying_rap/index.qmd
         contents:
           - docs/applying_rap/process-mapping.qmd
-      - href: prices_scraper/notebooks/session11_code.ipynb
+      - href: notebooks/session11_code.ipynb
       - section:
         href: docs/scraper_docs.qmd
         contents: docs/scraper_docs/*
