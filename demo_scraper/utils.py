@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup, Tag
-from scraper.error import Parsing_Scraper_Error, Cleaning_Scraper_Error
+from demo_scraper.error import Parsing_Scraper_Error, Cleaning_Scraper_Error
 
 
 def parse_product_name(soup: Tag):

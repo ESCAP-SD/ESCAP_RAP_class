@@ -10,7 +10,7 @@ import requests
 import pandas as pd
 from datetime import datetime
 
-from scraper.utils import *
+from demo_scraper.utils import *
 
 # from scraper.error import Scraper_Error, Parsing_Scraper_Error, Cleaning_Scraper_Error
 
