@@ -1,6 +1,6 @@
 """
    # TO DO
-    - docstrings
+    - doc strings
     - exceptions for robustness
     - logging
 """
@@ -8,66 +8,10 @@
 from bs4 import BeautifulSoup, Tag
 import requests
 import pandas as pd
-from datetime import datetime
+# from datetime import datetime
 
-from demo_scraper.utils import *
-
-# from scraper.error import Scraper_Error, Parsing_Scraper_Error, Cleaning_Scraper_Error
-
-def get_categories(input_url: str):
-    """
- 
-    """   
-    # Send a GET request to the URL
-    response = requests.get(input_url)
-
-    # Check if the request was successful
-    if response.status_code == 200:
-        # Parse the HTML content using BeautifulSoup
-        soup = BeautifulSoup(response.content, "html.parser")
-        
-        # Find the categories
-        categories = soup.find_all("a", class_ = "category-list-image")
-        
-        # Create list to store the data
-        category_urls = []
-
-        # Loop through the categories and extract the names
-        for category in categories:
-            url = category.get("href", "N/A")
-            category_urls.append(url)
-            
-        print("category_urls list has been created")
-    else:
-        print("Failed to retrieve the webpage.")
-    return category_urls
-
-
-def get_last_page_num(soup: Tag):
-    """
-    
-    """
-    # Find the number of pages to be iterated through
-    pagenum_tag = soup.find_all("span", class_ = "pagination-hide")
-    if pagenum_tag == [] :
-        lastpage_num = 0
-
-    else : 
-        lastpage = pagenum_tag[-1].text.strip()  
-        lastpage_num = int(lastpage[2:])
-    
-    print(f"Number of pages is {lastpage_num}")
-
-    return lastpage_num
-
-def save_data(dataframe: pd.DataFrame, save_location):
-    """
-    
-    """
-    dataframe.to_csv("{save_location}demo_scrape_{timestamp}.csv".format(
-        save_location = save_location,
-        timestamp = datetime.today().strftime('%Y-%m-%d_%H-%M-%S')
-    ), index=True)
+from utils import *
+# from demo_scraper.error import Scraper_Error, Parsing_Scraper_Error, Cleaning_Scraper_Error
 
 
 def run_scraper(starting_url: str, save_location: str):
@@ -75,52 +19,39 @@ def run_scraper(starting_url: str, save_location: str):
     main function that orchestrates the whole scrape
     
     """
-    category_urls = get_categories(starting_url)
-
-    # now run a loop across the list of categories (dresses, tops etc ) 
-
-    # Lists to store the product data
+    # Create an empty array to store data we scrape. As its not size delimited,
+    # it can be extended as we need later on
     product_data = []
 
+    category_urls = get_and_parse_categories(starting_url)
+
+    # now run a loop across the list of categories (dresses, tops etc ) 
     for category_url in category_urls:
-        # Base URL for the product category
-        base_url = category_url 
 
-        # Send a GET request to the URL
-        response = requests.get(base_url)
+        # GET the data for the first page of the category
+        category_page1_soup = get_site_data(category_url)
 
-        # Check if the request was successful
-        if response.status_code == 200:
-            # Parse the HTML content using BeautifulSoup
-            soup = BeautifulSoup(response.content, "html.parser")
-            # Find the number of pages to be iterated through
-            lastpage_num = get_last_page_num(soup)
-            for page_num in range(0, lastpage_num):
-                # Modify the URL to include the page number
-                url = f"{base_url}/Page-{page_num}-SortingAttribute-SortBy-asc"
+        # Save all the products on this first page
+        product_data = parse_products_on_page(category_page1_soup, product_data)
+
+        # As there is likely more than 1 page, find out how many more pages this
+        # category has to go through and if so, go through these pages
+        lastpage_num = parse_last_page_num(category_page1_soup)
+        if lastpage_num > 0:
+            #Iterate through each page 
+            for page_num in range(1, lastpage_num):
+                # Modify the GET URL to include the page number
+                url = f"{category_url}/Page-{page_num}-SortingAttribute-SortBy-asc"
     
-                # Send a GET request to the URL
-                response = requests.get(url)
-    
-                # Check if the request was successful
-                if response.status_code == 200:
-                    # Parse the HTML content using BeautifulSoup
-                    soup = BeautifulSoup(response.content, "html.parser")
-                    # Find the product listings
-                    products = soup.find_all("div", class_="product-tile")
-                    # break
-                    # Loop through the product listings and extract the data
-                    for product in products:
-                        individual_product_data = parse_product_info(product)
-                        product_data.append(individual_product_data)
+                # GET this page
+                next_page_soup = get_site_data(url)
 
-        else:
-            print("Failed to retrieve the webpage.")
-            # TO DO - add to log as we'd want to log if a specific category could not be scraped
-        df = pd.DataFrame.from_records(individual_product_data)
-        save_data(df)
+                # Parse and save all the products on this page
+                product_data = parse_products_on_page(next_page_soup, product_data)
+
+        save_data(product_data, save_location)
+        
     return None
-
 
 
 if __name__ == "__main__":
