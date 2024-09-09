@@ -33,9 +33,9 @@ website:
           - docs/teaching_materials/sept_11/sept_11_session.qmd
           - docs/teaching_materials/sept_18/sept_18_session.qmd
       - section:
-      - href: docs/applying_rap/index.qmd
+      - href: docs/applying_rap/process-mapping.qmd
         contents:
-          - docs/applying_rap/process-mapping.qmd
+          - docs/applying_rap/web_scraping.qmd
       - href: notebooks/session11_code.ipynb
       - section:
         href: docs/scraper_docs.qmd

@@ -1,8 +1,0 @@
----
-title: "Applying RAP for price statistics"
-format:
-  html:
-    toc: true
-    toc-expand: 2
----
-
