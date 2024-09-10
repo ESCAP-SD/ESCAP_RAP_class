@@ -16,8 +16,23 @@ from utils import *
 
 def run_scraper(starting_url: str, save_location: str):
     """
-    main function that orchestrates the whole scrape
-    
+    Main function that stores the navigation and scraping logic of the demo scraper. It calls 
+    sub components that can be reassembled like building blocks.
+
+    Handles all aspects of the scrape and saves data based on parameters
+
+    Parameters
+    ----------
+    starting_url
+        Specify the first meta-category that should be used as the seed to initialize the scrape. 
+        The function parses the category and then iterates below this to capture the data
+    save_location
+        Specify where on the shared drive the save location should be
+
+    Returns
+    -------
+    None
+        Nothing is returned as everything is processed throughout
     """
     # Create an empty array to store data we scrape. As its not size delimited,
     # it can be extended as we need later on
@@ -50,7 +65,7 @@ def run_scraper(starting_url: str, save_location: str):
                 product_data = parse_products_on_page(next_page_soup, product_data)
 
         save_data(product_data, save_location)
-        
+
     return None
 
 
