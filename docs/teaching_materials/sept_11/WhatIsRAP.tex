@@ -87,7 +87,7 @@
 
 \subtitle{\textcolor{brique}{\Large{ Reproducible Analytical Pipelines}}}
 \author{Christophe Bontemps \& Serge Goussev }
-\institute{ \includegraphics[height=9ex]{SIAP-ESCAP-Logo.png} \hspace{1cm} \includegraphics[height=10ex]{StatCanada-Logo.jpg}}
+\institute{ \includegraphics[height=9ex]{SIAP-ESCAP-Logo.png} \hspace{1cm} \includegraphics[height=8ex]{ESCAP-Logo.png}}
 \date{}
 
 \begin{document}
@@ -98,22 +98,29 @@
   \titlepage
 \end{frame}
 
-\begin{frame}{Fundamental Principles of Official Statistics}
+
+\begin{frame}{Why are Reproducible Analytical Pipelines good for you?}
   \begin{columns}[T]
-    \begin{column}{0.6\textwidth}
+    \begin{column}{0.5\textwidth}
       \begin{itemize}[<+->]
-        \item Clear mention of the \textbf{processes} used to produce statistics
-        \item \emph{To retain trust in official statistics, the \textbf{statistical agencies need to decide} according to strictly professional considerations, including scientific principles and professional ethics, \textbf{on the methods and procedures} for the collection, processing, storage and presentation of statistical data.}
-      \item In short, \textbf{processes} are important!
+        \item It will make your (\emph{working}) life easier
+        \item It is a satisfying way to work
+        \item It is a time-saver
+        \item It helps tracking mistakes
+        \item It helps collaborating
+        \item It will enhance your skills (and make you famous?)
       \end{itemize}
     \end{column}
-    \begin{column}{0.4\textwidth}
-      \includegraphics[width=\textwidth]{FundamentalPrinciplesOS.PNG}
+    \begin{column}{0.5\textwidth}
+    \begin{itemize}
+        \item[] \includegraphics[width=1.0\textwidth]{ReusablePipeline.png}
+    \end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
 
 \begin{frame}{Usual practice: Theory vs reality}
+\pause
 \begin{center}
   \begin{itemize}
         \only<1>{\includegraphics[width=0.8\textwidth]{Process1.png} \\
@@ -189,7 +196,20 @@
   \end{columns}
 \end{frame}
 
-% Other slides should go here...
+\begin{frame}{Fundamental Principles of Official Statistics}
+  \begin{columns}[T]
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}[<+->]
+        \item Clear mention of the \textbf{processes} used to produce statistics
+        \item \emph{To retain trust in official statistics, the \textbf{statistical agencies need to decide} according to strictly professional considerations, including scientific principles and professional ethics, \textbf{on the methods and procedures} for the collection, processing, storage and presentation of statistical data.}
+      \item In short, \textbf{processes} are important!
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{FundamentalPrinciplesOS.PNG}
+    \end{column}
+  \end{columns}
+\end{frame}
 
 \section{RAP}  % Better practices
 
@@ -230,29 +250,49 @@
 \end{frame}
 
 
-% Other slides go here...
-
-\section{3 Principles}
+\section{Principles}
 
 \begin{frame}[<+->]
-   \frametitle{3 main principles:}
+   \frametitle{RAP principles:}
    \pause
-    \begin{enumerate}
-     \item Organize your work
-     \item Code for others (including your future self)
-     \item DRY: \textbf{D}o \textcolor{brique}{ not} \textbf{R}epeat \textbf{Y}ourself
-      \item[]   \begin{alertblock}{}
-            \begin{center}
-                  \textit{Apply this in context (colleagues, code, software,...)}
-            \end{center}
-      \end{alertblock}
-    \end{enumerate}
+    \begin{itemize}
+     \item Automation (\emph{as much as you can}) 
+     \item[$\hookrightarrow$] Avoid manual work %(prone to errors, time consuming)
+     \item Reusable (modular) code 
+     \item[$\hookrightarrow$] Build blocs, update blocs, change blocs, test blocs 
+     \item Transparency
+     \item[$\hookrightarrow$] Show what you, do what you say 
+     \item Use open source tools
+     \item[$\hookrightarrow$] Free, reusable, huge community % (+ chatGPT compatible)  
+     \item Version control
+     \item[$\hookrightarrow$] Easy to track code, easy to share, easy to update, ...
+     \item Good coding practices
+     \item[$\hookrightarrow$] Write for humans, not for machines
+     \item Testing
+     \item Peer-review 
+    \end{itemize}
 \end{frame}
 
-\subsection{Organize your work }
+
+\begin{frame}[<+->]
+   \frametitle{RAP principles:}
+   \pause
+   \begin{itemize}[<+->]
+     \item[] \begin{center}
+             These principles translate into: \\ \vspace{0.5cm}
+             \textbf{Good Practices }\\ + \\
+             \textbf{Good Tools }
+    \end{center}
+     \item[$\hookrightarrow$] \vspace{2cm} We'll detail some of these practices and tools
+   \end{itemize}
+    
+\end{frame}
+
+
+\subsection{Good practices}
 
 \begin{frame}
-\frametitle{Organize your work }
+\frametitle{\textbf{Good practices:} Organize your work }
 \textcolor{siap}{\textbf{Have a clear directory structure}}
  \pause
 \begin{columns}[t]
@@ -282,7 +322,7 @@
 
 
 \begin{frame}
-\frametitle{Organize your work }
+\frametitle{\textbf{Good practices:} Organize your work }
 \textcolor{siap}{\textbf{Use naming conventions: } \\ }
 For \textbf{files/code}\\
 \begin{columns}[t]
@@ -326,9 +366,8 @@ For \textbf{files/code}\\
 \end{columns}
 \end{frame}
 
-
 \begin{frame}
-\frametitle{Organize your work }
+\frametitle{\textbf{Good practices:} Organize your work }
 \textcolor{siap}{\textbf{Use naming conventions:} \\ }
 For \textbf{outputs}
 \begin{columns}[t]
@@ -363,7 +402,7 @@ For \textbf{outputs}
 
 
 \begin{frame}
-\frametitle{Organize your work }
+\frametitle{\textbf{Good practices for automation} }
 \textcolor{siap}{\textbf{Keep track of the workflow:} \\  }
  \begin{columns}[t]
  \begin{column}{0.5\textwidth}
@@ -385,7 +424,7 @@ For \textbf{outputs}
 
 
 \begin{frame}
-\frametitle{Organize your work }
+\frametitle{\textbf{Good practices for  automation} }
 \textcolor{siap}{\textbf{Keep track of the workflow:} \\  }
 
 Here is our workflow:\\
@@ -398,7 +437,7 @@ Here is our workflow:\\
 \end{frame}
 
 \begin{frame}
-\frametitle{Organize your work }
+\frametitle{\textbf{Very good practices} }
 \textcolor{siap}{\textbf{Use a version control system  (Git/GitHub)}} \\
 \vspace{0.5cm}
 \begin{center}
@@ -409,10 +448,10 @@ Here is our workflow:\\
 \end{center}
 \end{frame}
 
-\subsection{Code for others}
+\subsection{Good coding practices}
 
 \begin{frame}[<+->]
-\frametitle{Code for others (including your "\emph{future self}")}
+\frametitle{\textbf{Good coding practices: Code for others} }
 \textcolor{siap}{\textbf{Program with style:}}
           \begin{itemize}
              \item[]  \only<1>{Use \emph{literate programming} }
@@ -434,7 +473,7 @@ Here is our workflow:\\
 
 
 \begin{frame}
-\frametitle{Code for others }
+\frametitle{\textbf{Good coding practices: Code for others} }
 \textcolor{siap}{\textbf{Program with style}} \\
 \begin{columns}[t]
  \begin{column}{0.3\textwidth}
@@ -468,9 +507,9 @@ Here is our workflow:\\
 %\end{document}
 
 %%%%%%
-\subsection{DRY}
+\subsection{Modularity}
 \begin{frame}
-\frametitle{\textbf{D}o not \textbf{R}epeat \textbf{Y}ourself  }
+\frametitle{\textbf{Good practices: Modularity} }
 
 \textcolor{siap}{\textbf{Create reusable objects}}
 \begin{columns}[t]
@@ -517,26 +556,26 @@ Here is our workflow:\\
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Other principles}
-    \begin{itemize}[<+->]
-        \item Discuss with colleagues that may use your work
-        \item Automatize as much as you can
-        \item[$\hookrightarrow$] Reduces your brain's memory burden
-        \item There are easy steps everybody can do
-        \item[$\hookrightarrow$] Write small programs, one for each task
-        \item Use open source program
-        \item[$\hookrightarrow$] Easier to share, easier to automatize
-        \item[$\hookrightarrow$] Also cost-effective
-        \item Test your work regularly:
-        \only<11>{\begin{center}
-            \emph{``Do what has been said, say what has been done, and \\ check that what has been said has really been done !''}
-         \end{center}}
-        \only<12>{\begin{center}
-            \emph{``\textbf{Code} what has been said, say what has been \textbf{coded}, and \\ check that what has been said has really been \textbf{coded}  !''}
-         \end{center}}
-    \end{itemize}
-\end{frame}
+%\begin{frame}
+%\frametitle{Other principles}
+%    \begin{itemize}[<+->]
+%        \item Discuss with colleagues that may use your work
+%        \item Automatize as much as you can
+%        \item[$\hookrightarrow$] Reduces your brain's memory burden
+%        \item There are easy steps everybody can do
+%        \item[$\hookrightarrow$] Write small programs, one for each task
+%        \item Use open source program
+%        \item[$\hookrightarrow$] Easier to share, easier to automatize
+%        \item[$\hookrightarrow$] Also cost-effective
+%        \item Test your work regularly:
+%        \only<11>{\begin{center}
+%            \emph{``Do what has been said, say what has been done, and \\ check that what has been said has really been done !''}
+%         \end{center}}
+%        \only<12>{\begin{center}
+%            \emph{``\textbf{Code} what has been said, say what has been \textbf{coded}, and \\ check that what has been said has really been \textbf{coded}  !''}
+%         \end{center}}
+%    \end{itemize}
+%\end{frame}
 
 
 \section{Version Control}
@@ -619,7 +658,18 @@ Usual ways to keep track of changes:
 
 \subsection{Commits}
 
-\begin{frame}{File evolution  \textcolor{brique}{without Version Control}  }
+\begin{frame}{File evolution  \textcolor{brique}{with Version Control}  }
+You can see exactly what has been going on!
+\begin{center}
+\begin{itemize}
+   \only<1> {\includegraphics[width = 0.8\textwidth]{GitHubDiff.png} \\ }
+\end{itemize}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}{File evolution  \textcolor{brique}{with Version Control}  }
 Record a message (\emph{commit})  for each change!
 \begin{center}
 \begin{itemize}
@@ -645,7 +695,7 @@ Record a message (\emph{commit})  for each change!
 \end{center}
 \end{frame}
 
-\begin{frame}{Going back and "undo" is possible}
+\begin{frame}{Going back (\emph{revert}) is possible}
 \begin{center}
 \begin{itemize}
    \only<1-2> {It is possible to review previous version... \\ }
@@ -654,26 +704,27 @@ Record a message (\emph{commit})  for each change!
    \only<3-4> {\includegraphics[width = 1.0\textwidth]{FileLifeDiff.png} \\ }
    \only<5-6> {... and to revert  to a  previous version... }
    \only<5-6> {\includegraphics[width = 1.0\textwidth]{FileLifeRevert.png} \\ }
-   \only<7-8> {... or \emph{undo} as if nothing happened }
+   \only<7-8> {... or \emph{restart} from there as if nothing happened }
    \only<7-8> {\includegraphics[width = 1.0\textwidth]{FileLifeRevert2.png} \\ }
 
 \end{itemize}
 \end{center}
 \end{frame}
 
-\begin{frame}{Good and Bad News }
-Real life is more complex:
+\begin{frame}{Good News! }
+Version Control will help you
 \pause
 \begin{columns}[t]
 \begin{column}{0.6\textwidth}
 \begin{itemize}[<+->]
-        \item[\textbf{+}] Version Control is integrated in Visual Studio (\emph{\& RStudio})
+        \item Version Control is integrated in Visual Studio (\emph{\& RStudio})
         \item[$\hookrightarrow$] Simple operations are easy
-        \item[\textbf{+}] Collaborate on a project
+        \item Collaborate on a project
         \item[$\hookrightarrow$] Track changes of others
-        \item[\textbf{-}] Git is a bit  ``\emph{unfriendly}'' % \href{https://git-scm.com/}{\includegraphics[width=0.1\textwidth]{GitLogo.png}}
-        \item[$\hookrightarrow$] Complex situations appear easily
-        \item[\textbf{-}] Git works \emph{mostly } in command mode
+        \item Git seems  ``\emph{unfriendly}'' but it is your friend
+        \item[$\hookrightarrow$] Takes time and patience
+        \item Git works \emph{mostly } in command mode
+        \item[$\hookrightarrow$] You will learn that too!
     \end{itemize}
  \end{column}
   \begin{column}{0.4\textwidth}
@@ -686,8 +737,8 @@ Real life is more complex:
         \only<6-7>{ \includegraphics[width=0.6\textwidth]{GitError1.png} \\
                     \hfill \includegraphics[width=0.6\textwidth]{GitError2.png} \\
                      \includegraphics[width=0.6\textwidth]{GitError3.png} \\ }
-         \only<8>{ \includegraphics[width=0.9\textwidth]{GitPrompt.png} \\  }
-         \only<8>{ \textcolor{gris}{\tiny{ \href{https://www.c-sharpcorner.com/article/git-for-absolute-beginners-with-command-line-interface/}{Ashish Vishwakarma}}}}
+         \only<8-9>{ \includegraphics[width=0.9\textwidth]{GitPrompt.png} \\  }
+         \only<8-9>{ \textcolor{gris}{\tiny{ \href{https://www.c-sharpcorner.com/article/git-for-absolute-beginners-with-command-line-interface/}{Ashish Vishwakarma}}}}
 
     \end{itemize}
     \end{center}
@@ -696,22 +747,23 @@ Real life is more complex:
 \end{frame}
 
 \begin{frame}{Version Control in a Nutshell }
-Version control system:
+A Version Control systems:
 \begin{columns}[t]
 \begin{column}{0.6\textwidth}
 \begin{itemize}[<+->]
-    \item Allows to travel back in time
     \item Keeps track of all changes
-    \item Allows to "undo" at any point
+    \item Ignores your data (\emph{.gitignore})
     \item Allows reviewing stages of development
     \item Allow collaborating on projects
+    \item Comes with different tools (Git, GitHub, GitLab, etc..)
     \item Backups your work
   \end{itemize}
  \end{column}
   \begin{column}{0.4\textwidth}
     \begin{center}
     \begin{itemize}
-        \only<1-6>{\includegraphics[width=0.8\textwidth]{github-mark.png} }
+        \only<1-6>{\includegraphics[width=0.5\textwidth]{github-mark.png} \\ \vspace{0.5cm}
+                    \includegraphics[width=0.5\textwidth]{gitlab-logo.png} \\ }
         \only<1-6>{ \textcolor{gris}{\tiny{ \href{https://www.c-sharpcorner.com/article/git-for-absolute-beginners-with-command-line-interface/}{GitHub logo}}}}
     \end{itemize}
     \end{center}
@@ -726,14 +778,14 @@ Version control system:
 \begin{frame}{Takeaways }
 \pause
 \begin{itemize}[<+->]
-    \item There many shades of RAP
+    \item There many levels of RAP (a full spectrum)
     \item[$\hookrightarrow$] Start small, be an advocate for others
     \item[$\hookrightarrow$] Increase complexity when ready
     \item Good practices starts with our own practices
-    \item Reproducible documents simplifies life
     \item[$\hookrightarrow$]  KISS: Keep it Simple, Stupid
-    \item Version control is essential
-    \item Automation is a real challenge
+    \item Automate little by little 
+    \item Version control is a life-changer
+
     \item Building a RAP is a collective process \\
         %\item[$\hookrightarrow$] Sharing tools, processes \& feedback \\
         \includegraphics[width=0.5\textwidth]{DecolonisingKnowledge.jpg}
@@ -744,6 +796,7 @@ Version control system:
 \section{Resources}
 \begin{frame}{Useful resources}
   \begin{itemize}
+  \item  \href{https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/}{NHS Community of Practice}
    \item  \href{https://github.com/sergegoussev/ESCAP_RAP_class/tree/main}{This course website} (created by Serge Goussev)
    \item \href{https://github.com/Vanuatu-National-Statistics-Office/vnso-RAP-marketStats-materials}{Vanuatu Bureau of Statistics implementation of RAP}
    \item \href{https://www.unsiap.or.jp/on_line/2024/RAP/flyer-RAP-Self-paced.pdf}{SIAP's (free) online RAP course}
