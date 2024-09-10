@@ -1,15 +1,20 @@
 # notebook content not relevant in the git
 .ipynb_checkpoints
+*.ipynb
 *.log
 __temp__*
+
+#working files
+*.pyc
 
 #draw.io interim file
 *.bkp
 
 # Whole folders
 env/*
-data/raw/*
+data/*
 build/*
+.vscode
 
 # Data files
 *.csv
@@ -20,6 +25,9 @@ build/*
 *.h5
 *.xlsx
 *.parquet
+
+# Don't ignore test data as its synthetic
+!/tests/test_data/*
 
 # Quarto components
 /.quarto/

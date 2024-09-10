@@ -6,11 +6,13 @@ execute:
 
 website:
   title: "ESCAP training on RAP"
-  favicon: src/rap_hex.png
+  favicon: docs/images/favicon.drawio.svg
   repo-url: https://github.com/sergegoussev/ESCAP_RAP_class
   issue-url: https://github.com/sergegoussev/ESCAP_RAP_class/issues/new
   repo-actions: [issue, source]
   bread-crumbs: true
+  page-navigation: true
+  back-to-top-navigation: true
   search:
     location: sidebar
     type: overlay
@@ -18,19 +20,26 @@ website:
     style: "docked"
     type: "dark"
     search: true
-    logo: src/rap_hex.png
+    logo: docs/images/logo.drawio.svg
     logo-alt: logo
     logo-href: index.qmd
     border: true
     contents:
       - href: docs/index.qmd
         text: Overview
-      - href: docs/teaching_materials/teaching.qmd
-        text: Teaching materials
-      - href: docs/process-mapping.qmd
-        text: Mapping the process
-      - href: docs/scraper_docs/scraper-docs.qmd
-        text: Scraper docs
+      - section: 
+        href: docs/teaching_materials/teaching.qmd
+        contents: 
+          - docs/teaching_materials/sept_11/sept_11_session.qmd
+          - docs/teaching_materials/sept_18/sept_18_session.qmd
+      - section:
+      - href: docs/applying_rap/process-mapping.qmd
+        contents:
+          - docs/applying_rap/web_scraping.qmd
+      - href: notebooks/session11_code.ipynb
+      - section:
+        href: docs/scraper_docs.qmd
+        contents: docs/scraper_docs/*
   page-footer: 
     left: "2024, ESCAP"
     right: 

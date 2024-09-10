@@ -1,0 +1,82 @@
+---
+title: "Demo RAP scraper documentation"
+order: 0
+format:
+  html:
+    toc: true
+    toc-expand: 2
+---
+
+::: callout-note
+This page is still under construction
+:::
+
+# Overview and level of RAP to aim for in this demo
+
+This section of the RAP site documents the demo RAP that NSOs can use to RAPify your web scraping and turn it into a mature and reproducible package. It demonstrates through the example of [farmers.co.nz](https://www.farmers.co.nz/) that was shown by Frances Krsinich in the August 21 session. While [RAP can be implementd in a spectrum with multiple levels possible](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/), to not make it too complicated - we target the silver level of maturity. The rest of this document both documents the RAP for this scraper, as well as details out how each component runs.
+
+## Baseline RAP - getting the fundamentals right
+
+In order for a publication to be considered a reproducible analytical pipeline, it must at least meet all of the requirements of Baseline RAP:
+
+- [x] Data produced by code in an open-source language (e.g., Python, R, SQL).
+
+- [x] Code is version controlled (see [Git basics](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/training_resources/git/introduction-to-git.md) and [using Git collaboratively](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/training_resources/git/using-git-collaboratively.md) guides).
+
+- [x] Repository includes a README.md file (or equivalent) that clearly details steps a user must follow to reproduce the code (use [NHS Open Source Policy section on Readmes](https://github.com/nhsx/open-source-policy/blob/main/open-source-policy.md#b-readmes) as a guide.
+
+- [ ] Code has been [peer reviewed](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/implementing_RAP/code-review.md).
+
+- [x] Code is [published in the open](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/implementing_RAP/how-to-publish-your-code-in-the-open.md) and linked to & from accompanying publication (if relevant).
+
+## Silver RAP - implementing best practice
+
+*Meeting all of the above requirements, plus:*
+
+- [x] Outputs are produced by code with minimal manual intervention.
+
+- [ ] Code is well-documented including user guidance, explanation of code structure & methodology and [docstrings](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/training_resources/python/python-functions.md#documentation) for functions.
+
+- [ ] Code is well-organised following [standard directory format](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/training_resources/python/project-structure-and-packaging.md).
+
+- [ ] [Reusable functions](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/training_resources/python/python-functions.md) and/or classes are used where appropriate.
+
+- [ ] Code adheres to agreed coding standards (e.g PEP8, [style guide for Pyspark](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/training_resources/pyspark/pyspark-style-guide.md)).
+
+- [ ] Pipeline includes a testing framework ([unit tests](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/training_resources/python/unit-testing.md), [back tests](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/training_resources/python/backtesting.md)).
+
+- [x] Repository includes dependency information (e.g. [requirements.txt](https://pip.pypa.io/en/stable/user_guide/#requirements-files), [PipFile](https://github.com/pypa/pipfile/blob/main/README.rst), [environment.yml](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/training_resources/python/virtual-environments/conda.md)).
+
+- [ ] [Logs](https://github.com/NHSDigital/rap-community-of-practice/blob/main/docs/training_resources/python/logging-and-error-handling.md) are automatically recorded by the pipeline to ensure outputs are as expected.
+
+- [ ] Data is handled and output in a [Tidy data format](https://medium.com/@kimrodrikwa/untidy-data-a90b6e3ebe4c).
+
+# Requirements for the RAP
+
+Before documenting the rest of the RAP package, we spend some time on the main requirements we need to align to, as this will contextualize some of the functionality. There are several requirements that we know we should meet from sources such as Eurostat's [Practical guidelines on web scraping for the HICP (2020)](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/):
+
+-   Technical requirements:
+    -   identify the user-agent as being from an NSI
+    -   sufficient pause (for example 1 second) between requests so that servers are not overloaded
+    -   scrapers are run at nigh time or off peak hours (unless there are day time price dynamics that are different from night time ones that we want to capture).
+    -   respect the robots exclusion protocol on the website
+    -   respect the 'Terms and Conditions' section of the website - which we will do separately and not
+-   Variable requirements (see section 5 in the [Practical guidelines on web scraping for the HICP (2020)](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/) for more info):
+    -   ID - of the product which could be something unique so that we track the same product over time and to simplify classificationi. This could be URL or could be an actual product_id if possible.
+    -   Product type or category - internal retailer classification (such as clothing department)
+        -   We could capture breadcrumbs
+    -   Product name - what does the retailer name the product as
+    -   Description - any product or item characteristics that the retailer makes available
+    -   Price - the 'offer price' displayed on the site
+-   Other variable requirements (see section 6 in the [Practical guidelines on web scraping for the HICP (2020)](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/) for more info):
+    -   Scrape datetime - as part of the price index step is aggregation across time - we may also need to scrape the retailer more than once a month and then combine the outputs. Furthermore, if the RAP is run in production, we will need to filter the scraped files we get as fitting into the reference month for the elementary aggregate
+
+There are other requirements, and we will learn more as we operate, but this can be a great starting set!
+
+# Deeper dive - documenation of the various aspects of the demo scraper
+
+-   Mapping of the process to outline how components work togetehr
+-   Documentation on the specific functions and how they operate
+-   Summary of the error handling
+-   Outline of the logging capability for production uses
+-   Summary of the output data provided by the RAP

@@ -1,0 +1,10 @@
+---
+title: "Session 2: Deeper dive into key components"
+format:
+  html:
+    toc: true
+    toc-expand: 2
+---
+::: callout-note
+This page will be updated ahead of the September 18th session
+:::
