@@ -25,7 +25,7 @@ This page is still under construction
 
 If we start out with the main script that Frances showed in the 11th session, we end up with a large script at the end of the training [session_11_notebook](/notebooks/session11_code.ipynb){#putting-it-together} . However if we visually map out what is happening, we can start to figure out how to break this out.
 
-![Mapping the overall scrape process of farmers.co.nz](/docs/images\mapping_the_process.overall.svg)
+![Mapping the overall scrape process of farmers.co.nz](/docs/images/mapping-the-process-overall.svg)
 
 We see that the scraper went to the website multiple times but it is conceptually done in 3 steps (green boxes that show dashed lines to the website):
 
@@ -58,4 +58,4 @@ Some initial thoughts:
     -   `save_data()` - again, separated for easier extensibility, but not strictly necessary.
 -   Finally, while we've moved the parsing and calls to the retailer site outside of the main logic, we should stick to the functional paradigm of programming by turning the main logic into a function - our main function!
 
-![RAPified version that is still automatic, but with all the main components that cold fail separated. The functions act as building blocks for the logic, making it easy to undertand, debug, and extend](/docs/images\mapping_the_process.RAPified.svg)
+![RAPified version that is still automatic, but with all the main components that cold fail separated. The functions act as building blocks for the logic, making it easy to undertand, debug, and extend](/docs/images/mapping-the-process-RAPified.svg)
