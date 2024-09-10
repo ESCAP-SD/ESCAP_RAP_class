@@ -79,7 +79,8 @@
 % Path for the graphs
 \graphicspath{
 {Graphics/}
- }
+{../Graphics/}
+}
 
 
 \title{\textcolor{siap}{Training on Web Scraping Prices for CPI \\ \vspace{0.5cm} }}
@@ -115,24 +116,24 @@
 \begin{frame}{Usual practice: Theory vs reality}
 \begin{center}
   \begin{itemize}
-        \only<1>{\includegraphics[width=0.8\textwidth]{Process1.png} \\ Comment 1}
-        \only<2>{\includegraphics[width=0.8\textwidth]{Process2.png} \\ Comment 2}
-        \only<3>{\includegraphics[width=0.8\textwidth]{Process3.png} \\ Comment 3}
-        \only<4>{\includegraphics[width=0.8\textwidth]{Process4.png} \\ Comment 4}
-        \only<5>{\includegraphics[width=0.8\textwidth]{Process5.png} \\ Comment 5}
-        \only<6>{\includegraphics[width=0.8\textwidth]{Process6.png} \\ Comment 6}
-        \only<7>{\includegraphics[width=0.8\textwidth]{Process7.png} \\ Comment 7}
-        \only<8>{\includegraphics[width=0.8\textwidth]{Process8.png} \\ Comment 8}
-        \only<9>{\includegraphics[width=0.8\textwidth]{Process9.png} \\ Comment 9}
-        \only<10>{\includegraphics[width=0.8\textwidth]{Process10.png} \\ Comment 10}
-        \only<11>{\includegraphics[width=0.8\textwidth]{Process11.png} \\ Comment 9}
-        \only<12>{\includegraphics[width=0.8\textwidth]{Process12.png} \\ Comment 10}
-        \only<13>{\includegraphics[width=0.8\textwidth]{Process13.png} \\ Comment 9}
-        \only<14>{\includegraphics[width=0.8\textwidth]{Process14.png} \\ Comment 10}
+        \only<1>{\includegraphics[width=0.8\textwidth]{Process1.png} \\
+        You scrapped data from a  website. Saving the file as Excel}
+        \only<2>{\includegraphics[width=0.8\textwidth]{Process2.png} \\ Send that file by email to your collaborators.}
+        \only<3>{\includegraphics[width=0.8\textwidth]{Process3.png} \\ Someone in your team can start writing some insights.}
+        \only<4>{\includegraphics[width=0.8\textwidth]{Process4.png} \\ You, or someone else, start an alaysis ...}
+        \only<5>{\includegraphics[width=0.8\textwidth]{Process5.png} \\ ... producing some outputs (graphics, tables, etc..)}
+        \only<6>{\includegraphics[width=0.8\textwidth]{Process6.png} \\ But wait... Oh no!  There a bug in the code!}
+        \only<7>{\includegraphics[width=0.8\textwidth]{Process7.png} \\ So here is version 2, and another Excel file}
+        \only<8>{\includegraphics[width=0.8\textwidth]{Process8.png} \\ And new insights ... }
+        \only<9>{\includegraphics[width=0.8\textwidth]{Process9.png} \\ ..and a new analysis based on the second Excell file}
+        \only<10>{\includegraphics[width=0.8\textwidth]{Process10.png} \\ And new outputs, new graphics, etc. }
+        \only<11>{\includegraphics[width=0.8\textwidth]{Process11.png} \\ Also, using other data sets (classifications, scanner data) }
+        \only<12>{\includegraphics[width=0.8\textwidth]{Process12.png} \\ Maybe someone adapts graphics to NSO reports style }
+        \only<13>{\includegraphics[width=0.8\textwidth]{Process13.png} \\ Finally,  copy/paste everything into the final report}
+        \only<14>{\includegraphics[width=0.8\textwidth]{Process14.png} \\ In the end, this what you have produced!}
     \end{itemize}
 \end{center}
 \end{frame}
-
 
 \begin{frame}{Usual practice: In the end}
 
@@ -197,10 +198,10 @@
     \begin{column}{0.5\textwidth}
       \begin{itemize}[<+->]
         \item It is a process % or a way to think a process
-        \item It is automated
-        \item It is easily reproducible
+        \item It is (\emph{quite}) automated
+        \item It is (\emph{easily}) reproducible
         \item It minimises mistakes
-        \item It is fast
+        \item It leads to fast processes\\ (see \href{https://github.com/Vanuatu-National-Statistics-Office/vnso-RAP-marketStats-materials}{Vanuatu Experience})
         \item It builds trust
       \end{itemize}
     \end{column}
@@ -215,16 +216,15 @@
 \begin{frame}{What does a RAP look like?}
  \begin{center}
   \begin{itemize}
-        \only<1>{\includegraphics[width=0.8\textwidth]{Pipeline1.png} \\ Comment 1}
-        \only<2>{\includegraphics[width=0.8\textwidth]{Pipeline2.png} \\ Comment 2}
-        \only<3>{\includegraphics[width=0.8\textwidth]{Pipeline3.png} \\ Comment 3}
-        \only<4>{\includegraphics[width=0.8\textwidth]{Pipeline4.png} \\ Comment 4}
-        \only<5>{\includegraphics[width=0.8\textwidth]{Pipeline5.png} \\ Comment 5}
-        \only<6>{\includegraphics[width=0.8\textwidth]{Pipeline6.png} \\ Comment 6}
-        \only<7>{\includegraphics[width=0.8\textwidth]{Pipeline7.png} \\ Comment 7}
-        \only<8>{\includegraphics[width=0.8\textwidth]{Pipeline8.png} \\ Comment 8}
-        \only<9>{\includegraphics[width=0.8\textwidth]{Pipeline9.png} \\ Comment 9}
-        \only<10>{\includegraphics[width=0.8\textwidth]{Pipeline10.png} \\ Comment 10}
+        \only<1>{\includegraphics[width=0.8\textwidth]{Pipeline1.png} \\ Idealy, Input (website) and output (report) are linked}
+        \only<2>{\includegraphics[width=0.8\textwidth]{Pipeline2.png} \\ Many steps are needed to create a report}
+        \only<3>{\includegraphics[width=0.8\textwidth]{Pipeline3.png} \\ All steps should be linked in a structured process}
+        \only<4>{\includegraphics[width=0.8\textwidth]{Pipeline4.png} \\ And only through code (Python, R, \emph{Stata}), no copy/paste }
+        \only<5>{\includegraphics[width=0.8\textwidth]{Pipeline6.png} \\ There may be side-products, but with explicit output-input links}
+        \only<6>{\includegraphics[width=0.8\textwidth]{Pipeline7.png} \\ If needed, code can be updated (new versions)}
+        \only<7>{\includegraphics[width=0.8\textwidth]{Pipeline8.png} \\ And comments added for each change}
+        \only<8>{\includegraphics[width=0.8\textwidth]{Pipeline9.png} \\ Documentation on the process builds up with code changes}
+        \only<9>{\includegraphics[width=0.8\textwidth]{Pipeline10.png} \\ Other contributors are welcome!}
     \end{itemize}
 \end{center}
 \end{frame}
@@ -236,6 +236,7 @@
 
 \begin{frame}[<+->]
    \frametitle{3 main principles:}
+   \pause
     \begin{enumerate}
      \item Organize your work
      \item Code for others (including your future self)
@@ -383,6 +384,18 @@ For \textbf{outputs}
 \end{frame}
 
 
+\begin{frame}
+\frametitle{Organize your work }
+\textcolor{siap}{\textbf{Keep track of the workflow:} \\  }
+
+Here is our workflow:\\
+\begin{center}
+\href{https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/images/ads-process-overview-high-level-overview.drawio.svg}
+{\includegraphics[width=0.9\textwidth]{ESCAPWebScrappingPipeline.png}} \\
+\hfill \tiny{ \textcolor{gris}{Created by Serge Goussev.}}
+\end{center}
+
+\end{frame}
 
 \begin{frame}
 \frametitle{Organize your work }
@@ -400,7 +413,7 @@ For \textbf{outputs}
 
 \begin{frame}[<+->]
 \frametitle{Code for others (including your "\emph{future self}")}
-\textcolor{siap}{\textbf{Program with style:}} \\
+\textcolor{siap}{\textbf{Program with style:}}
           \begin{itemize}
              \item[]  \only<1>{Use \emph{literate programming} }
              \only<1>{ \begin{center}
@@ -459,45 +472,44 @@ For \textbf{outputs}
 \begin{frame}
 \frametitle{\textbf{D}o not \textbf{R}epeat \textbf{Y}ourself  }
 
-\textcolor{siap}{\textbf{Create reusable objects}} \\
+\textcolor{siap}{\textbf{Create reusable objects}}
 \begin{columns}[t]
  \begin{column}{0.2\textwidth}
     \begin{itemize}[<+->]
        \item { \scriptsize Store values}
        \item[]{ \scriptsize Avoid repetitions}
-        \item[]
+       \item[]  % Empty item
        \item { \scriptsize Use functions}
     \end{itemize}
 \end{column}
   \begin{column}{0.8\textwidth}
     \begin{itemize}
-    \item[]
-        \only<1-2>{\scriptsize Usual \\ }
-        \only<1-2>{\scriptsize \texttt{Current\_Data = Mydata[Mydata['year'] == 2023]} \\
-                               \texttt{ } \\ }
+        \item[] \only<1-2>{\scriptsize Usual \\ }
+        \only<1-2>{\scriptsize \texttt{Current\_Data = Mydata[Mydata['year'] == 2023]} \\}
         \only<2>{\scriptsize Better \\ }
         \only<2>{\scriptsize \texttt{Current\_year = 2023 } \\
-                        \texttt{Current\_Data= Mydata[Mydata['year'] } \\
-                       \hfill  \texttt{== Current\_year] } }
+                             \texttt{Current\_Data= Mydata[Mydata['year'] == Current\_year]} }
         \only<3>{\scriptsize Usual \\ }
-        \only<3>{\scriptsize \texttt{data = Mydata[Mydata['export'] == 'Beef']} \\
-                 \scriptsize \texttt{plt.plot(data['Year'], data['Value'])} \\
-                 \scriptsize \texttt{plt.title('Export for Beef')\\ } \\
-                  \texttt{ } \\  }
-         \only<3>{\scriptsize \texttt{data = Mydata[Mydata['export'] == 'Kava']} \\
-                 \scriptsize \texttt{plt.plot(data['Year'], data['Value'])} \\
-                 \scriptsize \texttt{plt.title('Export for Kava')} \\
-                 \texttt{ ... } \\ }
+        \only<3>{\scriptsize \texttt{\# -- Exports for Beef -- }\\
+                            \texttt{data = Mydata[Mydata['export'] == 'Beef']} \\
+                            \texttt{plt.plot(data['Year'], data['Value'])} \\
+                            \texttt{plt.title('Export for Beef')} \\ }
+         \only<3>{\scriptsize   \texttt{\# -- Also for Kava -- }\\
+                                \texttt{data = Mydata[Mydata['export'] == 'Kava']} \\
+                                \texttt{plt.plot(data['Year'], data['Value'])} \\
+                                \texttt{plt.title('Export for Kava')} \\
+                                \texttt{\# -- Also for ...  -- }}
         \only<4>{\scriptsize Better \\ }
-        \only<4>{\scriptsize \texttt{def plot\_export(export\_type): } \\
-                                \texttt{     data = Mydata[Mydata['export'] }  \\
-                                \hfill \texttt{== export\_type]} \\
+        \only<4>{\scriptsize  \texttt{\# Defining a generic function} \\
+                                \texttt{def plot\_export(export\_type): } \\
+                                \texttt{     data = Mydata[Mydata['export'] == } \\
+                                \hfill \texttt{export\_type]} \\
                                 \texttt{     plt.plot(data['Year'], data['Value'])}\\
-                                \texttt{     plt.title(f'Export for {export\_type}')} \\
+                                \texttt{     plt.title(f'Export for \{export\_type\}')} \\
                                 \texttt{     plt.show()}\\
-                                \texttt{ } \\
+                                \texttt{\# Applying function to several products} \\
                                 \texttt{plot\_export("Beef")} \\
-                                \texttt{plot\_export("Kava")   }}
+                                \texttt{plot\_export("Kava")}}
 
     \end{itemize}
   \end{column}
@@ -563,7 +575,7 @@ Tracking three \textbf{W} questions:
 
 \subsection{File evolution}
 
-\begin{frame}{The evolution of a file \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
+\begin{frame}{File evolution  \textcolor{brique}{without Version Control}  }
 \begin{center}
 \begin{itemize}
    \only<1> {\includegraphics[width = 1.0\textwidth]{FileChange1a.png} \\ }
@@ -577,7 +589,7 @@ Tracking three \textbf{W} questions:
 \end{center}
 \end{frame}
 
-\begin{frame}{The evolution of a file  \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
+\begin{frame}{File evolution  \textcolor{brique}{without Version Control}  }
 Usual ways to keep track of changes:
 \pause
 \begin{columns}[t]
@@ -605,9 +617,9 @@ Usual ways to keep track of changes:
 \end{columns}
 \end{frame}
 
-\subsection{Main Commands}
+\subsection{Commits}
 
-\begin{frame}{The evolution \textcolor{brique}{with Version Control}}
+\begin{frame}{File evolution  \textcolor{brique}{without Version Control}  }
 Record a message (\emph{commit})  for each change!
 \begin{center}
 \begin{itemize}
@@ -649,9 +661,7 @@ Record a message (\emph{commit})  for each change!
 \end{center}
 \end{frame}
 
-\subsection{Complexity}
-
-\begin{frame}{Good and Bad News  \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
+\begin{frame}{Good and Bad News }
 Real life is more complex:
 \pause
 \begin{columns}[t]
@@ -685,10 +695,7 @@ Real life is more complex:
 \end{columns}
 \end{frame}
 
-
-
-
-\begin{frame}{Version Control in a Nutshell \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
+\begin{frame}{Version Control in a Nutshell }
 Version control system:
 \begin{columns}[t]
 \begin{column}{0.6\textwidth}
@@ -713,23 +720,33 @@ Version control system:
 \end{frame}
 
 
-\begin{frame}{Takeaways \textcolor[rgb]{1.00,0.00,0.00}{\textbf{<--XXXX To revise this}} }
-\pause
 
+\section{Takeaways}
+
+\begin{frame}{Takeaways }
+\pause
 \begin{itemize}[<+->]
-    \item Version control is very useful \includegraphics[width=0.05\textwidth]{github-mark.png}
-    \item Version control requires patience, training and experience
-    \item Version control is essential for transparency, and reproducibility of any project
-    \item Installing Git within RStudio can be tedious but worth it!
-    \item There is guidance, tutorials and helping blogs...
+    \item There many shades of RAP
+    \item[$\hookrightarrow$] Start small, be an advocate for others
+    \item[$\hookrightarrow$] Increase complexity when ready
+    \item Good practices starts with our own practices
+    \item Reproducible documents simplifies life
+    \item[$\hookrightarrow$]  KISS: Keep it Simple, Stupid
+    \item Version control is essential
+    \item Automation is a real challenge
+    \item Building a RAP is a collective process \\
+        %\item[$\hookrightarrow$] Sharing tools, processes \& feedback \\
+        \includegraphics[width=0.5\textwidth]{DecolonisingKnowledge.jpg}
 \end{itemize}
 \end{frame}
-
 
 
 \section{Resources}
 \begin{frame}{Useful resources}
   \begin{itemize}
+   \item  \href{https://github.com/sergegoussev/ESCAP_RAP_class/tree/main}{This course website} (created by Serge Goussev)
+   \item \href{https://github.com/Vanuatu-National-Statistics-Office/vnso-RAP-marketStats-materials}{Vanuatu Bureau of Statistics implementation of RAP}
+   \item \href{https://www.unsiap.or.jp/on_line/2024/RAP/flyer-RAP-Self-paced.pdf}{SIAP's (free) online RAP course}
     \item The UK government RAP \href{https://ukgovdatascience.github.io/rap-website/index.html}{website}.
     \item UK best practice \href{https://gss.civilservice.gov.uk/policy-store/quality-statistics-in-government/\#reproducible-analytical-pipelines-rap-}{documentation}.
     \item A free RAP \href{https://www.udemy.com/course/reproducible-analytical-pipelines/}{course} to teach you all you need to know.

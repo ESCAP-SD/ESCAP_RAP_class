@@ -1,0 +1,11 @@
+---
+title: "RAP for web scraping"
+format:
+  html:
+    toc: true
+    toc-expand: 2
+---
+
+::: callout-note
+This page is still under construction
+:::
