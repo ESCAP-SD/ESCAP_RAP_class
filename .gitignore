@@ -1,6 +1,6 @@
 # notebook content not relevant in the git
 .ipynb_checkpoints
-*.ipynb
+*_secure.ipynb
 *.log
 __temp__*
 
