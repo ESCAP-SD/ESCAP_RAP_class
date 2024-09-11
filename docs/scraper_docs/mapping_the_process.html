@@ -153,12 +153,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../notebooks/session11_code.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Web scraper walkthrough: review from Session 11</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/scraper_docs.html" class="sidebar-item-text sidebar-link">
@@ -213,7 +207,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#figuring-out-how-to-map-the-process" id="toc-figuring-out-how-to-map-the-process" class="nav-link active" data-scroll-target="#figuring-out-how-to-map-the-process">Figuring out how to map the process</a>
   <ul class="collapse">
   <li><a href="#the-overall-process" id="toc-the-overall-process" class="nav-link" data-scroll-target="#the-overall-process">The overall process</a></li>
-  <li><a href="#rapifying-this-task" id="toc-rapifying-this-task" class="nav-link" data-scroll-target="#rapifying-this-task">RAPifying this task</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/scraper_docs/mapping_the_process.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/#rap-principles"><i class="bi bi-link-45deg"></i>RAP principles</a></li><li><a href="https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/"><i class="bi bi-link-45deg"></i>Process mapping guide for RAP</a></li><li><a href="https://nhsdigital.github.io/rap-community-of-practice/our_RAP_service/thin-slice-strategy/"><i class="bi bi-link-45deg"></i>Thin slice strategy for process mapping</a></li></ul></div></nav>
@@ -257,55 +250,7 @@ Note
 <h1>Figuring out how to map the process</h1>
 <section id="the-overall-process" class="level2">
 <h2 class="anchored" data-anchor-id="the-overall-process">The overall process</h2>
-<p>If we start out with the main script that Frances showed in the 11th session, we end up with a large script at the end of the training <a href="../../notebooks/session11_code.html" id="putting-it-together">session_11_notebook</a> . However if we visually map out what is happening, we can start to figure out how to break this out.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../docs/images/mapping-the-process-overall.svg" class="img-fluid figure-img"></p>
-<figcaption>Mapping the overall scrape process of farmers.co.nz</figcaption>
-</figure>
-</div>
-<p>We see that the scraper went to the website multiple times but it is conceptually done in 3 steps (green boxes that show dashed lines to the website):</p>
-<ol type="a">
-<li>to get categories</li>
-<li>to get page 1 of the where products are listed for that category.</li>
-<li>repeat step b for all the other pages</li>
-</ol>
-<p>The rest of it is processing, that either includes:</p>
-<ol start="4" type="a">
-<li>the logic to go from one step to the other (light blue);</li>
-<li>specific processing steps such as cleaning or saving the data (dark blue).</li>
-</ol>
-<p>At the end, we end up with a final file (purple) for that one individual scrape.</p>
-</section>
-<section id="rapifying-this-task" class="level2">
-<h2 class="anchored" data-anchor-id="rapifying-this-task">RAPifying this task</h2>
-<p>The above approach works, but it is quite cumbersome for production - and this is where RAP can help us. As the main set is done in one large code block, if something happens, its hard to dive in to understand what’s happening and to fix it. In other words, its not easily reproducible without spending time to recreate the whole process. As a key principles of RAP is modularization, lets try to figure out how to separate this out into more logical and easily testable/functions.</p>
-<p>Some initial thoughts:</p>
-<ul>
-<li>A simple and easy one is the fact that we call the retailer website several times and we repeat the same code. While this is not overly complex, we can separate it out and centralize it as one function, as this allows us to make sure that (1) we never make a mistake writing the same code twice, and (2) lets us add extra robustness for this step. For instance we may want to have special error checks if something happens to know that if something happens, this is where the error occured (instead of in the big main function). Or we cold also add log entries for every call we make to the retailer site in order to have an audit of all the external calls our package makes.
-<ul>
-<li>Will thus make a new <code>get_site_data(input_url)</code> function that will centralize this.</li>
-</ul></li>
-<li>Looking further, we see that our main code is mostly logic, with a bunch of parsing (i.e.&nbsp;cleaning) functions (like extracting specific information from <code>BeautifulSoup</code> tags). If we separate out this parsing into separate functions and leave the logical structure in one main script, we (1) could easily see if one of the parsing functions failed, and (2) more easily understand and read, fix, or enhance the main logic. This is a classic example of <a href="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/#modular-re-usable-code">loose coupling</a>, <a href="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/#good-coding-practices">good coding practices</a>, and <a href="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/#testing">easier integration of tests for each function</a> - all of which RAP recommends. Thus we can make a few custom functions:
-<ul>
-<li><code>get_and_parse_categories()</code></li>
-<li><code>parse_last_page_num()</code></li>
-<li><code>parse_product_info()</code> - this could be a main function that extracts the logic of extracting product info fo reasier extensibility, although for what we’re demoing, this is optional. This function would actually call several sub-functions:
-<ul>
-<li><code>parse_product_name()</code></li>
-<li><code>parse_price()</code></li>
-<li><code>parse_product_url()</code></li>
-</ul></li>
-<li><code>save_data()</code> - again, separated for easier extensibility, but not strictly necessary.</li>
-</ul></li>
-<li>Finally, while we’ve moved the parsing and calls to the retailer site outside of the main logic, we should stick to the functional paradigm of programming by turning the main logic into a function - our main function!</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../docs/images/mapping-the-process-RAPified.svg" class="img-fluid figure-img"></p>
-<figcaption>RAPified version that is still automatic, but with all the main components that cold fail separated. The functions act as building blocks for the logic, making it easy to undertand, debug, and extend</figcaption>
-</figure>
-</div>
+<p>If we start out modifying the scraper we developed in a notebook when we tried scaping <a href="../../notebooks/scraping_experiment.ipynb">books to scrape</a> and map what we did there in order to RAPify the process!</p>
 
 
 </section>
