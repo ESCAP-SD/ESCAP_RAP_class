@@ -101,9 +101,10 @@
 
 \begin{frame}{Why are Reproducible Analytical Pipelines good for you?}
   \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.7\textwidth}
       \begin{itemize}[<+->]
-        \item It will make your (and your team's) (\emph{working}) life easier. For example way less confusion about where things are and how it works! Lower cognitive load on day to day tasks!
+        \item It will make your (and your team's) (\emph{working}) life easier. 
+         \item[$\hookrightarrow$]{ \small  Less confusion about where things are and how it works! \\ Lower cognitive load on day to day tasks!}
         \item It is an efficient way to work
         \item It helps work faster
         \item It helps make the process of making official statistics more robust!
@@ -111,7 +112,7 @@
         \item It will enhance your skills (and perhaps make you famous in your organization!)
       \end{itemize}
     \end{column}
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.3\textwidth}
     \begin{itemize}
         \item[] \includegraphics[width=1.0\textwidth]{ReusablePipeline.png}
     \end{itemize}
@@ -257,20 +258,20 @@
    \frametitle{RAP principles:}
    \pause
     \begin{itemize}
-     \item Automation (\emph{as much as you can}) 
+     \item Automation (\emph{as much as you can})
      \item[$\hookrightarrow$] Avoid manual work %(prone to errors, time consuming)
-     \item Reusable (modular) code 
-     \item[$\hookrightarrow$] Build blocs, update blocs, change blocs, test blocs 
+     \item Reusable (modular) code
+     \item[$\hookrightarrow$] Build blocs, update blocs, change blocs, test blocs
      \item Transparency
-     \item[$\hookrightarrow$] Show what you, do what you say 
+     \item[$\hookrightarrow$] Show what you, do what you say
      \item Use open source tools
-     \item[$\hookrightarrow$] Free, reusable, huge community % (+ chatGPT compatible)  
+     \item[$\hookrightarrow$] Free, reusable, huge community % (+ chatGPT compatible)
      \item Version control
      \item[$\hookrightarrow$] Easy to track code, easy to share, easy to update, ...
      \item Good coding practices
      \item[$\hookrightarrow$] Write for humans, not for machines
      \item Testing
-     \item Peer-review 
+     \item Peer-review
     \end{itemize}
 \end{frame}
 
@@ -286,7 +287,7 @@
     \end{center}
      \item[$\hookrightarrow$] \vspace{2cm} We'll detail some of these practices and tools
    \end{itemize}
-    
+
 \end{frame}
 
 
@@ -520,6 +521,7 @@ Here is a workflow from web scraping to elementary aggregate workflow. We'll cov
        \item[]{ \scriptsize Avoid repetitions}
        \item[]  % Empty item
        \item { \scriptsize Use functions}
+       \item { \scriptsize Use independent blocks}
     \end{itemize}
 \end{column}
   \begin{column}{0.8\textwidth}
@@ -537,25 +539,27 @@ Here is a workflow from web scraping to elementary aggregate workflow. We'll cov
          \only<3>{\scriptsize   \texttt{\# -- Also for Kava -- }\\
                                 \texttt{data = Mydata[Mydata['export'] == 'Kava']} \\
                                 \texttt{plt.plot(data['Year'], data['Value'])} \\
-                                \texttt{plt.title('Export for Kava')} \\ \\
+                                \texttt{plt.title('Export for Kava')} \\ 
                                 \texttt{\# -- Also for ...  -- }}
         \only<4>{\scriptsize Better \\ }
         \only<4>{\scriptsize  \texttt{\# Defining a generic function} \\
                                 \texttt{def plot\_export(export\_type): } \\
                                 \texttt{     data = Mydata[Mydata['export'] == } \\
                                 \hfill \texttt{export\_type]} \\
-                                \texttt{     plt.plot(data['Year'], data['Value'])}\\
+                                \texttt{     plt.plot(data['Year'], data['Value'])} \\
                                 \texttt{     plt.title(f'Export for \{export\_type\}')} \\
-                                \texttt{     plt.show()}\\ \\
+                                \texttt{     plt.show()}\\ 
                                 \texttt{\# Run the function for several products} \\
                                 \texttt{plot\_export("Beef")} \\
                                 \texttt{plot\_export("Kava")}}
-          % Could we integrate https://nhsdigital.github.io/rap-community-of-practice/images/tight-loose-coupling.png into this slide?
+        \only<5>{\includegraphics[width=0.8\textwidth]{tight-loose-coupling.png} \\  } 
+        \only<5>{\hfill  \textcolor{gris}{\scriptsize {Source: \href{https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/\#modular-re-usable-code}{NHS Community of Practice}}}}
     \end{itemize}
   \end{column}
 \end{columns}
 \end{frame}
 
+ % Could we integrate https://nhsdigital.github.io/rap-community-of-practice/images/tight-loose-coupling.png into this slide?
 
 %\begin{frame}
 %\frametitle{Other principles}
@@ -750,17 +754,18 @@ Version Control will help you
 \begin{frame}{Version Control in a Nutshell }
 A Version Control systems:
 \begin{columns}[t]
-\begin{column}{0.6\textwidth}
+\begin{column}{0.8\textwidth}
 \begin{itemize}[<+->]
     \item Keeps track of all changes
     \item Allows you to ignore anything you don't want to version control (such as internal data) in the (\emph{.gitignore})
     \item Allows reviewing stages of development
     \item Allow collaborating on projects
-    \item Comes with different tools (Git, GitHub, GitLab, etc..)! For instance if your organization doesn't use GitHub, GitLab can be set up on an internal NSO network.
+    \item Comes with different tools (Git, GitHub, GitLab, etc..)! 
+    \item[$\hookrightarrow$]  GitLab can be set up on an internal NSO network.
     \item Backups your work
   \end{itemize}
  \end{column}
-  \begin{column}{0.4\textwidth}
+  \begin{column}{0.2\textwidth}
     \begin{center}
     \begin{itemize}
         \only<1-6>{\includegraphics[width=0.5\textwidth]{github-mark.png} \\ \vspace{0.5cm}
@@ -784,7 +789,7 @@ A Version Control systems:
     \item[$\hookrightarrow$] Increase complexity when ready
     \item Good practices starts with our own practices
     \item[$\hookrightarrow$]  KISS: Keep it Simple, Stupid
-    \item Automate little by little 
+    \item Automate little by little
     \item Version control is a life-changer
 
     \item Building a RAP is a collective process \\
