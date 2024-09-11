@@ -70,7 +70,7 @@ def run_scraper(starting_url: str, save_location: str):
 
 
 if __name__ == "__main__":
-    starting_url = "https://www.farmers.co.nz/women/fashion"
+    starting_url = "https://books.toscrape.com/index.html"
     save_location = "../data/raw/"
     # print(get_categories(starting_url))
     product_data = run_scraper(starting_url, save_location)

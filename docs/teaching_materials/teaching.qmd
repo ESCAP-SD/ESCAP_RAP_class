@@ -63,11 +63,12 @@ The overall objective of the RAP training is to provide an overview of key RAP p
     -   Peer review
 -   Exercise
 
-**Exercise in detail:** To help anchor several of the technical skills in RAP, participants should spend about an hour in person (helped by the mentors who are there in person) try one (or two?) of a set of possible topics. Specifically, depending on their programming skills, access to a computer with Python, or knowledge of the overall process, participants can pick from several topics to spend an hour trying to implement. Possible topics:
+**Exercise in detail:** To help anchor several of the technical skills in RAP, participants should spend about an hour in person (helped by the mentors who are there in person) try one (or two?) of a set of possible topics. Specifically, depending on their programming skills, access to a computer with Python, or knowledge of the overall process, participants can pick from several topics to spend an hour trying to implement. Possible topics (TBC):
 
 -   Detailed mapping of the web scraping process - sketch out how your country's specific web scraping needs to to be automated. Plan out the components and sub-components of the process to practice design and planning ahead of coding.
--   Develop unit tests - write a few scenarios for a specific task that would be a clearly encapsulated single function in the code. Then develop test data and create a unit test for this task
--   Partner up and try peer review - first develop a notebook (or script) to do some scraping. Then commit it to a github repository and then ask someone to peer review it using a separate branch (and a pull request) or simply an issue - to create transparency.
+-   Try functional programming! This is key about learning technical skills to make your code more modular and efficient and is the next step to help organize code together!
+-   Try creating `.py` scripts, making your code more robust for production and the next step from exploration!
+-   Try git and peer review - first develop a notebook (or script) to do some scraping. Then commit it to a github repository and then ask someone to peer review it using a separate branch (and a pull request) or simply an issue - to create transparency.
 
 For all examples, some experience in python and setup of git with a github account is needed
 
