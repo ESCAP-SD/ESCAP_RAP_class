@@ -103,12 +103,12 @@
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}
       \begin{itemize}[<+->]
-        \item It will make your (\emph{working}) life easier
-        \item It is a satisfying way to work
-        \item It is a time-saver
-        \item It helps tracking mistakes
-        \item It helps collaborating
-        \item It will enhance your skills (and make you famous?)
+        \item It will make your (and your team's) (\emph{working}) life easier. For example way less confusion about where things are and how it works! Lower cognitive load on day to day tasks!
+        \item It is an efficient way to work
+        \item It helps work faster
+        \item It helps make the process of making official statistics more robust!
+        \item It makes it easy to efficiently collaborate
+        \item It will enhance your skills (and perhaps make you famous in your organization!)
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -149,7 +149,7 @@
       \begin{itemize}[<+->]
         \item Lots of files
         \item Cut and paste is not a reliable, reproducible approach!
-        \item Your brain may remember..
+        \item Your brain may remember (likely not!)...
         \item[] ...all the steps...
         \item[] .. in the right order..
         \item[]...all of them !
@@ -216,11 +216,12 @@
 \begin{frame}{What is A Reproducible Analytical Pipeline?}
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}
+      RAP could be thought of as an approach to working -- adopting a set of technical skills to learn and open-source best practices to adopt when creating a data output (which in our case is final or interim datasets)
       \begin{itemize}[<+->]
-        \item It is a process % or a way to think a process
+        \item RAP is thus a robust process
         \item It is (\emph{quite}) automated
         \item It is (\emph{easily}) reproducible
-        \item It minimises mistakes
+        \item It minimizes the time to find and fix mistakes when they do occur
         \item It leads to fast processes\\ (see \href{https://github.com/Vanuatu-National-Statistics-Office/vnso-RAP-marketStats-materials}{Vanuatu Experience})
         \item It builds trust
       \end{itemize}
@@ -239,7 +240,7 @@
         \only<1>{\includegraphics[width=0.8\textwidth]{Pipeline1.png} \\ Idealy, Input (website) and output (report) are linked}
         \only<2>{\includegraphics[width=0.8\textwidth]{Pipeline2.png} \\ Many steps are needed to create a report}
         \only<3>{\includegraphics[width=0.8\textwidth]{Pipeline3.png} \\ All steps should be linked in a structured process}
-        \only<4>{\includegraphics[width=0.8\textwidth]{Pipeline4.png} \\ And only through code (Python, R, \emph{Stata}), no copy/paste }
+        \only<4>{\includegraphics[width=0.8\textwidth]{Pipeline4.png} \\ And only through code (Python, R), no copy/paste }
         \only<5>{\includegraphics[width=0.8\textwidth]{Pipeline6.png} \\ There may be side-products, but with explicit output-input links}
         \only<6>{\includegraphics[width=0.8\textwidth]{Pipeline7.png} \\ If needed, code can be updated (new versions)}
         \only<7>{\includegraphics[width=0.8\textwidth]{Pipeline8.png} \\ And comments added for each change}
@@ -348,18 +349,18 @@ For \textbf{files/code}\\
     \begin{itemize}
         \item[]
         \only<2>{\small Better \\ }
-        \only<2>{ \small    \texttt{Scraping\_Data.ipynb}\\
-                            \texttt{Cleaning\_Data.ipynb}\\
-                            \texttt{Stats\_Tables.ipynb}\\
-                            \texttt{Classification.ipynb}\\
-                            \texttt{Price\_CPI.ipynb} }
+        \only<2>{ \small    \texttt{Scraping\_Data.py}\\
+                            \texttt{Cleaning\_Data.py}\\
+                            \texttt{Stats\_Tables.py}\\
+                            \texttt{Classification.py}\\
+                            \texttt{Price\_CPI.py} }
         \only<3>{\small Even better \\ }
         \only<3>{ \small
-                    \texttt{01\_Scraping\_data.ipynb}\\
-                    \texttt{02\_Cleaning\_data.ipynb}\\
-                    \texttt{03\_Classification.ipynb}\\
-                    \texttt{04\_Stats\_Tables.ipynb}\\
-                    \texttt{04\_Price\_CPI.ipynb} }
+                    \texttt{01\_Scraping\_data.py}\\
+                    \texttt{02\_Cleaning\_data.py}\\
+                    \texttt{03\_Classification.py}\\
+                    \texttt{04\_Stats\_Tables.py}\\
+                    \texttt{04\_Price\_CPI.py} }
 
     \end{itemize}
   \end{column}
@@ -427,7 +428,7 @@ For \textbf{outputs}
 \frametitle{\textbf{Good practices for  automation} }
 \textcolor{siap}{\textbf{Keep track of the workflow:} \\  }
 
-Here is our workflow:\\
+Here is a workflow from web scraping to elementary aggregate workflow. We'll cover it more next week!\\
 \begin{center}
 \href{https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/images/ads-process-overview-high-level-overview.drawio.svg}
 {\includegraphics[width=0.9\textwidth]{ESCAPWebScrappingPipeline.png}} \\
@@ -532,11 +533,11 @@ Here is our workflow:\\
         \only<3>{\scriptsize \texttt{\# -- Exports for Beef -- }\\
                             \texttt{data = Mydata[Mydata['export'] == 'Beef']} \\
                             \texttt{plt.plot(data['Year'], data['Value'])} \\
-                            \texttt{plt.title('Export for Beef')} \\ }
+                            \texttt{plt.title('Export for Beef')} \\ } \\
          \only<3>{\scriptsize   \texttt{\# -- Also for Kava -- }\\
                                 \texttt{data = Mydata[Mydata['export'] == 'Kava']} \\
                                 \texttt{plt.plot(data['Year'], data['Value'])} \\
-                                \texttt{plt.title('Export for Kava')} \\
+                                \texttt{plt.title('Export for Kava')} \\ \\
                                 \texttt{\# -- Also for ...  -- }}
         \only<4>{\scriptsize Better \\ }
         \only<4>{\scriptsize  \texttt{\# Defining a generic function} \\
@@ -545,11 +546,11 @@ Here is our workflow:\\
                                 \hfill \texttt{export\_type]} \\
                                 \texttt{     plt.plot(data['Year'], data['Value'])}\\
                                 \texttt{     plt.title(f'Export for \{export\_type\}')} \\
-                                \texttt{     plt.show()}\\
-                                \texttt{\# Applying function to several products} \\
+                                \texttt{     plt.show()}\\ \\
+                                \texttt{\# Run the function for several products} \\
                                 \texttt{plot\_export("Beef")} \\
                                 \texttt{plot\_export("Kava")}}
-
+          % Could we integrate https://nhsdigital.github.io/rap-community-of-practice/images/tight-loose-coupling.png into this slide?
     \end{itemize}
   \end{column}
 \end{columns}
@@ -752,10 +753,10 @@ A Version Control systems:
 \begin{column}{0.6\textwidth}
 \begin{itemize}[<+->]
     \item Keeps track of all changes
-    \item Ignores your data (\emph{.gitignore})
+    \item Allows you to ignore anything you don't want to version control (such as internal data) in the (\emph{.gitignore})
     \item Allows reviewing stages of development
     \item Allow collaborating on projects
-    \item Comes with different tools (Git, GitHub, GitLab, etc..)
+    \item Comes with different tools (Git, GitHub, GitLab, etc..)! For instance if your organization doesn't use GitHub, GitLab can be set up on an internal NSO network.
     \item Backups your work
   \end{itemize}
  \end{column}
