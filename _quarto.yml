@@ -22,7 +22,7 @@ website:
     search: true
     logo: docs/images/logo.drawio.svg
     logo-alt: logo
-    logo-href: index.qmd
+    logo-href: https://sergegoussev.github.io/ESCAP_RAP_class/docs/
     border: true
     contents:
       - href: docs/index.qmd
