@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[xcolor=x11names,compress]{beamer}
-%\documentclass[xcolor=x11names,compress, handhouts, aspectratio=169]{beamer}
+%\documentclass[xcolor=x11names,compress]{beamer}
+\documentclass[xcolor=x11names,compress, handout]{beamer}
 %% General document
 \usepackage{graphicx, subfig}
 %% Beamer Layout
@@ -103,7 +103,7 @@
   \begin{columns}[T]
     \begin{column}{0.7\textwidth}
       \begin{itemize}[<+->]
-        \item It will make your (and your team's) (\emph{working}) life easier. 
+        \item It will make your (and your team's) (\emph{working}) life easier.
          \item[$\hookrightarrow$]{ \small  Less confusion about where things are and how it works! \\ Lower cognitive load on day to day tasks!}
         \item It is an efficient way to work
         \item It helps work faster
@@ -217,8 +217,9 @@
 \begin{frame}{What is A Reproducible Analytical Pipeline?}
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}
-      RAP could be thought of as an approach to working -- adopting a set of technical skills to learn and open-source best practices to adopt when creating a data output (which in our case is final or interim datasets)
+
       \begin{itemize}[<+->]
+        \item[] \only<1>{   RAP could be thought of as an approach to working \\  Adopting a set of technical skills and open-source best practices to adopt when creating a data output }
         \item RAP is thus a robust process
         \item It is (\emph{quite}) automated
         \item It is (\emph{easily}) reproducible
@@ -339,11 +340,11 @@ For \textbf{files/code}\\
     \begin{itemize}
        \item[]
         \only<1-3>{ \small Usual \\ }
-        \only<1-3>{ \small \texttt{prog1.ipynb}\\
-                    \texttt{prog2.ipynb}\\
-                    \texttt{Stat.ipynb}\\
-                    \texttt{progC.ipynb}\\
-                    \texttt{progP.ipynb} \\ }
+        \only<1-3>{ \small \texttt{prog1.py}\\
+                    \texttt{prog2.py}\\
+                    \texttt{Stat.py}\\
+                    \texttt{progC.py}\\
+                    \texttt{progP.py} \\ }
     \end{itemize}
   \end{column}
   \begin{column}{0.5\textwidth}
@@ -539,7 +540,7 @@ Here is a workflow from web scraping to elementary aggregate workflow. We'll cov
          \only<3>{\scriptsize   \texttt{\# -- Also for Kava -- }\\
                                 \texttt{data = Mydata[Mydata['export'] == 'Kava']} \\
                                 \texttt{plt.plot(data['Year'], data['Value'])} \\
-                                \texttt{plt.title('Export for Kava')} \\ 
+                                \texttt{plt.title('Export for Kava')} \\
                                 \texttt{\# -- Also for ...  -- }}
         \only<4>{\scriptsize Better \\ }
         \only<4>{\scriptsize  \texttt{\# Defining a generic function} \\
@@ -548,11 +549,11 @@ Here is a workflow from web scraping to elementary aggregate workflow. We'll cov
                                 \hfill \texttt{export\_type]} \\
                                 \texttt{     plt.plot(data['Year'], data['Value'])} \\
                                 \texttt{     plt.title(f'Export for \{export\_type\}')} \\
-                                \texttt{     plt.show()}\\ 
+                                \texttt{     plt.show()}\\
                                 \texttt{\# Run the function for several products} \\
                                 \texttt{plot\_export("Beef")} \\
                                 \texttt{plot\_export("Kava")}}
-        \only<5>{\includegraphics[width=0.8\textwidth]{tight-loose-coupling.png} \\  } 
+        \only<5>{\includegraphics[width=0.8\textwidth]{tight-loose-coupling.png} \\  }
         \only<5>{\hfill  \textcolor{gris}{\scriptsize {Source: \href{https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/\#modular-re-usable-code}{NHS Community of Practice}}}}
     \end{itemize}
   \end{column}
@@ -722,7 +723,7 @@ Version Control will help you
 \begin{columns}[t]
 \begin{column}{0.6\textwidth}
 \begin{itemize}[<+->]
-        \item Version Control is integrated in Visual Studio (\emph{\& RStudio})
+        \item Version Control is integrated in VS Code (\emph{\& RStudio})
         \item[$\hookrightarrow$] Simple operations are easy
         \item Collaborate on a project
         \item[$\hookrightarrow$] Track changes of others
@@ -760,7 +761,7 @@ A Version Control systems:
     \item Allows you to ignore anything you don't want to version control (such as internal data) in the (\emph{.gitignore})
     \item Allows reviewing stages of development
     \item Allow collaborating on projects
-    \item Comes with different tools (Git, GitHub, GitLab, etc..)! 
+    \item Comes with different tools (Git, GitHub, GitLab, etc..)!
     \item[$\hookrightarrow$]  GitLab can be set up on an internal NSO network.
     \item Backups your work
   \end{itemize}
@@ -770,7 +771,6 @@ A Version Control systems:
     \begin{itemize}
         \only<1-6>{\includegraphics[width=0.5\textwidth]{github-mark.png} \\ \vspace{0.5cm}
                     \includegraphics[width=0.5\textwidth]{gitlab-logo.png} \\ }
-        \only<1-6>{ \textcolor{gris}{\tiny{ \href{https://www.c-sharpcorner.com/article/git-for-absolute-beginners-with-command-line-interface/}{GitHub logo}}}}
     \end{itemize}
     \end{center}
   \end{column}
