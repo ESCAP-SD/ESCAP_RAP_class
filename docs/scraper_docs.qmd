@@ -13,7 +13,9 @@ This page is still under construction
 
 # Overview and level of RAP to aim for in this demo
 
-This section of the RAP site documents the demo RAP that NSOs can use to RAPify your web scraping and turn it into a mature and reproducible package. It demonstrates through the example of [farmers.co.nz](https://www.farmers.co.nz/) that was shown by Frances Krsinich in the August 21 session. While [RAP can be implementd in a spectrum with multiple levels possible](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/), to not make it too complicated - we target the silver level of maturity. The rest of this document both documents the RAP for this scraper, as well as details out how each component runs.
+This section of the RAP site documents the demo RAP that NSOs can use to RAPify your web scraping and turn it into a mature and reproducible package. It demonstrates through the example of [books.toscrape](https://books.toscrape.com/) - a site that allows web scraping and looks just like a retailer webiste. The example and this section thus shows how NSOs can convert the Jupyter Notebooks that are great for exploration and interactive or visual analysis - into a mature production RAP package on a public example. 
+
+While [RAP can be implementd in a spectrum with multiple levels possible](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/), to not make it too complicated - we target the silver level of maturity. The rest of this document both documents the RAP for this scraper, as well as details out how each component runs.
 
 ## Baseline RAP - getting the fundamentals right
 
