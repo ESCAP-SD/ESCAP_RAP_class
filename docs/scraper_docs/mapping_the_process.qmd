@@ -23,39 +23,4 @@ This page is still under construction
 
 ## The overall process
 
-If we start out with the main script that Frances showed in the 11th session, we end up with a large script at the end of the training [session_11_notebook](/notebooks/session11_code.ipynb){#putting-it-together} . However if we visually map out what is happening, we can start to figure out how to break this out.
-
-![Mapping the overall scrape process of farmers.co.nz](/docs/images/mapping-the-process-overall.svg)
-
-We see that the scraper went to the website multiple times but it is conceptually done in 3 steps (green boxes that show dashed lines to the website):
-
-a.  to get categories
-b.  to get page 1 of the where products are listed for that category.
-c.  repeat step b for all the other pages
-
-The rest of it is processing, that either includes:
-
-d.  the logic to go from one step to the other (light blue);
-e.  specific processing steps such as cleaning or saving the data (dark blue).
-
-At the end, we end up with a final file (purple) for that one individual scrape.
-
-## RAPifying this task
-
-The above approach works, but it is quite cumbersome for production - and this is where RAP can help us. As the main set is done in one large code block, if something happens, its hard to dive in to understand what's happening and to fix it. In other words, its not easily reproducible without spending time to recreate the whole process. As a key principles of RAP is modularization, lets try to figure out how to separate this out into more logical and easily testable/functions.
-
-Some initial thoughts:
-
--   A simple and easy one is the fact that we call the retailer website several times and we repeat the same code. While this is not overly complex, we can separate it out and centralize it as one function, as this allows us to make sure that (1) we never make a mistake writing the same code twice, and (2) lets us add extra robustness for this step. For instance we may want to have special error checks if something happens to know that if something happens, this is where the error occured (instead of in the big main function). Or we cold also add log entries for every call we make to the retailer site in order to have an audit of all the external calls our package makes.
-    -   Will thus make a new `get_site_data(input_url)` function that will centralize this.
--   Looking further, we see that our main code is mostly logic, with a bunch of parsing (i.e. cleaning) functions (like extracting specific information from `BeautifulSoup` tags). If we separate out this parsing into separate functions and leave the logical structure in one main script, we (1) could easily see if one of the parsing functions failed, and (2) more easily understand and read, fix, or enhance the main logic. This is a classic example of [loose coupling](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/#modular-re-usable-code), [good coding practices](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/#good-coding-practices), and [easier integration of tests for each function](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/#testing) - all of which RAP recommends. Thus we can make a few custom functions:
-    -   `get_and_parse_categories()`
-    -   `parse_last_page_num()`
-    -   `parse_product_info()` - this could be a main function that extracts the logic of extracting product info fo reasier extensibility, although for what we're demoing, this is optional. This function would actually call several sub-functions:
-        -   `parse_product_name()`
-        -   `parse_price()`
-        -   `parse_product_url()`
-    -   `save_data()` - again, separated for easier extensibility, but not strictly necessary.
--   Finally, while we've moved the parsing and calls to the retailer site outside of the main logic, we should stick to the functional paradigm of programming by turning the main logic into a function - our main function!
-
-![RAPified version that is still automatic, but with all the main components that cold fail separated. The functions act as building blocks for the logic, making it easy to undertand, debug, and extend](/docs/images/mapping-the-process-RAPified.svg)
+If we start out modifying the scraper we developed in a notebook when we tried scaping [books to scrape](/notebooks/scraping_experiment.ipynb) and map what we did there in order to RAPify the process! 
