@@ -204,7 +204,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview-of-the-ads-processing-view" id="toc-overview-of-the-ads-processing-view" class="nav-link active" data-scroll-target="#overview-of-the-ads-processing-view">Overview of the ADS processing view</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#overview-of-the-ads-processing-view" id="toc-overview-of-the-ads-processing-view" class="nav-link" data-scroll-target="#overview-of-the-ads-processing-view">Overview of the ADS processing view</a>
   <ul class="collapse">
   <li><a href="#overview-of-all-the-steps" id="toc-overview-of-all-the-steps" class="nav-link" data-scroll-target="#overview-of-all-the-steps">Overview of all the steps</a></li>
   <li><a href="#how-does-rap-come-into-this" id="toc-how-does-rap-come-into-this" class="nav-link" data-scroll-target="#how-does-rap-come-into-this">How does RAP come into this?</a></li>
@@ -216,8 +218,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#logging" id="toc-logging" class="nav-link" data-scroll-target="#logging">Logging</a></li>
   <li><a href="#monitoring" id="toc-monitoring" class="nav-link" data-scroll-target="#monitoring">Monitoring</a></li>
   </ul></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/applying_rap/process-mapping.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/applying_rap/process-mapping.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://unece.org/sites/default/files/2023-05/7.4%20UK_un_systems_railfares_paper.pdf"><i class="bi bi-link-45deg"></i>Price and Marques (2023) Developing reproducible analytical pipelines for the transformation of consumer price statistics: rail fares</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -241,19 +244,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is still under construction</p>
-</div>
-</div>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>As RAP is a set of technical best practices and styles of working, we should first consider how it applies to price statistics.</p>
 <section id="overview-of-the-ads-processing-view" class="level2">
 <h2 class="anchored" data-anchor-id="overview-of-the-ads-processing-view">Overview of the ADS processing view</h2>
 <p>Web scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index. The below sections first provide an overview of the key step and options of how RAP cap apply to the overall process, then go through each step in order to gather detailed requirements for the web scraping step.</p>
@@ -307,9 +300,10 @@ Figure&nbsp;1: High level overview of the steps to process web scrape data for t
 </section>
 <section id="monitoring" class="level3">
 <h3 class="anchored" data-anchor-id="monitoring">Monitoring</h3>
-<p>As a retailer can choose to change their website at any time - [monitoring that the intended data was collected](<a href="https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/" class="uri">https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/</a>) is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail the previous checks silently, but the resultant scrape may now no longer be of the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up [monitoring for an extra layer of validation](<a href="https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data" class="uri">https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data</a>). This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p>As a retailer can choose to change their website at any time - <a href="https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/">monitoring that the intended data was collected</a> is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail the previous checks silently, but the resultant scrape may now no longer be of the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up <a href="https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data">monitoring for an extra layer of validation</a>. This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
 
 
+</section>
 </section>
 </section>
 
