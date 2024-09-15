@@ -6,11 +6,28 @@ format:
   html:
     toc: true
     toc-expand: 2
+    other-links:
+        - text: "NHS Community of Practice on RAP"
+          href: https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/
+        - text: "Vanuatu Bureau of Statistics implementation of RAP"
+          href: https://github.com/Vanuatu-National-Statistics-Office/vnso-RAP-marketStats-materials
+        - text: "SIAP's (free) online RAP course"
+          href: https://www.unsiap.or.jp/on_line/2024/RAP/flyer-RAP-Self-paced.pdf
+        - text: "UK government best pracices on RAP"
+          href: https://gss.civilservice.gov.uk/policy-store/quality-statistics-in-government/#reproducible-analytical-pipelines-rap-
+        - text: "Udemy course on RAP with R"
+          href: https://www.udemy.com/course/reproducible-analytical-pipelines/
+        - text: "Data Science Campus coding standards"
+          href: https://datasciencecampus.github.io/coding-standards/
+        - text: Open-soruce book from the Alan Turing institute setting out how to do reproducible data science
+          href: https://the-turing-way.netlify.com
+
+        
 ---
 # Overview
 
+The purpose of this class is to cover what is RAP and why RAP is important.
+
 # Presentation for the session
 
-![Presentation on RAP](WhatIsRAP.pdf){width="100%" height="800"}
-
-# Useful materials
+![Presentation on RAP](WhatIsRAP-handout.pdf){width="100%" height="800"}

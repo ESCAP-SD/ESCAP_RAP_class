@@ -22,7 +22,7 @@ website:
     search: true
     logo: docs/images/logo.drawio.svg
     logo-alt: logo
-    logo-href: index.qmd
+    logo-href: https://sergegoussev.github.io/ESCAP_RAP_class/docs/
     border: true
     contents:
       - href: docs/index.qmd
@@ -35,7 +35,7 @@ website:
       - section:
       - href: docs/applying_rap/process-mapping.qmd
         contents:
-          - notebooks/session11_code.ipynb
+          - notebooks/scraping_experiment.ipynb
       - section:
         href: docs/scraper_docs.qmd
         contents: docs/scraper_docs/*
