@@ -20,7 +20,7 @@ Unlike the first class that aimed to introduce RAP and why it was relevant, the 
 
 ## Presentation for the session
 
-![Presentation on RAP](HowToRap.pdf.pdf){width="100%" height="800"}
+![Presentation on RAP](HowToRap.pdf){width="100%" height="800"}
 
 # Practical content
 
@@ -59,7 +59,7 @@ Lets see what this means by focusing on the [example provided by the NHS](https:
 
 Remember the demo from the RAP guide:
 
-``` mermaid
+```{mermaid}
 graph LR
 
     A[Load CSV] --> B[(Database)];
@@ -78,7 +78,7 @@ graph LR
 
 Let's see what general functions could be created
 
-``` python
+```{python}
 def load_csv():
     # do something to load the csv and convert it to a clean dataframe
     return dataframe
@@ -100,7 +100,7 @@ def save_excel_output(dataframe, location_to_save_output):
 
 Now we can figure out how to automate this. A very simple way when you are starting out is to make one `main()` function that calls other functions, and then give inputs to that function for it to operate properly:
 
-``` python
+```{python}
 def main(csv_to_load_into_the_database, date, location_to_save_output):
     # main function that operationalizes everything
 
@@ -118,8 +118,8 @@ def main(csv_to_load_into_the_database, date, location_to_save_output):
     # save this output
     save_excel_output(dataframe_from_sql)
 
-    
-# ------------
+
+# -----------------------------------------------------------------------
 csv1 = "C:/some/file/path/file.csv"
 todays_date = '2024-09-18'
 location_to_save = "C:/some/other/path"
