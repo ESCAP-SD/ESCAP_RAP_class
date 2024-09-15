@@ -27,7 +27,7 @@ Each step is made up of one or more sub-components:
 -   The classification step contains several sub-steps, such as identifying unique products to classify, the classification method itself, and the manual validation of classification (in cases there are errors).[^4]
 -   For the price index step, many sub-steps are involved.[^5]
 
-[^1]: See [Practical guidelines on web scraping for the HICP (2020)](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/), specifically Annex I and VII for mor
+[^1]: ndefinedSee [Practical guidelines on web scraping for the HICP (2020)](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/), specifically Annex I and VII for mor
 
 [^2]: See [Monitoring, validation and plausibility checks for web scraped data](https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data) (UN e-Handbook) for more details
 
@@ -49,6 +49,26 @@ c.  Encapsulate as appropriate. Several steps could be combined to simplify the 
 
 For this guide and for the demo RAP scraper, we will follow approach (b) as this will allow us to develop RAP for just the scraping component.
 
-## Deep dive into each component
+## Closer look at the web scraping component
 
-Check out the next sections to see how to to put this into practice. 
+Let's look a little closer at the web scraping component as there is a little more to it than one scrape script that ouptuts the data and a report. We can portray this visually to flush out a bit more what is involved in this step:
+
+![](../images/ads-process-overview-webscraping-high-level-overvieq.svg)
+
+### Checking `robots.txt`
+
+As we discussed in [the course](https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5) and in [other sources](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/), the legal aspects of scraping is key as NSOs should follow the guidance of retailers whether they can be scraped or not. This involves checking the Terms and Conditions for the site, but also checking the `robots.txt` for the site. As the retailer site may change its `robots.txt`, it maybe useful to have an automated component that checks before starting the scrape so that any new exclusions are taken into account.
+
+### Scraping the site itself
+
+The scraper itself is usually custom to the retailer site and outputs a file for what was scraped that day. Using RAP principles to develop this well (which we cover in [the September 18th session](../teaching_materials/sept_18/sept_18_session.qmd) and provide examples of [how a notebook can be translated into something more RAP friendly](../scraper_docs/mapping_the_process.qmd)) are off course key so that its stable and when inevitable website changes happen - the scraper can be fixed quickly.
+
+### Logging
+
+Technically a component of the scraping pipeline itself, however a very valuable part of the scraper worth pointing out separately is logging the operation of the scrape. There may be legal requirements (such as the `robots.txt` asking for a specific delay in scraping the site, or your NSO requiring specific processes), as well as technical (such as easier debugging) reasons where having key things logged in a `.log` file useful to describe the operations of the scraper. It can also be combined with the monitoring component to better understand when something goes wrong.
+
+### Monitoring
+
+As a retailer can choose to change their website at any time - \[monitoring that the intended data was collected\](<https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/>) is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail the previous checks silently, but the resultant scrape may now no longer be of the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up \[monitoring for an extra layer of validation\](<https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data>). This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.[^7]
+
+[^7]: Guðmundsdóttir and Jónasdóttir (2016) [Scanner Data: Initial Testing](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session_1_Iceland_Initial_data_testing.pdf) provide a useful overview that could be similar in the web scraping case.

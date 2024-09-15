@@ -35,8 +35,7 @@ website:
       - section:
       - href: docs/applying_rap/process-mapping.qmd
         contents:
-          - docs/applying_rap/web_scraping.qmd
-      - href: notebooks/scraping_experiment.ipynb
+          - notebooks/scraping_experiment.ipynb
       - section:
         href: docs/scraper_docs.qmd
         contents: docs/scraper_docs/*

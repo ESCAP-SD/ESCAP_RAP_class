@@ -1,0 +1,153 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8" pages="2">
+  <diagram name="high-level-overview" id="beNJOqKIy9JpbtcpAe1p">
+    <mxGraphModel dx="1430" dy="831" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="tsGuf2-pZo7cC8ItDwAU-0" />
+        <mxCell id="tsGuf2-pZo7cC8ItDwAU-1" parent="tsGuf2-pZo7cC8ItDwAU-0" />
+        <mxCell id="tsGuf2-pZo7cC8ItDwAU-5" value="Web scraping step&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;opacity=40;align=center;dashed=1;strokeWidth=2;" parent="tsGuf2-pZo7cC8ItDwAU-1" vertex="1">
+          <mxGeometry x="180" y="260" width="500" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="62459_jXcyuPaB3zgVVv-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="tsGuf2-pZo7cC8ItDwAU-1" source="tsGuf2-pZo7cC8ItDwAU-6" target="62459_jXcyuPaB3zgVVv-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tsGuf2-pZo7cC8ItDwAU-6" value="Retailer website" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.website_generic;pointerEvents=1;" parent="tsGuf2-pZo7cC8ItDwAU-1" vertex="1">
+          <mxGeometry x="86" y="290" width="80" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="62459_jXcyuPaB3zgVVv-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="tsGuf2-pZo7cC8ItDwAU-1" source="tsGuf2-pZo7cC8ItDwAU-7" target="62459_jXcyuPaB3zgVVv-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="62459_jXcyuPaB3zgVVv-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="tsGuf2-pZo7cC8ItDwAU-1" source="tsGuf2-pZo7cC8ItDwAU-7" target="62459_jXcyuPaB3zgVVv-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="325" />
+              <mxPoint x="440" y="370" />
+              <mxPoint x="505" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="62459_jXcyuPaB3zgVVv-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="tsGuf2-pZo7cC8ItDwAU-1" source="tsGuf2-pZo7cC8ItDwAU-7" target="Jd87c8laxzwNN7bIq6DA-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tsGuf2-pZo7cC8ItDwAU-7" value="scrape site" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="tsGuf2-pZo7cC8ItDwAU-1" vertex="1">
+          <mxGeometry x="324" y="295" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tsGuf2-pZo7cC8ItDwAU-11" value="Reports on scraped data quality" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" parent="tsGuf2-pZo7cC8ItDwAU-1" vertex="1">
+          <mxGeometry x="580" y="380" width="70" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Jd87c8laxzwNN7bIq6DA-4" value="&lt;div&gt;output&lt;/div&gt;tidy &lt;br&gt;scraped &lt;br&gt;data" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" parent="tsGuf2-pZo7cC8ItDwAU-1" vertex="1">
+          <mxGeometry x="694" y="287" width="90" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="5fn16lPkLjcKED9bYLwY-0" value="Data table" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" parent="tsGuf2-pZo7cC8ItDwAU-1" vertex="1">
+          <mxGeometry x="328" y="552.5" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5fn16lPkLjcKED9bYLwY-1" value="Manual action or activity" style="shape=manualInput;whiteSpace=wrap;html=1;size=20;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" parent="tsGuf2-pZo7cC8ItDwAU-1" vertex="1">
+          <mxGeometry x="449" y="534.25" width="80" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="5fn16lPkLjcKED9bYLwY-2" value="Report to review" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" parent="tsGuf2-pZo7cC8ItDwAU-1" vertex="1">
+          <mxGeometry x="538" y="542.5" width="96" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5fn16lPkLjcKED9bYLwY-3" value="Process (handled via one or more scripts)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="tsGuf2-pZo7cC8ItDwAU-1" vertex="1">
+          <mxGeometry x="223" y="542.5" width="100" height="61.5" as="geometry" />
+        </mxCell>
+        <mxCell id="5fn16lPkLjcKED9bYLwY-4" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Legend&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="tsGuf2-pZo7cC8ItDwAU-1" vertex="1">
+          <mxGeometry x="398" y="491" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5fn16lPkLjcKED9bYLwY-5" value="" style="endArrow=none;html=1;rounded=0;" parent="tsGuf2-pZo7cC8ItDwAU-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="218" y="521" as="sourcePoint" />
+            <mxPoint x="648" y="521" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="62459_jXcyuPaB3zgVVv-0" value="log ongoing activity to make sure scraper works well&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="tsGuf2-pZo7cC8ItDwAU-1">
+          <mxGeometry x="322" y="390" width="94" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="62459_jXcyuPaB3zgVVv-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="tsGuf2-pZo7cC8ItDwAU-1" source="62459_jXcyuPaB3zgVVv-2" target="tsGuf2-pZo7cC8ItDwAU-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="62459_jXcyuPaB3zgVVv-2" value="check robots.txt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="tsGuf2-pZo7cC8ItDwAU-1">
+          <mxGeometry x="220" y="295" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="62459_jXcyuPaB3zgVVv-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="tsGuf2-pZo7cC8ItDwAU-1" source="62459_jXcyuPaB3zgVVv-3" target="tsGuf2-pZo7cC8ItDwAU-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="62459_jXcyuPaB3zgVVv-3" value="monitor&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="tsGuf2-pZo7cC8ItDwAU-1">
+          <mxGeometry x="465" y="390" width="80" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Detailed-overview" id="5ZwLXqtE-kgjHDzrH4AJ">
+    <mxGraphModel dx="2074" dy="1205" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fSgNohAk-nN5swJN1VZP-2" value="Price index step" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;opacity=40;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1700" y="260" width="520" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="fSgNohAk-nN5swJN1VZP-1" value="Data processing step" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;opacity=40;align=left;" vertex="1" parent="1">
+          <mxGeometry x="690" y="260" width="310" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-17" value="Classification step" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;opacity=40;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="260" width="680" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-13" value="Web scraping step" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;opacity=40;align=left;" vertex="1" parent="1">
+          <mxGeometry x="220" y="260" width="460" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-1" value="Retailer website" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.website_generic;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="118" y="295" width="80" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-2" value="scraper" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="244" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-3" value="Manual step&lt;br&gt;&amp;nbsp;to select scrape &lt;br&gt;files to use" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1710" y="287.5" width="120" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-4" value="Evaluate quality of scraped file" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-5" value="(regular&amp;nbsp;&lt;div&gt;scraped data)&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" vertex="1" parent="1">
+          <mxGeometry x="394" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-6" value="Reports on scraped data quality" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="490" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-7" value="Curated scraped data" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=6.66668701171875;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="860" y="285" width="130" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-9" value="Storage of reports on scraping quality" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=6.66668701171875;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="540" y="380" width="125" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-10" value="Load scraped data into database and clean up data as needed" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-11" value="Isolate new unique products for classification" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="305" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-14" value="Classification" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="305" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-15" value="Manual Validation of records" style="shape=manualInput;whiteSpace=wrap;html=1;size=20;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="275" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-16" value="Storage of classified unique products with previous data" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9q7XJzW8wk_wXSZ5V28M-18" value="Well curated and classified&amp;nbsp;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=6.66668701171875;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="290" width="130" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="fSgNohAk-nN5swJN1VZP-3" value="Selection of strata of interest" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1830" y="315" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fSgNohAk-nN5swJN1VZP-4" value="Calculate elementary aggregates" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1960" y="315" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fSgNohAk-nN5swJN1VZP-5" value="CPI system taking elementary aggregates as inputs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=45;" vertex="1" parent="1">
+          <mxGeometry x="2240" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fSgNohAk-nN5swJN1VZP-6" value="Elementary aggregate data" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" vertex="1" parent="1">
+          <mxGeometry x="2090" y="315" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

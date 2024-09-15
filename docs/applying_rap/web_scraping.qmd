@@ -9,3 +9,9 @@ format:
 ::: callout-note
 This page is still under construction
 :::
+
+## Overview of the web scraping component
+
+Diving deeper in, we cans outline the componets of the web scraping step:
+![Web scraping close up](../images/ads-process-overview-webscraping-high-level-overvieq.svg)
+
