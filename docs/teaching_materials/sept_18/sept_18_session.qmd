@@ -78,7 +78,7 @@ graph LR
 
 Let's see what general functions could be created
 
-```{python}
+``` python
 def load_csv():
     # do something to load the csv and convert it to a clean dataframe
     return dataframe
@@ -100,7 +100,7 @@ def save_excel_output(dataframe, location_to_save_output):
 
 Now we can figure out how to automate this. A very simple way when you are starting out is to make one `main()` function that calls other functions, and then give inputs to that function for it to operate properly:
 
-```{python}
+```python
 def main(csv_to_load_into_the_database, date, location_to_save_output):
     # main function that operationalizes everything
 
