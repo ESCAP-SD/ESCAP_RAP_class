@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/applying_rap/web_scraping.html" rel="next">
+<link href="../../notebooks/scraping_experiment.html" rel="next">
 <link href="../../docs/teaching_materials/sept_18/sept_18_session.html" rel="prev">
 <link href="../../docs/images/favicon.drawio.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -147,18 +147,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applying_rap/web_scraping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RAP for web scraping</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../notebooks/scraping_experiment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Web scraping example</span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/scraper_docs.html" class="sidebar-item-text sidebar-link">
@@ -215,7 +209,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#overview-of-all-the-steps" id="toc-overview-of-all-the-steps" class="nav-link" data-scroll-target="#overview-of-all-the-steps">Overview of all the steps</a></li>
   <li><a href="#how-does-rap-come-into-this" id="toc-how-does-rap-come-into-this" class="nav-link" data-scroll-target="#how-does-rap-come-into-this">How does RAP come into this?</a></li>
   </ul></li>
-  <li><a href="#deep-dive-into-each-component" id="toc-deep-dive-into-each-component" class="nav-link" data-scroll-target="#deep-dive-into-each-component">Deep dive into each component</a></li>
+  <li><a href="#closer-look-at-the-web-scraping-component" id="toc-closer-look-at-the-web-scraping-component" class="nav-link" data-scroll-target="#closer-look-at-the-web-scraping-component">Closer look at the web scraping component</a>
+  <ul class="collapse">
+  <li><a href="#checking-robots.txt" id="toc-checking-robots.txt" class="nav-link" data-scroll-target="#checking-robots.txt">Checking <code>robots.txt</code></a></li>
+  <li><a href="#scraping-the-site-itself" id="toc-scraping-the-site-itself" class="nav-link" data-scroll-target="#scraping-the-site-itself">Scraping the site itself</a></li>
+  <li><a href="#logging" id="toc-logging" class="nav-link" data-scroll-target="#logging">Logging</a></li>
+  <li><a href="#monitoring" id="toc-monitoring" class="nav-link" data-scroll-target="#monitoring">Monitoring</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/applying_rap/process-mapping.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -289,23 +289,41 @@ Figure&nbsp;1: High level overview of the steps to process web scrape data for t
 <p>For this guide and for the demo RAP scraper, we will follow approach (b) as this will allow us to develop RAP for just the scraping component.</p>
 </section>
 </section>
-<section id="deep-dive-into-each-component" class="level2">
-<h2 class="anchored" data-anchor-id="deep-dive-into-each-component">Deep dive into each component</h2>
-<p>Check out the next sections to see how to to put this into practice.</p>
+<section id="closer-look-at-the-web-scraping-component" class="level2">
+<h2 class="anchored" data-anchor-id="closer-look-at-the-web-scraping-component">Closer look at the web scraping component</h2>
+<p>Let’s look a little closer at the web scraping component as there is a little more to it than one scrape script that ouptuts the data and a report. We can portray this visually to flush out a bit more what is involved in this step:</p>
+<p><img src="../images/ads-process-overview-webscraping-high-level-overvieq.svg" class="img-fluid"></p>
+<section id="checking-robots.txt" class="level3">
+<h3 class="anchored" data-anchor-id="checking-robots.txt">Checking <code>robots.txt</code></h3>
+<p>As we discussed in <a href="https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5">the course</a> and in <a href="https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/">other sources</a>, the legal aspects of scraping is key as NSOs should follow the guidance of retailers whether they can be scraped or not. This involves checking the Terms and Conditions for the site, but also checking the <code>robots.txt</code> for the site. As the retailer site may change its <code>robots.txt</code>, it maybe useful to have an automated component that checks before starting the scrape so that any new exclusions are taken into account.</p>
+</section>
+<section id="scraping-the-site-itself" class="level3">
+<h3 class="anchored" data-anchor-id="scraping-the-site-itself">Scraping the site itself</h3>
+<p>The scraper itself is usually custom to the retailer site and outputs a file for what was scraped that day. Using RAP principles to develop this well (which we cover in <a href="../../docs/teaching_materials/sept_18/sept_18_session.html">the September 18th session</a> and provide examples of <a href="../../docs/scraper_docs/mapping_the_process.html">how a notebook can be translated into something more RAP friendly</a>) are off course key so that its stable and when inevitable website changes happen - the scraper can be fixed quickly.</p>
+</section>
+<section id="logging" class="level3">
+<h3 class="anchored" data-anchor-id="logging">Logging</h3>
+<p>Technically a component of the scraping pipeline itself, however a very valuable part of the scraper worth pointing out separately is logging the operation of the scrape. There may be legal requirements (such as the <code>robots.txt</code> asking for a specific delay in scraping the site, or your NSO requiring specific processes), as well as technical (such as easier debugging) reasons where having key things logged in a <code>.log</code> file useful to describe the operations of the scraper. It can also be combined with the monitoring component to better understand when something goes wrong.</p>
+</section>
+<section id="monitoring" class="level3">
+<h3 class="anchored" data-anchor-id="monitoring">Monitoring</h3>
+<p>As a retailer can choose to change their website at any time - [monitoring that the intended data was collected](<a href="https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/" class="uri">https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/</a>) is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail the previous checks silently, but the resultant scrape may now no longer be of the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up [monitoring for an extra layer of validation](<a href="https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data" class="uri">https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data</a>). This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
 
 
+</section>
 </section>
 
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>See <a href="https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/">Practical guidelines on web scraping for the HICP (2020)</a>, specifically Annex I and VII for mor<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>ndefinedSee <a href="https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/">Practical guidelines on web scraping for the HICP (2020)</a>, specifically Annex I and VII for mor<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>See <a href="https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data">Monitoring, validation and plausibility checks for web scraped data</a> (UN e-Handbook) for more details<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>See <a href="https://unstats.un.org/wiki/display/GWGSD/Preparation+of+data">Preparation of data</a> (UN e-Handbook) for more handbook.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>For an overview of Classification process in production and other operational aspects, see “<a href="https://stats.unece.org/ottawagroup/download/Workshop-un-tt-og-2024-classification-presentation.pdf">Classification of Alternative Data Sources</a>”, 2024-05-14. For an overview of the 5 main classification methods, see “<a href="https://unece.org/sites/default/files/2023-06/Workshop%20II%20Denmark.pdf">Classifying Alterantive Data Sources for Consumer Prices Statistics: Methods and best practices</a>”, 2023-06-08.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>See “<a href="https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/">Practical guidelines on web scraping for the HICP (2020)</a>” for more details<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>See <a href="https://unece.org/sites/default/files/2023-05/7.4%20UK_un_systems_railfares_paper.pdf">Price (2023) Developing reproducible analytical pipelines for the transformation of consumer price statistics: rail fares</a> for more details, for instance 5.2 outlines Pipeline tables and how different pipelines interact over a specific data architecture.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Guðmundsdóttir and Jónasdóttir (2016) <a href="https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session_1_Iceland_Initial_data_testing.pdf">Scanner Data: Initial Testing</a> provide a useful overview that could be similar in the web scraping case.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -735,8 +753,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../docs/applying_rap/web_scraping.html" class="pagination-link" aria-label="RAP for web scraping">
-        <span class="nav-page-text">RAP for web scraping</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../notebooks/scraping_experiment.html" class="pagination-link" aria-label="Web scraping example">
+        <span class="nav-page-text">Web scraping example</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
