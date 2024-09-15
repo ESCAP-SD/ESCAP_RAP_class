@@ -5,22 +5,50 @@ format:
     toc: true
     toc-expand: 2
 ---
+
 ::: callout-note
 This page will be updated ahead of the September 18th session
 :::
 
 # Overview
 
-# Practical content 
+Unlike the first class that aimed to introduce RAP and why it was relevant, the purposes of this class is to show in more detail what each principle is, plus some practical examples of how to apply this. Or in other words - show *How to RAP*. This page thus has the slides that are used in the in-person training, as well as examples to refer to
+
+## Presentation for the session
+
+![Presentation on RAP](HowToRap.pdf.pdf){width="100%" height="800"}
+
+# Practical content
+
+To support the in-person training, below we list out the supporting material that learners can refer to
 
 ## Practical content, first set {#practical-set-one}
 
+### Principle 1: Automation
 
+### Principle 2: Modular, re-usable
 
+### What does this mean if we put it together?
 
-## Practical content, first set {#practical-set-two}
+### Excercize 1
 
-# modularity {#modularity}
- 
-# functional programming {#functional_programming}
+## Practical content, second set {#practical-set-two}
+
+### Principle 3: Transparency
+
+### Principle 4: Use of open-source tools
+
+### Principle 5: Version control
+
+### Excercize 2
+
+## Practical content, third set {#practical-set-three}
+
+### Principle 6: Good coding practices
+
+### Principle 7: Testing
+
+### Principle 8: Peer review
+
+## Wrap up
 
