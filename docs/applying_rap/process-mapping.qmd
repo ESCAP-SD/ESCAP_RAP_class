@@ -4,11 +4,15 @@ format:
   html:
     toc: true
     toc-expand: 2
+    other-links:
+        - text: "Price and Marques (2023) Developing reproducible analytical pipelines for the transformation of consumer price statistics: rail fares"
+          href: https://unece.org/sites/default/files/2023-05/7.4%20UK_un_systems_railfares_paper.pdf
 ---
 
-::: callout-note
-This page is still under construction
-:::
+# Overview
+
+As RAP is a set of technical best practices and styles of working, we should first consider how it applies to price statistics.
+
 
 ## Overview of the ADS processing view
 
@@ -69,6 +73,6 @@ Technically a component of the scraping pipeline itself, however a very valuable
 
 ### Monitoring
 
-As a retailer can choose to change their website at any time - \[monitoring that the intended data was collected\](<https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/>) is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail the previous checks silently, but the resultant scrape may now no longer be of the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up \[monitoring for an extra layer of validation\](<https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data>). This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.[^7]
+As a retailer can choose to change their website at any time - [monitoring that the intended data was collected](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/) is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail the previous checks silently, but the resultant scrape may now no longer be of the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up [monitoring for an extra layer of validation](https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data). This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.[^7]
 
 [^7]: Guðmundsdóttir and Jónasdóttir (2016) [Scanner Data: Initial Testing](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session_1_Iceland_Initial_data_testing.pdf) provide a useful overview that could be similar in the web scraping case.
