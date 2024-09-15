@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -210,16 +244,36 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#presentation-for-the-session" id="toc-presentation-for-the-session" class="nav-link" data-scroll-target="#presentation-for-the-session">Presentation for the session</a></li>
+  </ul></li>
   <li><a href="#practical-content" id="toc-practical-content" class="nav-link" data-scroll-target="#practical-content">Practical content</a>
   <ul class="collapse">
-  <li><a href="#practical-set-one" id="toc-practical-set-one" class="nav-link" data-scroll-target="#practical-set-one">Practical content, first set</a></li>
-  <li><a href="#practical-set-two" id="toc-practical-set-two" class="nav-link" data-scroll-target="#practical-set-two">Practical content, first set</a></li>
+  <li><a href="#practical-set-one" id="toc-practical-set-one" class="nav-link" data-scroll-target="#practical-set-one">Practical content, first set</a>
+  <ul class="collapse">
+  <li><a href="#principle-1-automation" id="toc-principle-1-automation" class="nav-link" data-scroll-target="#principle-1-automation">Principle 1: Automation</a></li>
+  <li><a href="#principle-2-modular-re-usable" id="toc-principle-2-modular-re-usable" class="nav-link" data-scroll-target="#principle-2-modular-re-usable">Principle 2: Modular, re-usable</a></li>
+  <li><a href="#what-does-this-mean-if-we-put-it-together" id="toc-what-does-this-mean-if-we-put-it-together" class="nav-link" data-scroll-target="#what-does-this-mean-if-we-put-it-together">What does this mean if we put it together?</a></li>
+  <li><a href="#excercize-1" id="toc-excercize-1" class="nav-link" data-scroll-target="#excercize-1">Excercize 1</a></li>
   </ul></li>
-  <li><a href="#modularity" id="toc-modularity" class="nav-link" data-scroll-target="#modularity">modularity</a></li>
-  <li><a href="#functional_programming" id="toc-functional_programming" class="nav-link" data-scroll-target="#functional_programming">functional programming</a></li>
+  <li><a href="#practical-set-two" id="toc-practical-set-two" class="nav-link" data-scroll-target="#practical-set-two">Practical content, second set</a>
+  <ul class="collapse">
+  <li><a href="#principle-3-transparency" id="toc-principle-3-transparency" class="nav-link" data-scroll-target="#principle-3-transparency">Principle 3: Transparency</a></li>
+  <li><a href="#principle-4-use-of-open-source-tools" id="toc-principle-4-use-of-open-source-tools" class="nav-link" data-scroll-target="#principle-4-use-of-open-source-tools">Principle 4: Use of open-source tools</a></li>
+  <li><a href="#principle-5-version-control" id="toc-principle-5-version-control" class="nav-link" data-scroll-target="#principle-5-version-control">Principle 5: Version control</a></li>
+  <li><a href="#excercize-2" id="toc-excercize-2" class="nav-link" data-scroll-target="#excercize-2">Excercize 2</a></li>
+  </ul></li>
+  <li><a href="#practical-set-three" id="toc-practical-set-three" class="nav-link" data-scroll-target="#practical-set-three">Practical content, third set</a>
+  <ul class="collapse">
+  <li><a href="#principle-6-good-coding-practices" id="toc-principle-6-good-coding-practices" class="nav-link" data-scroll-target="#principle-6-good-coding-practices">Principle 6: Good coding practices</a></li>
+  <li><a href="#principle-7-testing" id="toc-principle-7-testing" class="nav-link" data-scroll-target="#principle-7-testing">Principle 7: Testing</a></li>
+  <li><a href="#principle-8-peer-review" id="toc-principle-8-peer-review" class="nav-link" data-scroll-target="#principle-8-peer-review">Principle 8: Peer review</a></li>
+  </ul></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap up</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/teaching_materials/sept_18/sept_18_session.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/teaching_materials/sept_18/sept_18_session.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/"><i class="bi bi-link-45deg"></i>For detail, please see the NHS RAP community of practice</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -258,23 +312,147 @@ Note
 </div>
 <section id="overview" class="level1">
 <h1>Overview</h1>
+<p>Unlike the first class that aimed to introduce RAP and why it was relevant, the purposes of this class is to show in more detail what each principle is, plus some practical examples of how to apply this. Or in other words - show <em>How to RAP</em>. This page thus has the slides that are used in the in-person training, as well as examples to refer to</p>
+<section id="presentation-for-the-session" class="level2">
+<h2 class="anchored" data-anchor-id="presentation-for-the-session">Presentation for the session</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><embed src="HowToRap.pdf.pdf" style="width:100.0%" height="800"></p>
+<figcaption>Presentation on RAP</figcaption>
+</figure>
+</div>
+</section>
 </section>
 <section id="practical-content" class="level1">
 <h1>Practical content</h1>
+<p>To support the in-person training, below we list out the supporting material that learners can refer to</p>
 <section id="practical-set-one" class="level2">
 <h2 class="anchored" data-anchor-id="practical-set-one">Practical content, first set</h2>
+<section id="principle-1-automation" class="level3">
+<h3 class="anchored" data-anchor-id="principle-1-automation">Principle 1: Automation</h3>
+<p>As the fundamental principles of RAP is to make the process of (in our case) making official statistics reproducible, we should do our utmost to eliminate manual human steps (unless they are explicitly needed off course!). Thus we want to create a script that automates the whole process and creates a very neat handoff of a <em>tidy data</em> file as output. A key aspect here is <a href="https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/">mapping the process</a> so that your script can operate in a way as to minimize human actions.</p>
+<p>In our case, we’ve seen this with the <a href="../../../docs/applying_rap/process-mapping.html">overall process of the price statistics pipeline with web scraped data</a>, as well as the <a href="../../../docs/scraper_docs/mapping_the_process.html">specific step that maps the process of web scraping</a>.</p>
+<p>We’ll see some practical steps below (once we’ve covered modular coding) on how that could work in practice.</p>
+</section>
+<section id="principle-2-modular-re-usable" class="level3">
+<h3 class="anchored" data-anchor-id="principle-2-modular-re-usable">Principle 2: Modular, re-usable</h3>
+<p>Modularity and coupling are two very critical aspects and we should spend time discussing them in detail. They actually are conceptually quite related and for simplicity (in this course), we can consider them as trying to achieve the same thing. These are also both far from a RAP (or even official statistics concept) as they are widely discussed in the wider software engineering and even software architecture! This should not discourage us though - as knowing these is also important for us for two aspects:</p>
+<ul>
+<li>It helps us write better code when we are developing pipelines, and</li>
+<li>It also helps us design more dynamic overall processes of how we build operational flows with alternative data.</li>
+</ul>
+<p>So what is the concept?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://nhsdigital.github.io/rap-community-of-practice/images/tight-loose-coupling.png" class="img-fluid figure-img" width="500"></p>
+<figcaption>tight vs loose coupling</figcaption>
+</figure>
+</div>
+<p>If we write everything all in one long and big script - it is likely that some small thing will break the script and we will have to spend a long time figuring out what is wrong and fixing it. However, if we isolate specific logical steps into functions and then put them together - if something happens, then we will quickly be able to isolate it to the affected function and fix that function. Each function is thus meant to do just one thing - but it does that one thing very well!</p>
+<p>We should thus aim to develop loosely coupled software.</p>
+<p>Furthermore, we can also apply this thinking to bigger processes as we saw when we mapped the <a href="../../../docs/applying_rap/process-mapping.html">overall process of the price statistics pipeline with web scraped data</a> - we broke out the overall process into several steps - in essence separate pipelines.</p>
+</section>
+<section id="what-does-this-mean-if-we-put-it-together" class="level3">
+<h3 class="anchored" data-anchor-id="what-does-this-mean-if-we-put-it-together">What does this mean if we put it together?</h3>
+<p>Lets see what this means by focusing on the <a href="https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/#using-a-process-map-to-find-improvements">example provided by the NHS</a> - what could this look like in code?</p>
+<p>Remember the demo from the RAP guide:</p>
+<pre class="mermaid"><code>graph LR
+
+    A[Load CSV] --&gt; B[(Database)];
+    H[/CSV 1/] --&gt; A
+    I[/CSV 2/] --&gt; A
+    D[Calculate todays date] --&gt; E[[Run SQL Script]]
+    K[Get todays date manual/config]:::manual --&gt; E
+    J{Is todays date provided?} --&gt;|no| D
+    J --&gt;|yes| K
+    B --&gt; E
+    E --&gt; F[Generate Excel output]
+    F --&gt; G[/Excel Output/]
+
+    classDef manual fill:#FFCCCC</code></pre>
+<p>Let’s see what general functions could be created</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_csv():</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># do something to load the csv and convert it to a clean dataframe</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dataframe</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_database(dataframe):</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># load the data in the dataframe into the database</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> output_date_for_processing(optional_date_input):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># check if the input data is provided, if not, calculate it</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> todays_date</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_sql_script(todays_date):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run the SQL script that we need to run</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dataframe_output</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> save_excel_output(dataframe, location_to_save_output):</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save the output in the location we want</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we can figure out how to automate this. A very simple way when you are starting out is to make one <code>main()</code> function that calls other functions, and then give inputs to that function for it to operate properly:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main(csv_to_load_into_the_database, date, location_to_save_output):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># main function that operationalizes everything</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Step 1:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># load the csv</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    dataframe <span class="op">=</span> load_csv(csv_to_load_into_the_database)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># save the data into the databse</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    load_database(dataframe)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Step 2:</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># check date</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    date_to_use <span class="op">=</span> output_date_for_processing(date)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># send this to SQL script</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    dataframe_from_sql <span class="op">=</span> run_sql_script(date_to_use)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># save this output</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    save_excel_output(dataframe_from_sql)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>csv1 <span class="op">=</span> <span class="st">"C:/some/file/path/file.csv"</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>todays_date <span class="op">=</span> <span class="st">'2024-09-18'</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>location_to_save <span class="op">=</span> <span class="st">"C:/some/other/path"</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># lets call the main function</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>main(csv1, todays_date, location_to_save)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>That’s it! Check out a <a href="https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/python-functions/">helpful article by the NHS on functional programming for a slighly deper dive</a>.</p>
+</section>
+<section id="excercize-1" class="level3">
+<h3 class="anchored" data-anchor-id="excercize-1">Excercize 1</h3>
+<p>Ready to try this yourself? Look at a notebook that you developed for this course - and see how to separate out what you did into functions. Talk to the mentors in the room if you have questions!</p>
+</section>
 </section>
 <section id="practical-set-two" class="level2">
-<h2 class="anchored" data-anchor-id="practical-set-two">Practical content, first set</h2>
+<h2 class="anchored" data-anchor-id="practical-set-two">Practical content, second set</h2>
+<section id="principle-3-transparency" class="level3">
+<h3 class="anchored" data-anchor-id="principle-3-transparency">Principle 3: Transparency</h3>
+</section>
+<section id="principle-4-use-of-open-source-tools" class="level3">
+<h3 class="anchored" data-anchor-id="principle-4-use-of-open-source-tools">Principle 4: Use of open-source tools</h3>
+</section>
+<section id="principle-5-version-control" class="level3">
+<h3 class="anchored" data-anchor-id="principle-5-version-control">Principle 5: Version control</h3>
+</section>
+<section id="excercize-2" class="level3">
+<h3 class="anchored" data-anchor-id="excercize-2">Excercize 2</h3>
 </section>
 </section>
-<section id="modularity" class="level1">
-<h1>modularity</h1>
+<section id="practical-set-three" class="level2">
+<h2 class="anchored" data-anchor-id="practical-set-three">Practical content, third set</h2>
+<section id="principle-6-good-coding-practices" class="level3">
+<h3 class="anchored" data-anchor-id="principle-6-good-coding-practices">Principle 6: Good coding practices</h3>
 </section>
-<section id="functional_programming" class="level1">
-<h1>functional programming</h1>
+<section id="principle-7-testing" class="level3">
+<h3 class="anchored" data-anchor-id="principle-7-testing">Principle 7: Testing</h3>
+</section>
+<section id="principle-8-peer-review" class="level3">
+<h3 class="anchored" data-anchor-id="principle-8-peer-review">Principle 8: Peer review</h3>
+</section>
+</section>
+<section id="wrap-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-up">Wrap up</h2>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
