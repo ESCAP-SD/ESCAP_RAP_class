@@ -14,3 +14,4 @@ dependencies:
   - beautifulsoup4
   - docutils
   - pytest
+  - lxml

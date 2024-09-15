@@ -8,3 +8,19 @@ format:
 ::: callout-note
 This page will be updated ahead of the September 18th session
 :::
+
+# Overview
+
+# Practical content 
+
+## Practical content, first set {#practical-set-one}
+
+
+
+
+## Practical content, first set {#practical-set-two}
+
+# modularity {#modularity}
+ 
+# functional programming {#functional_programming}
+
