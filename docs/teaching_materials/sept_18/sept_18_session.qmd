@@ -4,6 +4,10 @@ format:
   html:
     toc: true
     toc-expand: 2
+    code-fold: false
+    other-links:
+        - text: "For detail, please see the NHS RAP community of practice"
+          href: https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/
 ---
 
 ::: callout-note
@@ -26,11 +30,109 @@ To support the in-person training, below we list out the supporting material tha
 
 ### Principle 1: Automation
 
+As the fundamental principles of RAP is to make the process of (in our case) making official statistics reproducible, we should do our utmost to eliminate manual human steps (unless they are explicitly needed off course!). Thus we want to create a script that automates the whole process and creates a very neat handoff of a *tidy data* file as output. A key aspect here is [mapping the process](https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/) so that your script can operate in a way as to minimize human actions.
+
+In our case, we've seen this with the [overall process of the price statistics pipeline with web scraped data](../../applying_rap/process-mapping.qmd), as well as the [specific step that maps the process of web scraping](../../scraper_docs/mapping_the_process.qmd).
+
+We'll see some practical steps below (once we've covered modular coding) on how that could work in practice.
+
 ### Principle 2: Modular, re-usable
+
+Modularity and coupling are two very critical aspects and we should spend time discussing them in detail. They actually are conceptually quite related and for simplicity (in this course), we can consider them as trying to achieve the same thing. These are also both far from a RAP (or even official statistics concept) as they are widely discussed in the wider software engineering and even software architecture! This should not discourage us though - as knowing these is also important for us for two aspects:
+
+-   It helps us write better code when we are developing pipelines, and
+-   It also helps us design more dynamic overall processes of how we build operational flows with alternative data.
+
+So what is the concept?
+
+![tight vs loose coupling](https://nhsdigital.github.io/rap-community-of-practice/images/tight-loose-coupling.png){width="500"}
+
+If we write everything all in one long and big script - it is likely that some small thing will break the script and we will have to spend a long time figuring out what is wrong and fixing it. However, if we isolate specific logical steps into functions and then put them together - if something happens, then we will quickly be able to isolate it to the affected function and fix that function. Each function is thus meant to do just one thing - but it does that one thing very well!
+
+We should thus aim to develop loosely coupled software.
+
+Furthermore, we can also apply this thinking to bigger processes as we saw when we mapped the [overall process of the price statistics pipeline with web scraped data](../../applying_rap/process-mapping.qmd) - we broke out the overall process into several steps - in essence separate pipelines.
 
 ### What does this mean if we put it together?
 
+Lets see what this means by focusing on the [example provided by the NHS](https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/#using-a-process-map-to-find-improvements) - what could this look like in code?
+
+Remember the demo from the RAP guide:
+
+``` mermaid
+graph LR
+
+    A[Load CSV] --> B[(Database)];
+    H[/CSV 1/] --> A
+    I[/CSV 2/] --> A
+    D[Calculate todays date] --> E[[Run SQL Script]]
+    K[Get todays date manual/config]:::manual --> E
+    J{Is todays date provided?} -->|no| D
+    J -->|yes| K
+    B --> E
+    E --> F[Generate Excel output]
+    F --> G[/Excel Output/]
+
+    classDef manual fill:#FFCCCC
+```
+
+Let's see what general functions could be created
+
+``` python
+def load_csv():
+    # do something to load the csv and convert it to a clean dataframe
+    return dataframe
+
+def load_database(dataframe):
+    # load the data in the dataframe into the database
+
+def output_date_for_processing(optional_date_input):
+    # check if the input data is provided, if not, calculate it
+    return todays_date
+
+def run_sql_script(todays_date):
+    # Run the SQL script that we need to run
+    return dataframe_output
+
+def save_excel_output(dataframe, location_to_save_output):
+    # Save the output in the location we want
+```
+
+Now we can figure out how to automate this. A very simple way when you are starting out is to make one `main()` function that calls other functions, and then give inputs to that function for it to operate properly:
+
+``` python
+def main(csv_to_load_into_the_database, date, location_to_save_output):
+    # main function that operationalizes everything
+
+    # Step 1:
+    # load the csv
+    dataframe = load_csv(csv_to_load_into_the_database)
+    # save the data into the databse
+    load_database(dataframe)
+
+    # Step 2:
+    # check date
+    date_to_use = output_date_for_processing(date)
+    # send this to SQL script
+    dataframe_from_sql = run_sql_script(date_to_use)
+    # save this output
+    save_excel_output(dataframe_from_sql)
+
+    
+# ------------
+csv1 = "C:/some/file/path/file.csv"
+todays_date = '2024-09-18'
+location_to_save = "C:/some/other/path"
+# lets call the main function
+
+main(csv1, todays_date, location_to_save)
+```
+
+That's it! Check out a [helpful article by the NHS on functional programming for a slighly deper dive](https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/python-functions/).
+
 ### Excercize 1
+
+Ready to try this yourself? Look at a notebook that you developed for this course - and see how to separate out what you did into functions. Talk to the mentors in the room if you have questions!
 
 ## Practical content, second set {#practical-set-two}
 
@@ -51,4 +153,3 @@ To support the in-person training, below we list out the supporting material tha
 ### Principle 8: Peer review
 
 ## Wrap up
-

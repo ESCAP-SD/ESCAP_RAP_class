@@ -8,8 +8,13 @@ format:
     toc-expand: 2
     code-fold: false
     other-links:
-        - text: "NHS guide on notebooks versus using an IDE"
-          href: https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/notebooks_versus_ide_development/
+        - text: "NHS RAP community of practice: intro to RAP"
+          href: https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/
+        - text: "RAP companion guide - developed by Matthew Gregory and Matthew Upson"
+          href: https://ukgovdatascience.github.io/rap_companion/
+        - text: "Reproducible Analytical Pipelines (RAP) using R (Udemy course)"
+          href: https://www.udemy.com/course/reproducible-analytical-pipelines/
+        
 ---
 
 ::: callout-note
