@@ -252,20 +252,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#principle-1-automation" id="toc-principle-1-automation" class="nav-link" data-scroll-target="#principle-1-automation">Principle 1: Automation</a></li>
   <li><a href="#principle-2-modular-re-usable" id="toc-principle-2-modular-re-usable" class="nav-link" data-scroll-target="#principle-2-modular-re-usable">Principle 2: Modular, re-usable</a></li>
   <li><a href="#what-does-this-mean-if-we-put-it-together" id="toc-what-does-this-mean-if-we-put-it-together" class="nav-link" data-scroll-target="#what-does-this-mean-if-we-put-it-together">What does this mean if we put it together?</a></li>
-  <li><a href="#excercize-1" id="toc-excercize-1" class="nav-link" data-scroll-target="#excercize-1">Excercize 1</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
   </ul></li>
   <li><a href="#practical-set-two" id="toc-practical-set-two" class="nav-link" data-scroll-target="#practical-set-two">Practical content, second set</a>
   <ul class="collapse">
   <li><a href="#principle-3-transparency" id="toc-principle-3-transparency" class="nav-link" data-scroll-target="#principle-3-transparency">Principle 3: Transparency</a></li>
   <li><a href="#principle-4-use-of-open-source-tools" id="toc-principle-4-use-of-open-source-tools" class="nav-link" data-scroll-target="#principle-4-use-of-open-source-tools">Principle 4: Use of open-source tools</a></li>
   <li><a href="#principle-5-version-control" id="toc-principle-5-version-control" class="nav-link" data-scroll-target="#principle-5-version-control">Principle 5: Version control</a></li>
-  <li><a href="#excercize-2" id="toc-excercize-2" class="nav-link" data-scroll-target="#excercize-2">Excercize 2</a></li>
+  <li><a href="#exercise-2-on-your-own" id="toc-exercise-2-on-your-own" class="nav-link" data-scroll-target="#exercise-2-on-your-own">Exercise 2 (on your own)</a></li>
   </ul></li>
   <li><a href="#practical-set-three" id="toc-practical-set-three" class="nav-link" data-scroll-target="#practical-set-three">Practical content, third set</a>
   <ul class="collapse">
-  <li><a href="#principle-6-good-coding-practices" id="toc-principle-6-good-coding-practices" class="nav-link" data-scroll-target="#principle-6-good-coding-practices">Principle 6: Good coding practices</a></li>
+  <li><a href="#principle-6-good-development-practices" id="toc-principle-6-good-development-practices" class="nav-link" data-scroll-target="#principle-6-good-development-practices">Principle 6: Good development practices</a></li>
   <li><a href="#principle-7-testing" id="toc-principle-7-testing" class="nav-link" data-scroll-target="#principle-7-testing">Principle 7: Testing</a></li>
   <li><a href="#principle-8-peer-review" id="toc-principle-8-peer-review" class="nav-link" data-scroll-target="#principle-8-peer-review">Principle 8: Peer review</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
   </ul></li>
   <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap up</a></li>
   </ul></li>
@@ -322,7 +323,7 @@ Note
 </section>
 <section id="practical-content" class="level1">
 <h1>Practical content</h1>
-<p>To support the in-person training, below we list out the supporting material that learners can refer to</p>
+<p>To support the in-person training, below we list out the supporting material that learners can refer to. It outlines each of the principles in high level, and some in more detail where technical examples are valuable. See the <a href="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/#rap-principles">NHS site on RAP for more details</a> on each principle.</p>
 <section id="practical-set-one" class="level2">
 <h2 class="anchored" data-anchor-id="practical-set-one">Practical content, first set</h2>
 <section id="principle-1-automation" class="level3">
@@ -424,8 +425,8 @@ Note
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>main(csv1, todays_date, location_to_save)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>That’s it! Check out a <a href="https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/python-functions/">helpful article by the NHS on functional programming for a slighly deper dive</a>.</p>
 </section>
-<section id="excercize-1" class="level3">
-<h3 class="anchored" data-anchor-id="excercize-1">Excercize 1</h3>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
 <p>Ready to try this yourself? Look at a notebook that you developed for this course - and see how to separate out what you did into functions. Talk to the mentors in the room if you have questions!</p>
 </section>
 </section>
@@ -433,31 +434,157 @@ Note
 <h2 class="anchored" data-anchor-id="practical-set-two">Practical content, second set</h2>
 <section id="principle-3-transparency" class="level3">
 <h3 class="anchored" data-anchor-id="principle-3-transparency">Principle 3: Transparency</h3>
+<p>Working in a transparent manner (even if in your NSO this will apply to a more internal audience rather than publicly), is very useful as it helps develops skills and a way of working that results in better code and hence easier (and more reproducible) processes. This principle actually links quite heavily with several other principles such as:</p>
+<ul>
+<li>use of a git based version control software to store an authoritative version of the code and all related aspects (this does not have to be GitHub, GitLab for example is also very popular);</li>
+<li>using open-source tools (principle 4)</li>
+<li>adopting good development practices (which includes good coding practices and also documentation of how the code works) (principle 6)</li>
+<li>and others!</li>
+</ul>
+<p>While at a glance, this principle seems to be repeated in other principles - however transparency stands as a principle on its own. Adopting all other principles but still working in a non-transparent manner will naturally result in lower trust (as noone will know how the specific process works), lower levels of collaboration (and thus higher likelihood that mistakes or improvements will be identified), and a very strong likelihood of isolation from consistent standards others have adopted. Thus working in a transparent manner (as much as possible in your NSO) is very useful and helps push the pipeline to be even more mature and reproducible!</p>
 </section>
 <section id="principle-4-use-of-open-source-tools" class="level3">
 <h3 class="anchored" data-anchor-id="principle-4-use-of-open-source-tools">Principle 4: Use of open-source tools</h3>
+<p>As RAP fundamentally is about reproducibility and technical maturity - both aspects are most effectively enabled if open-source tools are used. Open-source tools (like python or R) are incredibly popular around the world - hence there is lots of training on the topic, ChatGPT will give you a good response for specific problems, and its more likely that your colleagues can learn it (or have already) and can help you develop the pipeline or peer review it!</p>
+<p>As an aside - several organizations (for example see <a href="https://spectrum.ieee.org/top-programming-languages-2024">IEEE specturm</a> and <a href="https://www.statista.com/statistics/793628/worldwide-developer-survey-most-used-languages/">Statista</a>) rate the top programming languages around the world and Python (R less so but still a bit) usually are rated highly. The challenge with these surveys is they assess or survey all developers - and some developers need to focus on back-end (SQL or Java) or web development (hence JavaScript) - which can seem misleading. A good takeaway is that for dynamic and simple languages for data analysis and processing - Python and R are very popular - which helps when you are developing your pipeline!</p>
 </section>
 <section id="principle-5-version-control" class="level3">
 <h3 class="anchored" data-anchor-id="principle-5-version-control">Principle 5: Version control</h3>
+<p>RAPs (and code that helps create official statistics) if fundamentally well developed open-sources software. Hence we need to adopt tools that help us manage all the aspects of its lifecycle - and <code>git</code> based version control with a site like GitHub or GitLab is the most popular way to help develop and operates software. As a summary it allows you to:</p>
+<ul>
+<li>version control all your code and documents (and data too for non-confidential data) - thus you never have to know which is the final one or which was used when in the past!
+<ul>
+<li>have a look at the <a href="https://github.com/sergegoussev/ESCAP_RAP_class/commits/main/">commits to the <code>main</code> branch of this repo</a>!</li>
+</ul></li>
+<li>furthemore, from a development point of view, you can also create targeted releases for stable versions and see what the release was at that time - making it very easy to know what version of the pipeline was used historically!
+<ul>
+<li>have a look at the <a href="https://github.com/pandas-dev/pandas/releases">releases for the python <code>pandas</code> library</a>, very popular with data analysis package!</li>
+</ul></li>
+<li>create different code bases (as braches) off the main one that allow you to collaborate with others or develop/fix parts simultaneously, as well as join them all together when appropriate;
+<ul>
+<li>for example, have a look at a <a href="https://github.com/sergegoussev/ESCAP_RAP_class/pull/12">pull request (a request to merge one branch into the main branch) that we collaborated on for this class</a> - where you can have one individual review the change and approve it prior to the change happening!</li>
+</ul></li>
+<li>project manage all the aspects of the work by creating issues (for each task or bug), milestones (for phases or categories of the work).
+<ul>
+<li>check out the <a href="https://github.com/users/sergegoussev/projects/3/views/1?layout=table">GitHub project we used to coordinate the development of materials</a> for this class!</li>
+</ul></li>
+<li>automate testing and deployment of your package or its related aspects automatically (an advanced feature but quite useful).
+<ul>
+<li>for example <a href="https://github.com/sergegoussev/ESCAP_RAP_class/actions">have a look at how we enabled GitHub to update this class website automatically and deploy a new version every time we make changes to the <code>main</code> branch</a></li>
+</ul></li>
+<li>and many more!</li>
+</ul>
+<p>We covered git and GitHub/Lab in detail in the slides (above), however for more details, feel free to check out the <a href="https://nhsdigital.github.io/rap-community-of-practice/training_resources/git/introduction-to-git/">NHS intro to Git</a> for more details.</p>
 </section>
-<section id="excercize-2" class="level3">
-<h3 class="anchored" data-anchor-id="excercize-2">Excercize 2</h3>
+<section id="exercise-2-on-your-own" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2-on-your-own">Exercise 2 (on your own)</h3>
+<p>Ready to try this yourself? Let’s try to create a very simple GitHub repository. To walkthrough this excersize, you need to <a href="https://git-scm.com/downloads">have <code>git</code> installed on your computer</a> and <a href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github">you need a GitHub account</a>. Do these steps first if you don’t already have this.</p>
+<p>There are several exercises we recommend you try at your own pace. As these may take some time, this can be done in the afternoon:</p>
+<ol type="1">
+<li>GitHub has a very very simple Hello World example - <a href="https://docs.github.com/en/get-started/start-your-journey/hello-world" class="uri">https://docs.github.com/en/get-started/start-your-journey/hello-world</a>. Follow that to create a repository!</li>
+<li>As the above example did not have a copy of the code locally, a slightly more involved walkthrough is available from the <a href="https://nhsdigital.github.io/rap-community-of-practice/training_resources/git/git_walkthroughs/committing_work_walkthrough/">NHS RAP community of practice on committing work to a remote repository</a>.</li>
+<li>The NHS RAP Community of Practice also has a walkthrough on <a href="https://nhsdigital.github.io/rap-community-of-practice/training_resources/git/git_walkthroughs/working_with_branches_walkthrough/">how to work with branches</a></li>
+</ol>
 </section>
 </section>
 <section id="practical-set-three" class="level2">
 <h2 class="anchored" data-anchor-id="practical-set-three">Practical content, third set</h2>
-<section id="principle-6-good-coding-practices" class="level3">
-<h3 class="anchored" data-anchor-id="principle-6-good-coding-practices">Principle 6: Good coding practices</h3>
+<p>Now we are in the home stretch! We are starting to see how we can make better software (i.e.&nbsp;the RAP way), but there are three more principles to go!</p>
+<section id="principle-6-good-development-practices" class="level3">
+<h3 class="anchored" data-anchor-id="principle-6-good-development-practices">Principle 6: Good development practices</h3>
+<p>There are a few good practices that you should adopt when you develop:</p>
+<ul>
+<li><p>When you start out, <a href="https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/">map your process</a> so that the code is well defined and logical. We covered this in the first principle, however its applicable to good development practices as well designed code will be clear! It will thus help any colleagues looking (or reviewing) at the code (soon or later in the future), but it will also help you as it will be much easier to understand what is going on;</p></li>
+<li><p>Document your code and the overall process the RAP is automating! The RAP way (and the way of all good open-source code) is that the documentation is quite often <em>embedded</em> into the repository where the code is and is part of the delivery. Thus if the code or process changes, the documentation is updated. For example, the <a href="https://ukgovdatascience.github.io/rap_companion/exemplar.html">RAP Companion exemplar package</a> contains all the key components (the code (i.e.&nbsp;functions), tests (we will cover this later), documentation, and the data (if its not confidential)):</p>
+<p><img src="https://ukgovdatascience.github.io/rap_companion/images/eesectors_package.png" class="img-fluid" width="600"></p>
+<p>The process map you developed can thus be embedded into this documentation and be useful to anyone!</p>
+<p>For instance for this class (as its a repository) stores all docs as <code>qmd</code> files (which are a type of quarto markup file that renders into the beautiful html site by <code>quarto</code>). Have a look at the raw documentation here - <a href="https://github.com/sergegoussev/ESCAP_RAP_class/tree/main/docs" class="uri">https://github.com/sergegoussev/ESCAP_RAP_class/tree/main/docs</a></p></li>
+<li><p>Use <code>py</code> files to store your production pipeline and an Integrated Development Environemnt (IDE) such as VS Code, not a <code>jupyter notebook</code>. This follows from principle 2 (modular code) as we can then group the functions by theme and put them in separate <code>.py</code> files - which keeps your code logical and clear. A way this could be considered is converting the whole pipeline into a package (like <code>BeautifulSoup</code> or <code>requests</code> that we used to learn how to scrape!)</p>
+<ul>
+<li>Check out this <a href="https://packaging.python.org/en/latest/">guide on packaging python code to make it a package</a>.</li>
+</ul></li>
+<li><p>Use logging instead of <code>print()</code>. When we first start out and especially in a jupyter notebook - we use <code>print()</code> a lot to see what is going on, especially when the logic is complex. However when we create a production pipeline - we still want to know about many of these scenarios (like something that happened). However we should not <code>print()</code> the statement as it is very hard to read and later analyze the example. Instead we can save all that in a light <code>.log</code> file</p>
+<ul>
+<li>Check out the <a href="https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/logging-and-error-handling/#what-is-logging">guide on logging by the NHS RAP site</a></li>
+</ul></li>
+<li><p>Anticipate and handle errors. Sometimes something unanticipated happens (you probably encountered lots of cases during development in this web scraping course) - which causes your script to crash or error out. This will likely happen when your pipeline runs, but by anticipating this, you can handle the situations gracefully. For instance we may not want the script to crash but just log that something unanticipated happened. Or we may want the process to stop but the error we want to occur should be very clear and explicit about what went wrong!</p>
+<ul>
+<li>Check out this guide on <a href="https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/logging-and-error-handling/#error-handling-in-python">error handling by the NHS RAP site</a></li>
+</ul></li>
+<li><p>We covered functional programming above - but further to this, you can include documentation for what each function does. For example we have a function that scrapes a site. We can very clearly document how the function works, what it expects as an input, what it returns as an output:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> scrape_url(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    url: <span class="bu">str</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    header: <span class="bu">dict</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    session: requests.sessions.Session, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    logger: logging.Logger) <span class="op">-&gt;</span> BeautifulSoup:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">Scrapes a specific URL and logs that the site was scraped.</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">Takes the input temperature (in Fahrenheit), calculates the value of</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">the same temperature in Celsius, and then returns this value.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">Args:</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    url: a string representing the url to scrape</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">    header: a header dictionary to include with the request to the site</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">    session: the python requests session being used to make the call (for memory optimization)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">    logger: a logging object so that the fact that we called the site can be recorded</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">Returns:</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">    A Beautiful Soup object that you can work with</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> session.get(url, headers<span class="op">=</span>header) <span class="im">as</span> res:</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> BeautifulSoup(res.text, <span class="st">"html.parser"</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    logger.info(<span class="st">"Scraped </span><span class="sc">{url}</span><span class="st">"</span>.<span class="bu">format</span>(url<span class="op">=</span>url))</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This makes it very easy for others (and yourself later too) to use code that is well documented and modular!</p></li>
+<li><p>And many more best practices that you can learn slowly and at your pace! Have a look at the <a href="https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/intro-to-python/">Python page (NHS source again) to see some good practices features</a>.</p></li>
+</ul>
 </section>
 <section id="principle-7-testing" class="level3">
 <h3 class="anchored" data-anchor-id="principle-7-testing">Principle 7: Testing</h3>
+<p>Once you’ve converted your code into functions, it is best to create test data and test that the function works exactly as you expect. This is a very useful step as this makes you very certain that all your functions work exactly as expected - meaning that your entire pipeline works as expected. This process should also be automated - which allows you to check the code every time you make a change. If your code doesn’t pass the tests you set out for it - then you can <strong>stop short of using it in production</strong> and go and fix it!</p>
+<p>Testing is a complex topic - so we won’t cover it in more detail. However we encourage you to check out the <a href="https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/unit-testing/">unit testing guide on the NHS RAP site</a>.</p>
 </section>
 <section id="principle-8-peer-review" class="level3">
 <h3 class="anchored" data-anchor-id="principle-8-peer-review">Principle 8: Peer review</h3>
+<p>Peer review is a very powerful and useful way to ensure that the package works as expected, make improvements, or even work collaboratively! We can do it in several ways, but the Pull request feature is an easy and natural place to do peer review as it allows you to assign reviewers and assignee (say the reviewer needs to approve) the change. It also shows you that peer review is valuable for any change to the pipeline - i.e.&nbsp;it is not something you do once at the end of development. For example:</p>
+<ul>
+<li><p>You may want to propose something and have your colleague validate the proposed change or modify it as necessary - before it is accepted. For instance when we were developing this training materials, we used the pull request feature to review major proposed chagnes - such as the <a href="https://github.com/sergegoussev/ESCAP_RAP_class/pull/12">scope of the course</a>!</p></li>
+<li><p>You may want to have someone review the code to ensure the code is good and it is improving (you never want to have your code deteriorate over time - its instead always good to aim to constantly improve the code). You can also share knowledge as different colleagues with different levels of skills review the code to collaborate and also to share skills. The <a href="https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/code-review/">NHS RAP site</a>, as well as <a href="https://google.github.io/eng-practices/review/">Google’s change log (i.e.&nbsp;every change) guide</a> are great resources to check out on this topic!</p></li>
+</ul>
+</section>
+<section id="exercise-3" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
+<p>Ready to try this out? Do one of two possible exercises:</p>
+<section id="exercise-3.1.-peer-review-exercise" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-3.1.-peer-review-exercise">Exercise 3.1. Peer review exercise</h4>
+<p>If you have a GitHub repo set up and have walked through the above examples (exercise 2), find someone else who has done the same. Steps to follow:</p>
+<ul>
+<li>Create a branch, push changes to that branch, and then create a Pull Request to merge this branch into the main one.</li>
+<li>Assign your collaborator on the repo (you may need to add the person you are working with as a collaborator to the repo - make the change in Settings &gt; Collaborators) to the request.</li>
+<li>Your partner will review and approve the change</li>
+<li>You can then merge the change into main</li>
+</ul>
+<p><strong>Resources:</strong></p>
+<ul>
+<li>The guide on <a href="https://nhsdigital.github.io/rap-community-of-practice/training_resources/git/git_walkthroughs/pull_and_merge_requests_walkthrough/">Pull and Merge requests by the&nbsp;NHS RAP Community of Practice</a> will walk through how to create and push pull requesets.</li>
+</ul>
+</section>
+<section id="exercise-3.2.-add-doc-strings-to-the-functions-you-created-in-exercise-1" class="level4">
+<h4 class="anchored" data-anchor-id="exercise-3.2.-add-doc-strings-to-the-functions-you-created-in-exercise-1">Exercise 3.2. Add doc strings to the functions you created in exercise 1</h4>
+</section>
 </section>
 </section>
 <section id="wrap-up" class="level2">
 <h2 class="anchored" data-anchor-id="wrap-up">Wrap up</h2>
+<p>While we’ve covered the main principles of RAP above - it may feel like it will take you a long time to get all this. However, you can start out small and adopt RAP gradually. Indeed, RAP can be seen as a <a href="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/">gradual progression along 3 levels</a>:</p>
+<ul>
+<li>Bronze or baseline RAP - you have adopted some best practices</li>
+<li>Silver - you are now implementing many good practices and your RAP is increasingly mature, reproducible, and effective</li>
+<li>Gold - you have reached a level of easy reproducibility and mature code</li>
+</ul>
+<p>Check out the <a href="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/#baseline-rap-getting-the-fundamentals-right">RAP levels on the NHS site</a> for more info of what is in each level.</p>
+<p>Bronze is quite a nice starting place, however as you keep progressing, you can gradually adopt features from the silver (or even gold) level - as not all aspects of a specific level need to be adopted all at once!</p>
 
 
 </section>
