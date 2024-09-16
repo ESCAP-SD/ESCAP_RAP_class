@@ -24,7 +24,7 @@ Unlike the first class that aimed to introduce RAP and why it was relevant, the 
 
 # Practical content
 
-To support the in-person training, below we list out the supporting material that learners can refer to
+To support the in-person training, below we list out the supporting material that learners can refer to. It outlines each of the principles in high level, and some in more detail where technical examples are valuable. See the [NHS site on RAP for more details](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/#rap-principles) on each principle.
 
 ## Practical content, first set {#practical-set-one}
 
@@ -100,7 +100,7 @@ def save_excel_output(dataframe, location_to_save_output):
 
 Now we can figure out how to automate this. A very simple way when you are starting out is to make one `main()` function that calls other functions, and then give inputs to that function for it to operate properly:
 
-```python
+``` python
 def main(csv_to_load_into_the_database, date, location_to_save_output):
     # main function that operationalizes everything
 
@@ -138,15 +138,52 @@ Ready to try this yourself? Look at a notebook that you developed for this cours
 
 ### Principle 3: Transparency
 
+Working in a transparent manner (even if in your NSO this will apply to a more internal audience rather than publicly), is very useful as it helps develops skills and a way of working that results in better code and hence easier (and more reproducible) processes. This principle actually links quite heavily with several other principles such as:
+
+-   use of a git based version control software to store an authoritative version of the code and all related aspects (this does not have to be GitHub, GitLab for example is also very popular);
+-   using open-source tools (principle 4)
+-   adopting good development practices (which includes good coding practices and also documentation of how the code works) (principle 6)
+-   and others!
+
+While at a glance, this principle seems to be repeated in other principles - however transparency stands as a principle on its own. Adopting all other principles but still working in a non-transparent manner will naturally result in lower trust (as noone will know how the specific process works), lower levels of collaboration (and thus higher likelihood that mistakes or improvements will be identified), and a very strong likelihood of isolation from consistent standards others have adopted. Thus working in a transparent manner (as much as possible in your NSO) is very useful and helps push the pipeline to be even more mature and reproducible!
+
 ### Principle 4: Use of open-source tools
+
+As RAP fundamentally is about reproducibility and technical maturity - both aspects are most effectively enabled if open-source tools are used. Open-source tools (like python or R) are incredibly popular around the world - hence there is lots of training on the topic, ChatGPT will give you a good response for specific problems, and its more likely that your colleagues can learn it (or have already) and can help you develop the pipeline or peer review it!
+
+As an aside - several organizations (for example see [IEEE specturm](https://spectrum.ieee.org/top-programming-languages-2024) and [Statista](https://www.statista.com/statistics/793628/worldwide-developer-survey-most-used-languages/)) rate the top programming languages around the world and Python (R less so but still a bit) usually are rated highly. The challenge with these surveys is they assess or survey all developers - and some developers need to focus on back-end (SQL or Java) or web development (hence JavaScript) - which can seem misleading. A good takeaway is that for dynamic and simple languages for data analysis and processing - Python and R are very popular - which helps when you are developing your pipeline!
 
 ### Principle 5: Version control
 
+RAPs (and code that helps create official statistics) if fundamentally well developed open-sources software. Hence we need to adopt tools that help us manage all the aspects of its lifecycle - and `git` based version control with a site like GitHub or GitLab is the most popular way to help develop and operates software. As a summary it allows you to:
+
+-   version control all your code and documents (and data too for non-confidential data) - thus you never have to know which is the final one or which was used when in the past!
+    -   have a look at the [commits to the `main` branch of this repo](https://github.com/sergegoussev/ESCAP_RAP_class/commits/main/)!
+-   furthemore, from a development point of view, you can also create targeted releases for stable versions and see what the release was at that time - making it very easy to know what version of the pipeline was used historically!
+    -   have a look at the [releases for the python `pandas` library](https://github.com/pandas-dev/pandas/releases), very popular with data analysis package!
+-   create different code bases (as braches) off the main one that allow you to collaborate with others or develop/fix parts simultaneously, as well as join them all together when appropriate;
+    -   for example, have a look at a [pull request (a request to merge one branch into the main branch) that we collaborated on for this class](https://github.com/sergegoussev/ESCAP_RAP_class/pull/12) - where you can have one individual review the change and approve it prior to the change happening!
+-   project manage all the aspects of the work by creating issues (for each task or bug), milestones (for phases or categories of the work).
+    -   check out the [GitHub project we used to coordinate the development of materials](https://github.com/users/sergegoussev/projects/3/views/1?layout=table) for this class!
+-   automate testing and deployment of your package or its related aspects automatically (an advanced feature but quite useful).
+    -   for example [have a look at how we enabled GitHub to update this class website automatically and deploy a new version every time we make changes to the `main` branch](https://github.com/sergegoussev/ESCAP_RAP_class/actions)
+-   and many more!
+
+We covered git and GitHub/Lab in detail in the slides (above), however for more details, feel free to check out the [NHS intro to Git](https://nhsdigital.github.io/rap-community-of-practice/training_resources/git/introduction-to-git/) for more details.
+
 ### Excercize 2
+
+Ready to try this yourself? Let's try to create a very simple GitHub repository. To walkthrough this excersize, you need to [have `git` installed on your computer](https://git-scm.com/downloads) and [you need a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github). Do these steps first if you don't already have this.
+
+This excercize may take you some time to walk through - so it's probably best not to rush it. However there are several Steps to follow:
+
+1.  GitHub has a very very simple Hello World example - <https://docs.github.com/en/get-started/start-your-journey/hello-world>. Follow that to create a repository!
+2.  As the above example did not have a copy of the code locally, we can try to clone (i.e. create a local copy) of the repository to your local computer. Again, please follow this GitHub how-to - <https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository>.
+3.  ...
 
 ## Practical content, third set {#practical-set-three}
 
-### Principle 6: Good coding practices
+### Principle 6: Good development practices
 
 ### Principle 7: Testing
 
