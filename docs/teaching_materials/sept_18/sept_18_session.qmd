@@ -197,9 +197,9 @@ There are a few good practices that you should adopt when you develop:
 -   Document your code and the overall process the RAP is automating! The RAP way (and the way of all good open-source code) is that the documentation is quite often *embedded* into the repository where the code is and is part of the delivery. Thus if the code or process changes, the documentation is updated. For example, the [RAP Companion exemplar package](https://ukgovdatascience.github.io/rap_companion/exemplar.html) contains all the key components (the code (i.e. functions), tests (we will cover this later), documentation, and the data (if its not confidential)):
 
     ![](https://ukgovdatascience.github.io/rap_companion/images/eesectors_package.png){width="600"}
-    
+
     The process map you developed can thus be embedded into this documentation and be useful to anyone!
-    
+
     For instance for this class (as its a repository) stores all docs as `qmd` files (which are a type of quarto markup file that renders into the beautiful html site by `quarto`). Have a look at the raw documentation here - <https://github.com/sergegoussev/ESCAP_RAP_class/tree/main/docs>
 
 -   We covered functional programming above - but further to this, you can include documentation for what each function does. For example we have a function that does the actual call the the that converts fahrenheit to celsius. We can very clearly document how the function works, what it expects as an input, what it returns as an output:
@@ -237,7 +237,17 @@ There are a few good practices that you should adopt when you develop:
 
 ### Principle 7: Testing
 
+Once you've converted your code into functions, it is best to create test data and test that the function works exactly as you expect. This is a very useful step as this makes you very certain that all your functions work exactly as expected - meaning that your entire pipeline works as expected. This process should also be automated - which allows you to check the code every time you make a change. If your code doesn't pass the tests you set out for it - then you can **stop short of using it in production** and go and fix it!
+
+Testing is a complex topic - so we won't cover it in more detail. However we encourage you to check out the [unit testing guide on the NHS RAP site](https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/unit-testing/).
+
 ### Principle 8: Peer review
+
+Peer review is a very powerful and useful way to ensure that the package works as expected, make improvements, or even work collaboratively! We can do it in several ways, but the Pull request feature is an easy and natural place to do peer review as it allows you to assign reviewers and assignee (say the reviewer needs to approve) the change. It also shows you that peer review is valuable for any change to the pipeline - i.e. it is not something you do once at the end of development. For example:
+
+-   You may want to propose something and have your colleague validate the proposed change or modify it as necessary - before it is accepted. For instance when we were developing this training materials, we used the pull request feature to review major proposed chagnes - such as the [scope of the course](https://github.com/sergegoussev/ESCAP_RAP_class/pull/12)!
+
+-   You may want to have someone review the code to ensure the code is good and it is improving (you never want to have your code deteriorate over time - its instead always good to aim to constantly improve the code). You can also share knowledge as different colleagues with different levels of skills review the code to collaborate and also to share skills. The [NHS RAP site](https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/code-review/), as well as [Google's change log (i.e. every change) guide](https://google.github.io/eng-practices/review/) are great resources to check out on this topic!
 
 ### Exercise 3
 
