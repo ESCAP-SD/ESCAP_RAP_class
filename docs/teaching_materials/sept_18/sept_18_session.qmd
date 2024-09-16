@@ -184,7 +184,56 @@ There are several exercises we recommend you try at your own pace. As these may 
 
 ## Practical content, third set {#practical-set-three}
 
+Now we are in the home stretch! We are starting to see how we can make better software (i.e. the RAP way), but there are three more principles to go!
+
 ### Principle 6: Good development practices
+
+There are a few good practices that you should adopt when you develop:
+
+-   When you start out, [map your process](https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/) so th
+
+-   at the code is well defined and logical. We covered this in the first principle, however its applicable to good development practices as well designed code will be clear! It will thus help any colleagues looking (or reviewing) at the code (soon or later in the future), but it will also help you as it will be much easier to understand what is going on;
+
+-   Document your code and the overall process the RAP is automating! The RAP way (and the way of all good open-source code) is that the documentation is quite often *embedded* into the repository where the code is and is part of the delivery. Thus if the code or process changes, the documentation is updated. For example, the [RAP Companion exemplar package](https://ukgovdatascience.github.io/rap_companion/exemplar.html) contains all the key components (the code (i.e. functions), tests (we will cover this later), documentation, and the data (if its not confidential)):
+
+    ![](https://ukgovdatascience.github.io/rap_companion/images/eesectors_package.png){width="600"}
+    
+    The process map you developed can thus be embedded into this documentation and be useful to anyone!
+    
+    For instance for this class (as its a repository) stores all docs as `qmd` files (which are a type of quarto markup file that renders into the beautiful html site by `quarto`). Have a look at the raw documentation here - <https://github.com/sergegoussev/ESCAP_RAP_class/tree/main/docs>
+
+-   We covered functional programming above - but further to this, you can include documentation for what each function does. For example we have a function that does the actual call the the that converts fahrenheit to celsius. We can very clearly document how the function works, what it expects as an input, what it returns as an output:
+
+    ``` python
+    def scrape_url(
+        url: str, 
+        header: dict, 
+        session: requests.sessions.Session, 
+        logger: logging.Logger) -> BeautifulSoup:
+    """
+    Scrapes a specific URL and logs that the site was scraped.
+
+    Takes the input temperature (in Fahrenheit), calculates the value of
+    the same temperature in Celsius, and then returns this value.
+
+    Args:
+        url: a string representing the url to scrape
+        header: a header dictionary to include with the request to the site
+        session: the python requests session being used to make the call (for memory optimization)
+        logger: a logging object so that the fact that we called the site can be recorded
+
+    Returns:
+        A Beautiful Soup object that you can work with
+    """
+        with session.get(url, headers=header) as res:
+            response = BeautifulSoup(res.text, "html.parser")
+        logger.info("Scraped {url}".format(url=url))
+    return response
+    ```
+
+    This makes it very easy for others (and yourself later too) to use code that is well documented and modular!
+
+-   And many more best practices that you can learn slowly and at your pace! Have a look at the [Python page (NHS source again) to see some good practices features](https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/intro-to-python/).
 
 ### Principle 7: Testing
 
@@ -193,3 +242,13 @@ There are several exercises we recommend you try at your own pace. As these may 
 ### Exercise 3
 
 ## Wrap up
+
+While we've covered the main principles of RAP above - it may feel like it will take you a long time to get all this. However, you can start out small and adopt RAP gradually. Indeed, RAP can be seen as a [gradual progression along 3 levels](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/):
+
+-   Bronze or baseline RAP - you have adopted some best practices
+-   Silver - you are now implementing many good practices and your RAP is increasingly mature, reproducible, and effective
+-   Gold - you have reached a level of easy reproducibility and mature code
+
+Check out the [RAP levels on the NHS site](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/#baseline-rap-getting-the-fundamentals-right) for more info of what is in each level.
+
+Bronze is quite a nice starting place, however as you keep progressing, you can gradually adopt features from the silver (or even gold) level - as not all aspects of a specific level need to be adopted all at once!
