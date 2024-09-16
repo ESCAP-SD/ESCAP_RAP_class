@@ -130,7 +130,7 @@ main(csv1, todays_date, location_to_save)
 
 That's it! Check out a [helpful article by the NHS on functional programming for a slighly deper dive](https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/python-functions/).
 
-### Excercize 1
+### Exercise 1
 
 Ready to try this yourself? Look at a notebook that you developed for this course - and see how to separate out what you did into functions. Talk to the mentors in the room if you have questions!
 
@@ -171,15 +171,16 @@ RAPs (and code that helps create official statistics) if fundamentally well deve
 
 We covered git and GitHub/Lab in detail in the slides (above), however for more details, feel free to check out the [NHS intro to Git](https://nhsdigital.github.io/rap-community-of-practice/training_resources/git/introduction-to-git/) for more details.
 
-### Excercize 2
+### Exercise 2 (on your own)
 
 Ready to try this yourself? Let's try to create a very simple GitHub repository. To walkthrough this excersize, you need to [have `git` installed on your computer](https://git-scm.com/downloads) and [you need a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github). Do these steps first if you don't already have this.
 
-This excercize may take you some time to walk through - so it's probably best not to rush it. However there are several Steps to follow:
+There are several exercises we recommend you try at your own pace. As these may take some time, this can be done in the afternoon:
 
 1.  GitHub has a very very simple Hello World example - <https://docs.github.com/en/get-started/start-your-journey/hello-world>. Follow that to create a repository!
-2.  As the above example did not have a copy of the code locally, we can try to clone (i.e. create a local copy) of the repository to your local computer. Again, please follow this GitHub how-to - <https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository>.
-3.  ...
+2.  As the above example did not have a copy of the code locally, a slightly more involved walkthrough is available from the [NHS RAP community of practice on committing work to a remote repository](https://nhsdigital.github.io/rap-community-of-practice/training_resources/git/git_walkthroughs/committing_work_walkthrough/).
+3.  The NHS RAP Community of Practice also has a walkthrough on [how to work with branches](https://nhsdigital.github.io/rap-community-of-practice/training_resources/git/git_walkthroughs/working_with_branches_walkthrough/);
+4.  Finally, this guide on [Pull and Merge requests by the NHS RAP Community of Practice](https://nhsdigital.github.io/rap-community-of-practice/training_resources/git/git_walkthroughs/pull_and_merge_requests_walkthrough/) will help cement what you've practiced in the 3 other walkthroughs above!
 
 ## Practical content, third set {#practical-set-three}
 
@@ -188,5 +189,7 @@ This excercize may take you some time to walk through - so it's probably best no
 ### Principle 7: Testing
 
 ### Principle 8: Peer review
+
+### Exercise 3
 
 ## Wrap up
