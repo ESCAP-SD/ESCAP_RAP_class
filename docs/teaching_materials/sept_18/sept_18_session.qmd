@@ -189,9 +189,7 @@ Now we are in the home stretch! We are starting to see how we can make better so
 
 There are a few good practices that you should adopt when you develop:
 
--   When you start out, [map your process](https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/) so th
-
--   at the code is well defined and logical. We covered this in the first principle, however its applicable to good development practices as well designed code will be clear! It will thus help any colleagues looking (or reviewing) at the code (soon or later in the future), but it will also help you as it will be much easier to understand what is going on;
+-   When you start out, [map your process](https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/) so that the code is well defined and logical. We covered this in the first principle, however its applicable to good development practices as well designed code will be clear! It will thus help any colleagues looking (or reviewing) at the code (soon or later in the future), but it will also help you as it will be much easier to understand what is going on;
 
 -   Document your code and the overall process the RAP is automating! The RAP way (and the way of all good open-source code) is that the documentation is quite often *embedded* into the repository where the code is and is part of the delivery. Thus if the code or process changes, the documentation is updated. For example, the [RAP Companion exemplar package](https://ukgovdatascience.github.io/rap_companion/exemplar.html) contains all the key components (the code (i.e. functions), tests (we will cover this later), documentation, and the data (if its not confidential)):
 
@@ -201,9 +199,17 @@ There are a few good practices that you should adopt when you develop:
 
     For instance for this class (as its a repository) stores all docs as `qmd` files (which are a type of quarto markup file that renders into the beautiful html site by `quarto`). Have a look at the raw documentation here - <https://github.com/sergegoussev/ESCAP_RAP_class/tree/main/docs>
 
--   Use logging instead of `print()`. When you are first starting out
+-   Use `py` files to store your production pipeline and an Integrated Development Environemnt (IDE) such as VS Code, not a `jupyter notebook`. This follows from principle 2 (modular code) as we can then group the functions by theme and put them in separate `.py` files - which keeps your code logical and clear. A way this could be considered is converting the whole pipeline into a package (like `BeautifulSoup` or `requests` that we used to learn how to scrape!)
 
--   Anticipate and handle errors.
+    -   Check out this [guide on packaging python code to make it a package](https://packaging.python.org/en/latest/).
+
+-   Use logging instead of `print()`. When we first start out and especially in a jupyter notebook - we use `print()` a lot to see what is going on, especially when the logic is complex. However when we create a production pipeline - we still want to know about many of these scenarios (like something that happened). However we should not `print()` the statement as it is very hard to read and later analyze the example. Instead we can save all that in a light `.log` file
+
+    -   Check out the [guide on logging by the NHS RAP site](https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/logging-and-error-handling/#what-is-logging)
+
+-   Anticipate and handle errors. Sometimes something unanticipated happens (you probably encountered lots of cases during development in this web scraping course) - which causes your script to crash or error out. This will likely happen when your pipeline runs, but by anticipating this, you can handle the situations gracefully. For instance we may not want the script to crash but just log that something unanticipated happened. Or we may want the process to stop but the error we want to occur should be very clear and explicit about what went wrong!
+
+    -   Check out this guide on [error handling by the NHS RAP site](https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/logging-and-error-handling/#error-handling-in-python)
 
 -   We covered functional programming above - but further to this, you can include documentation for what each function does. For example we have a function that scrapes a site. We can very clearly document how the function works, what it expects as an input, what it returns as an output:
 
@@ -282,7 +288,3 @@ While we've covered the main principles of RAP above - it may feel like it will 
 Check out the [RAP levels on the NHS site](https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/levels_of_RAP/#baseline-rap-getting-the-fundamentals-right) for more info of what is in each level.
 
 Bronze is quite a nice starting place, however as you keep progressing, you can gradually adopt features from the silver (or even gold) level - as not all aspects of a specific level need to be adopted all at once!
-
-Main assignment
-
-To help anchor
