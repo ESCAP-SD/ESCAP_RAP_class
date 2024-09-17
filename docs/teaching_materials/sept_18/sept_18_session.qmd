@@ -59,7 +59,7 @@ Furthermore, we can also apply this thinking to bigger processes as we saw when 
 
 Lets see what this means by focusing on the [example provided by the NHS](https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/#using-a-process-map-to-find-improvements) - what could this look like in code?
 
-Remember the demo from the RAP guide:
+Remember the [visual demo from the RAP guide (repeated here)](https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/):
 
 ```{mermaid}
 graph LR
@@ -129,6 +129,8 @@ location_to_save = "C:/some/other/path"
 
 main(csv1, todays_date, location_to_save)
 ```
+
+To better understand how this works for a scraper - we can also walk through first the [demo web scraper of a public scraping site](../../../notebooks/scraping_experiment.ipynb), and then [how to make this scraper RAP friendly](../../../docs/applying_rap/mapping_the_process.qmd).
 
 That's it! Check out a [helpful article by the NHS on functional programming for a slighly deper dive](https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/python-functions/).
 
