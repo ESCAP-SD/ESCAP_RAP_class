@@ -223,25 +223,25 @@ There are a few good practices that you should adopt when you develop:
         header: dict, 
         session: requests.sessions.Session, 
         logger: logging.Logger) -> BeautifulSoup:
-    """
-    Scrapes a specific URL and logs that the site was scraped.
+        """
+        Scrapes a specific URL and logs that the site was scraped.
 
-    Takes the input temperature (in Fahrenheit), calculates the value of
-    the same temperature in Celsius, and then returns this value.
+        Takes the input temperature (in Fahrenheit), calculates the value of
+        the same temperature in Celsius, and then returns this value.
 
-    Args:
-        url: a string representing the url to scrape
-        header: a header dictionary to include with the request to the site
-        session: the python requests session being used to make the call (for memory optimization)
-        logger: a logging object so that the fact that we called the site can be recorded
+        Args:
+            url: a string representing the url to scrape
+            header: a header dictionary to include with the request to the site
+            session: the python requests session being used to make the call (for memory optimization)
+            logger: a logging object so that the fact that we called the site can be recorded
 
-    Returns:
-        A Beautiful Soup object that you can work with
-    """
+        Returns:
+            A Beautiful Soup object that you can work with
+        """
         with session.get(url, headers=header) as res:
             response = BeautifulSoup(res.text, "html.parser")
         logger.info("Scraped {url}".format(url=url))
-    return response
+        return response
     ```
 
     This makes it very easy for others (and yourself later too) to use code that is well documented and modular!
