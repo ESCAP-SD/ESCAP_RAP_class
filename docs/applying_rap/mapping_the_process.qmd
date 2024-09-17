@@ -19,14 +19,36 @@ format:
 This page is still under construction
 :::
 
-# Figuring out how to map the process
+# Overview
 
-## The overall process
+As we saw in the [demo walkthrough of the scraper of books to scrape](/notebooks/scraping_experiment.ipynb), it takes many lines of code to scrape a site. However we also know from the [RAP principles described in detail during the september 18th session](/docs/teaching_materials/sept_18/sept_18_session.qmd), there is a way to make this code RAP friendly (or RAPify it!) - and thus make it more mature, robust, and reproducible. To figure out how to do this, we should first start with mapping the current process and then figuring out how to make it more decoupled with modular (i.e. functional) programming.
 
-If we start out modifying the scraper we developed in a notebook when we tried scaping [books to scrape](/notebooks/scraping_experiment.ipynb) and map what we did there in order to RAPify the process! 
+# Converting the basic scraper into something more RAP friendly
+
+## The [basic process demoed in the scraping walkthrough](/notebooks/scraping_experiment.ipynb)
+
+While its separated into a collection of the URLs for each product and the extraction and parsing of all content on each product page to save this in the previous walkthrough, we can visualize the overall process as a set of calls to get the data, a set of logical steps, and a set of parsing and actions of various kinds to get the data we need:
 
 ![](/docs/images/mapping-the-overall-raw-process.svg)
 
+We can see visualizing this that there is an opportunity to dramatically improve this as even a small bug (or a change of the website) will break the whole script and we won't know what is going on.
 
+## The RAP friendly way to visualize this
+
+To make this RAP friendly, we can adopt some of what we learned. We can also add two components that will make the process more robust - logging and monitoring (i.e. making reports on the scraped file to see if something happened):
 
 ![](/docs/images/mapping-the-process-RAPified.svg)
+
+A few key comments about this more RAP friendly approach:
+
+-   Separate functions for getting data, parsing information, or saving the data - specialize in their specific components. We thus make the whole code more loosely coupled, meaning we can:
+    -   Isolate possible sources of failure (such as by adding error handling) and add transparency to each step (such as by logging inside these steps so that we have a record of it). We could try this in one big script, but that is likely to make it even bigger and more cumbersome!
+    -   We can use the `main()` function to wrap all the main business logic - which means that if something breaks (or needs to change) in the business logic, we can change it easily
+    -   We can document how each of these functions work (by adding docstrings and a detailed documentation site), which will help make the process way easier to understand and also reproduce it
+    -   We can combine this documentation with a process map diagram (like the one above) into a documentation site - which make sthe process easy to understand and (again) reproduce!
+-   We can also add a validation step so that we can see if for some reason we scraped 500 products instead of the usual 1000 - indicating that something possibly went wrong on the site.
+-   We can also thematically group the fuctions into separate `.py` files that group similar content - which also makes it easier to run the pipeline when we need to.
+
+## Takeaways
+
+This is not all we can do but it gets the idea across. Next, we can see how some of these functions works.
