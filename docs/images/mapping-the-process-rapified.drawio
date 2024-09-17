@@ -116,8 +116,8 @@
         <mxCell id="Drjybpy5SiX0v55b3moW-11" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;parse_last_page_num()&lt;/span&gt;&lt;/div&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#008a00;shape=mxgraph.archimate3.application;appType=func;archiType=rounded;fontColor=#ffffff;strokeColor=#005700;" parent="d4zPe-vx_KcChgt0Eme--1" vertex="1">
           <mxGeometry x="520" y="305" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Drjybpy5SiX0v55b3moW-5" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;parse_product_page()&lt;/span&gt;&lt;/div&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#008a00;shape=mxgraph.archimate3.application;appType=func;archiType=rounded;fontColor=#ffffff;strokeColor=#005700;" parent="d4zPe-vx_KcChgt0Eme--1" vertex="1">
-          <mxGeometry x="527.5" y="343" width="150" height="28" as="geometry" />
+        <mxCell id="Drjybpy5SiX0v55b3moW-5" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;get_and_parse_product_page()&lt;/span&gt;&lt;/div&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#008a00;shape=mxgraph.archimate3.application;appType=func;archiType=rounded;fontColor=#ffffff;strokeColor=#005700;" parent="d4zPe-vx_KcChgt0Eme--1" vertex="1">
+          <mxGeometry x="508" y="343" width="184" height="28" as="geometry" />
         </mxCell>
         <mxCell id="Drjybpy5SiX0v55b3moW-3" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;parse_product_name()&lt;/span&gt;&lt;/div&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#008a00;shape=mxgraph.archimate3.application;appType=func;archiType=rounded;fontColor=#ffffff;strokeColor=#005700;" parent="d4zPe-vx_KcChgt0Eme--1" vertex="1">
           <mxGeometry x="537.5" y="379" width="130" height="28" as="geometry" />
