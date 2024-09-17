@@ -119,7 +119,7 @@
 \section{Principles- part 1}
 
 \begin{frame}[<+->]
-   \frametitle{RAP principles 1:\\  Automation - Modular coding}
+   \frametitle{RAP principles - Part 1:\\  Automation - Modular coding}
    \pause
     \begin{itemize}[<+->]
      \item Automation (\emph{as much as you can})
@@ -127,7 +127,7 @@
      \item[Tools:]\href{https://app.diagrams.net/}{Draw.io}, \href{https://www.figma.com/design/}{Figma}, $\cdots$
      \item Reusable (modular) code
      \item[$\hookrightarrow$]\href{https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_18/sept_18_session.html\#principle-2-modular-re-usableBuild blocs}{What does this means for your project?}
-     \item[$\hookrightarrow$]\href{https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_18/sept_18_session.html\#what-does-this-mean-if-we-put-it-together}{Example},  see also \href{https://sergegoussev.github.io/ESCAP_RAP_class/notebooks/scraping_experiment.html}{our example}
+     \item[$\hookrightarrow$]\href{https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_18/sept_18_session.html\#what-does-this-mean-if-we-put-it-together}{Example},  see also \href{https://sergegoussev.github.io/ESCAP_RAP_class/docs/applying_rap/}{our example}
      \item \href{https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_18/sept_18_session.html\#excercize-1}{\emph{Exercise part 1}} (15 minutes)
      \item[-] \emph{Look at a notebook that you developed for this course - and see how to separate out what you did into functions.}
      \item[-] \href{https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/python-functions/\#coding-challenge}{\emph{Create functions, use these functions in a main document}}
@@ -138,7 +138,7 @@
 \section{Principles- part 2}
 
 \begin{frame}[<+->]
-   \frametitle{RAP principles 2:  \\Transparency - open source - version control }
+   \frametitle{RAP principles - Part 2:  \\Transparency - open source - version control }
    \pause
     \begin{itemize}[<+->]
       \item Transparency
@@ -147,7 +147,7 @@
       \item[$\hookrightarrow$]\href{https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_18/sept_18_session.html\#practical-set-two}{Compare Open source \emph{vs} proprietary software }
      \item[Tools:] Python, R, Git, GitHub(GitLab)
      \item Version control
-     \item \href{https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_18/sept_18_session.html\#excercize-1}{\emph{Exercise part 2}} (Afternoon session)
+     \item \href{https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_18/sept_18_session.html\#exercise-2-on-your-own}{\emph{Exercise part 2}} (Homework)
     \end{itemize}
 \end{frame}
 
@@ -179,7 +179,7 @@
 \end{center}
 \end{frame}
 
-\begin{frame}{Going back and "undo" is possible}
+\begin{frame}{Going back and "revert" is possible}
 \begin{center}
 \begin{itemize}
    \only<1-2> {It is possible to review previous version... \\ }
@@ -188,7 +188,7 @@
    \only<3-4> {\includegraphics[width = 1.0\textwidth]{FileLifeDiff.png} \\ }
    \only<5-6> {... and to revert  to a  previous version... }
    \only<5-6> {\includegraphics[width = 1.0\textwidth]{FileLifeRevert.png} \\ }
-   \only<7-8> {... or \emph{undo} as if nothing happened }
+   \only<7-8> {... or \emph{revert} as if nothing happened }
    \only<7-8> {\includegraphics[width = 1.0\textwidth]{FileLifeRevert2.png} \\ }
 
 \end{itemize}
@@ -320,7 +320,8 @@
      \item[$\hookrightarrow$] Write for humans, not for machines
      \item Testing
      \item Peer-review
-     \item \href{https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_18/sept_18_session.html\#principle-6-good-coding-practices}{\emph{Exercise part 3:}}  Coding, documenting, testing. (15 minutes)
+     \item \href{https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_18/sept_18_session.html\#practical-set-three}{Demo on our project}
+     \item \href{https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_18/sept_18_session.html\#exercise-3}{\emph{Exercise part 3:}}  Coding, documenting, testing (15 minutes)
     \end{itemize}
 \end{frame}
 
@@ -340,164 +341,6 @@
         \item Practicing regularly helps progressing though,  starting from Bronze level
     \end{itemize}
 \end{frame}
-
-
-
-\end{document}
-
-
-
-
-\section{Version Control}
-
-\begin{frame} % Cover slide
-\frametitle{Version Control keeps tracks of your work}
-Tracking three \textbf{W} questions:
-\begin{columns}[t]
- \begin{column}{0.5\textwidth}
- \begin{itemize}[<+->]
- \item[] \textcolor{siap}{\textbf{W}}hat changes?
- \item[] \textcolor{siap}{\textbf{W}}ho made the changes?
- \item[] \textcolor{siap}{\textbf{W}}hen were the changes made?
- \end{itemize}
- \end{column}
-  \begin{column}{0.5\textwidth}
-    \begin{center}
-    \begin{itemize}
-        \only<1-4>{ \includegraphics[width=0.95\textwidth]{FileHistory.PNG} \\  }
-       \only<1-4>{\hfill  \textcolor{gris}{\tiny{Source: \href{https://the-turing-way.netlify.app/reproducible-research/vcs.html}{The Turing Way project}}}}
-    \end{itemize}
-    \end{center}
-  \end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{Git  \& GitHub}
-\begin{center}
-    Git \& GitHub are different tools
-\end{center}
-\begin{columns}[t]
- \begin{column}{0.5\textwidth}
- \begin{itemize}[<+->]
-  \item[]{\begin{center}
-              \includegraphics[width=0.2\textwidth]{git_logo.jpg} \\
-             \end{center} }
-        \item Git is a software
-        \item Git needs to be installed
-        \item Git works mostly in command mode
-        \item Git is complex and unfriendly!
-
-    \end{itemize}
- \end{column}
- \begin{column}{0.5\textwidth}
- \begin{itemize}[<+->]
-  \item[]{\begin{center}
-              \includegraphics[width=0.4\textwidth]{GitHub-logo.png} \\
-             \end{center} }
-        \item GitHub is a platform
-        \item GitHub needs an account
-        \item GitHub can only be accessed remotely
-        \item GitHub is (more) friendly
-    \end{itemize}
- \end{column}
-\end{columns}
-\end{frame}
-
-
-\section{Git \& GitHub}
-
-\begin{frame}
-\frametitle{Setup}
-
-What you'll need to do...
-\begin{columns}[t]
- \begin{column}{0.8\textwidth}
-
- \begin{itemize}[<+->]
-        \item Download Git
-        \item Install Git on your computer
-        \item[$\hookrightarrow$]  Depends on your OS
-        \item Create a  GitHub account
-        \item Link Git with GitHub account
-        \item Link VStudio with Git
-        \item[$\hookrightarrow$] May need IT support
-        \item[$\hookrightarrow$] Many tutorials exist
-    \end{itemize}
- \end{column}
-  \begin{column}{0.2\textwidth}
-    \begin{center}
-    \begin{itemize}
-        \only<1-8>{ \includegraphics[width=0.6\textwidth]{git_logo.jpg} \\  }
-        \only<4-8>{\vspace{0.1 cm} \includegraphics[width=0.95\textwidth]{GitHub-logo.png}  \\  }
-        \only<6-8>{ \vspace{0.1cm}  \includegraphics[width=0.6\textwidth]{VisualStudio-Logo.png} \\  }
-    \end{itemize}
-    \end{center}
-  \end{column}
-\end{columns}
-\end{frame}
-
-
-
-\begin{frame}{Version Control in a Nutshell }
-Version control system:
-\begin{columns}[t]
-\begin{column}{0.6\textwidth}
-\begin{itemize}[<+->]
-    \item Allows to travel back in time
-    \item Keeps track of all changes
-    \item Allows to "undo" at any point
-    \item Allows reviewing stages of development
-    \item Allow collaborating on projects
-    \item Backups your work
-  \end{itemize}
- \end{column}
-  \begin{column}{0.4\textwidth}
-    \begin{center}
-    \begin{itemize}
-        \only<1-6>{\includegraphics[width=0.8\textwidth]{github-mark.png} }
-        \only<1-6>{ \textcolor{gris}{\tiny{ \href{https://www.c-sharpcorner.com/article/git-for-absolute-beginners-with-command-line-interface/}{GitHub logo}}}}
-    \end{itemize}
-    \end{center}
-  \end{column}
-\end{columns}
-\end{frame}
-
-\section{Takeway}
-
-\begin{frame}
-\frametitle{Towards a full RAP}
-
- \begin{itemize}[<+->]
-        \item In short,\\
-         \begin{center} \textbf{RAP}\\ =\\ Reproducible documents\\+ \\ Version Control \\+ \\ Automation \end{center}
-        \item Each of these notion require training
-        \item New tools, new challenges, new problems...
-        \item[$\hookrightarrow$]  Requires time, patience and training
-        \item Git is powerful, but complex
-        \item[$\hookrightarrow$] It works with \includegraphics[width=6ex]{VisualStudio-Logo.png}
-        \item Automation is hard
-        \item Building a RAP is a collective process \\
-        \includegraphics[width=0.5\textwidth]{DecolonisingKnowledge.jpg}
-    \end{itemize}
-\end{frame}
-
-
-
-\section{Resources}
-\begin{frame}{Useful resources}
-  \begin{itemize}
-   \item  \href{https://github.com/sergegoussev/ESCAP_RAP_class/tree/main}{This course website} (created by Serge Goussev)
-   \item \href{https://github.com/Vanuatu-National-Statistics-Office/vnso-RAP-marketStats-materials}{Vanuatu Bureau of Statistics implementation of RAP}
-   \item \href{https://www.unsiap.or.jp/on_line/2024/RAP/flyer-RAP-Self-paced.pdf}{SIAP's (free) online RAP course}
-    \item The UK government RAP \href{https://ukgovdatascience.github.io/rap-website/index.html}{website}.
-    \item UK best practice \href{https://gss.civilservice.gov.uk/policy-store/quality-statistics-in-government/\#reproducible-analytical-pipelines-rap-}{documentation}.
-    \item A free RAP \href{https://www.udemy.com/course/reproducible-analytical-pipelines/}{course} to teach you all you need to know.
-    \item How the Data Science Campus sets its coding \href{https://datasciencecampus.github.io/coding-standards/}{standards}.
-    \item A new open-source \href{https://the-turing-way.netlify.com}{book} from the Alan Turing institute setting out how to do reproducible data science.
-  \end{itemize}
-\end{frame}
-
 
 
 
