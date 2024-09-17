@@ -1,5 +1,5 @@
 ---
-title: "Mapping the process"
+title: "RAPifying the scraper: mapping the process"
 subitle: "Outline the flow and depenencies in the functions"
 order: 1
 format:
@@ -24,3 +24,9 @@ This page is still under construction
 ## The overall process
 
 If we start out modifying the scraper we developed in a notebook when we tried scaping [books to scrape](/notebooks/scraping_experiment.ipynb) and map what we did there in order to RAPify the process! 
+
+![](/docs/images/mapping-the-overall-raw-process.svg)
+
+
+
+![](/docs/images/mapping-the-process-RAPified.svg)
