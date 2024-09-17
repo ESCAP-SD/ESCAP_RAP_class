@@ -25,11 +25,11 @@ As we saw in the [demo walkthrough of the scraper of books to scrape](/notebooks
 
 # Converting the basic scraper into something more RAP friendly
 
-## The [basic process demoed in the scraping walkthrough](/notebooks/scraping_experiment.ipynb)
+## The basic process demoed in the scraping walkthrough
 
-While its separated into a collection of the URLs for each product and the extraction and parsing of all content on each product page to save this in the previous walkthrough, we can visualize the overall process as a set of calls to get the data, a set of logical steps, and a set of parsing and actions of various kinds to get the data we need:
+While in the previous walkthrough we did not put everything together and kept the collection of the URLs for each product separate from the extraction and parsing of all content on each product page to save this in the previous walkthrough, we can visualize the overall process as a set of (1) calls to get the data, (2) a set of logical steps, and a (3) set of parsing and actions of various kinds to get the data we need:
 
-![](/docs/images/mapping-the-overall-raw-process.svg)
+![The basic web scraping process](/docs/images/mapping-the-overall-raw-process.svg)
 
 We can see visualizing this that there is an opportunity to dramatically improve this as even a small bug (or a change of the website) will break the whole script and we won't know what is going on.
 
@@ -37,7 +37,7 @@ We can see visualizing this that there is an opportunity to dramatically improve
 
 To make this RAP friendly, we can adopt some of what we learned. We can also add two components that will make the process more robust - logging and monitoring (i.e. making reports on the scraped file to see if something happened):
 
-![](/docs/images/mapping-the-process-RAPified.svg)
+![The more RAP friendly RAP process](/docs/images/mapping-the-process-RAPified.svg)
 
 A few key comments about this more RAP friendly approach:
 

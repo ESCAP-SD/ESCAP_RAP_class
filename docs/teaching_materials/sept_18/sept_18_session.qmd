@@ -59,7 +59,7 @@ Furthermore, we can also apply this thinking to bigger processes as we saw when 
 
 Lets see what this means by focusing on the [example provided by the NHS](https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/#using-a-process-map-to-find-improvements) - what could this look like in code?
 
-Remember the demo from the RAP guide:
+Remember the [visual demo from the RAP guide (repeated here)](https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/):
 
 ```{mermaid}
 graph LR
