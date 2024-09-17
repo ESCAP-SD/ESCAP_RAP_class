@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Serge Goussev">
+<meta name="dcterms.date" content="2024-09-18">
 
-<title>output_data – ESCAP training on RAP</title>
+<title>Making the scraper RAP friendly: code walkthrough – ESCAP training on RAP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../docs/scraper_docs/logging.html" rel="prev">
-<link href="../../docs/images/favicon.drawio.svg" rel="icon" type="image/svg+xml">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../docs/applying_rap/mapping_the_process.html" rel="prev">
+<link href="../docs/images/favicon.drawio.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../docs/styles.css">
+<link rel="stylesheet" href="../docs/styles.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -81,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/scraper_docs.html">Demo RAP scraper documentation</a></li><li class="breadcrumb-item"><a href="../../docs/scraper_docs/output_data.html">Output Data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/applying_rap/index.html">Applying RAP for price statistics</a></li><li class="breadcrumb-item"><a href="../notebooks/rapifying_scraping_experiment.html">Making the scraper RAP friendly: code walkthrough</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -96,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="https://sergegoussev.github.io/ESCAP_RAP_class/docs/" class="sidebar-logo-link">
-      <img src="../../docs/images/logo.drawio.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../docs/images/logo.drawio.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -108,13 +110,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../docs/teaching_materials/teaching.html" class="sidebar-item-text sidebar-link">
+            <a href="../docs/teaching_materials/teaching.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ESCAP sesions on RAP</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -123,13 +125,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/teaching_materials/sept_11/sept_11_session.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/teaching_materials/sept_11/sept_11_session.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 1: Introduction to RAP</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/teaching_materials/sept_18/sept_18_session.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/teaching_materials/sept_18/sept_18_session.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 2: Deeper dive into key components</span></a>
   </div>
 </li>
@@ -137,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../docs/applying_rap/process-mapping.html" class="sidebar-item-text sidebar-link">
+            <a href="../docs/applying_rap/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Applying RAP for price statistics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -146,49 +148,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../notebooks/scraping_experiment.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/scraping_experiment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Web scraping example</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../docs/scraper_docs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Demo RAP scraper documentation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/scraper_docs/mapping_the_process.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapping the process</span></a>
+  <a href="../docs/applying_rap/mapping_the_process.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RAPifying the scraper: mapping the process</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/scraper_docs/modularity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview of modules</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/scraper_docs/error_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Error handling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/scraper_docs/logging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Logging</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/scraper_docs/output_data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Output Data</span></a>
+  <a href="../notebooks/rapifying_scraping_experiment.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Making the scraper RAP friendly: code walkthrough</span></a>
   </div>
 </li>
       </ul>
@@ -198,28 +171,44 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://proxyway.com/guides/best-websites-to-practice-your-web-scraping-skills"><i class="bi bi-link-45deg"></i>A blog listing some popular sites with which you can practice web scraping</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/applying_rap/index.html">Applying RAP for price statistics</a></li><li class="breadcrumb-item"><a href="../notebooks/rapifying_scraping_experiment.html">Making the scraper RAP friendly: code walkthrough</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Making the scraper RAP friendly: code walkthrough</h1>
+</div>
 
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is still under construction</p>
-</div>
-</div>
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Serge Goussev </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 18, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Let’s apply this mapped process into some code to see how it works!</p>
 
 
 
@@ -646,8 +635,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../docs/scraper_docs/logging.html" class="pagination-link" aria-label="Logging">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Logging</span>
+      <a href="../docs/applying_rap/mapping_the_process.html" class="pagination-link" aria-label="RAPifying the scraper: mapping the process">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RAPifying the scraper: mapping the process</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -661,7 +650,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/scraper_docs/output_data.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/notebooks/rapifying_scraping_experiment.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

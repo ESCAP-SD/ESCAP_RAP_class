@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Overview of modules – ESCAP training on RAP</title>
+<title>RAPifying the scraper: mapping the process – ESCAP training on RAP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../docs/scraper_docs/error_handling.html" rel="next">
-<link href="../../docs/scraper_docs/mapping_the_process.html" rel="prev">
+<link href="../../notebooks/rapifying_scraping_experiment.html" rel="next">
+<link href="../../notebooks/scraping_experiment.html" rel="prev">
 <link href="../../docs/images/favicon.drawio.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/scraper_docs.html">Demo RAP scraper documentation</a></li><li class="breadcrumb-item"><a href="../../docs/scraper_docs/modularity.html">Overview of modules</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/applying_rap/index.html">Applying RAP for price statistics</a></li><li class="breadcrumb-item"><a href="../../docs/applying_rap/mapping_the_process.html">RAPifying the scraper: mapping the process</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../docs/applying_rap/process-mapping.html" class="sidebar-item-text sidebar-link">
+            <a href="../../docs/applying_rap/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Applying RAP for price statistics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -151,45 +151,16 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Web scraping example</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../docs/scraper_docs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Demo RAP scraper documentation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/scraper_docs/mapping_the_process.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapping the process</span></a>
+  <a href="../../docs/applying_rap/mapping_the_process.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">RAPifying the scraper: mapping the process</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/scraper_docs/modularity.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Overview of modules</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/scraper_docs/error_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Error handling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/scraper_docs/logging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Logging</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/scraper_docs/output_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Output Data</span></a>
+  <a href="../../notebooks/rapifying_scraping_experiment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Making the scraper RAP friendly: code walkthrough</span></a>
   </div>
 </li>
       </ul>
@@ -199,15 +170,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#converting-the-basic-scraper-into-something-more-rap-friendly" id="toc-converting-the-basic-scraper-into-something-more-rap-friendly" class="nav-link" data-scroll-target="#converting-the-basic-scraper-into-something-more-rap-friendly">Converting the basic scraper into something more RAP friendly</a>
+  <ul class="collapse">
+  <li><a href="#the-basic-process-demoed-in-the-scraping-walkthrough" id="toc-the-basic-process-demoed-in-the-scraping-walkthrough" class="nav-link" data-scroll-target="#the-basic-process-demoed-in-the-scraping-walkthrough">The basic process demoed in the scraping walkthrough</a></li>
+  <li><a href="#the-rap-friendly-way-to-visualize-this" id="toc-the-rap-friendly-way-to-visualize-this" class="nav-link" data-scroll-target="#the-rap-friendly-way-to-visualize-this">The RAP friendly way to visualize this</a></li>
+  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways">Takeaways</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/applying_rap/mapping_the_process.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://nhsdigital.github.io/rap-community-of-practice/introduction_to_RAP/what_is_RAP/#rap-principles"><i class="bi bi-link-45deg"></i>RAP principles</a></li><li><a href="https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/"><i class="bi bi-link-45deg"></i>Process mapping guide for RAP</a></li><li><a href="https://nhsdigital.github.io/rap-community-of-practice/our_RAP_service/thin-slice-strategy/"><i class="bi bi-link-45deg"></i>Thin slice strategy for process mapping</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/scraper_docs.html">Demo RAP scraper documentation</a></li><li class="breadcrumb-item"><a href="../../docs/scraper_docs/modularity.html">Overview of modules</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/applying_rap/index.html">Applying RAP for price statistics</a></li><li class="breadcrumb-item"><a href="../../docs/applying_rap/mapping_the_process.html">RAPifying the scraper: mapping the process</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Overview of modules</h1>
+<h1 class="title">RAPifying the scraper: mapping the process</h1>
 </div>
 
 
@@ -237,8 +220,52 @@ Note
 <p>This page is still under construction</p>
 </div>
 </div>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>As we saw in the <a href="../../notebooks/scraping_experiment.html">demo walkthrough of the scraper of books to scrape</a>, it takes many lines of code to scrape a site. However we also know from the <a href="../../docs/teaching_materials/sept_18/sept_18_session.html">RAP principles described in detail during the september 18th session</a>, there is a way to make this code RAP friendly (or RAPify it!) - and thus make it more mature, robust, and reproducible. To figure out how to do this, we should first start with mapping the current process and then figuring out how to make it more decoupled with modular (i.e.&nbsp;functional) programming.</p>
+</section>
+<section id="converting-the-basic-scraper-into-something-more-rap-friendly" class="level1">
+<h1>Converting the basic scraper into something more RAP friendly</h1>
+<section id="the-basic-process-demoed-in-the-scraping-walkthrough" class="level2">
+<h2 class="anchored" data-anchor-id="the-basic-process-demoed-in-the-scraping-walkthrough">The basic process demoed in the scraping walkthrough</h2>
+<p>While in the previous walkthrough we did not put everything together and kept the collection of the URLs for each product separate from the extraction and parsing of all content on each product page to save this in the previous walkthrough, we can visualize the overall process as a set of (1) calls to get the data, (2) a set of logical steps, and a (3) set of parsing and actions of various kinds to get the data we need:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../docs/images/mapping-the-overall-raw-process.svg" class="img-fluid figure-img"></p>
+<figcaption>The basic web scraping process</figcaption>
+</figure>
+</div>
+<p>We can see visualizing this that there is an opportunity to dramatically improve this as even a small bug (or a change of the website) will break the whole script and we won’t know what is going on.</p>
+</section>
+<section id="the-rap-friendly-way-to-visualize-this" class="level2">
+<h2 class="anchored" data-anchor-id="the-rap-friendly-way-to-visualize-this">The RAP friendly way to visualize this</h2>
+<p>To make this RAP friendly, we can adopt some of what we learned. We can also add two components that will make the process more robust - logging and monitoring (i.e.&nbsp;making reports on the scraped file to see if something happened):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../docs/images/mapping-the-process-RAPified.svg" class="img-fluid figure-img"></p>
+<figcaption>The more RAP friendly RAP process</figcaption>
+</figure>
+</div>
+<p>A few key comments about this more RAP friendly approach:</p>
+<ul>
+<li>Separate functions for getting data, parsing information, or saving the data - specialize in their specific components. We thus make the whole code more loosely coupled, meaning we can:
+<ul>
+<li>Isolate possible sources of failure (such as by adding error handling) and add transparency to each step (such as by logging inside these steps so that we have a record of it). We could try this in one big script, but that is likely to make it even bigger and more cumbersome!</li>
+<li>We can use the <code>main()</code> function to wrap all the main business logic - which means that if something breaks (or needs to change) in the business logic, we can change it easily</li>
+<li>We can document how each of these functions work (by adding docstrings and a detailed documentation site), which will help make the process way easier to understand and also reproduce it</li>
+<li>We can combine this documentation with a process map diagram (like the one above) into a documentation site - which make sthe process easy to understand and (again) reproduce!</li>
+</ul></li>
+<li>We can also add a validation step so that we can see if for some reason we scraped 500 products instead of the usual 1000 - indicating that something possibly went wrong on the site.</li>
+<li>We can also thematically group the fuctions into separate <code>.py</code> files that group similar content - which also makes it easier to run the pipeline when we need to.</li>
+</ul>
+</section>
+<section id="takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="takeaways">Takeaways</h2>
+<p>This is not all we can do but it gets the idea across. Next, we can see how some of these functions works.</p>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -663,13 +690,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../docs/scraper_docs/mapping_the_process.html" class="pagination-link" aria-label="Mapping the process">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Mapping the process</span>
+      <a href="../../notebooks/scraping_experiment.html" class="pagination-link" aria-label="Web scraping example">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Web scraping example</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../docs/scraper_docs/error_handling.html" class="pagination-link" aria-label="Error handling">
-        <span class="nav-page-text">Error handling</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../notebooks/rapifying_scraping_experiment.html" class="pagination-link" aria-label="Making the scraper RAP friendly: code walkthrough">
+        <span class="nav-page-text">Making the scraper RAP friendly: code walkthrough</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -681,7 +708,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/scraper_docs/modularity.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/applying_rap/mapping_the_process.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

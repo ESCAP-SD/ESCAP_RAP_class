@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../docs/applying_rap/process-mapping.html" rel="next">
+<link href="../../../docs/applying_rap/index.html" rel="next">
 <link href="../../../docs/teaching_materials/sept_11/sept_11_session.html" rel="prev">
 <link href="../../../docs/images/favicon.drawio.svg" rel="icon" type="image/svg+xml">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../docs/applying_rap/process-mapping.html" class="sidebar-item-text sidebar-link">
+            <a href="../../../docs/applying_rap/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Applying RAP for price statistics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -188,45 +188,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Web scraping example</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../../docs/scraper_docs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Demo RAP scraper documentation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/scraper_docs/mapping_the_process.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mapping the process</span></a>
+  <a href="../../../docs/applying_rap/mapping_the_process.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RAPifying the scraper: mapping the process</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/scraper_docs/modularity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview of modules</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/scraper_docs/error_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Error handling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/scraper_docs/logging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Logging</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../docs/scraper_docs/output_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Output Data</span></a>
+  <a href="../../../notebooks/rapifying_scraping_experiment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Making the scraper RAP friendly: code walkthrough</span></a>
   </div>
 </li>
       </ul>
@@ -329,7 +300,7 @@ Note
 <section id="principle-1-automation" class="level3">
 <h3 class="anchored" data-anchor-id="principle-1-automation">Principle 1: Automation</h3>
 <p>As the fundamental principles of RAP is to make the process of (in our case) making official statistics reproducible, we should do our utmost to eliminate manual human steps (unless they are explicitly needed off course!). Thus we want to create a script that automates the whole process and creates a very neat handoff of a <em>tidy data</em> file as output. A key aspect here is <a href="https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/">mapping the process</a> so that your script can operate in a way as to minimize human actions.</p>
-<p>In our case, we’ve seen this with the <a href="../../../docs/applying_rap/process-mapping.html">overall process of the price statistics pipeline with web scraped data</a>, as well as the <a href="../../../docs/scraper_docs/mapping_the_process.html">specific step that maps the process of web scraping</a>.</p>
+<p>In our case, we’ve seen this with the <a href="../../applying_rap/process-mapping.qmd">overall process of the price statistics pipeline with web scraped data</a>, as well as the <a href="../../scraper_docs/mapping_the_process.qmd">specific step that maps the process of web scraping</a>.</p>
 <p>We’ll see some practical steps below (once we’ve covered modular coding) on how that could work in practice.</p>
 </section>
 <section id="principle-2-modular-re-usable" class="level3">
@@ -348,12 +319,12 @@ Note
 </div>
 <p>If we write everything all in one long and big script - it is likely that some small thing will break the script and we will have to spend a long time figuring out what is wrong and fixing it. However, if we isolate specific logical steps into functions and then put them together - if something happens, then we will quickly be able to isolate it to the affected function and fix that function. Each function is thus meant to do just one thing - but it does that one thing very well!</p>
 <p>We should thus aim to develop loosely coupled software.</p>
-<p>Furthermore, we can also apply this thinking to bigger processes as we saw when we mapped the <a href="../../../docs/applying_rap/process-mapping.html">overall process of the price statistics pipeline with web scraped data</a> - we broke out the overall process into several steps - in essence separate pipelines.</p>
+<p>Furthermore, we can also apply this thinking to bigger processes as we saw when we mapped the <a href="../../applying_rap/process-mapping.qmd">overall process of the price statistics pipeline with web scraped data</a> - we broke out the overall process into several steps - in essence separate pipelines.</p>
 </section>
 <section id="what-does-this-mean-if-we-put-it-together" class="level3">
 <h3 class="anchored" data-anchor-id="what-does-this-mean-if-we-put-it-together">What does this mean if we put it together?</h3>
 <p>Lets see what this means by focusing on the <a href="https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/#using-a-process-map-to-find-improvements">example provided by the NHS</a> - what could this look like in code?</p>
-<p>Remember the demo from the RAP guide:</p>
+<p>Remember the <a href="https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/process_mapping/">visual demo from the RAP guide (repeated here)</a>:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -423,6 +394,7 @@ Note
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># lets call the main function</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>main(csv1, todays_date, location_to_save)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To better understand how this works for a scraper - we can also walk through first the <a href="../../../notebooks/scraping_experiment.html">demo web scraper of a public scraping site</a>, and then <a href="../../../docs/applying_rap/mapping_the_process.html">how to make this scraper RAP friendly</a>.</p>
 <p>That’s it! Check out a <a href="https://nhsdigital.github.io/rap-community-of-practice/training_resources/python/python-functions/">helpful article by the NHS on functional programming for a slighly deper dive</a>.</p>
 </section>
 <section id="exercise-1" class="level3">
@@ -1018,7 +990,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../../docs/applying_rap/process-mapping.html" class="pagination-link" aria-label="Applying RAP for price statistics">
+      <a href="../../../docs/applying_rap/index.html" class="pagination-link" aria-label="Applying RAP for price statistics">
         <span class="nav-page-text">Applying RAP for price statistics</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

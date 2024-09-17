@@ -66,7 +66,7 @@
     "href": "docs/teaching_materials/sept_18/sept_18_session.html#practical-set-one",
     "title": "Session 2: Deeper dive into key components",
     "section": "Practical content, first set",
-    "text": "Practical content, first set\n\nPrinciple 1: Automation\nAs the fundamental principles of RAP is to make the process of (in our case) making official statistics reproducible, we should do our utmost to eliminate manual human steps (unless they are explicitly needed off course!). Thus we want to create a script that automates the whole process and creates a very neat handoff of a tidy data file as output. A key aspect here is mapping the process so that your script can operate in a way as to minimize human actions.\nIn our case, we’ve seen this with the overall process of the price statistics pipeline with web scraped data, as well as the specific step that maps the process of web scraping.\nWe’ll see some practical steps below (once we’ve covered modular coding) on how that could work in practice.\n\n\nPrinciple 2: Modular, re-usable\nModularity and coupling are two very critical aspects and we should spend time discussing them in detail. They actually are conceptually quite related and for simplicity (in this course), we can consider them as trying to achieve the same thing. These are also both far from a RAP (or even official statistics concept) as they are widely discussed in the wider software engineering and even software architecture! This should not discourage us though - as knowing these is also important for us for two aspects:\n\nIt helps us write better code when we are developing pipelines, and\nIt also helps us design more dynamic overall processes of how we build operational flows with alternative data.\n\nSo what is the concept?\n\n\n\ntight vs loose coupling\n\n\nIf we write everything all in one long and big script - it is likely that some small thing will break the script and we will have to spend a long time figuring out what is wrong and fixing it. However, if we isolate specific logical steps into functions and then put them together - if something happens, then we will quickly be able to isolate it to the affected function and fix that function. Each function is thus meant to do just one thing - but it does that one thing very well!\nWe should thus aim to develop loosely coupled software.\nFurthermore, we can also apply this thinking to bigger processes as we saw when we mapped the overall process of the price statistics pipeline with web scraped data - we broke out the overall process into several steps - in essence separate pipelines.\n\n\nWhat does this mean if we put it together?\nLets see what this means by focusing on the example provided by the NHS - what could this look like in code?\nRemember the demo from the RAP guide:\n\n\n\n\n\ngraph LR\n\n    A[Load CSV] --&gt; B[(Database)];\n    H[/CSV 1/] --&gt; A\n    I[/CSV 2/] --&gt; A\n    D[Calculate todays date] --&gt; E[[Run SQL Script]]\n    K[Get todays date manual/config]:::manual --&gt; E\n    J{Is todays date provided?} --&gt;|no| D\n    J --&gt;|yes| K\n    B --&gt; E\n    E --&gt; F[Generate Excel output]\n    F --&gt; G[/Excel Output/]\n\n    classDef manual fill:#FFCCCC\n\n\n\n\n\n\nLet’s see what general functions could be created\ndef load_csv():\n    # do something to load the csv and convert it to a clean dataframe\n    return dataframe\n\ndef load_database(dataframe):\n    # load the data in the dataframe into the database\n\ndef output_date_for_processing(optional_date_input):\n    # check if the input data is provided, if not, calculate it\n    return todays_date\n\ndef run_sql_script(todays_date):\n    # Run the SQL script that we need to run\n    return dataframe_output\n\ndef save_excel_output(dataframe, location_to_save_output):\n    # Save the output in the location we want\nNow we can figure out how to automate this. A very simple way when you are starting out is to make one main() function that calls other functions, and then give inputs to that function for it to operate properly:\ndef main(csv_to_load_into_the_database, date, location_to_save_output):\n    # main function that operationalizes everything\n\n    # Step 1:\n    # load the csv\n    dataframe = load_csv(csv_to_load_into_the_database)\n    # save the data into the databse\n    load_database(dataframe)\n\n    # Step 2:\n    # check date\n    date_to_use = output_date_for_processing(date)\n    # send this to SQL script\n    dataframe_from_sql = run_sql_script(date_to_use)\n    # save this output\n    save_excel_output(dataframe_from_sql)\n\n\n# -----------------------------------------------------------------------\ncsv1 = \"C:/some/file/path/file.csv\"\ntodays_date = '2024-09-18'\nlocation_to_save = \"C:/some/other/path\"\n# lets call the main function\n\nmain(csv1, todays_date, location_to_save)\nThat’s it! Check out a helpful article by the NHS on functional programming for a slighly deper dive.\n\n\nExercise 1\nReady to try this yourself? Look at a notebook that you developed for this course - and see how to separate out what you did into functions. Talk to the mentors in the room if you have questions!",
+    "text": "Practical content, first set\n\nPrinciple 1: Automation\nAs the fundamental principles of RAP is to make the process of (in our case) making official statistics reproducible, we should do our utmost to eliminate manual human steps (unless they are explicitly needed off course!). Thus we want to create a script that automates the whole process and creates a very neat handoff of a tidy data file as output. A key aspect here is mapping the process so that your script can operate in a way as to minimize human actions.\nIn our case, we’ve seen this with the overall process of the price statistics pipeline with web scraped data, as well as the specific step that maps the process of web scraping.\nWe’ll see some practical steps below (once we’ve covered modular coding) on how that could work in practice.\n\n\nPrinciple 2: Modular, re-usable\nModularity and coupling are two very critical aspects and we should spend time discussing them in detail. They actually are conceptually quite related and for simplicity (in this course), we can consider them as trying to achieve the same thing. These are also both far from a RAP (or even official statistics concept) as they are widely discussed in the wider software engineering and even software architecture! This should not discourage us though - as knowing these is also important for us for two aspects:\n\nIt helps us write better code when we are developing pipelines, and\nIt also helps us design more dynamic overall processes of how we build operational flows with alternative data.\n\nSo what is the concept?\n\n\n\ntight vs loose coupling\n\n\nIf we write everything all in one long and big script - it is likely that some small thing will break the script and we will have to spend a long time figuring out what is wrong and fixing it. However, if we isolate specific logical steps into functions and then put them together - if something happens, then we will quickly be able to isolate it to the affected function and fix that function. Each function is thus meant to do just one thing - but it does that one thing very well!\nWe should thus aim to develop loosely coupled software.\nFurthermore, we can also apply this thinking to bigger processes as we saw when we mapped the overall process of the price statistics pipeline with web scraped data - we broke out the overall process into several steps - in essence separate pipelines.\n\n\nWhat does this mean if we put it together?\nLets see what this means by focusing on the example provided by the NHS - what could this look like in code?\nRemember the visual demo from the RAP guide (repeated here):\n\n\n\n\n\ngraph LR\n\n    A[Load CSV] --&gt; B[(Database)];\n    H[/CSV 1/] --&gt; A\n    I[/CSV 2/] --&gt; A\n    D[Calculate todays date] --&gt; E[[Run SQL Script]]\n    K[Get todays date manual/config]:::manual --&gt; E\n    J{Is todays date provided?} --&gt;|no| D\n    J --&gt;|yes| K\n    B --&gt; E\n    E --&gt; F[Generate Excel output]\n    F --&gt; G[/Excel Output/]\n\n    classDef manual fill:#FFCCCC\n\n\n\n\n\n\nLet’s see what general functions could be created\ndef load_csv():\n    # do something to load the csv and convert it to a clean dataframe\n    return dataframe\n\ndef load_database(dataframe):\n    # load the data in the dataframe into the database\n\ndef output_date_for_processing(optional_date_input):\n    # check if the input data is provided, if not, calculate it\n    return todays_date\n\ndef run_sql_script(todays_date):\n    # Run the SQL script that we need to run\n    return dataframe_output\n\ndef save_excel_output(dataframe, location_to_save_output):\n    # Save the output in the location we want\nNow we can figure out how to automate this. A very simple way when you are starting out is to make one main() function that calls other functions, and then give inputs to that function for it to operate properly:\ndef main(csv_to_load_into_the_database, date, location_to_save_output):\n    # main function that operationalizes everything\n\n    # Step 1:\n    # load the csv\n    dataframe = load_csv(csv_to_load_into_the_database)\n    # save the data into the databse\n    load_database(dataframe)\n\n    # Step 2:\n    # check date\n    date_to_use = output_date_for_processing(date)\n    # send this to SQL script\n    dataframe_from_sql = run_sql_script(date_to_use)\n    # save this output\n    save_excel_output(dataframe_from_sql)\n\n\n# -----------------------------------------------------------------------\ncsv1 = \"C:/some/file/path/file.csv\"\ntodays_date = '2024-09-18'\nlocation_to_save = \"C:/some/other/path\"\n# lets call the main function\n\nmain(csv1, todays_date, location_to_save)\nTo better understand how this works for a scraper - we can also walk through first the demo web scraper of a public scraping site, and then how to make this scraper RAP friendly.\nThat’s it! Check out a helpful article by the NHS on functional programming for a slighly deper dive.\n\n\nExercise 1\nReady to try this yourself? Look at a notebook that you developed for this course - and see how to separate out what you did into functions. Talk to the mentors in the room if you have questions!",
     "crumbs": [
       "ESCAP sesions on RAP",
       "Session 2: Deeper dive into key components"
@@ -106,8 +106,15 @@
     ]
   },
   {
-    "objectID": "docs/applying_rap/process-mapping.html",
-    "href": "docs/applying_rap/process-mapping.html",
+    "objectID": "docs/applying_rap/logging.html",
+    "href": "docs/applying_rap/logging.html",
+    "title": "Logging",
+    "section": "",
+    "text": "Note\n\n\n\nThis page is still under construction\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "docs/applying_rap/index.html",
+    "href": "docs/applying_rap/index.html",
     "title": "Applying RAP for price statistics",
     "section": "",
     "text": "As RAP is a set of technical best practices and styles of working, we should first consider how it applies to price statistics.\n\n\nWeb scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index. The below sections first provide an overview of the key step and options of how RAP cap apply to the overall process, then go through each step in order to gather detailed requirements for the web scraping step.\n\n\nThe below diagram provides an overview of 4 main steps that include the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.\n\n\n\n\n\n\nFigure 1: High level overview of the steps to process web scrape data for the CPI\n\n\n\nEach step is made up of one or more sub-components:\n\nThe web scraping step contains the scraping aspect itself,1 but also includes dataset validation that will help make sure that the scraper is operating as it is expected, as well as reports for review;2\nThe data processing step contains the process to standardizing and preparation step.3\nThe classification step contains several sub-steps, such as identifying unique products to classify, the classification method itself, and the manual validation of classification (in cases there are errors).4\nFor the price index step, many sub-steps are involved.5\n\n\n\n\nGiven this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistical (in our case) process into one corpus (i.e. repository with all contexts) – we can:\n\nEncapsulate the whole process in one repository. As RAP is meant to help minimize coupling (dependencies) between separate processes – treating the whole process end-to-end as one RAP is useful if no steps in this pipeline have to be shared with other pipelines.\nEncapsulate each step into a separate RAP. This may be appropriate if several processing phases are done in sequence with specific targeted stopping points – such as handoff between teams or if some steps are shared or where manual steps are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture in sequence.6\nEncapsulate as appropriate. Several steps could be combined to simplify the process and if separation is not required, such as the web scraping and data processing steps.\n\nFor this guide and for the demo RAP scraper, we will follow approach (b) as this will allow us to develop RAP for just the scraping component.\n\n\n\n\nLet’s look a little closer at the web scraping component as there is a little more to it than one scrape script that ouptuts the data and a report. We can portray this visually to flush out a bit more what is involved in this step:\n\n\n\nAs we discussed in the course and in other sources, the legal aspects of scraping is key as NSOs should follow the guidance of retailers whether they can be scraped or not. This involves checking the Terms and Conditions for the site, but also checking the robots.txt for the site. As the retailer site may change its robots.txt, it maybe useful to have an automated component that checks before starting the scrape so that any new exclusions are taken into account.\n\n\n\nThe scraper itself is usually custom to the retailer site and outputs a file for what was scraped that day. Using RAP principles to develop this well (which we cover in the September 18th session and provide examples of how a notebook can be translated into something more RAP friendly) are off course key so that its stable and when inevitable website changes happen - the scraper can be fixed quickly.\n\n\n\nTechnically a component of the scraping pipeline itself, however a very valuable part of the scraper worth pointing out separately is logging the operation of the scrape. There may be legal requirements (such as the robots.txt asking for a specific delay in scraping the site, or your NSO requiring specific processes), as well as technical (such as easier debugging) reasons where having key things logged in a .log file useful to describe the operations of the scraper. It can also be combined with the monitoring component to better understand when something goes wrong.\n\n\n\nAs a retailer can choose to change their website at any time - monitoring that the intended data was collected is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail the previous checks silently, but the resultant scrape may now no longer be of the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up monitoring for an extra layer of validation. This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.7",
@@ -116,8 +123,8 @@
     ]
   },
   {
-    "objectID": "docs/applying_rap/process-mapping.html#overview-of-the-ads-processing-view",
-    "href": "docs/applying_rap/process-mapping.html#overview-of-the-ads-processing-view",
+    "objectID": "docs/applying_rap/index.html#overview-of-the-ads-processing-view",
+    "href": "docs/applying_rap/index.html#overview-of-the-ads-processing-view",
     "title": "Applying RAP for price statistics",
     "section": "",
     "text": "Web scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index. The below sections first provide an overview of the key step and options of how RAP cap apply to the overall process, then go through each step in order to gather detailed requirements for the web scraping step.\n\n\nThe below diagram provides an overview of 4 main steps that include the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.\n\n\n\n\n\n\nFigure 1: High level overview of the steps to process web scrape data for the CPI\n\n\n\nEach step is made up of one or more sub-components:\n\nThe web scraping step contains the scraping aspect itself,1 but also includes dataset validation that will help make sure that the scraper is operating as it is expected, as well as reports for review;2\nThe data processing step contains the process to standardizing and preparation step.3\nThe classification step contains several sub-steps, such as identifying unique products to classify, the classification method itself, and the manual validation of classification (in cases there are errors).4\nFor the price index step, many sub-steps are involved.5\n\n\n\n\nGiven this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistical (in our case) process into one corpus (i.e. repository with all contexts) – we can:\n\nEncapsulate the whole process in one repository. As RAP is meant to help minimize coupling (dependencies) between separate processes – treating the whole process end-to-end as one RAP is useful if no steps in this pipeline have to be shared with other pipelines.\nEncapsulate each step into a separate RAP. This may be appropriate if several processing phases are done in sequence with specific targeted stopping points – such as handoff between teams or if some steps are shared or where manual steps are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture in sequence.6\nEncapsulate as appropriate. Several steps could be combined to simplify the process and if separation is not required, such as the web scraping and data processing steps.\n\nFor this guide and for the demo RAP scraper, we will follow approach (b) as this will allow us to develop RAP for just the scraping component.",
@@ -126,8 +133,8 @@
     ]
   },
   {
-    "objectID": "docs/applying_rap/process-mapping.html#closer-look-at-the-web-scraping-component",
-    "href": "docs/applying_rap/process-mapping.html#closer-look-at-the-web-scraping-component",
+    "objectID": "docs/applying_rap/index.html#closer-look-at-the-web-scraping-component",
+    "href": "docs/applying_rap/index.html#closer-look-at-the-web-scraping-component",
     "title": "Applying RAP for price statistics",
     "section": "",
     "text": "Let’s look a little closer at the web scraping component as there is a little more to it than one scrape script that ouptuts the data and a report. We can portray this visually to flush out a bit more what is involved in this step:\n\n\n\nAs we discussed in the course and in other sources, the legal aspects of scraping is key as NSOs should follow the guidance of retailers whether they can be scraped or not. This involves checking the Terms and Conditions for the site, but also checking the robots.txt for the site. As the retailer site may change its robots.txt, it maybe useful to have an automated component that checks before starting the scrape so that any new exclusions are taken into account.\n\n\n\nThe scraper itself is usually custom to the retailer site and outputs a file for what was scraped that day. Using RAP principles to develop this well (which we cover in the September 18th session and provide examples of how a notebook can be translated into something more RAP friendly) are off course key so that its stable and when inevitable website changes happen - the scraper can be fixed quickly.\n\n\n\nTechnically a component of the scraping pipeline itself, however a very valuable part of the scraper worth pointing out separately is logging the operation of the scrape. There may be legal requirements (such as the robots.txt asking for a specific delay in scraping the site, or your NSO requiring specific processes), as well as technical (such as easier debugging) reasons where having key things logged in a .log file useful to describe the operations of the scraper. It can also be combined with the monitoring component to better understand when something goes wrong.\n\n\n\nAs a retailer can choose to change their website at any time - monitoring that the intended data was collected is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail the previous checks silently, but the resultant scrape may now no longer be of the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up monitoring for an extra layer of validation. This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.7",
@@ -136,8 +143,8 @@
     ]
   },
   {
-    "objectID": "docs/applying_rap/process-mapping.html#footnotes",
-    "href": "docs/applying_rap/process-mapping.html#footnotes",
+    "objectID": "docs/applying_rap/index.html#footnotes",
+    "href": "docs/applying_rap/index.html#footnotes",
     "title": "Applying RAP for price statistics",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nndefinedSee Practical guidelines on web scraping for the HICP (2020), specifically Annex I and VII for mor↩︎\nSee Monitoring, validation and plausibility checks for web scraped data (UN e-Handbook) for more details↩︎\nSee Preparation of data (UN e-Handbook) for more handbook.↩︎\nFor an overview of Classification process in production and other operational aspects, see “Classification of Alternative Data Sources”, 2024-05-14. For an overview of the 5 main classification methods, see “Classifying Alterantive Data Sources for Consumer Prices Statistics: Methods and best practices”, 2023-06-08.↩︎\nSee “Practical guidelines on web scraping for the HICP (2020)” for more details↩︎\nSee Price (2023) Developing reproducible analytical pipelines for the transformation of consumer price statistics: rail fares for more details, for instance 5.2 outlines Pipeline tables and how different pipelines interact over a specific data architecture.↩︎\nGuðmundsdóttir and Jónasdóttir (2016) Scanner Data: Initial Testing provide a useful overview that could be similar in the web scraping case.↩︎",
@@ -146,33 +153,18 @@
     ]
   },
   {
+    "objectID": "docs/applying_rap/modularity.html",
+    "href": "docs/applying_rap/modularity.html",
+    "title": "Overview of modules",
+    "section": "",
+    "text": "Note\n\n\n\nThis page is still under construction\n\n\n\n\n\n Back to top"
+  },
+  {
     "objectID": "docs/404.html",
     "href": "docs/404.html",
     "title": "Page Not Found",
     "section": "",
     "text": "The page you requested cannot be found (perhaps it was moved or renamed).\nGo back to the home page or search for what you are looking for\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "docs/scraper_docs/output_data.html",
-    "href": "docs/scraper_docs/output_data.html",
-    "title": "ESCAP training on RAP",
-    "section": "",
-    "text": "Note\n\n\n\nThis page is still under construction\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Demo RAP scraper documentation",
-      "Output Data"
-    ]
-  },
-  {
-    "objectID": "docs/scraper_docs/modularity.html",
-    "href": "docs/scraper_docs/modularity.html",
-    "title": "Overview of modules",
-    "section": "",
-    "text": "Note\n\n\n\nThis page is still under construction\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Demo RAP scraper documentation",
-      "Overview of modules"
-    ]
   },
   {
     "objectID": "notebooks/scraping_experiment.html",
@@ -252,78 +244,73 @@
     ]
   },
   {
-    "objectID": "docs/scraper_docs/error_handling.html",
-    "href": "docs/scraper_docs/error_handling.html",
+    "objectID": "notebooks/rapifying_scraping_experiment.html",
+    "href": "notebooks/rapifying_scraping_experiment.html",
+    "title": "Making the scraper RAP friendly: code walkthrough",
+    "section": "",
+    "text": "Let’s apply this mapped process into some code to see how it works!\n\n\n\n Back to top",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "Making the scraper RAP friendly: code walkthrough"
+    ]
+  },
+  {
+    "objectID": "docs/applying_rap/error_handling.html",
+    "href": "docs/applying_rap/error_handling.html",
     "title": "Error handling",
     "section": "",
-    "text": "Note\n\n\n\nThis page is still under construction\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Demo RAP scraper documentation",
-      "Error handling"
-    ]
+    "text": "Note\n\n\n\nThis page is still under construction\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "docs/scraper_docs/mapping_the_process.html",
-    "href": "docs/scraper_docs/mapping_the_process.html",
-    "title": "Mapping the process",
+    "objectID": "docs/applying_rap/mapping_the_process.html",
+    "href": "docs/applying_rap/mapping_the_process.html",
+    "title": "RAPifying the scraper: mapping the process",
     "section": "",
     "text": "Note\n\n\n\nThis page is still under construction",
     "crumbs": [
-      "Demo RAP scraper documentation",
-      "Mapping the process"
+      "Applying RAP for price statistics",
+      "RAPifying the scraper: mapping the process"
     ]
   },
   {
-    "objectID": "docs/scraper_docs/mapping_the_process.html#the-overall-process",
-    "href": "docs/scraper_docs/mapping_the_process.html#the-overall-process",
-    "title": "Mapping the process",
-    "section": "The overall process",
-    "text": "The overall process\nIf we start out modifying the scraper we developed in a notebook when we tried scaping books to scrape and map what we did there in order to RAPify the process!",
+    "objectID": "docs/applying_rap/mapping_the_process.html#the-basic-process-demoed-in-the-scraping-walkthrough",
+    "href": "docs/applying_rap/mapping_the_process.html#the-basic-process-demoed-in-the-scraping-walkthrough",
+    "title": "RAPifying the scraper: mapping the process",
+    "section": "The basic process demoed in the scraping walkthrough",
+    "text": "The basic process demoed in the scraping walkthrough\nWhile in the previous walkthrough we did not put everything together and kept the collection of the URLs for each product separate from the extraction and parsing of all content on each product page to save this in the previous walkthrough, we can visualize the overall process as a set of (1) calls to get the data, (2) a set of logical steps, and a (3) set of parsing and actions of various kinds to get the data we need:\n\n\n\nThe basic web scraping process\n\n\nWe can see visualizing this that there is an opportunity to dramatically improve this as even a small bug (or a change of the website) will break the whole script and we won’t know what is going on.",
     "crumbs": [
-      "Demo RAP scraper documentation",
-      "Mapping the process"
+      "Applying RAP for price statistics",
+      "RAPifying the scraper: mapping the process"
     ]
   },
   {
-    "objectID": "docs/scraper_docs/logging.html",
-    "href": "docs/scraper_docs/logging.html",
-    "title": "Logging",
+    "objectID": "docs/applying_rap/mapping_the_process.html#the-rap-friendly-way-to-visualize-this",
+    "href": "docs/applying_rap/mapping_the_process.html#the-rap-friendly-way-to-visualize-this",
+    "title": "RAPifying the scraper: mapping the process",
+    "section": "The RAP friendly way to visualize this",
+    "text": "The RAP friendly way to visualize this\nTo make this RAP friendly, we can adopt some of what we learned. We can also add two components that will make the process more robust - logging and monitoring (i.e. making reports on the scraped file to see if something happened):\n\n\n\nThe more RAP friendly RAP process\n\n\nA few key comments about this more RAP friendly approach:\n\nSeparate functions for getting data, parsing information, or saving the data - specialize in their specific components. We thus make the whole code more loosely coupled, meaning we can:\n\nIsolate possible sources of failure (such as by adding error handling) and add transparency to each step (such as by logging inside these steps so that we have a record of it). We could try this in one big script, but that is likely to make it even bigger and more cumbersome!\nWe can use the main() function to wrap all the main business logic - which means that if something breaks (or needs to change) in the business logic, we can change it easily\nWe can document how each of these functions work (by adding docstrings and a detailed documentation site), which will help make the process way easier to understand and also reproduce it\nWe can combine this documentation with a process map diagram (like the one above) into a documentation site - which make sthe process easy to understand and (again) reproduce!\n\nWe can also add a validation step so that we can see if for some reason we scraped 500 products instead of the usual 1000 - indicating that something possibly went wrong on the site.\nWe can also thematically group the fuctions into separate .py files that group similar content - which also makes it easier to run the pipeline when we need to.",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "RAPifying the scraper: mapping the process"
+    ]
+  },
+  {
+    "objectID": "docs/applying_rap/mapping_the_process.html#takeaways",
+    "href": "docs/applying_rap/mapping_the_process.html#takeaways",
+    "title": "RAPifying the scraper: mapping the process",
+    "section": "Takeaways",
+    "text": "Takeaways\nThis is not all we can do but it gets the idea across. Next, we can see how some of these functions works.",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "RAPifying the scraper: mapping the process"
+    ]
+  },
+  {
+    "objectID": "docs/applying_rap/output_data.html",
+    "href": "docs/applying_rap/output_data.html",
+    "title": "ESCAP training on RAP",
     "section": "",
-    "text": "Note\n\n\n\nThis page is still under construction\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Demo RAP scraper documentation",
-      "Logging"
-    ]
-  },
-  {
-    "objectID": "docs/scraper_docs.html",
-    "href": "docs/scraper_docs.html",
-    "title": "Demo RAP scraper documentation",
-    "section": "",
-    "text": "Note\n\n\n\nThis page is still under construction",
-    "crumbs": [
-      "Demo RAP scraper documentation"
-    ]
-  },
-  {
-    "objectID": "docs/scraper_docs.html#baseline-rap---getting-the-fundamentals-right",
-    "href": "docs/scraper_docs.html#baseline-rap---getting-the-fundamentals-right",
-    "title": "Demo RAP scraper documentation",
-    "section": "Baseline RAP - getting the fundamentals right",
-    "text": "Baseline RAP - getting the fundamentals right\nIn order for a publication to be considered a reproducible analytical pipeline, it must at least meet all of the requirements of Baseline RAP:\n\nData produced by code in an open-source language (e.g., Python, R, SQL).\nCode is version controlled (see Git basics and using Git collaboratively guides).\nRepository includes a README.md file (or equivalent) that clearly details steps a user must follow to reproduce the code (use NHS Open Source Policy section on Readmes as a guide.\nCode has been peer reviewed.\nCode is published in the open and linked to & from accompanying publication (if relevant).",
-    "crumbs": [
-      "Demo RAP scraper documentation"
-    ]
-  },
-  {
-    "objectID": "docs/scraper_docs.html#silver-rap---implementing-best-practice",
-    "href": "docs/scraper_docs.html#silver-rap---implementing-best-practice",
-    "title": "Demo RAP scraper documentation",
-    "section": "Silver RAP - implementing best practice",
-    "text": "Silver RAP - implementing best practice\nMeeting all of the above requirements, plus:\n\nOutputs are produced by code with minimal manual intervention.\nCode is well-documented including user guidance, explanation of code structure & methodology and docstrings for functions.\nCode is well-organised following standard directory format.\nReusable functions and/or classes are used where appropriate.\nCode adheres to agreed coding standards (e.g PEP8, style guide for Pyspark).\nPipeline includes a testing framework (unit tests, back tests).\nRepository includes dependency information (e.g. requirements.txt, PipFile, environment.yml).\nLogs are automatically recorded by the pipeline to ensure outputs are as expected.\nData is handled and output in a Tidy data format.",
-    "crumbs": [
-      "Demo RAP scraper documentation"
-    ]
+    "text": "Note\n\n\n\nThis page is still under construction\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "docs/teaching_materials/teaching.html",
