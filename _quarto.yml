@@ -13,9 +13,7 @@ website:
   bread-crumbs: true
   page-navigation: true
   back-to-top-navigation: true
-  search:
-    location: sidebar
-    type: overlay
+  search: true
   sidebar:
     style: "docked"
     type: "dark"
@@ -24,6 +22,16 @@ website:
     logo-alt: logo
     logo-href: https://sergegoussev.github.io/ESCAP_RAP_class/docs/
     border: true
+    tools:
+      - icon: github
+        href: https://github.com/sergegoussev/ESCAP_RAP_class
+        text: GitHub account for this training
+      - icon: globe
+        href: https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5
+        text: "Notion site: hope page for the training"
+      - icon: card-list
+        href: https://file.notion.so/f/f/3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3/e2f3a733-8510-4e61-bd5d-1a84fc46a7f0/ESCAP_Web_Scraping_for_CPI_training_programme_final.pdf?table=block&id=f36c96f6-e26e-4921-86e9-ed72353f409a&spaceId=3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3&expirationTimestamp=1726704000000&signature=LAUq6r7OHhjgKJh3E3O7pmINGG27pZlawejqtJFLbqc&downloadName=ESCAP_Web+Scraping+for+CPI+training+programme_final.pdf
+        text: "Agenda for the in-person training"
     contents:
       - href: docs/index.qmd
         text: Overview
@@ -40,15 +48,12 @@ website:
           - notebooks/rapifying_scraping_experiment.ipynb
   page-footer: 
     left: "2024, ESCAP"
-    right: 
-      - icon: github
-        href: https://github.com/sergegoussev/ESCAP_RAP_class
-      - icon: globe 
-        href: https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: cosmo
+      dark: darkly
     css: docs/styles.css
     toc: true
     grid:

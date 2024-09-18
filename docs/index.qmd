@@ -1,10 +1,6 @@
 # Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)
 
-![](images/ESCAP_LOGO_OFFICIAL.png)
-
-::: callout-warning
-This page is still under construction and some sections may not be fully complete
-:::
+![ESCAP logo](images/ESCAP_LOGO_OFFICIAL.png)
 
 ## Context
 
