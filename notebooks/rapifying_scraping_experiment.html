@@ -303,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="create-a-main-function-for-orchestrating-the-logic" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-main-function-for-orchestrating-the-logic">Create a main function for orchestrating the logic</h2>
-<div id="cell-6" class="cell" data-execution_count="7">
+<div id="cell-6" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main(user_agent_string, email, path_to_save_logs, product_url_to_scape):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    To orchestrate (i.e. automate in a specific sequence), we can make a main function</span></span>
@@ -342,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="now-lets-try-it" class="level2">
 <h2 class="anchored" data-anchor-id="now-lets-try-it">Now lets try it!</h2>
 <p>We can try for two products and see what we got</p>
-<div id="cell-8" class="cell" data-execution_count="8">
+<div id="cell-8" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>main(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    user_agent_string <span class="op">=</span> <span class="st">"ESCAP Webscraping RAP demo scraper 1.0"</span>,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    email <span class="op">=</span> <span class="st">"example@email.com"</span>,</span>
@@ -350,18 +350,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    product_url_to_scape <span class="op">=</span> <span class="st">"https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>2024-09-17 21:42:55,351 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html
-2024-09-17 21:42:55,352 - __main__ - INFO - Getting data from the site
-2024-09-17 21:42:55,571 - __main__ - INFO - Parsing product info</code></pre>
+<pre><code>2024-09-17 21:51:08,776 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html
+2024-09-17 21:51:08,777 - __main__ - INFO - Getting data from the site
+2024-09-17 21:51:08,972 - __main__ - INFO - Parsing product info</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>('a897fe39b1053632',
  'A Light in the Attic',
  "It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love th It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love that Silverstein. Need proof of his genius? RockabyeRockabye baby, in the treetopDon't you know a treetopIs no safe place to rock?And who put you up there,And your cradle, too?Baby, I think someone down here'sGot it in for you. Shel, you never sounded so good. ...more",
  '£51.77')</code></pre>
 </div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="9">
+<div id="cell-9" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>main(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    user_agent_string <span class="op">=</span> <span class="st">"ESCAP Webscraping RAP demo scraper 1.0"</span>,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    email <span class="op">=</span> <span class="st">"example@email.com"</span>,</span>
@@ -369,18 +369,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    product_url_to_scape <span class="op">=</span> <span class="st">"https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html"</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>2024-09-17 21:42:59,238 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html
-2024-09-17 21:42:59,239 - __main__ - INFO - Getting data from the site
-2024-09-17 21:42:59,385 - __main__ - INFO - Parsing product info</code></pre>
+<pre><code>2024-09-17 21:51:11,241 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html
+2024-09-17 21:51:11,242 - __main__ - INFO - Getting data from the site
+2024-09-17 21:51:11,445 - __main__ - INFO - Parsing product info</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>('90fa61229261140a',
  'Tipping the Velvet',
  '"Erotic and absorbing...Written with starling power."--"The New York Times Book Review " Nan King, an oyster girl, is captivated by the music hall phenomenon Kitty Butler, a male impersonator extraordinaire treading the boards in Canterbury. Through a friend at the box office, Nan manages to visit all her shows and finally meet her heroine. Soon after, she becomes Kitty\'s "Erotic and absorbing...Written with starling power."--"The New York Times Book Review " Nan King, an oyster girl, is captivated by the music hall phenomenon Kitty Butler, a male impersonator extraordinaire treading the boards in Canterbury. Through a friend at the box office, Nan manages to visit all her shows and finally meet her heroine. Soon after, she becomes Kitty\'s dresser and the two head for the bright lights of Leicester Square where they begin a glittering career as music-hall stars in an all-singing and dancing double act. At the same time, behind closed doors, they admit their attraction to each other and their affair begins. ...more',
  '£53.74')</code></pre>
 </div>
 </div>
-<p>Success! We now have a good way to scrape the site!</p>
+<p>Perfect. If we look at the <code>.log</code> file created in <code>/data/log/</code> we see</p>
+<pre><code>2024-09-17 21:42:55,351 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html
+2024-09-17 21:42:55,352 - __main__ - INFO - Getting data from the site
+2024-09-17 21:42:55,571 - __main__ - INFO - Parsing product info
+2024-09-17 21:42:59,238 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html
+2024-09-17 21:42:59,239 - __main__ - INFO - Getting data from the site
+2024-09-17 21:42:59,385 - __main__ - INFO - Parsing product info</code></pre>
+<p>Which means that we are logging our operations as well!</p>
+<blockquote class="blockquote">
+
+</blockquote>
 
 
 </section>
