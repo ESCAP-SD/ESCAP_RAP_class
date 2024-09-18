@@ -26,8 +26,8 @@ format:
 ---
 # Overview
 
-The purpose of this class is to cover what is RAP and why RAP is important.
+The purpose of this class is to cover what RAP is and why RAP is important. The presentation from the training is provided
 
-# Presentation for the session
+# Slides used in the training
 
 ![Presentation on RAP](WhatIsRAP-handout.pdf){width="100%" height="800"}
