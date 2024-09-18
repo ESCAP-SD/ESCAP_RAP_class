@@ -1,0 +1,78 @@
+---
+title: "Applying RAP for price statistics"
+format:
+  html:
+    toc: true
+    toc-expand: 2
+    other-links:
+        - text: "Price and Marques (2023) Developing reproducible analytical pipelines for the transformation of consumer price statistics: rail fares"
+          href: https://unece.org/sites/default/files/2023-05/7.4%20UK_un_systems_railfares_paper.pdf
+---
+
+# Overview
+
+As RAP is a set of technical best practices and styles of working, we should first consider how it applies to price statistics.
+
+
+## Overview of the ADS processing view
+
+Web scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index. The below sections first provide an overview of the key step and options of how RAP cap apply to the overall process, then go through each step in order to gather detailed requirements for the web scraping step.
+
+### Overview of all the steps
+
+The below diagram provides an overview of 4 main steps that include the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.
+
+![High level overview of the steps to process web scrape data for the CPI](../images/ads-process-overview-high-level-overview.drawio.svg){#fig-1 fig-alt="Read diagram from left to right. Starting with the scraping process, four main steps are needed to create input for the CPI"}
+
+Each step is made up of one or more sub-components:
+
+-   The web scraping step contains the scraping aspect itself,[^1] but also includes dataset validation that will help make sure that the scraper is operating as it is expected, as well as reports for review;[^2]
+-   The data processing step contains the process to standardizing and preparation step.[^3]
+-   The classification step contains several sub-steps, such as identifying unique products to classify, the classification method itself, and the manual validation of classification (in cases there are errors).[^4]
+-   For the price index step, many sub-steps are involved.[^5]
+
+[^1]: ndefinedSee [Practical guidelines on web scraping for the HICP (2020)](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/), specifically Annex I and VII for mor
+
+[^2]: See [Monitoring, validation and plausibility checks for web scraped data](https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data) (UN e-Handbook) for more details
+
+[^3]: See [Preparation of data](https://unstats.un.org/wiki/display/GWGSD/Preparation+of+data) (UN e-Handbook) for more handbook.
+
+[^4]: For an overview of Classification process in production and other operational aspects, see "[Classification of Alternative Data Sources](https://stats.unece.org/ottawagroup/download/Workshop-un-tt-og-2024-classification-presentation.pdf)", 2024-05-14. For an overview of the 5 main classification methods, see "[Classifying Alterantive Data Sources for Consumer Prices Statistics: Methods and best practices](https://unece.org/sites/default/files/2023-06/Workshop%20II%20Denmark.pdf)", 2023-06-08.
+
+[^5]: See "[Practical guidelines on web scraping for the HICP (2020)](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/)" for more details
+
+### How does RAP come into this?
+
+Given this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistical (in our case) process into one corpus (i.e. repository with all contexts) – we can:
+
+a.  Encapsulate the whole process in one repository. As RAP is meant to help minimize coupling (dependencies) between separate processes – treating the whole process end-to-end as one RAP is useful if no steps in this pipeline have to be shared with other pipelines.
+b.  Encapsulate each step into a separate RAP. This may be appropriate if several processing phases are done in sequence with specific targeted stopping points – such as handoff between teams or if some steps are shared or where manual steps are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture in sequence.[^6]
+c.  Encapsulate as appropriate. Several steps could be combined to simplify the process and if separation is not required, such as the web scraping and data processing steps.
+
+[^6]: See [Price (2023) Developing reproducible analytical pipelines for the transformation of consumer price statistics: rail fares](https://unece.org/sites/default/files/2023-05/7.4%20UK_un_systems_railfares_paper.pdf) for more details, for instance 5.2 outlines Pipeline tables and how different pipelines interact over a specific data architecture.
+
+For this guide and for the demo RAP scraper, we will follow approach (b) as this will allow us to develop RAP for just the scraping component.
+
+## Closer look at the web scraping component
+
+Let's look a little closer at the web scraping component as there is a little more to it than one scrape script that ouptuts the data and a report. We can portray this visually to flush out a bit more what is involved in this step:
+
+![](../images/ads-process-overview-webscraping-high-level-overvieq.svg)
+
+### Checking `robots.txt`
+
+As we discussed in [the course](https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5) and in [other sources](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/), the legal aspects of scraping is key as NSOs should follow the guidance of retailers whether they can be scraped or not. This involves checking the Terms and Conditions for the site, but also checking the `robots.txt` for the site. As the retailer site may change its `robots.txt`, it maybe useful to have an automated component that checks before starting the scrape so that any new exclusions are taken into account.
+
+### Scraping the site itself
+
+The scraper itself is usually custom to the retailer site and outputs a file for what was scraped that day. Using RAP principles to develop this well (which we cover in [the September 18th session](../teaching_materials/sept_18/sept_18_session.qmd) and provide examples of [how a notebook can be translated into something more RAP friendly](../scraper_docs/mapping_the_process.qmd)) are off course key so that its stable and when inevitable website changes happen - the scraper can be fixed quickly.
+
+### Logging
+
+Technically a component of the scraping pipeline itself, however a very valuable part of the scraper worth pointing out separately is logging the operation of the scrape. There may be legal requirements (such as the `robots.txt` asking for a specific delay in scraping the site, or your NSO requiring specific processes), as well as technical (such as easier debugging) reasons where having key things logged in a `.log` file useful to describe the operations of the scraper. It can also be combined with the monitoring component to better understand when something goes wrong.
+
+### Monitoring
+
+As a retailer can choose to change their website at any time - [monitoring that the intended data was collected](https://ec.europa.eu/eurostat/documents/272892/12032198/Guidelines-web-scraping-HICP-11-2020.pdf/) is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail the previous checks silently, but the resultant scrape may now no longer be of the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up [monitoring for an extra layer of validation](https://unstats.un.org/wiki/display/GWGSD/Monitoring%2C+validation+and+plausibility+checks+for+web+scraped+data). This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.[^7]
+
+[^7]: Guðmundsdóttir and Jónasdóttir (2016) [Scanner Data: Initial Testing](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2016/Session_1_Iceland_Initial_data_testing.pdf) provide a useful overview that could be similar in the web scraping case.
