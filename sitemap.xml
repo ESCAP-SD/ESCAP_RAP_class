@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/applying_rap/mapping_the_process.html</loc>
-    <lastmod>2024-09-18T01:36:16.541Z</lastmod>
+    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/index.html</loc>
+    <lastmod>2024-09-18T01:44:38.684Z</lastmod>
   </url>
   <url>
     <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_18/sept_18_session.html</loc>
-    <lastmod>2024-09-18T01:36:16.893Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/teaching.html</loc>
-    <lastmod>2024-09-18T01:36:16.893Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/index.html</loc>
-    <lastmod>2024-09-18T01:36:16.552Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/notebooks/rapifying_scraping_experiment.html</loc>
-    <lastmod>2024-09-18T01:36:16.894Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/notebooks/scraping_experiment.html</loc>
-    <lastmod>2024-09-18T01:36:16.894Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/404.html</loc>
-    <lastmod>2024-09-18T01:36:16.541Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_11/sept_11_session.html</loc>
-    <lastmod>2024-09-18T01:36:16.859Z</lastmod>
+    <lastmod>2024-09-18T01:44:39.048Z</lastmod>
   </url>
   <url>
     <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/applying_rap/index.html</loc>
-    <lastmod>2024-09-18T01:36:16.541Z</lastmod>
+    <lastmod>2024-09-18T01:44:38.676Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/404.html</loc>
+    <lastmod>2024-09-18T01:44:38.676Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/notebooks/scraping_experiment.html</loc>
+    <lastmod>2024-09-18T01:44:39.048Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/notebooks/rapifying_scraping_experiment.html</loc>
+    <lastmod>2024-09-18T01:44:39.048Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/applying_rap/mapping_the_process.html</loc>
+    <lastmod>2024-09-18T01:44:38.676Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/teaching.html</loc>
+    <lastmod>2024-09-18T01:44:39.048Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sergegoussev.github.io/ESCAP_RAP_class/docs/teaching_materials/sept_11/sept_11_session.html</loc>
+    <lastmod>2024-09-18T01:44:39.008Z</lastmod>
   </url>
 </urlset>
