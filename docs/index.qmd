@@ -20,7 +20,7 @@ This site is used to structure and store the RAP training materials. This conten
 -   Provides [visual overview (via a process map)](process-mapping.qmd) of the whole process from scraping a site to the elementary aggregates that are included into the CPI so that learners can see how to apply RAP. It also contains a closeup of the web scraping process.
 -   Includes code and visual demonstrations of how RAP principles can be applied to enhance the web scraping process. Specifically:
     -   A notebook showing an exploration scraper on the training [Books to Scrape](https://books.toscrape.com/index.html) site
-    -   It also shows how to map the process for this exploratory scraper and begin to make it more RAP friendly, as well as examples of some more modular code that learners can start with.
+    -   It also shows [how to map the process for this exploratory scraper](applying_rap/mapping_the_process.qmd) and begin to make it more RAP friendly, as well as examples of some more modular code that learners can start with.
 
 ## Other useful reading
 
