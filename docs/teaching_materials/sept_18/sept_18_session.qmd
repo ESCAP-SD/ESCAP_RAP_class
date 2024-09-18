@@ -12,10 +12,6 @@ format:
           href: https://ukgovdatascience.github.io/rap_companion/
 ---
 
-::: callout-note
-This page will be updated ahead of the September 18th session
-:::
-
 # Overview
 
 Unlike the first class that aimed to introduce RAP and why it was relevant, the purposes of this class is to show in more detail what each principle is, plus some practical examples of how to apply this. Or in other words - show *How to RAP*. This page thus has the slides that are used in the in-person training, as well as examples to refer to

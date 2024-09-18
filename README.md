@@ -12,7 +12,6 @@ Check out the training content on the main site: https://sergegoussev.github.io/
 
 ```
 ├── notebooks               # Exploration notebooks for research purposes such as demo scraper notebook
-├── demo_scraper            # Demo reproducible analytic pipeline that scrapes a site
 ├── data                    # Placeholder folders for the scraped data part of the demo, structure set up but it will be kept local
 │   ├── raw                 # For raw scraped data before its cleaned for downstream use
 │   └── final               # Cleaned data for downstream use
