@@ -1,6 +1,5 @@
 ---
 title: "Session 1: Introduction to RAP"
-author: Chistophe Bontemps, Serge Goussev
 date: September 11, 2024
 format:
   html:

@@ -1,4 +1,11 @@
-# Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)
+---
+title: "Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)"
+author: Serge Goussev, Christophe Bontemps
+format:
+  html:
+    toc: true
+    toc-expand: 2
+---
 
 ![](images/ESCAP_LOGO_OFFICIAL.png)
 
@@ -17,7 +24,7 @@ This site is used to structure and store the RAP training materials. This conten
 -   Summarizes how the training is structured and provide copies of the training materials:
     -   The main [overview page provides a summary of what is covered](teaching_materials/teaching.qmd) in each session;
     -   The detailed pages for the [September 11, 2024 session](teaching_materials/sept_11/sept_11_session.qmd) and the [September 18, 2024 session](teaching_materials/sept_18/sept_18_session.qmd) provide the slides and supporting information from each of the training sessions.
--   Provides [visual overview (via a process map)](process-mapping.qmd) of the whole process from scraping a site to the elementary aggregates that are included into the CPI so that learners can see how to apply RAP. It also contains a closeup of the web scraping process.
+-   Provides [visual overview (via a process map)](applying_rap/index.qmd) of the whole process from scraping a site to the elementary aggregates that are included into the CPI so that learners can see how to apply RAP. It also contains a closeup of the web scraping process.
 -   Includes code and visual demonstrations of how RAP principles can be applied to enhance the web scraping process. Specifically:
     -   A notebook showing an exploration scraper on the training [Books to Scrape](https://books.toscrape.com/index.html) site
     -   It also shows [how to map the process for this exploratory scraper](applying_rap/mapping_the_process.qmd) and begin to make it more RAP friendly, as well as examples of some more modular code that learners can start with.
