@@ -40,22 +40,25 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
-  "type": "overlay",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -101,6 +104,12 @@ ul.task-list li input[type="checkbox"] {
       <a href="https://sergegoussev.github.io/ESCAP_RAP_class/docs/" class="sidebar-logo-link">
       <img src="../../docs/images/logo.drawio.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
+      <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/sergegoussev/ESCAP_RAP_class" title="GitHub account for this training" class="quarto-navigation-tool px-1" aria-label="GitHub account for this training"><i class="bi bi-github"></i></a>
+    <a href="https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5" title="Notion site: hope page for the training" class="quarto-navigation-tool px-1" aria-label="Notion site: hope page for the training"><i class="bi bi-globe"></i></a>
+    <a href="https://file.notion.so/f/f/3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3/e2f3a733-8510-4e61-bd5d-1a84fc46a7f0/ESCAP_Web_Scraping_for_CPI_training_programme_final.pdf?table=block&amp;id=f36c96f6-e26e-4921-86e9-ed72353f409a&amp;spaceId=3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3&amp;expirationTimestamp=1726704000000&amp;signature=LAUq6r7OHhjgKJh3E3O7pmINGG27pZlawejqtJFLbqc&amp;downloadName=ESCAP_Web+Scraping+for+CPI+training+programme_final.pdf" title="Agenda for the in-person training" class="quarto-navigation-tool px-1" aria-label="Agenda for the in-person training"><i class="bi bi-card-list"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -217,49 +226,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This pages provides an overview of the course, but the actual material is still being finalized</p>
-</div>
-</div>
-<p>Reproducible Analytic Pipelines (or RAP) is taught by UN ESCAP in two sessions. This training includes several components</p>
+<p>Reproducible Analytic Pipelines (or RAP) is taught by UN ESCAP in two sessions. This page provides an overview of what is covered</p>
 <section id="overall-scope-of-the-training" class="level1">
 <h1>Overall scope of the training</h1>
-<p>RAP is a large topic and it has its own <a href="https://www.udemy.com/course/reproducible-analytical-pipelines/">Udemy course</a>, supporting sites (such as the <a href="https://ukgovdatascience.github.io/rap_companion/">RAP companion</a>), as well as <a href="https://nhsdigital.github.io/rap-community-of-practice/">communities of practice</a>. ESCAP can’t thus hope to cover it in full, but instead aims to provide a detailed enough overview so that member countries being trained on <a href="https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5">web scraping for the CPI</a> can benefit from maturity principles that RAP represents.</p>
+<p>RAP is a large topic and it has its own <a href="https://www.udemy.com/course/reproducible-analytical-pipelines/">Udemy course</a>, supporting sites (such as the <a href="https://ukgovdatascience.github.io/rap_companion/">RAP companion</a>), as well as <a href="https://nhsdigital.github.io/rap-community-of-practice/">communities of practice</a>. ESCAP can’t thus hope to cover it in full, but instead aims to provide a detailed enough overview so that member countries being trained on <a href="https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5">web scraping for the CPI</a> can benefit from maturity principles that RAP represents and be able to build enough capacity to continue on their own.</p>
 <p><strong>Overall objective</strong></p>
-<p>The overall objective of the RAP training is to provide an overview of key RAP principles, cover the value it brings to official statistics, as well as train class participants up to figure out just enough so that they can proceed on their own and help bring in RAP it into their own work. Class participants (who ESCAP trains) can thus become trainers in their own National Statistical Organizations (NSOs) - helping their teams and groups continue to learn more about RAP, explore each of the best practices, and learn how to implement it into their research or official statistics (i.e.&nbsp;production). In a more formal sense, this RAP class is thus aims to increase the capacity of participating NSOs to learn RAP and apply it for their continued modernization, and especially the implementation of alternative (web scrape most notably) data for consumer price statistics. Two sessions provide fist an overview and second a deeper dive on RAP</p>
+<p>The overall objective of the RAP training is to provide an overview of key RAP principles, cover the value it brings to official statistics, as well as train class participants so that they can proceed on their own and help bring RAP into their own work. Class participants (who ESCAP trains) can thus become trainers in their own National Statistical Organizations (NSOs) - helping their teams and groups continue to learn more about RAP, explore each of the principles and best practices, and learn how to implement it into their research or official statistics (i.e.&nbsp;production). In a more formal sense, this RAP class thus aims to increase the capacity of participating NSOs to learn RAP and apply it for their continued modernization, and especially the implementation of alternative (such as web scrape) data for consumer price statistics. Two sessions provide fist an overview and second a deeper dive on RAP</p>
 </section>
 <section id="rap-session-1" class="level1">
 <h1>Session 1, virtual: Overview of RAP</h1>
 <p><strong>Date</strong>: September 11, 2024</p>
 <p><strong>Objective:</strong> Introduce ideas inherent in RAP and have participants walk away with an understanding why technical maturity skills are important and how RAP can help them mature their organization</p>
-<p><strong>Topics to cover:</strong></p>
+<p><strong>Topics:</strong></p>
 <ul>
 <li>Why RAP is important to learn</li>
 <li>What is RAP in more detail and what problem is it aiming to solve</li>
 <li>Outline of key RAP principles and how they would help</li>
-<li>Discussion on maturity levels - to show that its not all or nothing</li>
-<li>Very brief demo of a use case to demonstrate something and walk away from the more theoretical ideas</li>
-<li>Some caveats to keep in mind and wrap up for what you will see in person!</li>
+<li>Wrap up and discussion on maturity levels to demonstrate how to develop RAP friendly approaches gradually</li>
 </ul>
 <p><strong>Content</strong>: See <a href="../../docs/teaching_materials/sept_11/sept_11_session.html">the session page for more details</a>.</p>
 </section>
 <section id="rap-session-2" class="level1">
 <h1>Session 2, in person: Deeper dive into RAP components</h1>
 <p><strong>Date</strong>: September 18, 2024</p>
-<p><strong>Objective:</strong> Building on the initial training on RAP, go deeper into the components to really get the principles across. To help anchor the components, a use case can be used to understand how a little bit more about each aspect, and some hands-on exercises will help learners get a better appreciation of the tasks.</p>
-<p><strong>Topics to cover:</strong></p>
+<p><strong>Objective:</strong> Building on the initial training on RAP, go deeper into the components to really cover the principles in moderate detail. To help anchor the components, use cases and examples are prepared to explain each aspect, and some hands-on exercises will help learners get a better appreciation of the tasks.</p>
+<p><strong>Topics:</strong></p>
 <ul>
-<li>Quick overview to recap the previous session</li>
-<li>Deeper coverage of principles - weaving the use case into each component:
+<li>Quick overview to recap the previous session and contextualization of how web scraping fits into the overall process of web scraped data for the CPI</li>
+<li>Deeper coverage of the principles:
 <ul>
 <li>Automation</li>
 <li>Modularity, re-usability, etc</li>
@@ -270,10 +264,9 @@ Note
 <li>Testing</li>
 <li>Peer review</li>
 </ul></li>
-<li>Levels of RAP</li>
-<li>Exercises</li>
+<li>Coverage of levels of RAP to allow gradual adoption</li>
 </ul>
-<p><strong>Exercise in detail:</strong> To help anchor several of the technical skills in RAP, participants should spend time in person (helped by the mentors who are there in person) try the excercizes that are provided.</p>
+<p><strong>Exercise in detail:</strong> To help learners practice several of the technical skills in RAP, participants are given time in person (helped by the in-person mentors ) try the exercises.</p>
 <p><strong>Content</strong>: See <a href="../../docs/teaching_materials/sept_18/sept_18_session.html">the session page for more details</a>.</p>
 
 
@@ -300,6 +293,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -722,20 +859,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/docs/teaching_materials/teaching.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/sergegoussev/ESCAP_RAP_class">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5">
-      <i class="bi bi-globe" role="img">
-</i> 
-    </a>
-  </li>  
-</ul>
+      &nbsp;
     </div>
   </div>
 </footer>
