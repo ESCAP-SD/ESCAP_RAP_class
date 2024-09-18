@@ -216,22 +216,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is still under construction</p>
-</div>
-</div>
 <section id="overview" class="level1">
 <h1>Overview</h1>
-<p>As we saw in the <a href="../../notebooks/scraping_experiment.html">demo walkthrough of the scraper of books to scrape</a>, it takes many lines of code to scrape a site. However we also know from the <a href="../../docs/teaching_materials/sept_18/sept_18_session.html">RAP principles described in detail during the september 18th session</a>, there is a way to make this code RAP friendly (or RAPify it!) - and thus make it more mature, robust, and reproducible. To figure out how to do this, we should first start with mapping the current process and then figuring out how to make it more decoupled with modular (i.e.&nbsp;functional) programming.</p>
+<p>As we saw in the <a href="../../notebooks/scraping_experiment.html">demo walkthrough of the scraper of books to scrape</a>, it takes many lines of code to scrape a site. However we also know from the <a href="../../docs/teaching_materials/sept_18/sept_18_session.html">RAP principles described in detail during the september 18th session</a>, there is a way to make this code RAP friendly (or RAPify it!) - and thus make it more mature, robust, and reproducible. To figure out how to do this, we can first start with mapping the current process and then figuring out how to make it more decoupled with modular (i.e.&nbsp;functional) programming.</p>
 </section>
 <section id="converting-the-basic-scraper-into-something-more-rap-friendly" class="level1">
 <h1>Converting the basic scraper into something more RAP friendly</h1>
@@ -248,7 +235,7 @@ Note
 </section>
 <section id="the-rap-friendly-way-to-visualize-this" class="level2">
 <h2 class="anchored" data-anchor-id="the-rap-friendly-way-to-visualize-this">The RAP friendly way to visualize this</h2>
-<p>To make this RAP friendly, we can adopt some of what we learned. We can also add two components that will make the process more robust - logging and monitoring (i.e.&nbsp;making reports on the scraped file to see if something happened):</p>
+<p>To make this RAP friendly, we can adopt some of what we learned in <a href="../../docs/teaching_materials/sept_18/sept_18_session.html">the september 18th session</a>. We can also add two components that will make the process more robust - logging and monitoring (i.e.&nbsp;making reports on the scraped file to see if something happened):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../../docs/images/mapping-the-process-RAPified.svg" class="img-fluid figure-img"></p>
@@ -262,15 +249,15 @@ Note
 <li>Isolate possible sources of failure (such as by adding error handling) and add transparency to each step (such as by logging inside these steps so that we have a record of it). We could try this in one big script, but that is likely to make it even bigger and more cumbersome!</li>
 <li>We can use the <code>main()</code> function to wrap all the main business logic - which means that if something breaks (or needs to change) in the business logic, we can change it easily</li>
 <li>We can document how each of these functions work (by adding docstrings and a detailed documentation site), which will help make the process way easier to understand and also reproduce it</li>
-<li>We can combine this documentation with a process map diagram (like the one above) into a documentation site - which make sthe process easy to understand and (again) reproduce!</li>
+<li>We can combine this documentation with a process map diagram (like the one above) into a documentation site - which makes the process easy to understand and (again) reproduce!</li>
 </ul></li>
-<li>We can also add a validation step so that we can see if for some reason we scraped 500 products instead of the usual 1000 - indicating that something possibly went wrong on the site.</li>
-<li>We can also thematically group the fuctions into separate <code>.py</code> files that group similar content - which also makes it easier to run the pipeline when we need to.</li>
+<li>We can also add a validation step so that we can see if for some reason we scraped 500 products instead of the usual 1000 (or some unexpected fraction) - indicating that something possibly went wrong on the site.</li>
+<li>We can also thematically group the functions into separate <code>.py</code> files that group similar content - which also makes it easier to run the pipeline when we need to.</li>
 </ul>
 </section>
 <section id="takeaways" class="level2">
 <h2 class="anchored" data-anchor-id="takeaways">Takeaways</h2>
-<p>This is not all we can do but it gets the idea across. Next, we can see how some of these functions works.</p>
+<p>This is not all we can do but it gets the idea across. Next, we can see how some of these functions works in a very simple way.</p>
 
 
 </section>
