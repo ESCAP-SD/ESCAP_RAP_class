@@ -1,6 +1,5 @@
 ---
 title: ESCAP sesions on RAP
-author: Chistophe Bontemps, Serge Goussev
 date: September 11, 2024
 format:
   html:
