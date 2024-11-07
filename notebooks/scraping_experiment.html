@@ -137,11 +137,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="https://sergegoussev.github.io/ESCAP_RAP_class/docs/" class="sidebar-logo-link">
+      <a href="https://escap-sd.github.io/ESCAP_RAP_class/docs/" class="sidebar-logo-link">
       <img src="../docs/images/logo.drawio.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/sergegoussev/ESCAP_RAP_class" title="GitHub account for this training" class="quarto-navigation-tool px-1" aria-label="GitHub account for this training"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/ESCAP-SD/ESCAP_RAP_class" title="GitHub account for this training" class="quarto-navigation-tool px-1" aria-label="GitHub account for this training"><i class="bi bi-github"></i></a>
     <a href="https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5" title="Notion site: hope page for the training" class="quarto-navigation-tool px-1" aria-label="Notion site: hope page for the training"><i class="bi bi-globe"></i></a>
     <a href="https://file.notion.so/f/f/3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3/e2f3a733-8510-4e61-bd5d-1a84fc46a7f0/ESCAP_Web_Scraping_for_CPI_training_programme_final.pdf?table=block&amp;id=f36c96f6-e26e-4921-86e9-ed72353f409a&amp;spaceId=3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3&amp;expirationTimestamp=1726704000000&amp;signature=LAUq6r7OHhjgKJh3E3O7pmINGG27pZlawejqtJFLbqc&amp;downloadName=ESCAP_Web+Scraping+for+CPI+training+programme_final.pdf" title="Agenda for the in-person training" class="quarto-navigation-tool px-1" aria-label="Agenda for the in-person training"><i class="bi bi-card-list"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -255,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#putting-it-all-together-scraping-the-whole-site" id="toc-putting-it-all-together-scraping-the-whole-site" class="nav-link" data-scroll-target="#putting-it-all-together-scraping-the-whole-site">Putting it all together: scraping the whole site</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/notebooks/scraping_experiment.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://proxyway.com/guides/best-websites-to-practice-your-web-scraping-skills"><i class="bi bi-link-45deg"></i>A blog listing some popular sites with which you can practice web scraping</a></li><li><a href="https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/notebooks_versus_ide_development/"><i class="bi bi-link-45deg"></i>NHS guide on notebooks versus using an IDE - as we are using a notebook to explore the site but the notebook is less applicable for production</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/ESCAP-SD/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-git"></i>Report an issue</a></li><li><a href="https://escap-sd.github.io/ESCAP_RAP_class/docs/blob/main/notebooks/scraping_experiment.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://proxyway.com/guides/best-websites-to-practice-your-web-scraping-skills"><i class="bi bi-link-45deg"></i>A blog listing some popular sites with which you can practice web scraping</a></li><li><a href="https://nhsdigital.github.io/rap-community-of-practice/implementing_RAP/notebooks_versus_ide_development/"><i class="bi bi-link-45deg"></i>NHS guide on notebooks versus using an IDE - as we are using a notebook to explore the site but the notebook is less applicable for production</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1023,7 +1023,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sergegoussev\.github\.io\/ESCAP_RAP_class\/");
+      var filterRegex = new RegExp("https:\/\/ESCAP-SD\.github\.io\/ESCAP_RAP_class\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1371,7 +1371,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/sergegoussev/ESCAP_RAP_class/blob/main/notebooks/scraping_experiment.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ESCAP-SD/ESCAP_RAP_class/issues/new" class="toc-action"><i class="bi bi-git"></i>Report an issue</a></li><li><a href="https://escap-sd.github.io/ESCAP_RAP_class/docs/blob/main/notebooks/scraping_experiment.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

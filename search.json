@@ -1,5 +1,128 @@
 [
   {
+    "objectID": "notebooks/rapifying_scraping_experiment.html",
+    "href": "notebooks/rapifying_scraping_experiment.html",
+    "title": "Making the scraper RAP friendly: some example functions",
+    "section": "",
+    "text": "Previously, we saw how to map and plan out a more RAP friendly scraper by developing a functional programming style. Let’s apply some of this to a fraction of the scraper to see how this would work. We will still do this interactively (i.e. in a jupyter notebook), but we will really want to convert this into functions in separate .py files as a next step.",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "Making the scraper RAP friendly: some example functions"
+    ]
+  },
+  {
+    "objectID": "notebooks/rapifying_scraping_experiment.html#import-what-we-will-need",
+    "href": "notebooks/rapifying_scraping_experiment.html#import-what-we-will-need",
+    "title": "Making the scraper RAP friendly: some example functions",
+    "section": "Import what we will need",
+    "text": "Import what we will need\nAs before, we should first import the libraries and packages we will need\n\nfrom bs4 import BeautifulSoup\nimport requests\nimport pandas as pd\nimport logging, sys\nimport time",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "Making the scraper RAP friendly: some example functions"
+    ]
+  },
+  {
+    "objectID": "notebooks/rapifying_scraping_experiment.html#create-utility-functions-that-isolate-the-work",
+    "href": "notebooks/rapifying_scraping_experiment.html#create-utility-functions-that-isolate-the-work",
+    "title": "Making the scraper RAP friendly: some example functions",
+    "section": "Create utility functions that isolate the work",
+    "text": "Create utility functions that isolate the work\n\ndef get_site_data(session, url_to_scrape, header, logger):\n    \"\"\"\n    Function to isolate just the scraping portion and log the fact that we called the site\n    \"\"\"\n    logger.info(f\"Getting data from the site\")\n    with session.get(url_to_scrape, headers=header) as res:\n        response = BeautifulSoup(res.text, \"html.parser\")\n    return response\n\ndef get_and_parse_product_page(product_page_url, session, logger, header):\n    \"\"\"\n    Function to focus on the parsing of information from the product page\n\n    Note - we would probably want to modularize this further and add other aspects\n    like error handling\n    \"\"\"\n    response = get_site_data(\n        session=session, \n        url_to_scrape=product_page_url,\n        logger=logger,\n        header=header)\n    # get product/book name\n    logger.info(f\"Parsing product info\")\n    title = response.title.text.split(\"|\")[0].strip()\n    # get product description\n    description = response.find_all(\"div\", class_=\"sub-header\")[0].find_next('p').text\n    # get product details and extract the full dictionary\n    all_tables = pd.read_html(product_page_url)\n    data_dict = all_tables[0].set_index(0).to_dict()[1]\n    # return the data in the format of UPC, title, description, and price\n    return (data_dict['UPC'], title, description, data_dict['Price (incl. tax)'],)",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "Making the scraper RAP friendly: some example functions"
+    ]
+  },
+  {
+    "objectID": "notebooks/rapifying_scraping_experiment.html#create-a-main-function-for-orchestrating-the-logic",
+    "href": "notebooks/rapifying_scraping_experiment.html#create-a-main-function-for-orchestrating-the-logic",
+    "title": "Making the scraper RAP friendly: some example functions",
+    "section": "Create a main function for orchestrating the logic",
+    "text": "Create a main function for orchestrating the logic\n\ndef main(user_agent_string, email, path_to_save_logs, product_url_to_scape):\n    \"\"\"\n    To orchestrate (i.e. automate in a specific sequence), we can make a main function\n    that calls all the other steps\n    \"\"\" \n    # Start out by initializing the logging capability.\n    logging.basicConfig(\n    level=logging.INFO,\n    format= '%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n    handlers=[\n        logging.FileHandler(f\"{path_to_save_logs}{time.strftime('%Y-%m-%d_%H-%M')}.log\"),\n        logging.StreamHandler(sys.stdout)\n        ]\n    )\n    logger = logging.getLogger(__name__)\n\n    # Log that we are starting!\n    logger.info(f\"Starting the scrape of the following page: {product_url_to_scape}\")\n\n    # Set up the header\n    heads = {\n    'User-Agent':user_agent_string,\n    'email': email,\n    'Accept-Language': 'en-US, en;q=0.5'}\n    session = requests.Session()\n\n    # call and then return the main function that scrapes and parses the specific site\n    return get_and_parse_product_page(\n        product_page_url=product_url_to_scape, \n        session=session, \n        logger=logger, \n        header=heads)",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "Making the scraper RAP friendly: some example functions"
+    ]
+  },
+  {
+    "objectID": "notebooks/rapifying_scraping_experiment.html#now-lets-try-it",
+    "href": "notebooks/rapifying_scraping_experiment.html#now-lets-try-it",
+    "title": "Making the scraper RAP friendly: some example functions",
+    "section": "Now lets try it!",
+    "text": "Now lets try it!\nWe can try for two products and see what we got\n\nmain(\n    user_agent_string = \"ESCAP Webscraping RAP demo scraper 1.0\",\n    email = \"example@email.com\",\n    path_to_save_logs = \"../data/logs/\",\n    product_url_to_scape = \"https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html\"\n)\n\n2024-09-17 21:51:08,776 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html\n2024-09-17 21:51:08,777 - __main__ - INFO - Getting data from the site\n2024-09-17 21:51:08,972 - __main__ - INFO - Parsing product info\n\n\n('a897fe39b1053632',\n 'A Light in the Attic',\n \"It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love th It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love that Silverstein. Need proof of his genius? RockabyeRockabye baby, in the treetopDon't you know a treetopIs no safe place to rock?And who put you up there,And your cradle, too?Baby, I think someone down here'sGot it in for you. Shel, you never sounded so good. ...more\",\n '£51.77')\n\n\n\nmain(\n    user_agent_string = \"ESCAP Webscraping RAP demo scraper 1.0\",\n    email = \"example@email.com\",\n    path_to_save_logs = \"../data/logs/\",\n    product_url_to_scape = \"https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html\"\n)\n\n2024-09-17 21:51:11,241 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html\n2024-09-17 21:51:11,242 - __main__ - INFO - Getting data from the site\n2024-09-17 21:51:11,445 - __main__ - INFO - Parsing product info\n\n\n('90fa61229261140a',\n 'Tipping the Velvet',\n '\"Erotic and absorbing...Written with starling power.\"--\"The New York Times Book Review \" Nan King, an oyster girl, is captivated by the music hall phenomenon Kitty Butler, a male impersonator extraordinaire treading the boards in Canterbury. Through a friend at the box office, Nan manages to visit all her shows and finally meet her heroine. Soon after, she becomes Kitty\\'s \"Erotic and absorbing...Written with starling power.\"--\"The New York Times Book Review \" Nan King, an oyster girl, is captivated by the music hall phenomenon Kitty Butler, a male impersonator extraordinaire treading the boards in Canterbury. Through a friend at the box office, Nan manages to visit all her shows and finally meet her heroine. Soon after, she becomes Kitty\\'s dresser and the two head for the bright lights of Leicester Square where they begin a glittering career as music-hall stars in an all-singing and dancing double act. At the same time, behind closed doors, they admit their attraction to each other and their affair begins. ...more',\n '£53.74')\n\n\nPerfect. If we look at the .log file created in /data/log/ we see\n2024-09-17 21:42:55,351 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html\n2024-09-17 21:42:55,352 - __main__ - INFO - Getting data from the site\n2024-09-17 21:42:55,571 - __main__ - INFO - Parsing product info\n2024-09-17 21:42:59,238 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html\n2024-09-17 21:42:59,239 - __main__ - INFO - Getting data from the site\n2024-09-17 21:42:59,385 - __main__ - INFO - Parsing product info\nWhich means that we are logging our operations as well!",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "Making the scraper RAP friendly: some example functions"
+    ]
+  },
+  {
+    "objectID": "docs/teaching_materials/sept_11/sept_11_session.html",
+    "href": "docs/teaching_materials/sept_11/sept_11_session.html",
+    "title": "Session 1: Introduction to RAP",
+    "section": "",
+    "text": "Overview\nThe purpose of this class is to cover what RAP is and why RAP is important. The presentation from the training is provided\n\n\nSlides used in the training\n\n\n\nPresentation on RAP\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "ESCAP sesions on RAP",
+      "Session 1: Introduction to RAP"
+    ]
+  },
+  {
+    "objectID": "docs/teaching_materials/teaching.html",
+    "href": "docs/teaching_materials/teaching.html",
+    "title": "ESCAP sesions on RAP",
+    "section": "",
+    "text": "Reproducible Analytic Pipelines (or RAP) is taught by UN ESCAP in two sessions. This page provides an overview of what is covered\n\nOverall scope of the training\nRAP is a large topic and it has its own Udemy course, supporting sites (such as the RAP companion), as well as communities of practice. ESCAP can’t thus hope to cover it in full, but instead aims to provide a detailed enough overview so that member countries being trained on web scraping for the CPI can benefit from maturity principles that RAP represents and be able to build enough capacity to continue on their own.\nOverall objective\nThe overall objective of the RAP training is to provide an overview of key RAP principles, cover the value it brings to official statistics, as well as train class participants so that they can proceed on their own and help bring RAP into their own work. Class participants (who ESCAP trains) can thus become trainers in their own National Statistical Organizations (NSOs) - helping their teams and groups continue to learn more about RAP, explore each of the principles and best practices, and learn how to implement it into their research or official statistics (i.e. production). In a more formal sense, this RAP class thus aims to increase the capacity of participating NSOs to learn RAP and apply it for their continued modernization, and especially the implementation of alternative (such as web scrape) data for consumer price statistics. Two sessions provide fist an overview and second a deeper dive on RAP\n\n\nSession 1, virtual: Overview of RAP\nDate: September 11, 2024\nObjective: Introduce ideas inherent in RAP and have participants walk away with an understanding why technical maturity skills are important and how RAP can help them mature their organization\nTopics:\n\nWhy RAP is important to learn\nWhat is RAP in more detail and what problem is it aiming to solve\nOutline of key RAP principles and how they would help\nWrap up and discussion on maturity levels to demonstrate how to develop RAP friendly approaches gradually\n\nContent: See the session page for more details.\n\n\nSession 2, in person: Deeper dive into RAP components\nDate: September 18, 2024\nObjective: Building on the initial training on RAP, go deeper into the components to really cover the principles in moderate detail. To help anchor the components, use cases and examples are prepared to explain each aspect, and some hands-on exercises will help learners get a better appreciation of the tasks.\nTopics:\n\nQuick overview to recap the previous session and contextualization of how web scraping fits into the overall process of web scraped data for the CPI\nDeeper coverage of the principles:\n\nAutomation\nModularity, re-usability, etc\nTransparency\nOpen source tools\nVersion control\nGood coding practices\nTesting\nPeer review\n\nCoverage of levels of RAP to allow gradual adoption\n\nExercise in detail: To help learners practice several of the technical skills in RAP, participants are given time in person (helped by the in-person mentors ) try the exercises.\nContent: See the session page for more details.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "ESCAP sesions on RAP"
+    ]
+  },
+  {
+    "objectID": "docs/404.html",
+    "href": "docs/404.html",
+    "title": "Page Not Found",
+    "section": "",
+    "text": "The page you requested cannot be found (perhaps it was moved or renamed).\nGo back to the home page or search for what you are looking for\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "docs/applying_rap/index.html",
+    "href": "docs/applying_rap/index.html",
+    "title": "Applying RAP for price statistics",
+    "section": "",
+    "text": "As RAP is a set of technical best practices and styles of working, we should visually consider how it applies to price statistics.\n\n\nWeb scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index.\n\n\nThe below diagram provides an overview of 4 main steps to prepare web scraped data for the CPI: the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.\n\n\n\n\n\n\nFigure 1: High level overview of the steps to process web scrape data for the CPI\n\n\n\nEach step is made up of one or more sub-components:\n\nThe web scraping step contains the scraping aspect itself,1 but also includes dataset validation that will help make sure that the scraper is operating as it is expected;2\nThe data processing step contains the process to standardizing and preparation step.3\nThe classification step contains several sub-steps, such as identifying unique products to classify, the classification method itself, and the manual validation of classification (in cases there are errors).4\nFor the price index step, many sub-steps are involved.5\n\nNote - this is not an authoritative source as composition of each step could be changed. The idea we are trying to demonstrate is that there are several steps that can be developed separately (i.e. loosely coupled),\n\n\n\nGiven this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistical (in our case) process into one corpus (i.e. repository on GitHub/GitLab with all necessary documentation and materials to make the process reproducible) – we can:\n\nEncapsulate the whole process in one repository. As RAP is meant to help minimize coupling (dependencies) between separate processes – treating the whole process end-to-end as one RAP is useful if no steps in this pipeline have to be shared with other pipelines (such as with other data) or if this specific data always runs end-to-end.\nEncapsulate each step into a separate RAP. This may be appropriate if several processing phases are done in sequence with specific targeted stopping points – such as handoff between teams, if some steps are shared with other pipelines, or where manual steps are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture in sequence.6\nEncapsulate as appropriate. Several steps could be combined to simplify the process and if separation is not required, such as the web scraping and data processing steps.\n\nFor this guide and for the demo RAP scraper, we will follow approach (b) as this will demonstrate RAP for just the scraping component in more details.\n\n\n\n\nSo let’s look a little closer at the web scraping component as there is a little more to it than one scrape script that creates an output dataset and a report. We can portray this visually to flush out a bit more what is involved in this step:\n\n\n\nAs we discussed in the course and in other sources, the legal aspects of scraping is key as NSOs should follow the guidance of retailers whether they can be scraped or not. This involves checking the Terms and Conditions for the site, but also checking the robots.txt for the site. As the retailer site may change its robots.txt, it maybe useful to have an automated component that checks before starting the scraper so that any new exclusions are taken into account.\n\n\n\nThe scraper itself is usually custom to the retailer site and outputs a file for what was scraped that day. Using RAP principles to develop this well (which we cover in the September 18th session and provide examples of how a notebook can be translated into something more RAP friendly) are off course key so that its stable and when inevitable website changes happen - the scraper can be fixed quickly.\n\n\n\nTechnically a component of the scraping pipeline itself (according to RAP principles), however a very valuable part of the scraper worth pointing out separately is logging the operation of the scraper. There may be legal or netiquette requirements (such as the robots.txt asking for a specific delay in each request to the website, or your NSO requiring specific processes), as well as technical (such as easier debugging) reasons where having key things logged in a .log file useful to describe the operations of the scraper. It can also be combined with the monitoring component to better understand when something goes wrong.\n\n\n\nAs a retailer can choose to change their website at any time - monitoring that the intended data was collected is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail to be noticed by the previous checks, but the resultant scraped data may now no longer have the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up monitoring for an extra layer of validation. This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.7",
+    "crumbs": [
+      "Applying RAP for price statistics"
+    ]
+  },
+  {
+    "objectID": "docs/applying_rap/index.html#overview-of-the-ads-processing-view",
+    "href": "docs/applying_rap/index.html#overview-of-the-ads-processing-view",
+    "title": "Applying RAP for price statistics",
+    "section": "",
+    "text": "Web scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index.\n\n\nThe below diagram provides an overview of 4 main steps to prepare web scraped data for the CPI: the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.\n\n\n\n\n\n\nFigure 1: High level overview of the steps to process web scrape data for the CPI\n\n\n\nEach step is made up of one or more sub-components:\n\nThe web scraping step contains the scraping aspect itself,1 but also includes dataset validation that will help make sure that the scraper is operating as it is expected;2\nThe data processing step contains the process to standardizing and preparation step.3\nThe classification step contains several sub-steps, such as identifying unique products to classify, the classification method itself, and the manual validation of classification (in cases there are errors).4\nFor the price index step, many sub-steps are involved.5\n\nNote - this is not an authoritative source as composition of each step could be changed. The idea we are trying to demonstrate is that there are several steps that can be developed separately (i.e. loosely coupled),\n\n\n\nGiven this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistical (in our case) process into one corpus (i.e. repository on GitHub/GitLab with all necessary documentation and materials to make the process reproducible) – we can:\n\nEncapsulate the whole process in one repository. As RAP is meant to help minimize coupling (dependencies) between separate processes – treating the whole process end-to-end as one RAP is useful if no steps in this pipeline have to be shared with other pipelines (such as with other data) or if this specific data always runs end-to-end.\nEncapsulate each step into a separate RAP. This may be appropriate if several processing phases are done in sequence with specific targeted stopping points – such as handoff between teams, if some steps are shared with other pipelines, or where manual steps are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture in sequence.6\nEncapsulate as appropriate. Several steps could be combined to simplify the process and if separation is not required, such as the web scraping and data processing steps.\n\nFor this guide and for the demo RAP scraper, we will follow approach (b) as this will demonstrate RAP for just the scraping component in more details.",
+    "crumbs": [
+      "Applying RAP for price statistics"
+    ]
+  },
+  {
+    "objectID": "docs/applying_rap/index.html#closer-look-at-the-web-scraping-component",
+    "href": "docs/applying_rap/index.html#closer-look-at-the-web-scraping-component",
+    "title": "Applying RAP for price statistics",
+    "section": "",
+    "text": "So let’s look a little closer at the web scraping component as there is a little more to it than one scrape script that creates an output dataset and a report. We can portray this visually to flush out a bit more what is involved in this step:\n\n\n\nAs we discussed in the course and in other sources, the legal aspects of scraping is key as NSOs should follow the guidance of retailers whether they can be scraped or not. This involves checking the Terms and Conditions for the site, but also checking the robots.txt for the site. As the retailer site may change its robots.txt, it maybe useful to have an automated component that checks before starting the scraper so that any new exclusions are taken into account.\n\n\n\nThe scraper itself is usually custom to the retailer site and outputs a file for what was scraped that day. Using RAP principles to develop this well (which we cover in the September 18th session and provide examples of how a notebook can be translated into something more RAP friendly) are off course key so that its stable and when inevitable website changes happen - the scraper can be fixed quickly.\n\n\n\nTechnically a component of the scraping pipeline itself (according to RAP principles), however a very valuable part of the scraper worth pointing out separately is logging the operation of the scraper. There may be legal or netiquette requirements (such as the robots.txt asking for a specific delay in each request to the website, or your NSO requiring specific processes), as well as technical (such as easier debugging) reasons where having key things logged in a .log file useful to describe the operations of the scraper. It can also be combined with the monitoring component to better understand when something goes wrong.\n\n\n\nAs a retailer can choose to change their website at any time - monitoring that the intended data was collected is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail to be noticed by the previous checks, but the resultant scraped data may now no longer have the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up monitoring for an extra layer of validation. This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.7",
+    "crumbs": [
+      "Applying RAP for price statistics"
+    ]
+  },
+  {
+    "objectID": "docs/applying_rap/index.html#footnotes",
+    "href": "docs/applying_rap/index.html#footnotes",
+    "title": "Applying RAP for price statistics",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nndefinedSee Practical guidelines on web scraping for the HICP (2020), specifically Annex I and VII for mor↩︎\nSee Monitoring, validation and plausibility checks for web scraped data (UN e-Handbook) for more details↩︎\nSee Preparation of data (UN e-Handbook) for more handbook.↩︎\nFor an overview of Classification process in production and other operational aspects, see “Classification of Alternative Data Sources”, 2024-05-14. For an overview of the 5 main classification methods, see “Classifying Alterantive Data Sources for Consumer Prices Statistics: Methods and best practices”, 2023-06-08.↩︎\nSee “Practical guidelines on web scraping for the HICP (2020)” for more details↩︎\nSee Price (2023) Developing reproducible analytical pipelines for the transformation of consumer price statistics: rail fares for more details, for instance 5.2 outlines Pipeline tables and how different pipelines interact over a specific data architecture.↩︎\nGuðmundsdóttir and Jónasdóttir (2016) Scanner Data: Initial Testing provide a useful overview that could be similar in the web scraping case.↩︎",
+    "crumbs": [
+      "Applying RAP for price statistics"
+    ]
+  },
+  {
     "objectID": "docs/applying_rap/mapping_the_process.html",
     "href": "docs/applying_rap/mapping_the_process.html",
     "title": "RAPifying the scraper: mapping the process",
@@ -41,6 +164,36 @@
     "crumbs": [
       "Applying RAP for price statistics",
       "RAPifying the scraper: mapping the process"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#context",
+    "href": "docs/index.html#context",
+    "title": "Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)",
+    "section": "Context",
+    "text": "Context\nAs part of the Big Data Project, over the summer of 2024, ESCAP has been providing capacity support to project countries that have indicated web scraping for price statistics as a priority – by providing training on web scraping. Check out the rich training website for more details about the training in general, watch videos of past sessions, and review the materials.\nA key topic of this training is Reproducible Analytical Pipelines or RAP. RAP was originally developed in the United Kingdom government to improve the processes that government teams use to make their outputs more reproducible, as well as speed up their production processes. RAP can be thought of as an approach to working which brings together a range of open source tools, techniques from fields like reproducible research, software engineering, and DevOps to make statistical releases easily reproducible, testable, and auditable (check out the original article from 2017 explaining the concept and the purpose). Given that its a framework for mature processes, it can also be applied to the critical aspect of web scraping or related steps in making official statistics with this data – as data collection and preparation for the CPI should be robust and highly reproducible!\nThe purpose of this course is thus to teach RAP to project countries and help them apply the concept to web scraping specifically, but also help them practice the techniques and tools so that RAP can be applied to other pipelines to produce the CPI or other official statistics.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#how-the-site-can-help-you-i.e.-navigation-guide",
+    "href": "docs/index.html#how-the-site-can-help-you-i.e.-navigation-guide",
+    "title": "Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)",
+    "section": "How the site can help you (i.e. navigation guide)",
+    "text": "How the site can help you (i.e. navigation guide)\nThis site is used to structure and store the RAP training materials. This content can thus help learners during the session and also be available after the training as a reference. The site thus:\n\nSummarizes how the training is structured and provide copies of the training materials:\n\nThe main overview page provides a summary of what is covered in each session;\nThe detailed pages for the September 11, 2024 session and the September 18, 2024 session provide the slides and supporting information from each of the training sessions.\n\nProvides visual overview (via a process map) of the whole process from scraping a site to the elementary aggregates that are included into the CPI so that learners can see how to apply RAP. It also contains a closeup of the web scraping process.\nIncludes code and visual demonstrations of how RAP principles can be applied to enhance the web scraping process. Specifically:\n\nA notebook showing an exploration scraper on the training Books to Scrape site\nIt also shows how to map the process for this exploratory scraper and begin to make it more RAP friendly, as well as examples of some more modular code that learners can start with.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "docs/index.html#other-useful-reading",
+    "href": "docs/index.html#other-useful-reading",
+    "title": "Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)",
+    "section": "Other useful reading",
+    "text": "Other useful reading\nThis site (and the training) does not aim to be comprehensive but simply demonstrate and document the key concepts so that learners have enough to do their own training. For more on RAP, we encourage you to check out:\n\nThe NHS RAP Communitity of Practice – that contains lots more useful content on a large number of RAP concepts\nThe RAP Companion - which provides a good guide for each component (although focuses on R)\nThe Udemy class on Reproducible Analytical Pipelines (RAP) using R- provides a good overview of RAP with R\nA presentation and a paper providing a good guide of the application of RAP to price statistics, specifically for rail fares\n\nEach page will try to provide external and supporting links, allowing learners to explore related content and refer to it later.",
+    "crumbs": [
+      "Overview"
     ]
   },
   {
@@ -107,101 +260,6 @@
     "crumbs": [
       "ESCAP sesions on RAP",
       "Session 2: Deeper dive into key components"
-    ]
-  },
-  {
-    "objectID": "docs/teaching_materials/teaching.html",
-    "href": "docs/teaching_materials/teaching.html",
-    "title": "ESCAP sesions on RAP",
-    "section": "",
-    "text": "Reproducible Analytic Pipelines (or RAP) is taught by UN ESCAP in two sessions. This page provides an overview of what is covered\n\nOverall scope of the training\nRAP is a large topic and it has its own Udemy course, supporting sites (such as the RAP companion), as well as communities of practice. ESCAP can’t thus hope to cover it in full, but instead aims to provide a detailed enough overview so that member countries being trained on web scraping for the CPI can benefit from maturity principles that RAP represents and be able to build enough capacity to continue on their own.\nOverall objective\nThe overall objective of the RAP training is to provide an overview of key RAP principles, cover the value it brings to official statistics, as well as train class participants so that they can proceed on their own and help bring RAP into their own work. Class participants (who ESCAP trains) can thus become trainers in their own National Statistical Organizations (NSOs) - helping their teams and groups continue to learn more about RAP, explore each of the principles and best practices, and learn how to implement it into their research or official statistics (i.e. production). In a more formal sense, this RAP class thus aims to increase the capacity of participating NSOs to learn RAP and apply it for their continued modernization, and especially the implementation of alternative (such as web scrape) data for consumer price statistics. Two sessions provide fist an overview and second a deeper dive on RAP\n\n\nSession 1, virtual: Overview of RAP\nDate: September 11, 2024\nObjective: Introduce ideas inherent in RAP and have participants walk away with an understanding why technical maturity skills are important and how RAP can help them mature their organization\nTopics:\n\nWhy RAP is important to learn\nWhat is RAP in more detail and what problem is it aiming to solve\nOutline of key RAP principles and how they would help\nWrap up and discussion on maturity levels to demonstrate how to develop RAP friendly approaches gradually\n\nContent: See the session page for more details.\n\n\nSession 2, in person: Deeper dive into RAP components\nDate: September 18, 2024\nObjective: Building on the initial training on RAP, go deeper into the components to really cover the principles in moderate detail. To help anchor the components, use cases and examples are prepared to explain each aspect, and some hands-on exercises will help learners get a better appreciation of the tasks.\nTopics:\n\nQuick overview to recap the previous session and contextualization of how web scraping fits into the overall process of web scraped data for the CPI\nDeeper coverage of the principles:\n\nAutomation\nModularity, re-usability, etc\nTransparency\nOpen source tools\nVersion control\nGood coding practices\nTesting\nPeer review\n\nCoverage of levels of RAP to allow gradual adoption\n\nExercise in detail: To help learners practice several of the technical skills in RAP, participants are given time in person (helped by the in-person mentors ) try the exercises.\nContent: See the session page for more details.\n\n\n\n\n Back to top",
-    "crumbs": [
-      "ESCAP sesions on RAP"
-    ]
-  },
-  {
-    "objectID": "docs/index.html#context",
-    "href": "docs/index.html#context",
-    "title": "Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)",
-    "section": "Context",
-    "text": "Context\nAs part of the Big Data Project, over the summer of 2024, ESCAP has been providing capacity support to project countries that have indicated web scraping for price statistics as a priority – by providing training on web scraping. Check out the rich training website for more details about the training in general, watch videos of past sessions, and review the materials.\nA key topic of this training is Reproducible Analytical Pipelines or RAP. RAP was originally developed in the United Kingdom government to improve the processes that government teams use to make their outputs more reproducible, as well as speed up their production processes. RAP can be thought of as an approach to working which brings together a range of open source tools, techniques from fields like reproducible research, software engineering, and DevOps to make statistical releases easily reproducible, testable, and auditable (check out the original article from 2017 explaining the concept and the purpose). Given that its a framework for mature processes, it can also be applied to the critical aspect of web scraping or related steps in making official statistics with this data – as data collection and preparation for the CPI should be robust and highly reproducible!\nThe purpose of this course is thus to teach RAP to project countries and help them apply the concept to web scraping specifically, but also help them practice the techniques and tools so that RAP can be applied to other pipelines to produce the CPI or other official statistics.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "docs/index.html#how-the-site-can-help-you-i.e.-navigation-guide",
-    "href": "docs/index.html#how-the-site-can-help-you-i.e.-navigation-guide",
-    "title": "Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)",
-    "section": "How the site can help you (i.e. navigation guide)",
-    "text": "How the site can help you (i.e. navigation guide)\nThis site is used to structure and store the RAP training materials. This content can thus help learners during the session and also be available after the training as a reference. The site thus:\n\nSummarizes how the training is structured and provide copies of the training materials:\n\nThe main overview page provides a summary of what is covered in each session;\nThe detailed pages for the September 11, 2024 session and the September 18, 2024 session provide the slides and supporting information from each of the training sessions.\n\nProvides visual overview (via a process map) of the whole process from scraping a site to the elementary aggregates that are included into the CPI so that learners can see how to apply RAP. It also contains a closeup of the web scraping process.\nIncludes code and visual demonstrations of how RAP principles can be applied to enhance the web scraping process. Specifically:\n\nA notebook showing an exploration scraper on the training Books to Scrape site\nIt also shows how to map the process for this exploratory scraper and begin to make it more RAP friendly, as well as examples of some more modular code that learners can start with.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "docs/index.html#other-useful-reading",
-    "href": "docs/index.html#other-useful-reading",
-    "title": "Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)",
-    "section": "Other useful reading",
-    "text": "Other useful reading\nThis site (and the training) does not aim to be comprehensive but simply demonstrate and document the key concepts so that learners have enough to do their own training. For more on RAP, we encourage you to check out:\n\nThe NHS RAP Communitity of Practice – that contains lots more useful content on a large number of RAP concepts\nThe RAP Companion - which provides a good guide for each component (although focuses on R)\nThe Udemy class on Reproducible Analytical Pipelines (RAP) using R- provides a good overview of RAP with R\nA presentation and a paper providing a good guide of the application of RAP to price statistics, specifically for rail fares\n\nEach page will try to provide external and supporting links, allowing learners to explore related content and refer to it later.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "notebooks/rapifying_scraping_experiment.html",
-    "href": "notebooks/rapifying_scraping_experiment.html",
-    "title": "Making the scraper RAP friendly: some example functions",
-    "section": "",
-    "text": "Previously, we saw how to map and plan out a more RAP friendly scraper by developing a functional programming style. Let’s apply some of this to a fraction of the scraper to see how this would work. We will still do this interactively (i.e. in a jupyter notebook), but we will really want to convert this into functions in separate .py files as a next step.",
-    "crumbs": [
-      "Applying RAP for price statistics",
-      "Making the scraper RAP friendly: some example functions"
-    ]
-  },
-  {
-    "objectID": "notebooks/rapifying_scraping_experiment.html#import-what-we-will-need",
-    "href": "notebooks/rapifying_scraping_experiment.html#import-what-we-will-need",
-    "title": "Making the scraper RAP friendly: some example functions",
-    "section": "Import what we will need",
-    "text": "Import what we will need\nAs before, we should first import the libraries and packages we will need\n\nfrom bs4 import BeautifulSoup\nimport requests\nimport pandas as pd\nimport logging, sys\nimport time",
-    "crumbs": [
-      "Applying RAP for price statistics",
-      "Making the scraper RAP friendly: some example functions"
-    ]
-  },
-  {
-    "objectID": "notebooks/rapifying_scraping_experiment.html#create-utility-functions-that-isolate-the-work",
-    "href": "notebooks/rapifying_scraping_experiment.html#create-utility-functions-that-isolate-the-work",
-    "title": "Making the scraper RAP friendly: some example functions",
-    "section": "Create utility functions that isolate the work",
-    "text": "Create utility functions that isolate the work\n\ndef get_site_data(session, url_to_scrape, header, logger):\n    \"\"\"\n    Function to isolate just the scraping portion and log the fact that we called the site\n    \"\"\"\n    logger.info(f\"Getting data from the site\")\n    with session.get(url_to_scrape, headers=header) as res:\n        response = BeautifulSoup(res.text, \"html.parser\")\n    return response\n\ndef get_and_parse_product_page(product_page_url, session, logger, header):\n    \"\"\"\n    Function to focus on the parsing of information from the product page\n\n    Note - we would probably want to modularize this further and add other aspects\n    like error handling\n    \"\"\"\n    response = get_site_data(\n        session=session, \n        url_to_scrape=product_page_url,\n        logger=logger,\n        header=header)\n    # get product/book name\n    logger.info(f\"Parsing product info\")\n    title = response.title.text.split(\"|\")[0].strip()\n    # get product description\n    description = response.find_all(\"div\", class_=\"sub-header\")[0].find_next('p').text\n    # get product details and extract the full dictionary\n    all_tables = pd.read_html(product_page_url)\n    data_dict = all_tables[0].set_index(0).to_dict()[1]\n    # return the data in the format of UPC, title, description, and price\n    return (data_dict['UPC'], title, description, data_dict['Price (incl. tax)'],)",
-    "crumbs": [
-      "Applying RAP for price statistics",
-      "Making the scraper RAP friendly: some example functions"
-    ]
-  },
-  {
-    "objectID": "notebooks/rapifying_scraping_experiment.html#create-a-main-function-for-orchestrating-the-logic",
-    "href": "notebooks/rapifying_scraping_experiment.html#create-a-main-function-for-orchestrating-the-logic",
-    "title": "Making the scraper RAP friendly: some example functions",
-    "section": "Create a main function for orchestrating the logic",
-    "text": "Create a main function for orchestrating the logic\n\ndef main(user_agent_string, email, path_to_save_logs, product_url_to_scape):\n    \"\"\"\n    To orchestrate (i.e. automate in a specific sequence), we can make a main function\n    that calls all the other steps\n    \"\"\" \n    # Start out by initializing the logging capability.\n    logging.basicConfig(\n    level=logging.INFO,\n    format= '%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n    handlers=[\n        logging.FileHandler(f\"{path_to_save_logs}{time.strftime('%Y-%m-%d_%H-%M')}.log\"),\n        logging.StreamHandler(sys.stdout)\n        ]\n    )\n    logger = logging.getLogger(__name__)\n\n    # Log that we are starting!\n    logger.info(f\"Starting the scrape of the following page: {product_url_to_scape}\")\n\n    # Set up the header\n    heads = {\n    'User-Agent':user_agent_string,\n    'email': email,\n    'Accept-Language': 'en-US, en;q=0.5'}\n    session = requests.Session()\n\n    # call and then return the main function that scrapes and parses the specific site\n    return get_and_parse_product_page(\n        product_page_url=product_url_to_scape, \n        session=session, \n        logger=logger, \n        header=heads)",
-    "crumbs": [
-      "Applying RAP for price statistics",
-      "Making the scraper RAP friendly: some example functions"
-    ]
-  },
-  {
-    "objectID": "notebooks/rapifying_scraping_experiment.html#now-lets-try-it",
-    "href": "notebooks/rapifying_scraping_experiment.html#now-lets-try-it",
-    "title": "Making the scraper RAP friendly: some example functions",
-    "section": "Now lets try it!",
-    "text": "Now lets try it!\nWe can try for two products and see what we got\n\nmain(\n    user_agent_string = \"ESCAP Webscraping RAP demo scraper 1.0\",\n    email = \"example@email.com\",\n    path_to_save_logs = \"../data/logs/\",\n    product_url_to_scape = \"https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html\"\n)\n\n2024-09-17 21:51:08,776 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html\n2024-09-17 21:51:08,777 - __main__ - INFO - Getting data from the site\n2024-09-17 21:51:08,972 - __main__ - INFO - Parsing product info\n\n\n('a897fe39b1053632',\n 'A Light in the Attic',\n \"It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love th It's hard to imagine a world without A Light in the Attic. This now-classic collection of poetry and drawings from Shel Silverstein celebrates its 20th anniversary with this special edition. Silverstein's humorous and creative verse can amuse the dowdiest of readers. Lemon-faced adults and fidgety kids sit still and read these rhythmic words and laugh and smile and love that Silverstein. Need proof of his genius? RockabyeRockabye baby, in the treetopDon't you know a treetopIs no safe place to rock?And who put you up there,And your cradle, too?Baby, I think someone down here'sGot it in for you. Shel, you never sounded so good. ...more\",\n '£51.77')\n\n\n\nmain(\n    user_agent_string = \"ESCAP Webscraping RAP demo scraper 1.0\",\n    email = \"example@email.com\",\n    path_to_save_logs = \"../data/logs/\",\n    product_url_to_scape = \"https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html\"\n)\n\n2024-09-17 21:51:11,241 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html\n2024-09-17 21:51:11,242 - __main__ - INFO - Getting data from the site\n2024-09-17 21:51:11,445 - __main__ - INFO - Parsing product info\n\n\n('90fa61229261140a',\n 'Tipping the Velvet',\n '\"Erotic and absorbing...Written with starling power.\"--\"The New York Times Book Review \" Nan King, an oyster girl, is captivated by the music hall phenomenon Kitty Butler, a male impersonator extraordinaire treading the boards in Canterbury. Through a friend at the box office, Nan manages to visit all her shows and finally meet her heroine. Soon after, she becomes Kitty\\'s \"Erotic and absorbing...Written with starling power.\"--\"The New York Times Book Review \" Nan King, an oyster girl, is captivated by the music hall phenomenon Kitty Butler, a male impersonator extraordinaire treading the boards in Canterbury. Through a friend at the box office, Nan manages to visit all her shows and finally meet her heroine. Soon after, she becomes Kitty\\'s dresser and the two head for the bright lights of Leicester Square where they begin a glittering career as music-hall stars in an all-singing and dancing double act. At the same time, behind closed doors, they admit their attraction to each other and their affair begins. ...more',\n '£53.74')\n\n\nPerfect. If we look at the .log file created in /data/log/ we see\n2024-09-17 21:42:55,351 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html\n2024-09-17 21:42:55,352 - __main__ - INFO - Getting data from the site\n2024-09-17 21:42:55,571 - __main__ - INFO - Parsing product info\n2024-09-17 21:42:59,238 - __main__ - INFO - Starting the scrape of the following page: https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html\n2024-09-17 21:42:59,239 - __main__ - INFO - Getting data from the site\n2024-09-17 21:42:59,385 - __main__ - INFO - Parsing product info\nWhich means that we are logging our operations as well!",
-    "crumbs": [
-      "Applying RAP for price statistics",
-      "Making the scraper RAP friendly: some example functions"
     ]
   },
   {
@@ -279,64 +337,6 @@
     "crumbs": [
       "Applying RAP for price statistics",
       "Web scraping example"
-    ]
-  },
-  {
-    "objectID": "docs/404.html",
-    "href": "docs/404.html",
-    "title": "Page Not Found",
-    "section": "",
-    "text": "The page you requested cannot be found (perhaps it was moved or renamed).\nGo back to the home page or search for what you are looking for\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "docs/teaching_materials/sept_11/sept_11_session.html",
-    "href": "docs/teaching_materials/sept_11/sept_11_session.html",
-    "title": "Session 1: Introduction to RAP",
-    "section": "",
-    "text": "Overview\nThe purpose of this class is to cover what RAP is and why RAP is important. The presentation from the training is provided\n\n\nSlides used in the training\n\n\n\nPresentation on RAP\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "ESCAP sesions on RAP",
-      "Session 1: Introduction to RAP"
-    ]
-  },
-  {
-    "objectID": "docs/applying_rap/index.html",
-    "href": "docs/applying_rap/index.html",
-    "title": "Applying RAP for price statistics",
-    "section": "",
-    "text": "As RAP is a set of technical best practices and styles of working, we should visually consider how it applies to price statistics.\n\n\nWeb scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index.\n\n\nThe below diagram provides an overview of 4 main steps to prepare web scraped data for the CPI: the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.\n\n\n\n\n\n\nFigure 1: High level overview of the steps to process web scrape data for the CPI\n\n\n\nEach step is made up of one or more sub-components:\n\nThe web scraping step contains the scraping aspect itself,1 but also includes dataset validation that will help make sure that the scraper is operating as it is expected;2\nThe data processing step contains the process to standardizing and preparation step.3\nThe classification step contains several sub-steps, such as identifying unique products to classify, the classification method itself, and the manual validation of classification (in cases there are errors).4\nFor the price index step, many sub-steps are involved.5\n\nNote - this is not an authoritative source as composition of each step could be changed. The idea we are trying to demonstrate is that there are several steps that can be developed separately (i.e. loosely coupled),\n\n\n\nGiven this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistical (in our case) process into one corpus (i.e. repository on GitHub/GitLab with all necessary documentation and materials to make the process reproducible) – we can:\n\nEncapsulate the whole process in one repository. As RAP is meant to help minimize coupling (dependencies) between separate processes – treating the whole process end-to-end as one RAP is useful if no steps in this pipeline have to be shared with other pipelines (such as with other data) or if this specific data always runs end-to-end.\nEncapsulate each step into a separate RAP. This may be appropriate if several processing phases are done in sequence with specific targeted stopping points – such as handoff between teams, if some steps are shared with other pipelines, or where manual steps are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture in sequence.6\nEncapsulate as appropriate. Several steps could be combined to simplify the process and if separation is not required, such as the web scraping and data processing steps.\n\nFor this guide and for the demo RAP scraper, we will follow approach (b) as this will demonstrate RAP for just the scraping component in more details.\n\n\n\n\nSo let’s look a little closer at the web scraping component as there is a little more to it than one scrape script that creates an output dataset and a report. We can portray this visually to flush out a bit more what is involved in this step:\n\n\n\nAs we discussed in the course and in other sources, the legal aspects of scraping is key as NSOs should follow the guidance of retailers whether they can be scraped or not. This involves checking the Terms and Conditions for the site, but also checking the robots.txt for the site. As the retailer site may change its robots.txt, it maybe useful to have an automated component that checks before starting the scraper so that any new exclusions are taken into account.\n\n\n\nThe scraper itself is usually custom to the retailer site and outputs a file for what was scraped that day. Using RAP principles to develop this well (which we cover in the September 18th session and provide examples of how a notebook can be translated into something more RAP friendly) are off course key so that its stable and when inevitable website changes happen - the scraper can be fixed quickly.\n\n\n\nTechnically a component of the scraping pipeline itself (according to RAP principles), however a very valuable part of the scraper worth pointing out separately is logging the operation of the scraper. There may be legal or netiquette requirements (such as the robots.txt asking for a specific delay in each request to the website, or your NSO requiring specific processes), as well as technical (such as easier debugging) reasons where having key things logged in a .log file useful to describe the operations of the scraper. It can also be combined with the monitoring component to better understand when something goes wrong.\n\n\n\nAs a retailer can choose to change their website at any time - monitoring that the intended data was collected is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail to be noticed by the previous checks, but the resultant scraped data may now no longer have the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up monitoring for an extra layer of validation. This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.7",
-    "crumbs": [
-      "Applying RAP for price statistics"
-    ]
-  },
-  {
-    "objectID": "docs/applying_rap/index.html#overview-of-the-ads-processing-view",
-    "href": "docs/applying_rap/index.html#overview-of-the-ads-processing-view",
-    "title": "Applying RAP for price statistics",
-    "section": "",
-    "text": "Web scraping is the first of several phases necessary to create elementary aggregates –- which are the main input and the building blocks of the Consumer Prices Index.\n\n\nThe below diagram provides an overview of 4 main steps to prepare web scraped data for the CPI: the web scraping step, data processing or preparation step, the classification step, and the price index or aggregation step. Each step outputs a dataset that is used as an input for the next step.\n\n\n\n\n\n\nFigure 1: High level overview of the steps to process web scrape data for the CPI\n\n\n\nEach step is made up of one or more sub-components:\n\nThe web scraping step contains the scraping aspect itself,1 but also includes dataset validation that will help make sure that the scraper is operating as it is expected;2\nThe data processing step contains the process to standardizing and preparation step.3\nThe classification step contains several sub-steps, such as identifying unique products to classify, the classification method itself, and the manual validation of classification (in cases there are errors).4\nFor the price index step, many sub-steps are involved.5\n\nNote - this is not an authoritative source as composition of each step could be changed. The idea we are trying to demonstrate is that there are several steps that can be developed separately (i.e. loosely coupled),\n\n\n\nGiven this context, RAP can be applied in several ways. As RAP is a way to encapsulate the creation of a statistical (in our case) process into one corpus (i.e. repository on GitHub/GitLab with all necessary documentation and materials to make the process reproducible) – we can:\n\nEncapsulate the whole process in one repository. As RAP is meant to help minimize coupling (dependencies) between separate processes – treating the whole process end-to-end as one RAP is useful if no steps in this pipeline have to be shared with other pipelines (such as with other data) or if this specific data always runs end-to-end.\nEncapsulate each step into a separate RAP. This may be appropriate if several processing phases are done in sequence with specific targeted stopping points – such as handoff between teams, if some steps are shared with other pipelines, or where manual steps are necessary. The UK RAP implementation shows how several pipelines operate on top of a data architecture in sequence.6\nEncapsulate as appropriate. Several steps could be combined to simplify the process and if separation is not required, such as the web scraping and data processing steps.\n\nFor this guide and for the demo RAP scraper, we will follow approach (b) as this will demonstrate RAP for just the scraping component in more details.",
-    "crumbs": [
-      "Applying RAP for price statistics"
-    ]
-  },
-  {
-    "objectID": "docs/applying_rap/index.html#closer-look-at-the-web-scraping-component",
-    "href": "docs/applying_rap/index.html#closer-look-at-the-web-scraping-component",
-    "title": "Applying RAP for price statistics",
-    "section": "",
-    "text": "So let’s look a little closer at the web scraping component as there is a little more to it than one scrape script that creates an output dataset and a report. We can portray this visually to flush out a bit more what is involved in this step:\n\n\n\nAs we discussed in the course and in other sources, the legal aspects of scraping is key as NSOs should follow the guidance of retailers whether they can be scraped or not. This involves checking the Terms and Conditions for the site, but also checking the robots.txt for the site. As the retailer site may change its robots.txt, it maybe useful to have an automated component that checks before starting the scraper so that any new exclusions are taken into account.\n\n\n\nThe scraper itself is usually custom to the retailer site and outputs a file for what was scraped that day. Using RAP principles to develop this well (which we cover in the September 18th session and provide examples of how a notebook can be translated into something more RAP friendly) are off course key so that its stable and when inevitable website changes happen - the scraper can be fixed quickly.\n\n\n\nTechnically a component of the scraping pipeline itself (according to RAP principles), however a very valuable part of the scraper worth pointing out separately is logging the operation of the scraper. There may be legal or netiquette requirements (such as the robots.txt asking for a specific delay in each request to the website, or your NSO requiring specific processes), as well as technical (such as easier debugging) reasons where having key things logged in a .log file useful to describe the operations of the scraper. It can also be combined with the monitoring component to better understand when something goes wrong.\n\n\n\nAs a retailer can choose to change their website at any time - monitoring that the intended data was collected is key. Specifically, logs or error handling in the scraper component may not capture all changes to the site - such as because the retailer chose to stop putting some products on their website. These changes can thus fail to be noticed by the previous checks, but the resultant scraped data may now no longer have the same coverage that the NSO expects - which would impact the statistics calculated with this data. Thus NSOs tend to stand up monitoring for an extra layer of validation. This check is also similar in nature to the checks that NSOs tend to do on scanner data that is received regularly.7",
-    "crumbs": [
-      "Applying RAP for price statistics"
-    ]
-  },
-  {
-    "objectID": "docs/applying_rap/index.html#footnotes",
-    "href": "docs/applying_rap/index.html#footnotes",
-    "title": "Applying RAP for price statistics",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nndefinedSee Practical guidelines on web scraping for the HICP (2020), specifically Annex I and VII for mor↩︎\nSee Monitoring, validation and plausibility checks for web scraped data (UN e-Handbook) for more details↩︎\nSee Preparation of data (UN e-Handbook) for more handbook.↩︎\nFor an overview of Classification process in production and other operational aspects, see “Classification of Alternative Data Sources”, 2024-05-14. For an overview of the 5 main classification methods, see “Classifying Alterantive Data Sources for Consumer Prices Statistics: Methods and best practices”, 2023-06-08.↩︎\nSee “Practical guidelines on web scraping for the HICP (2020)” for more details↩︎\nSee Price (2023) Developing reproducible analytical pipelines for the transformation of consumer price statistics: rail fares for more details, for instance 5.2 outlines Pipeline tables and how different pipelines interact over a specific data architecture.↩︎\nGuðmundsdóttir and Jónasdóttir (2016) Scanner Data: Initial Testing provide a useful overview that could be similar in the web scraping case.↩︎",
-    "crumbs": [
-      "Applying RAP for price statistics"
     ]
   }
 ]
