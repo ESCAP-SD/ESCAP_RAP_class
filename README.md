@@ -6,7 +6,7 @@ This repo stores all content on the training done by UN ESCAP on Reproducible An
 
 # Training content
 
-Check out the training content on the main site: https://sergegoussev.github.io/ESCAP_RAP_class/docs/
+Check out the training content on the main site: https://escap-sd.github.io/ESCAP_RAP_class/docs/
 
 # Repo folder structure
 

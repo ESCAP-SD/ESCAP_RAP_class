@@ -1,1 +1,1 @@
-# Documention for the Reproducible Analytic Pipelines class held by ESCAP
+# Documentation for the Reproducible Analytic Pipelines class held by ESCAP
