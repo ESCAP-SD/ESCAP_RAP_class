@@ -7,8 +7,8 @@ execute:
 website:
   title: "ESCAP training on RAP"
   favicon: docs/images/favicon.drawio.svg
-  repo-url: https://github.com/sergegoussev/ESCAP_RAP_class
-  issue-url: https://github.com/sergegoussev/ESCAP_RAP_class/issues/new
+  repo-url: https://escap-sd.github.io/ESCAP_RAP_class/docs/
+  issue-url: https://github.com/ESCAP-SD/ESCAP_RAP_class/issues/new
   repo-actions: [issue, source]
   bread-crumbs: true
   page-navigation: true
@@ -20,11 +20,11 @@ website:
     search: true
     logo: docs/images/logo.drawio.svg
     logo-alt: logo
-    logo-href: https://sergegoussev.github.io/ESCAP_RAP_class/docs/
+    logo-href: https://escap-sd.github.io/ESCAP_RAP_class/docs/
     border: true
     tools:
       - icon: github
-        href: https://github.com/sergegoussev/ESCAP_RAP_class
+        href: https://github.com/ESCAP-SD/ESCAP_RAP_class
         text: GitHub account for this training
       - icon: globe
         href: https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5
