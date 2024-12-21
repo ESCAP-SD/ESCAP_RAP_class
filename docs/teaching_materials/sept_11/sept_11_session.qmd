@@ -27,6 +27,10 @@ format:
 
 The purpose of this class is to cover what RAP is and why RAP is important. The presentation from the training is provided
 
-# Slides used in the training
+## Recording of the training 
+
+![Training 1 recording](https://file.notion.so/f/f/3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3/1ab4d22d-bebb-4a16-a0f0-c342f3068c12/Reminder__Invitation_to_the_session_of_the_ESCAP_Big_Data_Project_Web_Scraping_Prices_for_CPI_Training_Programme__Developing_a_Reproducible_Analytical_Pipeline-20240911_090309-Meeting_Recording.mp4?table=block&id=c42236c1-ed2f-49c5-b8b9-49cba6a064ff&spaceId=3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3&expirationTimestamp=1734904800000&signature=_AJJKq4YNm6q3zeKxUg_Lb9s1DHge77aVsGa4IEauoY&downloadName=Reminder_+Invitation+to+the+session+of+the+ESCAP+Big+Data+Project+Web+Scraping+Prices+for+CPI+Training+Programme_+Developing+a+Reproducible+Analytical+Pipeline-20240911_090309-Meeting+Recording.mp4)
+
+## Slides used in the training
 
 ![Presentation on RAP](WhatIsRAP-handout.pdf){width="100%" height="800"}
