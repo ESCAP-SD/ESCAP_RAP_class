@@ -7,7 +7,7 @@ execute:
 website:
   title: "ESCAP training on RAP"
   favicon: docs/images/favicon.drawio.svg
-  repo-url: https://escap-sd.github.io/ESCAP_RAP_class/docs/
+  repo-url: https://github.com/ESCAP-SD/ESCAP_RAP_class
   issue-url: https://github.com/ESCAP-SD/ESCAP_RAP_class/issues/new
   repo-actions: [issue, source]
   bread-crumbs: true
@@ -28,10 +28,7 @@ website:
         text: GitHub account for this training
       - icon: globe
         href: https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5
-        text: "Notion site: hope page for the training"
-      - icon: card-list
-        href: https://file.notion.so/f/f/3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3/e2f3a733-8510-4e61-bd5d-1a84fc46a7f0/ESCAP_Web_Scraping_for_CPI_training_programme_final.pdf?table=block&id=f36c96f6-e26e-4921-86e9-ed72353f409a&spaceId=3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3&expirationTimestamp=1726704000000&signature=LAUq6r7OHhjgKJh3E3O7pmINGG27pZlawejqtJFLbqc&downloadName=ESCAP_Web+Scraping+for+CPI+training+programme_final.pdf
-        text: "Agenda for the in-person training"
+        text: "Notion site: home page for the overall web scraping training"
     contents:
       - href: docs/index.qmd
         text: Overview
