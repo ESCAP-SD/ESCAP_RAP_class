@@ -18,7 +18,7 @@ Unlike the first class that aimed to introduce RAP and why it was relevant, the 
 
 ## Recording of the training
 
-![Training 2 recording](https://file.notion.so/f/f/3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3/0c66f8e0-4d5b-40cf-b2cc-86c283fcf441/Invitation_to_the_session_of_the_ESCAP_Big_Data_Project_Web_Scraping_Prices_for_CPI_Training_Programme__Developing_a_Reproducible_Analytical_Pipeline_-PArt2-20240918_085730-Meeting_Recording.mp4?table=block&id=105dc6a9-96cf-805c-b4bf-d3d52e58d667&spaceId=3e3fd5c7-4d8f-4e03-80ee-afa84877c8f3&expirationTimestamp=1734904800000&signature=KKyUycNxLd9Z9PyWHy9G9nT3ZYDDmpICyPggOyml3jI&downloadName=Invitation+to+the+session+of+the+ESCAP+Big+Data+Project+Web+Scraping+Prices+for+CPI+Training+Programme_+Developing+a+Reproducible+Analytical+Pipeline+-PArt2-20240918_085730-Meeting+Recording.mp4)
+A recording of the session is available [on the Notion site](https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5). Scroll down to "Day 2" of the "In-person course" section and expand the "Video Recording" sub-section.
 
 ## Presentation for the session
 
