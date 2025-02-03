@@ -55,56 +55,6 @@
     ]
   },
   {
-    "objectID": "docs/teaching_materials/sept_11/sept_11_session.html",
-    "href": "docs/teaching_materials/sept_11/sept_11_session.html",
-    "title": "Session 1: Introduction to RAP",
-    "section": "",
-    "text": "The purpose of this class is to cover what RAP is and why RAP is important. The presentation from the training is provided\n\n\n\n\nVideo\nTraining 1 recording\n\n\n\n\n\n\n\n\nPresentation on RAP",
-    "crumbs": [
-      "ESCAP sesions on RAP",
-      "Session 1: Introduction to RAP"
-    ]
-  },
-  {
-    "objectID": "docs/teaching_materials/sept_11/sept_11_session.html#recording-of-the-training",
-    "href": "docs/teaching_materials/sept_11/sept_11_session.html#recording-of-the-training",
-    "title": "Session 1: Introduction to RAP",
-    "section": "",
-    "text": "Video\nTraining 1 recording",
-    "crumbs": [
-      "ESCAP sesions on RAP",
-      "Session 1: Introduction to RAP"
-    ]
-  },
-  {
-    "objectID": "docs/teaching_materials/sept_11/sept_11_session.html#slides-used-in-the-training",
-    "href": "docs/teaching_materials/sept_11/sept_11_session.html#slides-used-in-the-training",
-    "title": "Session 1: Introduction to RAP",
-    "section": "",
-    "text": "Presentation on RAP",
-    "crumbs": [
-      "ESCAP sesions on RAP",
-      "Session 1: Introduction to RAP"
-    ]
-  },
-  {
-    "objectID": "docs/teaching_materials/teaching.html",
-    "href": "docs/teaching_materials/teaching.html",
-    "title": "ESCAP sesions on RAP",
-    "section": "",
-    "text": "Reproducible Analytic Pipelines (or RAP) is taught by UN ESCAP in two sessions. This page provides an overview of what is covered\n\nOverall scope of the training\nRAP is a large topic and it has its own Udemy course, supporting sites (such as the RAP companion), as well as communities of practice. ESCAP can’t thus hope to cover it in full, but instead aims to provide a detailed enough overview so that member countries being trained on web scraping for the CPI can benefit from maturity principles that RAP represents and be able to build enough capacity to continue on their own.\nOverall objective\nThe overall objective of the RAP training is to provide an overview of key RAP principles, cover the value it brings to official statistics, as well as train class participants so that they can proceed on their own and help bring RAP into their own work. Class participants (who ESCAP trains) can thus become trainers in their own National Statistical Organizations (NSOs) - helping their teams and groups continue to learn more about RAP, explore each of the principles and best practices, and learn how to implement it into their research or official statistics (i.e. production). In a more formal sense, this RAP class thus aims to increase the capacity of participating NSOs to learn RAP and apply it for their continued modernization, and especially the implementation of alternative (such as web scrape) data for consumer price statistics. Two sessions provide fist an overview and second a deeper dive on RAP\n\n\nSession 1, virtual: Overview of RAP\nDate: September 11, 2024\nObjective: Introduce ideas inherent in RAP and have participants walk away with an understanding why technical maturity skills are important and how RAP can help them mature their organization\nTopics:\n\nWhy RAP is important to learn\nWhat is RAP in more detail and what problem is it aiming to solve\nOutline of key RAP principles and how they would help\nWrap up and discussion on maturity levels to demonstrate how to develop RAP friendly approaches gradually\n\nContent: See the session page for more details.\n\n\nSession 2, in person: Deeper dive into RAP components\nDate: September 18, 2024\nObjective: Building on the initial training on RAP, go deeper into the components to really cover the principles in moderate detail. To help anchor the components, use cases and examples are prepared to explain each aspect, and some hands-on exercises will help learners get a better appreciation of the tasks.\nTopics:\n\nQuick overview to recap the previous session and contextualization of how web scraping fits into the overall process of web scraped data for the CPI\nDeeper coverage of the principles:\n\nAutomation\nModularity, re-usability, etc\nTransparency\nOpen source tools\nVersion control\nGood coding practices\nTesting\nPeer review\n\nCoverage of levels of RAP to allow gradual adoption\n\nExercise in detail: To help learners practice several of the technical skills in RAP, participants are given time in person (helped by the in-person mentors ) try the exercises.\nContent: See the session page for more details.\n\n\n\n\n Back to top",
-    "crumbs": [
-      "ESCAP sesions on RAP"
-    ]
-  },
-  {
-    "objectID": "docs/404.html",
-    "href": "docs/404.html",
-    "title": "Page Not Found",
-    "section": "",
-    "text": "The page you requested cannot be found (perhaps it was moved or renamed).\nGo back to the home page or search for what you are looking for\n\n\n\n Back to top"
-  },
-  {
     "objectID": "docs/applying_rap/index.html",
     "href": "docs/applying_rap/index.html",
     "title": "Applying RAP for price statistics",
@@ -145,50 +95,6 @@
     ]
   },
   {
-    "objectID": "docs/applying_rap/mapping_the_process.html",
-    "href": "docs/applying_rap/mapping_the_process.html",
-    "title": "RAPifying the scraper: mapping the process",
-    "section": "",
-    "text": "As we saw in the demo walkthrough of the scraper of books to scrape, it takes many lines of code to scrape a site. However we also know from the RAP principles described in detail during the september 18th session, there is a way to make this code RAP friendly (or RAPify it!) - and thus make it more mature, robust, and reproducible. To figure out how to do this, we can first start with mapping the current process and then figuring out how to make it more decoupled with modular (i.e. functional) programming.",
-    "crumbs": [
-      "Applying RAP for price statistics",
-      "RAPifying the scraper: mapping the process"
-    ]
-  },
-  {
-    "objectID": "docs/applying_rap/mapping_the_process.html#the-basic-process-demoed-in-the-scraping-walkthrough",
-    "href": "docs/applying_rap/mapping_the_process.html#the-basic-process-demoed-in-the-scraping-walkthrough",
-    "title": "RAPifying the scraper: mapping the process",
-    "section": "The basic process demoed in the scraping walkthrough",
-    "text": "The basic process demoed in the scraping walkthrough\nWhile in the previous walkthrough we did not put everything together and kept the collection of the URLs for each product separate from the extraction and parsing of all content on each product page to save this in the previous walkthrough, we can visualize the overall process as a set of (1) calls to get the data, (2) a set of logical steps, and a (3) set of parsing and actions of various kinds to get the data we need:\n\n\n\nThe basic web scraping process\n\n\nWe can see visualizing this that there is an opportunity to dramatically improve this as even a small bug (or a change of the website) will break the whole script and we won’t know what is going on.",
-    "crumbs": [
-      "Applying RAP for price statistics",
-      "RAPifying the scraper: mapping the process"
-    ]
-  },
-  {
-    "objectID": "docs/applying_rap/mapping_the_process.html#the-rap-friendly-way-to-visualize-this",
-    "href": "docs/applying_rap/mapping_the_process.html#the-rap-friendly-way-to-visualize-this",
-    "title": "RAPifying the scraper: mapping the process",
-    "section": "The RAP friendly way to visualize this",
-    "text": "The RAP friendly way to visualize this\nTo make this RAP friendly, we can adopt some of what we learned in the september 18th session. We can also add two components that will make the process more robust - logging and monitoring (i.e. making reports on the scraped file to see if something happened):\n\n\n\nThe more RAP friendly RAP process\n\n\nA few key comments about this more RAP friendly approach:\n\nSeparate functions for getting data, parsing information, or saving the data - specialize in their specific components. We thus make the whole code more loosely coupled, meaning we can:\n\nIsolate possible sources of failure (such as by adding error handling) and add transparency to each step (such as by logging inside these steps so that we have a record of it). We could try this in one big script, but that is likely to make it even bigger and more cumbersome!\nWe can use the main() function to wrap all the main business logic - which means that if something breaks (or needs to change) in the business logic, we can change it easily\nWe can document how each of these functions work (by adding docstrings and a detailed documentation site), which will help make the process way easier to understand and also reproduce it\nWe can combine this documentation with a process map diagram (like the one above) into a documentation site - which makes the process easy to understand and (again) reproduce!\n\nWe can also add a validation step so that we can see if for some reason we scraped 500 products instead of the usual 1000 (or some unexpected fraction) - indicating that something possibly went wrong on the site.\nWe can also thematically group the functions into separate .py files that group similar content - which also makes it easier to run the pipeline when we need to.",
-    "crumbs": [
-      "Applying RAP for price statistics",
-      "RAPifying the scraper: mapping the process"
-    ]
-  },
-  {
-    "objectID": "docs/applying_rap/mapping_the_process.html#takeaways",
-    "href": "docs/applying_rap/mapping_the_process.html#takeaways",
-    "title": "RAPifying the scraper: mapping the process",
-    "section": "Takeaways",
-    "text": "Takeaways\nThis is not all we can do but it gets the idea across. Next, we can see how some of these functions works in a very simple way.",
-    "crumbs": [
-      "Applying RAP for price statistics",
-      "RAPifying the scraper: mapping the process"
-    ]
-  },
-  {
     "objectID": "docs/index.html#context",
     "href": "docs/index.html#context",
     "title": "Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)",
@@ -223,7 +129,7 @@
     "href": "docs/teaching_materials/sept_18/sept_18_session.html",
     "title": "Session 2: Deeper dive into key components",
     "section": "",
-    "text": "Unlike the first class that aimed to introduce RAP and why it was relevant, the purposes of this class is to show in more detail what each principle is, plus some practical examples of how to apply this. Or in other words - show How to RAP. This page thus has the slides that are used in the in-person training, as well as examples to refer to\n\n\n\n\nVideo\nTraining 2 recording\n\n\n\n\n\n\n\n\nPresentation on RAP",
+    "text": "Unlike the first class that aimed to introduce RAP and why it was relevant, the purposes of this class is to show in more detail what each principle is, plus some practical examples of how to apply this. Or in other words - show How to RAP. This page thus has the slides that are used in the in-person training, as well as examples to refer to\n\n\nA recording of the session is available on the Notion site. Scroll down to “Day 2” of the “In-person course” section and expand the “Video Recording” sub-section.\n\n\n\n\n\n\nPresentation on RAP",
     "crumbs": [
       "ESCAP sesions on RAP",
       "Session 2: Deeper dive into key components"
@@ -234,7 +140,7 @@
     "href": "docs/teaching_materials/sept_18/sept_18_session.html#recording-of-the-training",
     "title": "Session 2: Deeper dive into key components",
     "section": "",
-    "text": "Video\nTraining 2 recording",
+    "text": "A recording of the session is available on the Notion site. Scroll down to “Day 2” of the “In-person course” section and expand the “Video Recording” sub-section.",
     "crumbs": [
       "ESCAP sesions on RAP",
       "Session 2: Deeper dive into key components"
@@ -293,6 +199,100 @@
     "crumbs": [
       "ESCAP sesions on RAP",
       "Session 2: Deeper dive into key components"
+    ]
+  },
+  {
+    "objectID": "docs/404.html",
+    "href": "docs/404.html",
+    "title": "Page Not Found",
+    "section": "",
+    "text": "The page you requested cannot be found (perhaps it was moved or renamed).\nGo back to the home page or search for what you are looking for\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "docs/teaching_materials/teaching.html",
+    "href": "docs/teaching_materials/teaching.html",
+    "title": "ESCAP sesions on RAP",
+    "section": "",
+    "text": "Reproducible Analytic Pipelines (or RAP) is taught by UN ESCAP in two sessions. This page provides an overview of what is covered\n\nOverall scope of the training\nRAP is a large topic and it has its own Udemy course, supporting sites (such as the RAP companion), as well as communities of practice. ESCAP can’t thus hope to cover it in full, but instead aims to provide a detailed enough overview so that member countries being trained on web scraping for the CPI can benefit from maturity principles that RAP represents and be able to build enough capacity to continue on their own.\nOverall objective\nThe overall objective of the RAP training is to provide an overview of key RAP principles, cover the value it brings to official statistics, as well as train class participants so that they can proceed on their own and help bring RAP into their own work. Class participants (who ESCAP trains) can thus become trainers in their own National Statistical Organizations (NSOs) - helping their teams and groups continue to learn more about RAP, explore each of the principles and best practices, and learn how to implement it into their research or official statistics (i.e. production). In a more formal sense, this RAP class thus aims to increase the capacity of participating NSOs to learn RAP and apply it for their continued modernization, and especially the implementation of alternative (such as web scrape) data for consumer price statistics. Two sessions provide fist an overview and second a deeper dive on RAP\n\n\nSession 1, virtual: Overview of RAP\nDate: September 11, 2024\nObjective: Introduce ideas inherent in RAP and have participants walk away with an understanding why technical maturity skills are important and how RAP can help them mature their organization\nTopics:\n\nWhy RAP is important to learn\nWhat is RAP in more detail and what problem is it aiming to solve\nOutline of key RAP principles and how they would help\nWrap up and discussion on maturity levels to demonstrate how to develop RAP friendly approaches gradually\n\nContent: See the session page for more details.\n\n\nSession 2, in person: Deeper dive into RAP components\nDate: September 18, 2024\nObjective: Building on the initial training on RAP, go deeper into the components to really cover the principles in moderate detail. To help anchor the components, use cases and examples are prepared to explain each aspect, and some hands-on exercises will help learners get a better appreciation of the tasks.\nTopics:\n\nQuick overview to recap the previous session and contextualization of how web scraping fits into the overall process of web scraped data for the CPI\nDeeper coverage of the principles:\n\nAutomation\nModularity, re-usability, etc\nTransparency\nOpen source tools\nVersion control\nGood coding practices\nTesting\nPeer review\n\nCoverage of levels of RAP to allow gradual adoption\n\nExercise in detail: To help learners practice several of the technical skills in RAP, participants are given time in person (helped by the in-person mentors ) try the exercises.\nContent: See the session page for more details.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "ESCAP sesions on RAP"
+    ]
+  },
+  {
+    "objectID": "docs/teaching_materials/sept_11/sept_11_session.html",
+    "href": "docs/teaching_materials/sept_11/sept_11_session.html",
+    "title": "Session 1: Introduction to RAP",
+    "section": "",
+    "text": "The purpose of this class is to cover what RAP is and why RAP is important. The presentation from the training is provided\n\n\nA recording of the session is available on the Notion site. Expand the “Online sessions” section at the top of the page, and then further expand the “Session 12 …” sub-section to find the video.\n\n\n\n\n\n\nPresentation on RAP",
+    "crumbs": [
+      "ESCAP sesions on RAP",
+      "Session 1: Introduction to RAP"
+    ]
+  },
+  {
+    "objectID": "docs/teaching_materials/sept_11/sept_11_session.html#recording-of-the-training",
+    "href": "docs/teaching_materials/sept_11/sept_11_session.html#recording-of-the-training",
+    "title": "Session 1: Introduction to RAP",
+    "section": "",
+    "text": "A recording of the session is available on the Notion site. Expand the “Online sessions” section at the top of the page, and then further expand the “Session 12 …” sub-section to find the video.",
+    "crumbs": [
+      "ESCAP sesions on RAP",
+      "Session 1: Introduction to RAP"
+    ]
+  },
+  {
+    "objectID": "docs/teaching_materials/sept_11/sept_11_session.html#slides-used-in-the-training",
+    "href": "docs/teaching_materials/sept_11/sept_11_session.html#slides-used-in-the-training",
+    "title": "Session 1: Introduction to RAP",
+    "section": "",
+    "text": "Presentation on RAP",
+    "crumbs": [
+      "ESCAP sesions on RAP",
+      "Session 1: Introduction to RAP"
+    ]
+  },
+  {
+    "objectID": "docs/applying_rap/mapping_the_process.html",
+    "href": "docs/applying_rap/mapping_the_process.html",
+    "title": "RAPifying the scraper: mapping the process",
+    "section": "",
+    "text": "As we saw in the demo walkthrough of the scraper of books to scrape, it takes many lines of code to scrape a site. However we also know from the RAP principles described in detail during the september 18th session, there is a way to make this code RAP friendly (or RAPify it!) - and thus make it more mature, robust, and reproducible. To figure out how to do this, we can first start with mapping the current process and then figuring out how to make it more decoupled with modular (i.e. functional) programming.",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "RAPifying the scraper: mapping the process"
+    ]
+  },
+  {
+    "objectID": "docs/applying_rap/mapping_the_process.html#the-basic-process-demoed-in-the-scraping-walkthrough",
+    "href": "docs/applying_rap/mapping_the_process.html#the-basic-process-demoed-in-the-scraping-walkthrough",
+    "title": "RAPifying the scraper: mapping the process",
+    "section": "The basic process demoed in the scraping walkthrough",
+    "text": "The basic process demoed in the scraping walkthrough\nWhile in the previous walkthrough we did not put everything together and kept the collection of the URLs for each product separate from the extraction and parsing of all content on each product page to save this in the previous walkthrough, we can visualize the overall process as a set of (1) calls to get the data, (2) a set of logical steps, and a (3) set of parsing and actions of various kinds to get the data we need:\n\n\n\nThe basic web scraping process\n\n\nWe can see visualizing this that there is an opportunity to dramatically improve this as even a small bug (or a change of the website) will break the whole script and we won’t know what is going on.",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "RAPifying the scraper: mapping the process"
+    ]
+  },
+  {
+    "objectID": "docs/applying_rap/mapping_the_process.html#the-rap-friendly-way-to-visualize-this",
+    "href": "docs/applying_rap/mapping_the_process.html#the-rap-friendly-way-to-visualize-this",
+    "title": "RAPifying the scraper: mapping the process",
+    "section": "The RAP friendly way to visualize this",
+    "text": "The RAP friendly way to visualize this\nTo make this RAP friendly, we can adopt some of what we learned in the september 18th session. We can also add two components that will make the process more robust - logging and monitoring (i.e. making reports on the scraped file to see if something happened):\n\n\n\nThe more RAP friendly RAP process\n\n\nA few key comments about this more RAP friendly approach:\n\nSeparate functions for getting data, parsing information, or saving the data - specialize in their specific components. We thus make the whole code more loosely coupled, meaning we can:\n\nIsolate possible sources of failure (such as by adding error handling) and add transparency to each step (such as by logging inside these steps so that we have a record of it). We could try this in one big script, but that is likely to make it even bigger and more cumbersome!\nWe can use the main() function to wrap all the main business logic - which means that if something breaks (or needs to change) in the business logic, we can change it easily\nWe can document how each of these functions work (by adding docstrings and a detailed documentation site), which will help make the process way easier to understand and also reproduce it\nWe can combine this documentation with a process map diagram (like the one above) into a documentation site - which makes the process easy to understand and (again) reproduce!\n\nWe can also add a validation step so that we can see if for some reason we scraped 500 products instead of the usual 1000 (or some unexpected fraction) - indicating that something possibly went wrong on the site.\nWe can also thematically group the functions into separate .py files that group similar content - which also makes it easier to run the pipeline when we need to.",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "RAPifying the scraper: mapping the process"
+    ]
+  },
+  {
+    "objectID": "docs/applying_rap/mapping_the_process.html#takeaways",
+    "href": "docs/applying_rap/mapping_the_process.html#takeaways",
+    "title": "RAPifying the scraper: mapping the process",
+    "section": "Takeaways",
+    "text": "Takeaways\nThis is not all we can do but it gets the idea across. Next, we can see how some of these functions works in a very simple way.",
+    "crumbs": [
+      "Applying RAP for price statistics",
+      "RAPifying the scraper: mapping the process"
     ]
   },
   {
