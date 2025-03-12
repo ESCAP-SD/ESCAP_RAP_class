@@ -1,6 +1,6 @@
 <img src="docs/images//ESCAP_LOGO_OFFICIAL.png" alt="drawing" width="200"/>
 
-# ESCAP training on Reproducible Analytic Pipelines for Consumer Price Statistics
+# ESCAP training on Reproducible Analytical Pipelines for Consumer Price Statistics
 
 This repo stores all content on the training done by UN ESCAP on Reproducible Analytic Pipelines (RAP) during September 2024, specifically for the consumer price statistics use case of web scraping a retailer website. 2 classes are given: a virtual one to introduce the topic and an in-person one to go into more detail.
 
