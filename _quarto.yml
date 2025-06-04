@@ -5,7 +5,7 @@ execute:
   freeze: auto
 
 website:
-  title: "ESCAP training on RAP"
+  title: "ESCAP learning resources on RAP"
   favicon: docs/images/favicon.drawio.svg
   repo-url: https://github.com/ESCAP-SD/ESCAP_RAP_class
   issue-url: https://github.com/ESCAP-SD/ESCAP_RAP_class/issues/new
@@ -18,17 +18,17 @@ website:
     style: "docked"
     type: "dark"
     search: true
-    logo: docs/images/logo.drawio.svg
+    logo: docs/images/ESCAP_LOGO_OFFICIAL.png
     logo-alt: logo
     logo-href: https://escap-sd.github.io/ESCAP_RAP_class/docs/
     border: true
     tools:
       - icon: github
         href: https://github.com/ESCAP-SD/ESCAP_RAP_class
-        text: GitHub account for this training
+        text: GitHub repo for the RAP learning resources
       - icon: globe
-        href: https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5
-        text: "Notion site: home page for the overall web scraping training"
+        href: https://stat-confluence.escap.un.org/display/WKP/Web+scraping+for+CPI%3A+Learning+Resources
+        text: "Wiki page: home page for main webscraping learning resources"
     contents:
       - href: docs/index.qmd
         text: Overview
