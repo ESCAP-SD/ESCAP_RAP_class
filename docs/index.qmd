@@ -1,5 +1,5 @@
 ---
-title: "Web Scraping for the CPI: Training on Reproducible Analytical Pipelines (RAP)"
+title: "Web Scraping for the CPI: Learning Resources on Reproducible Analytical Pipelines (RAP)"
 author: Serge Goussev, Christophe Bontemps
 format:
   html:
@@ -7,23 +7,25 @@ format:
     toc-expand: 2
 ---
 
-![](images/ESCAP_LOGO_OFFICIAL.png)
+![](images/ESCAP_LOGO_OFFICIAL.png){width=300px}
 
-## Context
+This site contains resources developed by ESCAP to introduce the concept of Reproducible Analytical Pipelines (RAP) in the context of web scraping for Consumer Price Indexes (CPI). These materials were created as part of ESCAP’s project on Big Data for Official Statistics, funded by the 2030 Agenda Sub-Fund of the UN Peace and Development Trust Fund (UNPDF).
 
-As part of the Big Data Project, over the summer of 2024, ESCAP has been providing capacity support to project countries that have indicated web scraping for price statistics as a priority – by providing training on web scraping. Check out the [rich training website](https://xtophe.notion.site/Web-Scraping-for-CPI-Training-c36b27c2ea6b4f02ad760069afaf6fb5) for more details about the training in general, watch videos of past sessions, and review the materials.
+## Background
 
-A key topic of this training is Reproducible Analytical Pipelines or RAP. RAP was originally developed in the United Kingdom government to improve the processes that government teams use to make their outputs more reproducible, as well as speed up their production processes. RAP can be thought of as an approach to working which brings together a range of open source tools, techniques from fields like reproducible research, software engineering, and DevOps to make statistical releases easily reproducible, testable, and auditable (check out the [original article from 2017](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/) explaining the concept and the purpose). Given that its a framework for mature processes, it can also be applied to the critical aspect of web scraping or related steps in making official statistics with this data – as data collection and preparation for the CPI should be robust and highly reproducible!
+During 2024, ESCAP provided support to a group of countries on webscraping for price statistics. This support included a series of remote training sessions, an in-person workshop and ongoing mentoring. All materials from this support are available on this page and can be used to support self-paced learning in the use of Python for webscraping prices.  Check out the [Webscraping for CPI Learning Resources page](https://stat-confluence.escap.un.org/display/WKP/Web+scraping+for+CPI%3A+Learning+Resources) for more details about the training in general, watch videos of past sessions, and review the materials.
 
-The purpose of this course is thus to teach RAP to project countries and help them apply the concept to web scraping specifically, but also help them practice the techniques and tools so that RAP can be applied to other pipelines to produce the CPI or other official statistics.
+An important component of this support was on the development of Reproducible Analytical Pipelines or RAPs. RAP was originally developed in the United Kingdom government to improve the processes that government teams use to make their outputs more reproducible, as well as speed up their production processes. RAP can be thought of as an approach to working which brings together a range of open source tools, techniques from fields like reproducible research, software engineering, and DevOps to make statistical releases easily reproducible, testable, and auditable (check out the [original article from 2017](https://dataingovernment.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/) explaining the concept and the purpose). Given that its a framework for mature processes, it can also be applied to the critical aspect of web scraping or related steps in making official statistics with this data – as data collection and preparation for the CPI should be robust and highly reproducible!
+
+All materials from this support are available on this site and can be used for self-paced learning or adaptation in other national statistical contexts.
 
 ## How the site can help you (i.e. navigation guide)
 
-This site is used to structure and store the RAP training materials. This content can thus help learners during the session and also be available after the training as a reference. The site thus:
+All materials from this support are available on this site and can be used for self-paced learning or adaptation in other national statistical contexts. The site therefore:
 
--   Summarizes how the training is structured and provide copies of the training materials:
+-   Summarizes how the training is structured and provide copies of the learning resources:
     -   The main [overview page provides a summary of what is covered](teaching_materials/teaching.qmd) in each session;
-    -   The detailed pages for the [September 11, 2024 session](teaching_materials/sept_11/sept_11_session.qmd) and the [September 18, 2024 session](teaching_materials/sept_18/sept_18_session.qmd) provide the slides and supporting information from each of the training sessions.
+    -   The detailed pages for the [September 11, 2024 session](teaching_materials/sept_11/sept_11_session.qmd) and the [September 18, 2024 session](teaching_materials/sept_18/sept_18_session.qmd) provide the slides and supporting information from each of the learning sessions delivered as part of this support.
 -   Provides [visual overview (via a process map)](applying_rap/index.qmd) of the whole process from scraping a site to the elementary aggregates that are included into the CPI so that learners can see how to apply RAP. It also contains a closeup of the web scraping process.
 -   Includes code and visual demonstrations of how RAP principles can be applied to enhance the web scraping process. Specifically:
     -   A notebook showing an exploration scraper on the training [Books to Scrape](https://books.toscrape.com/index.html) site
